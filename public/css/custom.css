@@ -1,0 +1,97 @@
+body {
+	margin: 0;
+}
+
+h2, h3, h4 {
+	text-align: center;
+}
+
+.navbar {
+	border-bottom: none;
+    background: 0 0;
+}
+
+.navbar-static-top {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    /*z-index: 1030;*/
+}
+
+.navbar-default .navbar-brand {
+    color: #FFF;
+}
+
+.navbar-default .navbar-nav>li>a, .navbar-default .navbar-text {
+    color: #FFF;
+}
+.navbar-default .navbar-nav>li>a:hover, .navbar-default .navbar-texta {
+   text-decoration: underline;
+   color: #FFF;
+}
+.banner {
+	background: url("/img/maison2.jpg") no-repeat center bottom scroll;
+	/* background-size: 100% 100%;
+	height: 500px;
+	max-width: 100%; */
+	background-size: 100% 100%;
+    height: 500px; 
+    display: table;
+    width: 100%;
+    
+}
+
+.intro-body {
+	display: table-cell;
+    vertical-align: middle;
+    height: 500px;
+    text-align: center;
+    /*width: 100%;*/
+}
+
+.title-intro {
+	color: #fff;
+}
+
+.search-bar {
+	width: 50%;
+}
+
+.btn-searchbar{
+	background-color: #64764d;
+	color: #fff;
+	border-color: #64764d;
+}
+.btn-searchbar:hover {
+	background-color: #000;
+	color: #fff;
+	border-color: #000;
+}
+
+.list-category h2{
+	text-align: center;
+	margin: 5% 0;
+}
+
+.newsletter-block {
+	background-color: lightgrey;
+	margin: 5% 0;
+	padding: 3% 0 6% 0;
+}
+
+footer li {
+	list-style: none;
+}
+
+footer li a{
+	list-style: none;
+	text-decoration: none;
+	color: #000;
+}
+
+footer li a:hover{
+	list-style: none;
+	text-decoration: none;
+	color: #000;
+}

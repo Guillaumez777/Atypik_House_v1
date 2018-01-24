@@ -22,6 +22,7 @@ Route::get('/', function () {
 Route::get('/register', 'RegistersController@create');
 Route::post('/register', 'RegistersController@store');
 Route::post('/login', 'SessionsController@login');
+Route::get('/verifyemail/{token}', 'Auth\RegisterController@verify');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
