@@ -1,5 +1,4 @@
 <?php
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,9 +14,9 @@ Route::get('/', function () {
     return view('home');
 });
 
-/*Route::get('/subscribe', function () {
+/* Route::get('/subscribe', function () {
     return view('subscribe');
-});*/
+}); */
 
 Route::get('/register', 'RegistersController@create');
 Route::post('/register', 'RegistersController@store');
