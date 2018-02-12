@@ -1,5 +1,13 @@
-body {
+html body {
 	margin: 0;
+	max-width: 100%;
+    overflow-x: hidden;
+    height: 100%;
+}
+
+footer {
+	bottom: 0;
+	width: 100%;
 }
 
 h2, h3, h4 {

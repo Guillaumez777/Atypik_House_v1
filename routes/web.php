@@ -15,10 +15,14 @@ Route::get('/', function () {
     return view('home');
 });
 
+
 /*Route::get('/subscribe', function () {
     return view('subscribe');
 });*/
 
+
+Route::get('/houses/index', 'HousesController@index');
+Route::resource('houses', 'HousesController', ['only' => ['index','show', 'create', 'store', 'update', 'destroy']]);
 Route::get('/register', 'RegistersController@create');
 Route::post('/register', 'RegistersController@store');
 Route::post('/login', 'SessionsController@login');

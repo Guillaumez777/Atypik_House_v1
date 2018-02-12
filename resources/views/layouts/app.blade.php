@@ -44,15 +44,18 @@
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
                         @if (Auth::guest())
+                            <li><a href="{{ route('houses.index') }}">Liste des hébergements</a></li>
                             <li><a href="{{ route('login') }}">Login</a></li>
                             <li><a href="{{ route('register') }}">Register</a></li>
                         @else
+                            <li><a href="{{ route('houses.index') }}">Liste des hébergements</a></li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                     {{ Auth::user()->prenom }} <span class="caret"></span>
                                 </a>
-
                                 <ul class="dropdown-menu" role="menu">
+                                    <li><a href="{{ route('houses.create') }}">Créer un hébergement</a></li>
+
                                     <li>
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
@@ -71,9 +74,9 @@
                 </div>
             </div>
         </nav>
-
-        @yield('content')
     </div>
+    @yield('content')
+    
     <footer>
         <div class="container-fluid">
             <div class="row">
