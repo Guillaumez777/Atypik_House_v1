@@ -6,7 +6,6 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'AddPriceToHouses' => $baseDir . '/database/migrations/2018_02_06_225223_add_price_to_houses.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
     'App\\House' => $baseDir . '/app/House.php',
@@ -2598,7 +2597,6 @@ return array(
     'Symfony\\Component\\Debug\\FatalErrorHandler\\FatalErrorHandlerInterface' => $vendorDir . '/symfony/debug/FatalErrorHandler/FatalErrorHandlerInterface.php',
     'Symfony\\Component\\Debug\\FatalErrorHandler\\UndefinedFunctionFatalErrorHandler' => $vendorDir . '/symfony/debug/FatalErrorHandler/UndefinedFunctionFatalErrorHandler.php',
     'Symfony\\Component\\Debug\\FatalErrorHandler\\UndefinedMethodFatalErrorHandler' => $vendorDir . '/symfony/debug/FatalErrorHandler/UndefinedMethodFatalErrorHandler.php',
-    'Symfony\\Component\\EventDispatcher\\ContainerAwareEventDispatcher' => $vendorDir . '/symfony/event-dispatcher/ContainerAwareEventDispatcher.php',
     'Symfony\\Component\\EventDispatcher\\Debug\\TraceableEventDispatcher' => $vendorDir . '/symfony/event-dispatcher/Debug/TraceableEventDispatcher.php',
     'Symfony\\Component\\EventDispatcher\\Debug\\TraceableEventDispatcherInterface' => $vendorDir . '/symfony/event-dispatcher/Debug/TraceableEventDispatcherInterface.php',
     'Symfony\\Component\\EventDispatcher\\Debug\\WrappedListener' => $vendorDir . '/symfony/event-dispatcher/Debug/WrappedListener.php',
@@ -3094,12 +3092,10 @@ return array(
     'phpDocumentor\\Reflection\\Types\\Float_' => $vendorDir . '/phpdocumentor/type-resolver/src/Types/Float_.php',
     'phpDocumentor\\Reflection\\Types\\Integer' => $vendorDir . '/phpdocumentor/type-resolver/src/Types/Integer.php',
     'phpDocumentor\\Reflection\\Types\\Iterable_' => $vendorDir . '/phpdocumentor/type-resolver/src/Types/Iterable_.php',
-    'phpDocumentor\\Reflection\\Types\\Mixed_' => $vendorDir . '/phpdocumentor/type-resolver/src/Types/Mixed_.php',
     'phpDocumentor\\Reflection\\Types\\Null_' => $vendorDir . '/phpdocumentor/type-resolver/src/Types/Null_.php',
     'phpDocumentor\\Reflection\\Types\\Nullable' => $vendorDir . '/phpdocumentor/type-resolver/src/Types/Nullable.php',
     'phpDocumentor\\Reflection\\Types\\Object_' => $vendorDir . '/phpdocumentor/type-resolver/src/Types/Object_.php',
     'phpDocumentor\\Reflection\\Types\\Parent_' => $vendorDir . '/phpdocumentor/type-resolver/src/Types/Parent_.php',
-    'phpDocumentor\\Reflection\\Types\\Resource_' => $vendorDir . '/phpdocumentor/type-resolver/src/Types/Resource_.php',
     'phpDocumentor\\Reflection\\Types\\Scalar' => $vendorDir . '/phpdocumentor/type-resolver/src/Types/Scalar.php',
     'phpDocumentor\\Reflection\\Types\\Self_' => $vendorDir . '/phpdocumentor/type-resolver/src/Types/Self_.php',
     'phpDocumentor\\Reflection\\Types\\Static_' => $vendorDir . '/phpdocumentor/type-resolver/src/Types/Static_.php',
