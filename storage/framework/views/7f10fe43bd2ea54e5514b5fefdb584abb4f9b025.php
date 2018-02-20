@@ -55,7 +55,6 @@
                                 </a>
                                 <ul class="dropdown-menu" role="menu">
                                     <li><a href="<?php echo e(route('houses.create')); ?>">Créer un hébergement</a></li>
-
                                     <li>
                                         <a href="<?php echo e(route('logout')); ?>"
                                             onclick="event.preventDefault();

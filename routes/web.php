@@ -13,6 +13,7 @@
 
 Route::get('/', function () {
     return view('home');
+
 });
 
 
@@ -22,7 +23,7 @@ Route::get('/', function () {
 
 
 Route::get('/houses/index', 'HousesController@index');
-Route::resource('houses', 'HousesController', ['only' => ['index','show', 'create', 'store', 'update', 'destroy']]);
+Route::resource('houses', 'HousesController', ['only' => ['index','show', 'create', 'store', 'edit', 'update', 'destroy']]);
 Route::get('/register', 'RegistersController@create');
 Route::post('/register', 'RegistersController@store');
 Route::post('/login', 'SessionsController@login');
@@ -30,5 +31,4 @@ Route::get('/verifyemail/{token}', 'Auth\RegisterController@verify');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-
 Auth::routes();

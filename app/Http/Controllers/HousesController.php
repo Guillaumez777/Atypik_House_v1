@@ -56,9 +56,10 @@ class HousesController extends Controller
      */
     public function show(House $house)
     {
-        $houses->posts()->where('idUser', Auth::user()->idUser)->get();
+        //$houses->posts()->where('idUser', Auth::user()->idUser)->get();
         /*return view('houses.index')->with('houses', $houses);*/
-        return view('houses.show');
+        $house = house::find($house->id);
+        return view('houses.show', compact('house', 'id'));
     }
 
     /**
@@ -69,7 +70,8 @@ class HousesController extends Controller
      */
     public function edit(House $house)
     {
-        //
+        $house = house::find($house->id);
+        return view('houses.edit', compact('house', 'id'));
     }
 
     /**
@@ -81,7 +83,14 @@ class HousesController extends Controller
      */
     public function update(Request $request, House $house)
     {
-        //
+        $house = house::find($house->id);
+        $house->title = $request->get('title');
+        $house->idCategory = $request->get('idCategory');
+        $house->price = $request->get('price');
+        $house->photo = $request->get('photo');
+        $house->description = $request->get('description');
+        $house->save();
+        return redirect('/houses/index');
     }
 
     /**

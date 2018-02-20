@@ -7,7 +7,7 @@
                 <div class="panel-heading">Register</div>
 
                 <div class="panel-body">
-                    <form class="form-horizontal" method="POST" action="/houses">
+                    <form class="form-horizontal" method="POST" action="{{url('houses')}}">
                         {{ csrf_field() }}
 
                         <div class="form-group">

@@ -8,7 +8,7 @@
                 <a href="#"><img class="card-img-top" src="http://placehold.it/350x200" alt=""></a>
                 <div class="card-body">
                     <h4 class="card-title">
-                        <a href="#"><?php echo e($house->title); ?></a>
+                        <a href="<?php echo e(action('HousesController@show', $house['id'])); ?>"><?php echo e($house->title); ?></a>
                     </h4>
                     <h5><?php echo e($house->price); ?>€</h5>
                     <p class="card-text"><?php echo e($house->description); ?></p>
@@ -17,14 +17,21 @@
                     <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
                 </div>
             </div>
-        </div>
-        <form class="form-horizontal" method="post" action="<?php echo e('/houses/'.$house->id); ?>">
+            <!-- <form class="form-horizontal" method="post" action="<?php echo e('/houses/'.$house->id); ?>">
             <?php echo e(csrf_field()); ?>
 
             <?php echo e(method_field("DELETE")); ?>
 
-            <button>Delete Task</button>
-        </form>
+            <button>Delete Task</button> -->
+            <a href="<?php echo e(action('HousesController@edit', $house['id'])); ?>" class="btn btn-warning">Edit</a></td>
+            <form action="<?php echo e(action('HousesController@destroy', $house['id'])); ?>" method="post">
+            <?php echo e(csrf_field()); ?>
+
+            <input name="_method" type="hidden" value="DELETE">
+            <button class="btn btn-danger" type="submit">Delete</button>
+          </form>
+        <!-- </form> -->
+        </div>   
         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
     </div>   
 </div>

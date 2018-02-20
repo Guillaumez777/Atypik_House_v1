@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+//use App\House;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +24,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $houses = (new HousesController)->index();
+        return view('home')->with('houses', $houses);
     }
 }

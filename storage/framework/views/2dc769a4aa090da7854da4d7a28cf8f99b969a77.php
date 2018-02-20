@@ -6,15 +6,15 @@
                 <div class="panel-heading">Register</div>
 
                 <div class="panel-body">
-                    <form class="form-horizontal" method="POST" action="<?php echo e(url('houses')); ?>">
+                    <form class="form-horizontal" method="POST" action="<?php echo e(action('HousesController@update', $house->id)); ?>">
                         <?php echo e(csrf_field()); ?>
 
-
+                        <input name="_method" type="hidden" value="PATCH">
                         <div class="form-group">
                             <label for="name" class="col-md-4 control-label">Titre</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control" name="title" required autofocus>
+                                <input id="name" type="text" class="form-control" name="title" required autofocus value="<?php echo e($house->title); ?>">
                             </div>
                         </div>
 
@@ -22,7 +22,7 @@
                             <label for="name" class="col-md-4 control-label">Categorie</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control" name="idCategory" required autofocus>
+                                <input id="name" type="text" class="form-control" name="idCategory" required autofocus value="<?php echo e($house->idCategory); ?>">
                             </div>
                         </div>
 
@@ -30,7 +30,7 @@
                             <label for="name" class="col-md-4 control-label">Prix</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control" name="price" required autofocus>
+                                <input id="name" type="text" class="form-control" name="price" required autofocus value="<?php echo e($house->price); ?>">
                             </div>
                         </div>
 
@@ -38,15 +38,15 @@
                             <label for="name" class="col-md-4 control-label">Photo</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control" name="photo" required autofocus>
+                                <input id="name" type="file" class="form-control" name="photo" required autofocus value="<?php echo e($house->photo); ?>">
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label for="email" class="col-md-4 control-label">Description</label>
+                            <label for="description" class="col-md-4 control-label">Description</label>
 
                             <div class="col-md-6">
-                                <textarea class="form-control" name="description" required rows="5"></textarea>
+                                <textarea class="form-control" name="description" required rows="5"><?php echo e($house->description); ?></textarea>
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -57,7 +57,7 @@
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
-                                    Ajouter
+                                    Modifier
                                 </button>
                             </div>
                         </div>
