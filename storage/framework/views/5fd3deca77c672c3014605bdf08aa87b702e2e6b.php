@@ -6,7 +6,7 @@
                 <div class="panel-heading">Register</div>
 
                 <div class="panel-body">
-                    <form class="form-horizontal" method="POST" action="<?php echo e(url('houses')); ?>">
+                    <form class="form-horizontal" method="POST" action="<?php echo e(url('houses')); ?>" enctype="multipart/form-data">
                         <?php echo e(csrf_field()); ?>
 
 
@@ -38,7 +38,7 @@
                             <label for="name" class="col-md-4 control-label">Photo</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control" name="photo" required autofocus>
+                                <input id="name" type="file" class="form-control" name="photo" required autofocus>
                             </div>
                         </div>
 

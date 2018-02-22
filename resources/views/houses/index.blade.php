@@ -6,7 +6,7 @@
         @foreach($houses as $house)
         <div class="col-lg-4 col-md-6 mb-4">
             <div class="card h-100">
-                <a href="#"><img class="card-img-top" src="http://placehold.it/350x200" alt=""></a>
+                <a href="#"><img class="card-img-top" src="{{ asset('img/houses/'.$house->photo) }}"></a></a>
                 <div class="card-body">
                     <h4 class="card-title">
                         <a href="{{action('HousesController@show', $house['id'])}}">{{$house->title}}</a>

@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\House;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
 
@@ -15,6 +16,13 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Schema::defaultStringLength(191);
+            /*view()->composer(['houses.index'], function ($view) {
+
+            // Display houses in every views
+
+            $view->with('houses', $houses);*/
+            $houses = house::all();
+            view()->share('houses', $houses);
     }
 
     /**

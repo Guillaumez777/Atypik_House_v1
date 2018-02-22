@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\House;
 use Illuminate\Http\Request;
+use Intervention\Image\ImageManager;
 
+use Image;
 
 class HousesController extends Controller
 {
@@ -44,6 +46,19 @@ class HousesController extends Controller
         $house->price = $request->price;
         $house->photo = $request->photo;
         $house->description = $request->description;
+
+        $this->validate($request, [
+        // check validtion for image or file
+            'photo' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:20000',
+        ]);
+
+        //$picture = $request->file('photo');
+        $picture = $request->file('photo');
+        $filename  = time() . '.' . $picture->getClientOriginalExtension();
+        $path = public_path('img/houses/' . $filename);
+        Image::make($picture->getRealPath())->resize(350, 200)->save($path);
+        $house->photo = $filename;
+        
         $house->save();
         return redirect('houses/index');
     }

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-//use App\House;
+use App\House;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -14,7 +14,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        //$this->middleware('auth');
     }
 
     /**
@@ -24,7 +24,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $houses = (new HousesController)->index();
+        $houses = house::all();
+        view()->share('houses', $houses);
         return view('home')->with('houses', $houses);
     }
 }
