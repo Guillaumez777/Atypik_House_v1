@@ -1,0 +1,17 @@
+<ion-view view-title="Account">
+  <ion-content>
+    <ion-list>
+    <ion-item class="item item-icon-left"> <!-- ajout de la définition de l’item -->
+        <i class="icon ion-person-stalker"></i> <!-- ajout de l’icône -->
+        <ion-toggle ng-model="settings.enableFriends">
+            Enable Friends
+        </ion-toggle>
+    </ion-item>
+    <ion-item ng-repeat="item in list">
+    	<i class="icon {{item.icon}}"></i>
+       {{item.title}}
+    </ion-item>
+    <button class="button button-block button-positive" ng-click="loginModal.show()">Se connecter</button>
+    </ion-list>
+  </ion-content>
+</ion-view>
