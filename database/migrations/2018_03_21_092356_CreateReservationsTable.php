@@ -17,7 +17,7 @@ class CreateReservationsTable extends Migration
             $table->increments('id');
             //$table->string('name');
             //$table->string('content');
-            //puis faire php artisan migrate
+            //puis faire php artisan
             $table->timestanp();
         }
     }

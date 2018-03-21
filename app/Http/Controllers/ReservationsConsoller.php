@@ -8,4 +8,4 @@ class ReservationSController extends Controller {
     }
 }
 
-?>  
+?>
