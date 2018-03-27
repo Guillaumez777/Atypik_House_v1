@@ -7,7 +7,7 @@
                 <div class="panel-heading">Register</div>
 
                 <div class="panel-body">
-                    <form class="form-horizontal" method="POST" action="{{action('HousesController@update', $house->id)}}">
+                    <form class="form-horizontal" method="POST" action="{{action('HousesController@update', $house->id)}}" enctype="multipart/form-data">
                         {{ csrf_field() }}
                         <input name="_method" type="hidden" value="PATCH">
                         <div class="form-group">

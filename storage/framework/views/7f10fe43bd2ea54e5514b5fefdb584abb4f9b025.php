@@ -45,8 +45,8 @@
                         <!-- Authentication Links -->
                         <?php if(Auth::guest()): ?>
                             <li><a href="<?php echo e(route('houses.index')); ?>">Liste des hébergements</a></li>
-                            <li><a href="<?php echo e(route('login')); ?>">Login</a></li>
-                            <li><a href="<?php echo e(route('register')); ?>">Register</a></li>
+                            <li><a href="<?php echo e(route('login')); ?>">Me connecter</a></li>
+                            <li><a href="<?php echo e(route('register')); ?>">M'inscrire</a></li>
                         <?php else: ?>
                             <li><a href="<?php echo e(route('houses.index')); ?>">Liste des hébergements</a></li>
                             <li class="dropdown">
@@ -54,12 +54,14 @@
                                     <?php echo e(Auth::user()->prenom); ?> <span class="caret"></span>
                                 </a>
                                 <ul class="dropdown-menu" role="menu">
+                                    <li><a href="<?php echo e(url('/profile')); ?>/<?php echo e(Auth::user()->id); ?>">Mon profil</a></li>
+                                    <li><a href="<?php echo e(url('/mylocations')); ?>/<?php echo e(Auth::user()->id); ?>">Mes locations</a></li>
                                     <li><a href="<?php echo e(route('houses.create')); ?>">Créer un hébergement</a></li>
                                     <li>
                                         <a href="<?php echo e(route('logout')); ?>"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                            Logout
+                                            Se déconnecter
                                         </a>
 
                                         <form id="logout-form" action="<?php echo e(route('logout')); ?>" method="POST" style="display: none;">

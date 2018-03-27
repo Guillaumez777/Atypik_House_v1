@@ -6,7 +6,7 @@
                 <div class="panel-heading">Register</div>
 
                 <div class="panel-body">
-                    <form class="form-horizontal" method="POST" action="<?php echo e(action('HousesController@update', $house->id)); ?>">
+                    <form class="form-horizontal" method="POST" action="<?php echo e(action('HousesController@update', $house->id)); ?>" enctype="multipart/form-data">
                         <?php echo e(csrf_field()); ?>
 
                         <input name="_method" type="hidden" value="PATCH">

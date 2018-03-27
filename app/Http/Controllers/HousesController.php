@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\House;
 use Illuminate\Http\Request;
 use Intervention\Image\ImageManager;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 use Image;
 
@@ -104,6 +106,19 @@ class HousesController extends Controller
         $house->price = $request->get('price');
         $house->photo = $request->get('photo');
         $house->description = $request->get('description');
+        var_dump("jojo");
+        /*$this->validate($request, [
+        // check validtion for image or file
+            'photo' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:20000',
+        ]);*/
+
+        //$picture = $request->file('photo');
+        $picture = $request->file('photo');
+        $filename  = time() . '.' . $picture->getClientOriginalExtension();
+        $path = public_path('img/houses/' . $filename);
+        Image::make($picture->getRealPath())->resize(350, 200)->save($path);
+        $house->photo = $filename;
+
         $house->save();
         return redirect('/houses/index');
     }
@@ -120,5 +135,16 @@ class HousesController extends Controller
         $house->delete();
         return redirect('houses/index');
         
+    }
+
+    public function mylocations($id) {
+
+     $houseProfil = DB::table('users')
+     ->select('users.*', 'houses.*')
+     ->leftJoin('houses', 'houses.idUser','users.id')
+     ->where('users.id', '=', $id)
+     ->where('houses.id', '!=', NULL)
+     ->get();
+        return view('houses.mylocations', compact('houseProfil'))->with('data', Auth::user()->user);
     }
 }

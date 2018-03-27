@@ -45,8 +45,8 @@
                         <!-- Authentication Links -->
                         @if (Auth::guest())
                             <li><a href="{{ route('houses.index') }}">Liste des hébergements</a></li>
-                            <li><a href="{{ route('login') }}">Login</a></li>
-                            <li><a href="{{ route('register') }}">Register</a></li>
+                            <li><a href="{{ route('login') }}">Me connecter</a></li>
+                            <li><a href="{{ route('register') }}">M'inscrire</a></li>
                         @else
                             <li><a href="{{ route('houses.index') }}">Liste des hébergements</a></li>
                             <li class="dropdown">
@@ -54,12 +54,14 @@
                                     {{ Auth::user()->prenom }} <span class="caret"></span>
                                 </a>
                                 <ul class="dropdown-menu" role="menu">
+                                    <li><a href="{{url('/profile')}}/{{Auth::user()->id}}">Mon profil</a></li>
+                                    <li><a href="{{url('/mylocations')}}/{{Auth::user()->id}}">Mes locations</a></li>
                                     <li><a href="{{ route('houses.create') }}">Créer un hébergement</a></li>
                                     <li>
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                            Logout
+                                            Se déconnecter
                                         </a>
 
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
