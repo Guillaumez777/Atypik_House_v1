@@ -106,7 +106,6 @@ class HousesController extends Controller
         $house->price = $request->get('price');
         $house->photo = $request->get('photo');
         $house->description = $request->get('description');
-        var_dump("jojo");
         /*$this->validate($request, [
         // check validtion for image or file
             'photo' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:20000',

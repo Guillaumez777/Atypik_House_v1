@@ -19,16 +19,13 @@
                     <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
                 </div>
             </div>
-            <?php var_dump($house); ?>
-           <a href="{{action('HousesController@edit', $house->id)}}" class="btn btn-warning">Edit</a>
-           <a href="{{url('/houses/edit')}}/{{$house->id}}" class="btn btn-warning">Modifier</a>
+           <a href="{{action('HousesController@edit', $house->id)}}" class="btn btn-warning">Modifier</a>
             <form action="{{action('HousesController@destroy', $house->id)}}" method="post">
             {{csrf_field()}}
             <input name="_method" type="hidden" value="DELETE">
             <button class="btn btn-danger" type="submit">Delete</button>
             </form>
         </div>
-       
         @endforeach
         
     </div>   

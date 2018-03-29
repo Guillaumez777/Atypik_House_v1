@@ -18,9 +18,7 @@
                     <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
                 </div>
             </div>
-            <?php var_dump($house); ?>
-           <a href="<?php echo e(action('HousesController@edit', $house->id)); ?>" class="btn btn-warning">Edit</a>
-           <a href="<?php echo e(url('/houses/edit')); ?>/<?php echo e($house->id); ?>" class="btn btn-warning">Modifier</a>
+           <a href="<?php echo e(action('HousesController@edit', $house->id)); ?>" class="btn btn-warning">Modifier</a>
             <form action="<?php echo e(action('HousesController@destroy', $house->id)); ?>" method="post">
             <?php echo e(csrf_field()); ?>
 
@@ -28,7 +26,6 @@
             <button class="btn btn-danger" type="submit">Delete</button>
             </form>
         </div>
-       
         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         
     </div>   
