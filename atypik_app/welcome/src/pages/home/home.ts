@@ -11,6 +11,7 @@ import { MesCommandesPage } from '../mes-commandes/mes-commandes';
   selector: 'page-home',
   templateUrl: 'home.html'
 })
+
 export class HomePage {
 
   constructor(public navCtrl: NavController, public app: App) {
