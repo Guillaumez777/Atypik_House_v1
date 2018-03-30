@@ -18,11 +18,6 @@
                     <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
                 </div>
             </div>
-            <!-- <a href="{{action('HousesController@edit', $house['id'])}}" class="btn btn-warning">Edit</a></td>
-            <form action="{{action('HousesController@destroy', $house['id'])}}" method="post">
-            {{csrf_field()}}
-            <input name="_method" type="hidden" value="DELETE">
-            <button class="btn btn-danger" type="submit">Delete</button> -->
           </form>
         <!-- </form> -->
         </div>   
