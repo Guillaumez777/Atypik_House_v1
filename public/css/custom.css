@@ -14,9 +14,18 @@ h2, h3, h4 {
 	text-align: center;
 }
 
+#block {
+	margin-top: 100px;
+}
+
+#logo {
+	height: 50px;
+	width: 50px;
+}
+
 .navbar {
 	border-bottom: none;
-    background: 0 0;
+    background: rgba(0 ,0 ,0 , .4);
 }
 
 .navbar-static-top {
@@ -79,13 +88,18 @@ h2, h3, h4 {
 
 .list-category h2{
 	text-align: center;
-	margin: 5% 0;
+	margin: 100px 0;
 }
 
 .newsletter-block {
 	background-color: lightgrey;
 	margin: 5% 0;
 	padding: 3% 0 6% 0;
+}
+
+/* Registration */
+.panel {
+	margin: 100px;
 }
 
 footer li {

@@ -29,8 +29,8 @@
                     </button>
 
                     <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}">
-                        Atypikhouse
+                    <a class="navbar-brand" id="logo" href="{{ url('/') }}">
+                        <img src="{{ asset('img/Logo.png') }}" alt="Logo" width="50">
                     </a>
                 </div>
 
@@ -76,14 +76,11 @@
             </div>
         </nav>
     </div>
-    @yield('content')
-    
+        @yield('content')
     <footer>
         <div class="container-fluid">
             <div class="row">
-                <div class="col-md-4">
-                </div>
-                <div class="col-md-4">
+                <div class="col-md-offset-2 col-md-5">
                     <ul>
                         <li><a href="#">A propos</a></li>
                         <li><a href="#">Mentions légales</a></li>
@@ -91,7 +88,7 @@
                         <li><a href="#">Conditions générales d'utilisation</a></li>
                     </ul>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-5">
                     <ul>
                         <li><a href="#">Hébergement</a></li>
                         <li><a href="#">devenir hotes</a></li>
