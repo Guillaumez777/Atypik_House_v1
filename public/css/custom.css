@@ -1,3 +1,5 @@
+/* Infos : Commenter bien votre code afin qu'il soit plus lisible, merci. */
+/* Générale */
 html body {
 	font-family: 'Open Sans', sans-serif;
 	margin: 0;
@@ -8,16 +10,15 @@ html body {
     height: 100%;
 }
 
-footer {
-	bottom: 0;
-	width: 100%;
-}
-
 .title {
 	padding: 10px;
-	color:black;
+	color: black;
 	text-align: center;
 	font-weight: 500;
+}
+
+.title-intro {
+	color: #fff;
 }
 
 .price {
@@ -53,6 +54,12 @@ h1, h2, h3, h4, h5, h6 {
 	width: 50px;
 }
 
+.btn_reserve {
+	float: right;
+	margin: 0 20px 20px 20px;
+}
+
+/* Navbar */
 .navbar {
 	border-bottom: none;
     background: rgba(0 ,0 ,0 , .4);
@@ -77,6 +84,8 @@ h1, h2, h3, h4, h5, h6 {
    text-decoration: underline;
    color: #FFF;
 }
+
+/* HomePage */
 .banner {
 	background: url("/img/maison2.jpg") no-repeat center bottom scroll;
 	/* background-size: 100% 100%; */
@@ -93,10 +102,6 @@ h1, h2, h3, h4, h5, h6 {
     height: 500px;
     text-align: center;
     /*width: 100%;*/
-}
-
-.title-intro {
-	color: #fff;
 }
 
 .search-bar {
@@ -130,7 +135,11 @@ h1, h2, h3, h4, h5, h6 {
 	margin: 100px;
 }
 
+
+/* Footer */
 footer {
+	bottom: 0;
+	width: 100%;
 	margin-top: 80px;
 }
 
@@ -162,9 +171,4 @@ footer li a:hover{
 .btn_modif_and_delete {
 	display: inline-block;
 	margin: 10px 5px;
-}
-
-.btn_reserve {
-	float: right;
-	margin: 0 20px 20px 20px;
 }
