@@ -31,7 +31,7 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" id="logo" href="{{ url('/') }}">
-                        <img src="{{ asset('img/Logo.png') }}" alt="Logo" width="50">
+                        <img src="{{ asset('img/Logo.png') }}" alt="Logo" width="70">
                     </a>
                 </div>
 
