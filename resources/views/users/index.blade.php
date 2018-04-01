@@ -14,7 +14,7 @@
                     <p>Coucou</p>
                 </div>
                 <div class="card-footer">
-                    <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+                    <medium class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</medium>
                 </div>
             </div>
         </div>

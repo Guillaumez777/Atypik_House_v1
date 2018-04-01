@@ -6,7 +6,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="title title-intro">Trouvez les meilleurs locations insolites en Europe!</h1>
+                    <h1 class="title title-intro">Trouvez les meilleurs locations insolites en Europe !</h1>
                     <div class="col-lg-6 col-lg-offset-3">
                         <div class="input-group">
                             <input type="text" class="form-control" placeholder="Saisir une ville">
@@ -36,7 +36,7 @@
                 </div>
                 <div class="note card-footer">
                     <medium class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</medium>
-                    <a class="btn btn-success btn_reserve">Réserver</a>
+                    <a class="btn btn-success btn_reserve" href="{{action('HousesController@show', $house['id'])}}">Réserver</a>
                 </div>
             </div>
         </div>   

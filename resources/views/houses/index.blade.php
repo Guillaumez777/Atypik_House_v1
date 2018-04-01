@@ -16,7 +16,7 @@
                 </div>
                 <div class="note card-footer">
                     <medium class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</medium>
-                    <a class="btn btn-success btn_reserve">Réserver</a>
+                    <a class="btn btn-success btn_reserve" href="{{action('HousesController@show', $house['id'])}}">Réserver</a>
                 </div>
             </div>
           </form>
