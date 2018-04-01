@@ -11,6 +11,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Styles -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
 </head>
@@ -44,11 +45,13 @@
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
                         @if (Auth::guest())
-                            <li><a href="{{ route('houses.index') }}">Liste des hébergements</a></li>
-                            <li><a href="{{ route('login') }}">Me connecter</a></li>
-                            <li><a href="{{ route('register') }}">M'inscrire</a></li>
+                            <li><a href="{{ url('/') }}">Accueil</a></li>
+                            <li><a href="{{ route('houses.index') }}">Nos hébergements</a></li>
+                            <li><a href="{{ route('login') }}">Connexion</a></li>
+                            <li><a href="{{ route('register') }}">Inscription</a></li>
                         @else
-                            <li><a href="{{ route('houses.index') }}">Liste des hébergements</a></li>
+                            <li><a href="{{ url('/') }}">Accueil</a></li>
+                            <li><a href="{{ route('houses.index') }}">Nos hébergements</a></li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                     {{ Auth::user()->prenom }} <span class="caret"></span>

@@ -9,18 +9,18 @@
             <div class="card h-100">
                 <a href="#"><img class="card-img-top" src="{{ asset('img/houses/'.$house->photo) }}"></a></a>
                 <div class="card-body">
-                    <h4 class="card-title">
+                    <h3 class="title card-title">
                         <p>{{$house->title}}</p>
-                    </h4>
-                    <h5>{{$house->price}}€</h5>
+                    </h3>
+                    <h3 class="pruice">{{$house->price}}€</h3>
                     <p class="card-text">{{$house->description}}</p>
                 </div>
-                <div class="card-footer">
-                    <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+                <div class="note card-footer">
+                    <medium class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</medium>
                 </div>
             </div>
-           <a href="{{action('HousesController@edit', $house->id)}}" class="btn btn-warning">Modifier</a>
-            <form action="{{action('HousesController@destroy', $house->id)}}" method="post">
+           <a href="{{action('HousesController@edit', $house->id)}}" class="btn btn-warning btn_modif_and_delete">Modifier</a>
+            <form action="{{action('HousesController@destroy', $house->id)}}" method="post" class="btn_modif_and_delete">
             {{csrf_field()}}
             <input name="_method" type="hidden" value="DELETE">
             <button class="btn btn-danger" type="submit">Delete</button>

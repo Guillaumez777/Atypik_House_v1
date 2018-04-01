@@ -6,7 +6,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="title-intro">Trouvez les meilleurs locations insolites en Europe!</h1>
+                    <h1 class="title title-intro">Trouvez les meilleurs locations insolites en Europe!</h1>
                     <div class="col-lg-6 col-lg-offset-3">
                         <div class="input-group">
                             <input type="text" class="form-control" placeholder="Saisir une ville">
@@ -28,14 +28,15 @@
             <div class="card h-100">
                 <a href="#"><img class="card-img-top" src="{{ asset('img/houses/'.$house->photo) }}"></a>
                 <div class="card-body">
-                    <h4 class="card-title">
+                    <h3 class="title card-title ">
                         <a href="{{action('HousesController@show', $house['id'])}}">{{$house->title}}</a>
-                    </h4>
-                    <h5>{{$house->price}}€</h5>
+                    </h3>
+                    <h3 class="price">{{$house->price}}€</h3>
                     <p class="card-text">{{$house->description}}</p>
                 </div>
-                <div class="card-footer">
-                    <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+                <div class="note card-footer">
+                    <medium class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</medium>
+                    <a class="btn btn-success btn_reserve">Réserver</a>
                 </div>
             </div>
         </div>   
@@ -45,7 +46,7 @@
 <div class="newsletter-block">
     <div class="row">
         <div class="col-lg-12">
-            <h3>Abonnez-vous à notre newsletter afin d'être au courant des dernières nouveautés</h3>
+            <h3 class="title">Abonnez-vous à notre newsletter afin d'être au courant des dernières nouveautés</h3>
             <div class="col-lg-6 col-lg-offset-3">
                 <div class="input-group">
                     <input type="text" class="form-control" placeholder="Saisir une ville">

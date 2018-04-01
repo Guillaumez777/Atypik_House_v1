@@ -1,5 +1,8 @@
 html body {
+	font-family: 'Open Sans', sans-serif;
 	margin: 0;
+	padding: 0;
+	font-size: 16px;
 	max-width: 100%;
     overflow-x: hidden;
     height: 100%;
@@ -10,8 +13,34 @@ footer {
 	width: 100%;
 }
 
-h2, h3, h4 {
+.title {
+	padding: 10px;
+	color:black;
 	text-align: center;
+	font-weight: 500;
+}
+
+.price {
+	font-weight: bold;
+	padding-bottom: 10px;
+}
+
+.note {
+	padding: 10px 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	margin: 0;
+}
+
+.text-center {
+	text-align: center;
+	color: white;
+	margin: 0 auto;
+}
+
+.rigth {
+	float: right;
 }
 
 #block {
@@ -102,6 +131,10 @@ h2, h3, h4 {
 	margin: 100px;
 }
 
+footer {
+	margin-top: 80px;
+}
+
 footer li {
 	list-style: none;
 }
@@ -116,4 +149,23 @@ footer li a:hover{
 	list-style: none;
 	text-decoration: none;
 	color: #000;
+}
+
+/* Description produit */
+.calendar {
+	width: 400px;
+	height: 400px;
+	background-color: #9C0038;
+	margin: 0 20px;
+}
+
+/* Mes hébergmeents */
+.btn_modif_and_delete {
+	display: inline-block;
+	margin: 10px 5px;
+}
+
+.btn_reserve {
+	float: right;
+	margin: 0 20px 20px 20px;
 }

@@ -7,7 +7,7 @@
             <div class="card h-100">
                 <a href="#"><img class="card-img-top" src="http://placehold.it/700x200" alt=""></a>
                 <div class="card-body">
-                    <h4 class="card-title">
+                    <h4 class="title card-title">
                         <p>{{Auth::user()->prenom}}</p>
                     </h4>
                     <h5>{{Auth::user()->email}}</h5>
