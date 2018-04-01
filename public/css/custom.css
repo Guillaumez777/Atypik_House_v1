@@ -1,6 +1,6 @@
 /* Infos : Commenter bien votre code afin qu'il soit plus lisible, merci. */
 /* Générale */
-html body {
+html, body {
 	font-family: 'Open Sans', sans-serif;
 	margin: 0;
 	padding: 0;
