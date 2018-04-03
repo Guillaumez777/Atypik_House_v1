@@ -11,9 +11,12 @@
 |
 */
 
+// Admin
+Route::get('/admin', 'Admin\AdminController@home');
+
+// Accueil
 Route::get('/', function () {
     return view('home');
-
 });
 
 
@@ -41,8 +44,6 @@ Route::group(['middleware' => 'auth'], function () {
           ->delete();
            return back()->with('msg', 'You are not friend with this person');
     });*/
-
-
 
 Route::get('/houses/index', 'HousesController@index');
 Route::resource('houses', 'HousesController', ['only' => ['index','show', 'create', 'store', 'edit', 'update', 'destroy', 'mylocations']]);
