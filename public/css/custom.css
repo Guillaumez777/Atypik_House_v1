@@ -35,6 +35,10 @@ h1, h2, h3, h4, h5, h6 {
 	margin: 0;
 }
 
+a {
+	text-decoration: none;
+}
+
 .text-center {
 	text-align: center;
 	color: white;
@@ -114,14 +118,20 @@ h1, h2, h3, h4, h5, h6 {
 	border-color: #64764d;
 }
 .btn-searchbar:hover {
-	background-color: #000;
+	background-color: #3f4b30;
 	color: #fff;
-	border-color: #000;
+	border-color: #3f4b30;
 }
 
 .list-category h2{
 	text-align: center;
 	margin: 60px 0;
+}
+
+.card-title a{
+	text-align: center;
+	font-size: 28px;
+	color: #64764d;
 }
 
 .newsletter-block {

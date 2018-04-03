@@ -11,7 +11,7 @@
                         <div class="input-group">
                             <input type="text" class="form-control" placeholder="Saisir une ville">
                             <span class="input-group-btn">
-                                <button class="btn btn-default btn-searchbar" type="button">Rechercher</button>
+                                <button class="btn btn-searchbar" type="button">Rechercher</button>
                             </span>
                         </div>
                     </div>
@@ -28,7 +28,7 @@
             <div class="card h-100">
                 <a href="#"><img class="card-img-top" src="{{ asset('img/houses/'.$house->photo) }}"></a>
                 <div class="card-body">
-                    <h3 class="title card-title ">
+                    <h3 class="title card-title">
                         <a href="{{action('HousesController@show', $house['id'])}}">{{$house->title}}</a>
                     </h3>
                     <h3 class="price">{{$house->price}}€</h3>
