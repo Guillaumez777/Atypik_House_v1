@@ -85,7 +85,7 @@ a {
     color: #FFF;
 }
 .navbar-default .navbar-nav>li>a:hover, .navbar-default .navbar-texta {
-   text-decoration: underline;
+   /* text-decoration: underline; */
    color: #FFF;
 }
 
