@@ -8,10 +8,16 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
+    {{-- Title --}}
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <!-- Styles -->
+    {{-- Logo Navigateur --}}
+    <link rel="icon" type="image/png" href="{{ asset('img/LogoNavigateur.png') }}" />
+
+    {{-- Fonts --}}
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+
+    <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
 </head>
