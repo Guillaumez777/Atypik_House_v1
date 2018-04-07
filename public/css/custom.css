@@ -91,7 +91,7 @@ a {
 
 /* HomePage */
 .banner {
-	background: url("/img/maison2.jpg") no-repeat center bottom scroll;
+	background: url("/img/maison2filtre.jpg") no-repeat center bottom scroll;
 	/* background-size: 100% 100%; */
 	background-size: cover;
 	display: table;
