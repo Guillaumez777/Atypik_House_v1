@@ -4,9 +4,9 @@
     <h2>Nos hébergements</h2>
     <div class="row">
         @foreach($houses as $house)
-        <div class="col-lg-4 col-md-6 mb-4">
+        <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
             <div class="card h-100">
-                <a href="#"><img class="card-img-top" src="{{ asset('img/houses/'.$house->photo) }}"></a></a>
+                <a href="{{action('HousesController@show', $house['id'])}}"><img class="img-responsive" src="{{ asset('img/houses/'.$house->photo) }}"></a></a>
                 <div class="card-body">
                     <h3 class="title card-title">
                         <a href="{{action('HousesController@show', $house['id'])}}">{{$house->title}}</a>
