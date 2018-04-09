@@ -8,6 +8,10 @@ html, body {
     font-family: Open-sans, sans-serif;
 }
 
+td, th {
+    width: 300px;
+}
+
 #reservation, #utilisateur, #avis {
     display: none;
 }
