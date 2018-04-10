@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 @section('content')
 <div id="hebergement">
-    <h2>Hebergement</h2>
+    <h2>Hebergements : </h2>
     <div class="row">
         <table class="table">
             <thead>
@@ -31,15 +31,15 @@
     </div>
 </div>
 <div id="reservation">
-    <h2>Reservation</h2>
+    <h2>Reservations : </h2>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus vitae nulla nemo, ipsa, officiis recusandae praesentium nihil, minus cumque nostrum enim aliquam nam libero earum mollitia eaque. Voluptas, cum esse!</p>
 </div>
 <div id="utilisateur">
-    <h2>Utilisateur</h2>
+    <h2>Utilisateurs : </h2>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus vitae nulla nemo, ipsa, officiis recusandae praesentium nihil, minus cumque nostrum enim aliquam nam libero earum mollitia eaque. Voluptas, cum esse!</p>
 </div>
 <div id="avis">
-    <h2>Avis</h2>
+    <h2>Avis : </h2>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus vitae nulla nemo, ipsa, officiis recusandae praesentium nihil, minus cumque nostrum enim aliquam nam libero earum mollitia eaque. Voluptas, cum esse!</p>
 </div>
 @endsection

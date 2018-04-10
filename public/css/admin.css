@@ -55,8 +55,13 @@ td, th {
 }
 
 @media (max-width: 768px) {
+
+    h2 {
+        text-align: center;
+        padding-bottom: 30px;
+    }
     .sidebar {
-        top: 125px;
+        top: 70px;
         display: inline-block;
         position: relative;
         width: 100%;
@@ -65,6 +70,7 @@ td, th {
         height: 60px;
         display: block;
         text-align: center;
+        position: relative;
     }
     #menu {
         float: none;
