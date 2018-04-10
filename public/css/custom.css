@@ -168,6 +168,16 @@ footer li a:hover{
 	color: #000;
 }
 
+/* Réseaux sociaux */
+#reseaux div {
+	display: inline-block;
+}
+#reseaux div li a {
+	color:#3f4b30;
+	margin: 5px;
+}
+
+
 /* Description produit */
 .calendar {
 	width: 400px;

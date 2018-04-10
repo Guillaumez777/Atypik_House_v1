@@ -19,6 +19,7 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 
     <!-- Styles -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css" integrity="sha384-5SOiIsAziJl6AWe0HWRKTXlfcSHKmYV4RBF18PPJ173Kzn7jzMyFuTtk8JA7QQG1" crossorigin="anonymous">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
 </head>
@@ -90,7 +91,7 @@
     <footer>
         <div class="container-fluid">
             <div class="row">
-                <div class="col-md-offset-2 col-md-5">
+                <div class="col-md-offset-2 col-md-3">
                     <ul>
                         <li><a href="#">A propos</a></li>
                         <li><a href="#">Mentions légales</a></li>
@@ -98,13 +99,25 @@
                         <li><a href="#">Conditions générales d'utilisation</a></li>
                     </ul>
                 </div>
-                <div class="col-md-5">
+                <div class="col-md-3">
                     <ul>
                         <li><a href="#">Hébergement</a></li>
                         <li><a href="#">devenir hotes</a></li>
                         <li><a href="#">Règle pour les Hôtes</a></li>
                         <li><a href="#">Consigne de sécurité</a></li>
                         <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <ul id="reseaux">
+                        <div>
+                            <li><a href="https://www.facebook.com"><i class="fab fa-facebook-square fa-3x"></i></a></li>
+                            <li><a href="https://twitter.com"><i class="fab fa-twitter-square fa-3x"></i></a></li>
+                        </div>
+                        <div>
+                            <li><a href="https://www.instagram.com"><i class="fab fa-instagram fa-3x"></i></a></li>
+                            <li><a href="https://www.youtube.com"><i class="fab fa-youtube-square fa-3x"></i></a></li>
+                        </div>
                     </ul>
                 </div>
             </div>
