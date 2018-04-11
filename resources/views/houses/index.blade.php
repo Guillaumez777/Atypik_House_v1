@@ -11,6 +11,8 @@
                     <h3 class="title card-title">
                         <a href="{{action('HousesController@show', $house['id'])}}">{{$house->title}}</a>
                     </h3>
+                    <p>Type de bien : Maison</p>
+                    <p><i class="fas fa-bed"></i> : 2 lits - <i class="fas fa-users"></i> : pour 2 Personnes</p>
                     <h3 class="price">{{$house->price}}€</h3>
                     <p class="card-text">{{$house->description}}</p>
                 </div>
