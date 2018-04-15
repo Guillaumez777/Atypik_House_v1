@@ -192,3 +192,16 @@ footer li a:hover{
 	display: inline-block;
 	margin: 10px 5px;
 }
+
+/* Formulaire */
+
+#form {
+	margin: 100px auto;
+	width: 570px;
+}
+
+input[type=text],
+input[type=textarea] {
+	width: 100%;
+	margin: 10px 0;
+}

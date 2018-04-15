@@ -42,6 +42,10 @@ Route::group(['middleware' => 'auth'], function () {
            return back()->with('msg', 'You are not friend with this person');
     });*/
 
+// Formulaire
+Route::get('/form', 'FormController@index');
+// Route::post('/contact', 'FormController@store'); 
+// Route::resource('form', 'FormController' , ['only' => ['index', 'store']]); 
 
 
 Route::get('/houses/index', 'HousesController@index');
