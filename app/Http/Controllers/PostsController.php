@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Post;
 use Illuminate\Http\Request;
 
 class PostsController extends Controller
@@ -18,11 +19,11 @@ class PostsController extends Controller
  
     public function store(Request $request)  
     { 
-        // $this->validate($request, [ 
-        //     'name' => 'required|unique:posts|max:100', 
-        //     'email' => 'required|unique:posts|max:100', 
-        //     'content' => 'required' 
-        // ]); 
+        $this->validate($request, [ 
+            'name' => 'required|max:100', 
+            'email' => 'required|max:100', 
+            'content' => 'required' 
+        ]); 
         $post = new post;
         $post->name = $request->name;
         $post->email = $request->email;

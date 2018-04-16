@@ -4,7 +4,7 @@
 @extends('layouts.app') 
 @section('content') 
     <div class="container" id="form"> 
-        {!! Form::open(['url' => 'form']) !!} 
+        {!! Form::open(['url' => 'posts']) !!} 
             <div class="form-group"> 
                 {!! Form::label('name', 'Nom : ', array('class' => 'formLabel')) !!} 
                 {!! Form::text('name', Form::old('name'), array( 

@@ -57,7 +57,7 @@
                             <li><a href="{{ route('houses.index') }}">Nos hébergements</a></li>
                             <li><a href="{{ route('login') }}">Connexion</a></li>
                             <li><a href="{{ route('register') }}">Inscription</a></li>
-                            <li><a href="{{ url('posts') }}">Contact</a></li>
+                            <li><a href="{{ route('posts.index') }}">Contact</a></li>
                         @else
                             <li><a href="{{ url('/') }}">Accueil</a></li>
                             <li><a href="{{ route('houses.index') }}">Nos hébergements</a></li>
@@ -82,7 +82,7 @@
                                     </li>
                                 </ul>
                             </li>
-                            <li><a href="{{ url('posts') }}">Contact</a></li>
+                            <li><a href="{{ route('posts.index') }}">Contact</a></li>
                         @endif
                     </ul>
                 </div>
