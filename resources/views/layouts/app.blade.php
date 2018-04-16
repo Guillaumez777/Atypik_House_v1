@@ -10,7 +10,7 @@
 
     {{-- Title --}}
     {{-- <title>{{ config('app.name', 'Laravel') }}</title> --}}
-    <title>AtypikHouse - Votre habitat insolite, partout en Europe</title>
+    <title>AtypikHouse - Votre habitats insolite, partout en Europe</title>
 
     {{-- Logo Navigateur --}}
     <link rel="icon" type="image/png" href="{{ asset('img/LogoNavigateur.png') }}" />
