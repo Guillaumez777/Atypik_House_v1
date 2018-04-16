@@ -8,9 +8,18 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
 
-    <title><?php echo e(config('app.name', 'Laravel')); ?></title>
+    
+    
+    <title>AtypikHouse - Votre habitats insolite, partout en Europe</title>
+
+    
+    <link rel="icon" type="image/png" href="<?php echo e(asset('img/LogoNavigateur.png')); ?>" />
+
+    
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 
     <!-- Styles -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css" integrity="sha384-5SOiIsAziJl6AWe0HWRKTXlfcSHKmYV4RBF18PPJ173Kzn7jzMyFuTtk8JA7QQG1" crossorigin="anonymous">
     <link href="<?php echo e(asset('css/app.css')); ?>" rel="stylesheet">
     <link href="<?php echo e(asset('css/custom.css')); ?>" rel="stylesheet">
 </head>
@@ -29,8 +38,8 @@
                     </button>
 
                     <!-- Branding Image -->
-                    <a class="navbar-brand" href="<?php echo e(url('/')); ?>">
-                        Atypikhouse
+                    <a class="navbar-brand" id="logo" href="<?php echo e(url('/')); ?>">
+                        <img src="<?php echo e(asset('img/Logo.png')); ?>" alt="Logo" width="70">
                     </a>
                 </div>
 
@@ -44,11 +53,14 @@
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
                         <?php if(Auth::guest()): ?>
-                            <li><a href="<?php echo e(route('houses.index')); ?>">Liste des hébergements</a></li>
-                            <li><a href="<?php echo e(route('login')); ?>">Me connecter</a></li>
-                            <li><a href="<?php echo e(route('register')); ?>">M'inscrire</a></li>
+                            <li><a href="<?php echo e(url('/')); ?>">Accueil</a></li>
+                            <li><a href="<?php echo e(route('houses.index')); ?>">Nos hébergements</a></li>
+                            <li><a href="<?php echo e(route('login')); ?>">Connexion</a></li>
+                            <li><a href="<?php echo e(route('register')); ?>">Inscription</a></li>
+                            <li><a href="<?php echo e(route('posts.index')); ?>">Contact</a></li>
                         <?php else: ?>
-                            <li><a href="<?php echo e(route('houses.index')); ?>">Liste des hébergements</a></li>
+                            <li><a href="<?php echo e(url('/')); ?>">Accueil</a></li>
+                            <li><a href="<?php echo e(route('houses.index')); ?>">Nos hébergements</a></li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                     <?php echo e(Auth::user()->prenom); ?> <span class="caret"></span>
@@ -71,20 +83,18 @@
                                     </li>
                                 </ul>
                             </li>
+                            <li><a href="<?php echo e(route('posts.index')); ?>">Contact</a></li>
                         <?php endif; ?>
                     </ul>
                 </div>
             </div>
         </nav>
     </div>
-    <?php echo $__env->yieldContent('content'); ?>
-    
+        <?php echo $__env->yieldContent('content'); ?>
     <footer>
         <div class="container-fluid">
             <div class="row">
-                <div class="col-md-4">
-                </div>
-                <div class="col-md-4">
+                <div class="col-md-offset-2 col-md-3">
                     <ul>
                         <li><a href="#">A propos</a></li>
                         <li><a href="#">Mentions légales</a></li>
@@ -92,13 +102,25 @@
                         <li><a href="#">Conditions générales d'utilisation</a></li>
                     </ul>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-3">
                     <ul>
                         <li><a href="#">Hébergement</a></li>
                         <li><a href="#">devenir hotes</a></li>
                         <li><a href="#">Règle pour les Hôtes</a></li>
                         <li><a href="#">Consigne de sécurité</a></li>
                         <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <ul id="reseaux">
+                        <div>
+                            <li><a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-square fa-2x"></i></a></li>
+                            <li><a href="https://twitter.com" target="_blank"><i class="fab fa-twitter-square fa-2x"></i></a></li>
+                        </div>
+                        <div>
+                            <li><a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram fa-2x"></i></a></li>
+                            <li><a href="https://www.youtube.com" target="_blank"><i class="fab fa-youtube-square fa-2x"></i></a></li>
+                        </div>
                     </ul>
                 </div>
             </div>

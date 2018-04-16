@@ -3,26 +3,23 @@
     <h2>Nos hébergements</h2>
     <div class="row">
         <?php $__currentLoopData = $houses; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $house): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-        <div class="col-lg-4 col-md-6 mb-4">
+        <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
             <div class="card h-100">
-                <a href="#"><img class="card-img-top" src="<?php echo e(asset('img/houses/'.$house->photo)); ?>"></a></a>
+                <a href="<?php echo e(action('HousesController@show', $house['id'])); ?>"><img class="img-responsive" src="<?php echo e(asset('img/houses/'.$house->photo)); ?>"></a></a>
                 <div class="card-body">
-                    <h4 class="card-title">
+                    <h3 class="title card-title">
                         <a href="<?php echo e(action('HousesController@show', $house['id'])); ?>"><?php echo e($house->title); ?></a>
-                    </h4>
-                    <h5><?php echo e($house->price); ?>€</h5>
+                    </h3>
+                    <p>Type de bien : Logement</p>
+                    <p><i class="fas fa-bed"></i> : 2 lits - <i class="fas fa-users"></i> : pour 2 Personnes</p>
+                    <h3 class="price"><?php echo e($house->price); ?>€</h3>
                     <p class="card-text"><?php echo e($house->description); ?></p>
                 </div>
-                <div class="card-footer">
-                    <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+                <div class="note card-footer">
+                    <medium class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</medium>
+                    <a class="btn btn-success btn_reserve" href="<?php echo e(action('HousesController@show', $house['id'])); ?>">Réserver</a>
                 </div>
             </div>
-            <!-- <a href="<?php echo e(action('HousesController@edit', $house['id'])); ?>" class="btn btn-warning">Edit</a></td>
-            <form action="<?php echo e(action('HousesController@destroy', $house['id'])); ?>" method="post">
-            <?php echo e(csrf_field()); ?>
-
-            <input name="_method" type="hidden" value="DELETE">
-            <button class="btn btn-danger" type="submit">Delete</button> -->
           </form>
         <!-- </form> -->
         </div>   
