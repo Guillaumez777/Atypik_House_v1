@@ -29,6 +29,7 @@ class PostsController extends Controller
         $post->email = $request->email;
         $post->content = $request->content;
         $post->save();
-        return view('posts.index');
+        // $request->session()->flash('status', 'Votre message a bien été envoyé !');
+        return back()->with('success', 'Votre message a bien été envoyé !');
     }
 }
