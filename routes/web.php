@@ -43,9 +43,9 @@ Route::group(['middleware' => 'auth'], function () {
     });*/
 
 // Formulaire
-Route::get('/form', 'FormController@index');
+ Route::get('/posts', 'PostsController@index');
 // Route::post('/contact', 'FormController@store'); 
-// Route::resource('form', 'FormController' , ['only' => ['index', 'store']]); 
+Route::resource('posts', 'PostsController' , ['only' => ['index', 'store']]); 
 
 
 Route::get('/houses/index', 'HousesController@index');
