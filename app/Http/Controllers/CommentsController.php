@@ -15,7 +15,7 @@ class CommentsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $this->validate($request, [
             'house_id' => 'exists:houses,id|numeric',

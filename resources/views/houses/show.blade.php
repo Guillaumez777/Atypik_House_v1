@@ -25,7 +25,7 @@
                                 {{ $comment->comment }}
                             </div>
                             <div class="col-sm-3 text-right">
-                                <small>Commented by {{ $comment->user->prenom }}</small>
+                                <small>Posté par {{ $comment->user->prenom }}</small>
                             </div>
                         </div>
                     </div>
@@ -36,8 +36,8 @@
                             <form action="{{ url('/comments') }}" method="POST" style="display: flex;">
                                 {{ csrf_field() }}
                                 <input type="hidden" name="house_id" value="{{ $house->id }}">
-                                <input type="text" name="comment" placeholder="Enter your Comment" class="form-control" style="border-radius: 0;">
-                                <input type="submit" value="Comment" class="btn btn-primary" style="border-radius: 0;">
+                                <input type="text" name="comment" placeholder="Saisir un commentaire" class="form-control" style="border-radius: 0;">
+                                <input type="submit" value="Envoyer" class="btn btn-primary" style="border-radius: 0;">
                             </form>
                             @if (count($errors) > 0)
                                 <div class="alert alert-danger">

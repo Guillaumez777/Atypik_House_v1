@@ -21,7 +21,7 @@ class HousesController extends Controller
     public function index()
     {
         $houses = house::all();
-        return view('houses.show')->withHouse($house);//, compact('house', 'id')
+        return view('houses.index')->with('houses', $houses);
     }
 
     /**
