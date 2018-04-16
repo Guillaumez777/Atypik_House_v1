@@ -8,6 +8,7 @@ use Intervention\Image\ImageManager;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
+use Session;
 use Image;
 
 class HousesController extends Controller
@@ -20,7 +21,7 @@ class HousesController extends Controller
     public function index()
     {
         $houses = house::all();
-        return view('houses.index')->with('houses', $houses);
+        return view('houses.show')->withHouse($house);//, compact('house', 'id')
     }
 
     /**

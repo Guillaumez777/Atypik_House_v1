@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateHousesTable extends Migration
+class CreateCommentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,11 @@ class CreateHousesTable extends Migration
      */
     public function up()
     {
-        Schema::create('houses', function (Blueprint $table) {
+        Schema::create('comments', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('title');
-            $table->integer('user_id');
-            $table->string('idCategory');
-            $table->string('description');
-            $table->float('price');
-            $table->string('photo');
+            $table->string('comment');
+            $table->integer('user_id')->unsigned();
+            $table->integer('house_id')->unsigned();         
             $table->timestamps();
         });
     }
@@ -32,6 +29,6 @@ class CreateHousesTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('comments');
     }
 }

@@ -27,6 +27,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/profile/{id}', 'UsersController@index');
     Route::get('/mylocations/{id}', 'HousesController@mylocations');
     Route::get('/houses/edit/{id}', 'HousesController@edit');
+
+    Route::post('/comments', 'CommentsController@index');/*->middleware('auth');*/
     //Route::get('/houses/update/{id}', 'HousesController@update');
 });
     /*Route::get('/unfriend/{id}', function($id){

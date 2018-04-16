@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'App\\Comment' => $baseDir . '/app/Comment.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
     'App\\House' => $baseDir . '/app/House.php',
@@ -14,9 +15,9 @@ return array(
     'App\\Http\\Controllers\\Auth\\RegisterController' => $baseDir . '/app/Http/Controllers/Auth/RegisterController.php',
     'App\\Http\\Controllers\\Auth\\ResetPasswordController' => $baseDir . '/app/Http/Controllers/Auth/ResetPasswordController.php',
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
-    'App\\Http\\Controllers\\FormController' => $baseDir . '/app/Http/Controllers/FormController.php',
     'App\\Http\\Controllers\\HomeController' => $baseDir . '/app/Http/Controllers/HomeController.php',
     'App\\Http\\Controllers\\HousesController' => $baseDir . '/app/Http/Controllers/HousesController.php',
+    'App\\Http\\Controllers\\PostsController' => $baseDir . '/app/Http/Controllers/PostsController.php',
     'App\\Http\\Controllers\\UsersController' => $baseDir . '/app/Http/Controllers/UsersController.php',
     'App\\Http\\Kernel' => $baseDir . '/app/Http/Kernel.php',
     'App\\Http\\Middleware\\EncryptCookies' => $baseDir . '/app/Http/Middleware/EncryptCookies.php',
@@ -44,6 +45,7 @@ return array(
     'Collective\\Html\\HtmlBuilder' => $vendorDir . '/laravelcollective/html/src/HtmlBuilder.php',
     'Collective\\Html\\HtmlFacade' => $vendorDir . '/laravelcollective/html/src/HtmlFacade.php',
     'Collective\\Html\\HtmlServiceProvider' => $vendorDir . '/laravelcollective/html/src/HtmlServiceProvider.php',
+    'CreateCommentsTable' => $baseDir . '/database/migrations/2018_04_16_135116_create_comments_table.php',
     'CreateFailedJobsTable' => $baseDir . '/database/migrations/2018_01_22_135112_create_failed_jobs_table.php',
     'CreateHousesTable' => $baseDir . '/database/migrations/2018_02_04_184948_create_houses_table.php',
     'CreateJobsTable' => $baseDir . '/database/migrations/2018_01_22_091925_create_jobs_table.php',
@@ -2294,7 +2296,6 @@ return array(
     'Prophecy\\Doubler\\Generator\\Node\\ClassNode' => $vendorDir . '/phpspec/prophecy/src/Prophecy/Doubler/Generator/Node/ClassNode.php',
     'Prophecy\\Doubler\\Generator\\Node\\MethodNode' => $vendorDir . '/phpspec/prophecy/src/Prophecy/Doubler/Generator/Node/MethodNode.php',
     'Prophecy\\Doubler\\Generator\\ReflectionInterface' => $vendorDir . '/phpspec/prophecy/src/Prophecy/Doubler/Generator/ReflectionInterface.php',
-    'Prophecy\\Doubler\\Generator\\TypeHintReference' => $vendorDir . '/phpspec/prophecy/src/Prophecy/Doubler/Generator/TypeHintReference.php',
     'Prophecy\\Doubler\\LazyDouble' => $vendorDir . '/phpspec/prophecy/src/Prophecy/Doubler/LazyDouble.php',
     'Prophecy\\Doubler\\NameGenerator' => $vendorDir . '/phpspec/prophecy/src/Prophecy/Doubler/NameGenerator.php',
     'Prophecy\\Exception\\Call\\UnexpectedCallException' => $vendorDir . '/phpspec/prophecy/src/Prophecy/Exception/Call/UnexpectedCallException.php',
