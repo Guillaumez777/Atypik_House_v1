@@ -24,10 +24,24 @@
         </div>
         <div class="col-md-6">
             <div class="calendar">
-                <label for="from">Départ : </label>
+                <h4 class="text-center">Réserver vos dates : </h4>
+                {{-- {!! Form::open(['url' => 'posts', 'action' => "{{ action('ReservationsController@show, $reservation->id') }}"]) !!}  --}}
+                {!! Form::open(['url' => 'posts']) !!}  {{-- test --}}
+                <div class="form-group">
+                    {!! Form::label('from', 'Départ : ', array('class' => 'formLabel')) !!} 
+                    {!! Form::text('from', Form::old('from'), array( 
+                        'class' => 'form-control',
+                    )) !!} 
+                    {!! Form::label('to', 'Arrivée : ', array('class' => 'formLabel')) !!} 
+                    {!! Form::text('to', Form::old('to'), array( 
+                        'class' => 'form-control',
+                    )) !!} 
+                </div>
+                {!! Form::submit('Réserver', array('class' => 'btn btn-success')) !!} 
+                {{-- <label for="from">Départ : </label>
                 <input type="text" id="from" name="from">
                 <label for="to">Arrivée : </label>
-                <input type="text" id="to" name="to">
+                <input type="text" id="to" name="to"> --}}
             </div>
         </div>
 
@@ -39,7 +53,7 @@
     </div>   
 </div>
 @section('script')
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<script src="{{ asset('js/calendrier.js') }}"></script>
+<script src="{{ asset('js/jquery.js') }}"></script>
+<script src="{{ asset('js/jquery-ui.min.js') }}"></script>
+<script src="{{ asset('js/calendar.js') }}"></script>
 @endsection
