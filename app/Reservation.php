@@ -6,14 +6,14 @@ use Illuminate\Database\Eloquent\Model;
  
 class Reservation extends Model
 {
-    protected $fillable = ['total_price', 'occupancy','checkin','checkout','name'];
+    protected $fillable = ['id', 'user_id','house_id', 'payment_id', 'reserved','start_date', 'end_date'];
  
-    public function nights()
+    public function house()
     {
-        return $this->hasMany('App\ReservationNight');
+        return $this->belongsTo('App\House');
     }
  
-    function User(){
+    function user(){
         return $this->belongsTo('App\User');
     }
  
