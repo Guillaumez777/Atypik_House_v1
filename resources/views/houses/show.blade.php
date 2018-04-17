@@ -1,4 +1,6 @@
 @extends('layouts.app')
+@section('link')
+<link href="{{ asset('css/jquery-ui.min.css') }}" rel="stylesheet">
 @section('content')
 <div class="container list-category">
     <h2>Nos hébergements</h2>
@@ -22,7 +24,10 @@
         </div>
         <div class="col-md-6">
             <div class="calendar">
-                <p class="text-center">Calendrier</p>
+                <label for="from">Départ : </label>
+                <input type="text" id="from" name="from">
+                <label for="to">Arrivée : </label>
+                <input type="text" id="to" name="to">
             </div>
         </div>
 
@@ -33,3 +38,8 @@
         </form> -->
     </div>   
 </div>
+@section('script')
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="{{ asset('js/calendrier.js') }}"></script>
+@endsection
