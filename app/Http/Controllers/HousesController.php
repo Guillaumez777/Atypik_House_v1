@@ -8,6 +8,7 @@ use Intervention\Image\ImageManager;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
+use Session;
 use Image;
 
 class HousesController extends Controller
