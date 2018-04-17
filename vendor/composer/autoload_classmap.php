@@ -31,6 +31,8 @@ return array(
     'App\\Providers\\BroadcastServiceProvider' => $baseDir . '/app/Providers/BroadcastServiceProvider.php',
     'App\\Providers\\EventServiceProvider' => $baseDir . '/app/Providers/EventServiceProvider.php',
     'App\\Providers\\RouteServiceProvider' => $baseDir . '/app/Providers/RouteServiceProvider.php',
+    'App\\Reservation' => $baseDir . '/app/Reservation.php',
+    'App\\ReservationNight' => $baseDir . '/app/ReservationNight.php',
     'App\\User' => $baseDir . '/app/User.php',
     'ArithmeticError' => $vendorDir . '/symfony/polyfill-php70/Resources/stubs/ArithmeticError.php',
     'AssertionError' => $vendorDir . '/symfony/polyfill-php70/Resources/stubs/AssertionError.php',
@@ -48,7 +50,14 @@ return array(
     'CreateHousesTable' => $baseDir . '/database/migrations/2018_02_04_184948_create_houses_table.php',
     'CreateJobsTable' => $baseDir . '/database/migrations/2018_01_22_091925_create_jobs_table.php',
     'CreatePasswordResetsTable' => $baseDir . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
+<<<<<<< HEAD
     'CreatePostsTable' => $baseDir . '/database/migrations/2018_04_16_081242_create_posts_table.php',
+=======
+    'CreateTableHouseType' => $baseDir . '/database/migrations/2018_03_30_201129_create_table_house_type.php',
+    'CreateTableReservationNights' => $baseDir . '/database/migrations/2018_03_30_191526_create_table_reservation_nights.php',
+    'CreateTableReservations' => $baseDir . '/database/migrations/2018_03_30_191505_create_table_reservations.php',
+    'CreateTableRoomType' => $baseDir . '/database/migrations/2018_03_30_193419_create_table_room_type.php',
+>>>>>>> reservation
     'CreateUsersTable' => $baseDir . '/database/migrations/2014_10_12_000000_create_users_table.php',
     'Cron\\AbstractField' => $vendorDir . '/mtdowling/cron-expression/src/Cron/AbstractField.php',
     'Cron\\CronExpression' => $vendorDir . '/mtdowling/cron-expression/src/Cron/CronExpression.php',
