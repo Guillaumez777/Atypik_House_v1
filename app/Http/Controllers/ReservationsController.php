@@ -35,7 +35,16 @@ class ReservationsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [ 
+            'start_date' => 'required|max:100', 
+            'end_date' => 'required|max:100', 
+        ]); 
+        $reservation = new reservation;
+        $reservation->start_date = $request->start_date;
+        $reservation->end_date = $request->end_date;
+        $reservation->save();
+        $request->session()->flash('status', 'Votre message a bien été envoyé !');
+        return view('reservation.index')->with('reservation', $reservation);
     }
 
     /**
