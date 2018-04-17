@@ -346,14 +346,14 @@ class ComposerStaticInit104d6085db2bc05ea6d41e453199519e
         'CreateHousesTable' => __DIR__ . '/../..' . '/database/migrations/2018_02_04_184948_create_houses_table.php',
         'CreateJobsTable' => __DIR__ . '/../..' . '/database/migrations/2018_01_22_091925_create_jobs_table.php',
         'CreatePasswordResetsTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
-<<<<<<< HEAD
+
         'CreatePostsTable' => __DIR__ . '/../..' . '/database/migrations/2018_04_16_081242_create_posts_table.php',
-=======
+
         'CreateTableHouseType' => __DIR__ . '/../..' . '/database/migrations/2018_03_30_201129_create_table_house_type.php',
         'CreateTableReservationNights' => __DIR__ . '/../..' . '/database/migrations/2018_03_30_191526_create_table_reservation_nights.php',
         'CreateTableReservations' => __DIR__ . '/../..' . '/database/migrations/2018_03_30_191505_create_table_reservations.php',
         'CreateTableRoomType' => __DIR__ . '/../..' . '/database/migrations/2018_03_30_193419_create_table_room_type.php',
->>>>>>> reservation
+
         'CreateUsersTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_000000_create_users_table.php',
         'Cron\\AbstractField' => __DIR__ . '/..' . '/mtdowling/cron-expression/src/Cron/AbstractField.php',
         'Cron\\CronExpression' => __DIR__ . '/..' . '/mtdowling/cron-expression/src/Cron/CronExpression.php',
