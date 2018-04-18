@@ -1,3 +1,5 @@
+<?php $__env->startSection('link'); ?>
+<link href="<?php echo e(asset('css/jquery-ui.min.css')); ?>" rel="stylesheet">
 <?php $__env->startSection('content'); ?>
 <div class="container list-category">
     <h2>Nos hébergements</h2>
@@ -65,7 +67,21 @@
         </div>
         <div class="col-md-6">
             <div class="calendar">
-                <p class="text-center">Calendrier</p>
+                <h4 class="text-center">Réserver vos dates : </h4>
+                
+                <?php echo Form::open(['url' => 'posts']); ?>  
+                <div class="form-group">
+                    <?php echo Form::label('from', 'Départ : ', array('class' => 'formLabel')); ?> 
+                    <?php echo Form::text('from', Form::old('from'), array( 
+                        'class' => 'form-control',
+                    )); ?> 
+                    <?php echo Form::label('to', 'Arrivée : ', array('class' => 'formLabel')); ?> 
+                    <?php echo Form::text('to', Form::old('to'), array( 
+                        'class' => 'form-control',
+                    )); ?> 
+                </div>
+                <?php echo Form::submit('Réserver', array('class' => 'btn btn-success')); ?> 
+                
             </div>
         </div>
 
@@ -78,4 +94,9 @@
         </form> -->
     </div>   
 </div>
+<?php $__env->startSection('script'); ?>
+<script src="<?php echo e(asset('js/jquery.js')); ?>"></script>
+<script src="<?php echo e(asset('js/jquery-ui.min.js')); ?>"></script>
+<script src="<?php echo e(asset('js/calendar.js')); ?>"></script>
+<?php $__env->stopSection(); ?>
 <?php echo $__env->make('layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
