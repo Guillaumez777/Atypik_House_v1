@@ -2,8 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\House;
+use App\Reservation;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+
+use Session;
 
 class ReservationsController extends Controller
 {
@@ -33,18 +39,29 @@ class ReservationsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, House $house)
     {
-        $this->validate($request, [ 
+        /*$this->validate($request, [ 
             'start_date' => 'required|max:100', 
             'end_date' => 'required|max:100', 
-        ]); 
-        $reservation = new reservation;
-        $reservation->start_date = $request->start_date;
-        $reservation->end_date = $request->end_date;
+        ]); */
+        $start_date = date("Y-m-d", strtotime($request->start_date));
+        $end_date = date("Y-m-d", strtotime($request->end_date));
+        $house_id = $request->house_id;
+        /*var_dump($start_date);
+        var_dump($end_date);
+        var_dump($request->house_id);*/
+        $reservation = new Reservation;
+        $reservation->start_date = $start_date;
+        $reservation->end_date = $end_date;
+        $reservation->user_id = Auth::user()->id;
+        $reservation->house_id = $house_id;
+        $reservation->payment_id = 0;
+        $reservation->reserved = true;
         $reservation->save();
-        $request->session()->flash('status', 'Votre message a bien été envoyé !');
-        return view('reservation.index')->with('reservation', $reservation);
+        $request->session()->flash('status', 'Votre réservation a bien été prise en compte !');
+        return view('reservations.recapitulatif_reservation')->with('reservation', $reservation);
+        //return redirect('reservations/index')->with('reservation', $reservation);
     }
 
     /**

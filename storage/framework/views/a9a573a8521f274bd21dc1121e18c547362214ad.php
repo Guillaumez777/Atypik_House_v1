@@ -68,20 +68,23 @@
         <div class="col-md-6">
             <div class="calendar">
                 <h4 class="text-center">Réserver vos dates : </h4>
-                
-                <?php echo Form::open(['url' => 'posts']); ?>  
+                <form class="form-horizontal" method="POST" action="<?php echo e(url('reservations')); ?>" enctype="multipart/form-data">
+                    <?php echo e(csrf_field()); ?>
+
                 <div class="form-group">
+                    <input type="hidden" name="house_id" value="<?php echo e($house->id); ?>">
                     <?php echo Form::label('from', 'Départ : ', array('class' => 'formLabel')); ?> 
-                    <?php echo Form::text('from', Form::old('from'), array( 
+                    <?php echo Form::text('start_date', Form::old('from'), array( 
                         'class' => 'form-control',
+                        'id' => 'from',
                     )); ?> 
                     <?php echo Form::label('to', 'Arrivée : ', array('class' => 'formLabel')); ?> 
-                    <?php echo Form::text('to', Form::old('to'), array( 
+                    <?php echo Form::text('end_date', Form::old('to'), array( 
                         'class' => 'form-control',
+                        'id' => 'to',
                     )); ?> 
                 </div>
                 <?php echo Form::submit('Réserver', array('class' => 'btn btn-success')); ?> 
-                
             </div>
         </div>
 

@@ -65,23 +65,22 @@
         <div class="col-md-6">
             <div class="calendar">
                 <h4 class="text-center">Réserver vos dates : </h4>
-                {{-- {!! Form::open(['url' => 'posts', 'action' => "{{ action('ReservationsController@show, $reservation->id') }}"]) !!}  --}}
-                {!! Form::open(['url' => 'posts']) !!}  {{-- test --}}
+                <form class="form-horizontal" method="POST" action="{{url('reservations')}}" enctype="multipart/form-data">
+                    {{ csrf_field() }}
                 <div class="form-group">
+                    <input type="hidden" name="house_id" value="{{ $house->id }}">
                     {!! Form::label('from', 'Départ : ', array('class' => 'formLabel')) !!} 
-                    {!! Form::text('from', Form::old('from'), array( 
+                    {!! Form::text('start_date', Form::old('from'), array( 
                         'class' => 'form-control',
+                        'id' => 'from',
                     )) !!} 
                     {!! Form::label('to', 'Arrivée : ', array('class' => 'formLabel')) !!} 
-                    {!! Form::text('to', Form::old('to'), array( 
+                    {!! Form::text('end_date', Form::old('to'), array( 
                         'class' => 'form-control',
+                        'id' => 'to',
                     )) !!} 
                 </div>
                 {!! Form::submit('Réserver', array('class' => 'btn btn-success')) !!} 
-                {{-- <label for="from">Départ : </label>
-                <input type="text" id="from" name="from">
-                <label for="to">Arrivée : </label>
-                <input type="text" id="to" name="to"> --}}
             </div>
         </div>
 

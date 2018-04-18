@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\House;
+use App\Reservation;
 use Illuminate\Http\Request;
 use Intervention\Image\ImageManager;
 use Illuminate\Support\Facades\Auth;
@@ -72,12 +73,12 @@ class HousesController extends Controller
      * @param  \App\House  $house
      * @return \Illuminate\Http\Response
      */
-    public function show(House $house)
+    public function show(House $house, Reservation $reservation)
     {
         //$houses->posts()->where('idUser', Auth::user()->idUser)->get();
         /*return view('houses.index')->with('houses', $houses);*/
         $house = house::find($house->id);
-        return view('houses.show', compact('house', 'id'));
+        return view('houses.show', compact('house', 'id'), compact('reservation', 'id'));
     }
 
     /**
