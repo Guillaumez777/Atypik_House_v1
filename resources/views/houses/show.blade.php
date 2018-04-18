@@ -1,4 +1,6 @@
 @extends('layouts.app')
+@section('link')
+<link href="{{ asset('css/jquery-ui.min.css') }}" rel="stylesheet">
 @section('content')
 <div class="container list-category">
     <h2>Nos hébergements</h2>
@@ -62,7 +64,24 @@
         </div>
         <div class="col-md-6">
             <div class="calendar">
-                <p class="text-center">Calendrier</p>
+                <h4 class="text-center">Réserver vos dates : </h4>
+                {{-- {!! Form::open(['url' => 'posts', 'action' => "{{ action('ReservationsController@show, $reservation->id') }}"]) !!}  --}}
+                {!! Form::open(['url' => 'posts']) !!}  {{-- test --}}
+                <div class="form-group">
+                    {!! Form::label('from', 'Départ : ', array('class' => 'formLabel')) !!} 
+                    {!! Form::text('from', Form::old('from'), array( 
+                        'class' => 'form-control',
+                    )) !!} 
+                    {!! Form::label('to', 'Arrivée : ', array('class' => 'formLabel')) !!} 
+                    {!! Form::text('to', Form::old('to'), array( 
+                        'class' => 'form-control',
+                    )) !!} 
+                </div>
+                {!! Form::submit('Réserver', array('class' => 'btn btn-success')) !!} 
+                {{-- <label for="from">Départ : </label>
+                <input type="text" id="from" name="from">
+                <label for="to">Arrivée : </label>
+                <input type="text" id="to" name="to"> --}}
             </div>
         </div>
 
@@ -73,3 +92,8 @@
         </form> -->
     </div>   
 </div>
+@section('script')
+<script src="{{ asset('js/jquery.js') }}"></script>
+<script src="{{ asset('js/jquery-ui.min.js') }}"></script>
+<script src="{{ asset('js/calendar.js') }}"></script>
+@endsection
