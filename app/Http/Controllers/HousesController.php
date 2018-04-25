@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\House;
+use App\Category;
+
 use Illuminate\Http\Request;
 use Intervention\Image\ImageManager;
 use Illuminate\Support\Facades\Auth;
@@ -31,7 +33,8 @@ class HousesController extends Controller
      */
     public function create()
     {
-        return view('houses.create');
+        $category = category::all();
+        return view('houses.create')->with('categories', $categories);
     }
 
     /**

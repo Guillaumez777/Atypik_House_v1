@@ -22,7 +22,13 @@
                             <label for="name" class="col-md-4 control-label">Categorie</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control" name="idCategory" required autofocus>
+                                <!--<input id="name" type="text" class="form-control" name="idCategory" required autofocus>-->
+                                <select id="name" type="text" class="form-control" required autofocus>
+                                    <option id="" value="defaut" selected="selected">Choisissez votre categorie</option>
+                                    @foreach($categories as $category)
+                                        <option name="idCategory"><?php echo($category->categorie);?></option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
 
