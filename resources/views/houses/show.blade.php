@@ -1,4 +1,6 @@
 @extends('layouts.app')
+@section('link')
+<link href="{{ asset('css/jquery-ui.min.css') }}" rel="stylesheet">
 @section('content')
 <div class="container list-category">
     <h2>Nos hébergements</h2>
@@ -62,7 +64,23 @@
         </div>
         <div class="col-md-6">
             <div class="calendar">
-                <p class="text-center">Calendrier</p>
+                <h4 class="text-center">Réserver vos dates : </h4>
+                <form class="form-horizontal" method="POST" action="{{url('reservations')}}" enctype="multipart/form-data">
+                    {{ csrf_field() }}
+                <div class="form-group">
+                    <input type="hidden" name="house_id" value="{{ $house->id }}">
+                    {!! Form::label('from', 'Départ : ', array('class' => 'formLabel')) !!} 
+                    {!! Form::text('start_date', Form::old('from'), array( 
+                        'class' => 'form-control',
+                        'id' => 'from',
+                    )) !!} 
+                    {!! Form::label('to', 'Arrivée : ', array('class' => 'formLabel')) !!} 
+                    {!! Form::text('end_date', Form::old('to'), array( 
+                        'class' => 'form-control',
+                        'id' => 'to',
+                    )) !!} 
+                </div>
+                {!! Form::submit('Réserver', array('class' => 'btn btn-success')) !!} 
             </div>
         </div>
 
@@ -73,3 +91,8 @@
         </form> -->
     </div>   
 </div>
+@section('script')
+<script src="{{ asset('js/jquery.js') }}"></script>
+<script src="{{ asset('js/jquery-ui.min.js') }}"></script>
+<script src="{{ asset('js/calendar.js') }}"></script>
+@endsection
