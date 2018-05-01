@@ -13,6 +13,9 @@
 
 // Admin
 Route::get('/admin', 'Admin\AdminController@home');
+// Route::get('protected', ['middleware' => ['auth', 'admin'], function() {
+//     Route::get('/admin', 'Admin\AdminController@home');
+// }]);
 
 // Accueil
 Route::get('/', function () {

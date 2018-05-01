@@ -35,5 +35,10 @@ class User extends Authenticatable
         $this->email_token = null;
         $this->save();
     }
+
+    public function isAdmin()
+    {
+        return $this->admin; // this looks for an admin column in your users table
+    }
     
 }
