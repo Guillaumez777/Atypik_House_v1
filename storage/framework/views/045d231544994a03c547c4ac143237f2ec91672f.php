@@ -8,9 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
 
-    
-    
-    <title>AtypikHouse - Votre habitats insolite, partout en Europe</title>
+    <title>AtypikHouse - Votre habitat insolite, partout en Europe</title>
 
     
     <link rel="icon" type="image/png" href="<?php echo e(asset('img/LogoNavigateur.png')); ?>" />
@@ -95,7 +93,7 @@
     <footer>
         <div class="container-fluid">
             <div class="row">
-                <div class="col-md-offset-2 col-md-3">
+                <div class="col-md-offset-2 col-md-5">
                     <ul>
                         <li><a href="#">A propos</a></li>
                         <li><a href="#">Mentions légales</a></li>
@@ -103,7 +101,7 @@
                         <li><a href="#">Conditions générales d'utilisation</a></li>
                     </ul>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-5">
                     <ul>
                         <li><a href="#">Hébergement</a></li>
                         <li><a href="#">devenir hotes</a></li>

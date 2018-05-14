@@ -11,9 +11,15 @@
 |
 */
 
+// Admin
+Route::get('/admin', 'Admin\AdminController@home');
+// Route::get('protected', ['middleware' => ['auth', 'admin'], function() {
+//     Route::get('/admin', 'Admin\AdminController@home');
+// }]);
+
+// Accueil
 Route::get('/', function () {
     return view('home');
-
 });
 
 
@@ -45,7 +51,7 @@ Route::group(['middleware' => 'auth'], function () {
     });*/
 
 // Formulaire
- Route::get('/posts', 'PostsController@index');
+Route::get('/posts', 'PostsController@index');
 // Route::post('/contact', 'FormController@store'); 
 Route::resource('posts', 'PostsController' , ['only' => ['index', 'store']]); 
 

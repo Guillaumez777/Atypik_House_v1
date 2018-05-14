@@ -5,7 +5,11 @@
             <div class="row">
                 <div class="col-lg-12">
                     <h1 class="title title-intro">Trouvez les meilleurs locations insolites en Europe !</h1>
+<<<<<<< HEAD
                     <div class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-9 col-sm-offset-1">
+=======
+                    <div class="col-lg-6 col-lg-offset-3">
+>>>>>>> origin/admin
                         <div class="input-group">
                             <input type="text" class="form-control" placeholder="Saisir une ville">
                             <span class="input-group-btn">
@@ -22,17 +26,28 @@
     <h2>Nos hébergements</h2>
     <div class="row">
       <?php $__currentLoopData = $houses; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $house): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+<<<<<<< HEAD
         <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
             <div class="card h-100">
                 <a href="<?php echo e(action('HousesController@show', $house['id'])); ?>"><img class="img-responsive" src="<?php echo e(asset('img/houses/'.$house->photo)); ?>"></a>
+=======
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100">
+                <a href="#"><img class="card-img-top" src="<?php echo e(asset('img/houses/'.$house->photo)); ?>"></a>
+>>>>>>> origin/admin
                 <div class="card-body">
                     <h3 class="title card-title">
                         <a href="<?php echo e(action('HousesController@show', $house['id'])); ?>"><?php echo e($house->title); ?></a>
                     </h3>
+<<<<<<< HEAD
                     <p>Type de bien : Logement</p>
                     <p><i class="fas fa-bed"></i> : 2 lits - <i class="fas fa-users"></i> : pour 2 Personnes</p>
                     <h3 class="price"><?php echo e($house->price); ?>€</h3>
                     <p class="card-text"><?php echo substr($house->description, 0, 10);?></p>
+=======
+                    <h3 class="price"><?php echo e($house->price); ?>€</h3>
+                    <p class="card-text"><?php echo e($house->description); ?></p>
+>>>>>>> origin/admin
                 </div>
                 <div class="note card-footer">
                     <medium class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</medium>

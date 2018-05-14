@@ -1,0 +1,81 @@
+/* Ce fichier concerne le css liés à l'administration */
+/* Couleur principale : #2A3E51 #36414A #485864 */
+html, body {
+    margin: 0;
+    padding: 0;
+    /* padding-top: 50px; */
+    font-size: 16px;
+    font-family: Open-sans, sans-serif;
+}
+
+td, th {
+    width: 300px;
+}
+
+#reservation, #utilisateur, #avis {
+    display: none;
+}
+
+.navbar {
+    height: 80px;
+    position: fixed;
+}
+
+.navbar ul, #titre {
+    display: inline-block;
+    line-height: 1;
+}
+
+.navbar ul li {
+    margin: 0 10px;
+    display: inline-block;
+}
+
+#menu {
+    float: right;
+    line-height: 5;
+}
+
+.sidebar {
+    background-color: #36414A;
+    position: fixed;
+    top: 79px;
+    bottom: 0;
+    left: 0;
+    z-index: 99999;
+    display: block;
+    padding: 20px;
+    overflow-x: hidden;
+    overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+    border-right: 1px solid #eee;
+}
+
+.main {
+    padding: 100px 50px 0 50px;
+}
+
+@media (max-width: 768px) {
+
+    h2 {
+        text-align: center;
+        padding-bottom: 30px;
+    }
+    .sidebar {
+        top: 70px;
+        display: inline-block;
+        position: relative;
+        width: 100%;
+    }
+    .navbar {
+        height: 60px;
+        display: block;
+        text-align: center;
+        position: relative;
+    }
+    #menu {
+        float: none;
+    }
+    .main {
+        padding: 120px 50px 0 50px;
+    }
+}

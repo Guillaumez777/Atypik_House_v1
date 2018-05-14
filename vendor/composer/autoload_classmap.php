@@ -10,7 +10,11 @@ return array(
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
     'App\\House' => $baseDir . '/app/House.php',
+<<<<<<< HEAD
     'App\\HouseType' => $baseDir . '/app/HouseType.php',
+=======
+    'App\\Http\\Controllers\\Admin\\AdminController' => $baseDir . '/app/Http/Controllers/Admin/AdminController.php',
+>>>>>>> origin/admin
     'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => $baseDir . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
     'App\\Http\\Controllers\\Auth\\LoginController' => $baseDir . '/app/Http/Controllers/Auth/LoginController.php',
     'App\\Http\\Controllers\\Auth\\RegisterController' => $baseDir . '/app/Http/Controllers/Auth/RegisterController.php',
@@ -20,9 +24,13 @@ return array(
     'App\\Http\\Controllers\\HomeController' => $baseDir . '/app/Http/Controllers/HomeController.php',
     'App\\Http\\Controllers\\HouseTypeController' => $baseDir . '/app/Http/Controllers/HouseTypeController.php',
     'App\\Http\\Controllers\\HousesController' => $baseDir . '/app/Http/Controllers/HousesController.php',
+<<<<<<< HEAD
     'App\\Http\\Controllers\\PostsController' => $baseDir . '/app/Http/Controllers/PostsController.php',
+=======
+>>>>>>> origin/admin
     'App\\Http\\Controllers\\UsersController' => $baseDir . '/app/Http/Controllers/UsersController.php',
     'App\\Http\\Kernel' => $baseDir . '/app/Http/Kernel.php',
+    'App\\Http\\Middleware\\Admin' => $baseDir . '/app/Http/Middleware/Admin.php',
     'App\\Http\\Middleware\\EncryptCookies' => $baseDir . '/app/Http/Middleware/EncryptCookies.php',
     'App\\Http\\Middleware\\RedirectIfAuthenticated' => $baseDir . '/app/Http/Middleware/RedirectIfAuthenticated.php',
     'App\\Http\\Middleware\\TrimStrings' => $baseDir . '/app/Http/Middleware/TrimStrings.php',
@@ -50,9 +58,13 @@ return array(
     'Collective\\Html\\HtmlBuilder' => $vendorDir . '/laravelcollective/html/src/HtmlBuilder.php',
     'Collective\\Html\\HtmlFacade' => $vendorDir . '/laravelcollective/html/src/HtmlFacade.php',
     'Collective\\Html\\HtmlServiceProvider' => $vendorDir . '/laravelcollective/html/src/HtmlServiceProvider.php',
+<<<<<<< HEAD
     'CreateCatProprietesTable' => $baseDir . '/database/migrations/2018_04_25_200922_create_catProprietes_table.php',
     'CreateCategoriesTable' => $baseDir . '/database/migrations/2018_04_25_194602_create_categories_table.php',
     'CreateCommentsTable' => $baseDir . '/database/migrations/2018_04_16_135116_create_comments_table.php',
+=======
+    'CreateAdminTable' => $baseDir . '/database/migrations/2018_04_27_091041_create_admin_table.php',
+>>>>>>> origin/admin
     'CreateFailedJobsTable' => $baseDir . '/database/migrations/2018_01_22_135112_create_failed_jobs_table.php',
     'CreateHousesTable' => $baseDir . '/database/migrations/2018_02_04_184948_create_houses_table.php',
     'CreateJobsTable' => $baseDir . '/database/migrations/2018_01_22_091925_create_jobs_table.php',

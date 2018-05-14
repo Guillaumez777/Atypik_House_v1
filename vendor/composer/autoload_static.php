@@ -306,7 +306,11 @@ class ComposerStaticInit104d6085db2bc05ea6d41e453199519e
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\House' => __DIR__ . '/../..' . '/app/House.php',
+<<<<<<< HEAD
         'App\\HouseType' => __DIR__ . '/../..' . '/app/HouseType.php',
+=======
+        'App\\Http\\Controllers\\Admin\\AdminController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/AdminController.php',
+>>>>>>> origin/admin
         'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
         'App\\Http\\Controllers\\Auth\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/LoginController.php',
         'App\\Http\\Controllers\\Auth\\RegisterController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/RegisterController.php',
@@ -316,9 +320,13 @@ class ComposerStaticInit104d6085db2bc05ea6d41e453199519e
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
         'App\\Http\\Controllers\\HouseTypeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HouseTypeController.php',
         'App\\Http\\Controllers\\HousesController' => __DIR__ . '/../..' . '/app/Http/Controllers/HousesController.php',
+<<<<<<< HEAD
         'App\\Http\\Controllers\\PostsController' => __DIR__ . '/../..' . '/app/Http/Controllers/PostsController.php',
+=======
+>>>>>>> origin/admin
         'App\\Http\\Controllers\\UsersController' => __DIR__ . '/../..' . '/app/Http/Controllers/UsersController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
+        'App\\Http\\Middleware\\Admin' => __DIR__ . '/../..' . '/app/Http/Middleware/Admin.php',
         'App\\Http\\Middleware\\EncryptCookies' => __DIR__ . '/../..' . '/app/Http/Middleware/EncryptCookies.php',
         'App\\Http\\Middleware\\RedirectIfAuthenticated' => __DIR__ . '/../..' . '/app/Http/Middleware/RedirectIfAuthenticated.php',
         'App\\Http\\Middleware\\TrimStrings' => __DIR__ . '/../..' . '/app/Http/Middleware/TrimStrings.php',
@@ -346,9 +354,13 @@ class ComposerStaticInit104d6085db2bc05ea6d41e453199519e
         'Collective\\Html\\HtmlBuilder' => __DIR__ . '/..' . '/laravelcollective/html/src/HtmlBuilder.php',
         'Collective\\Html\\HtmlFacade' => __DIR__ . '/..' . '/laravelcollective/html/src/HtmlFacade.php',
         'Collective\\Html\\HtmlServiceProvider' => __DIR__ . '/..' . '/laravelcollective/html/src/HtmlServiceProvider.php',
+<<<<<<< HEAD
         'CreateCatProprietesTable' => __DIR__ . '/../..' . '/database/migrations/2018_04_25_200922_create_catProprietes_table.php',
         'CreateCategoriesTable' => __DIR__ . '/../..' . '/database/migrations/2018_04_25_194602_create_categories_table.php',
         'CreateCommentsTable' => __DIR__ . '/../..' . '/database/migrations/2018_04_16_135116_create_comments_table.php',
+=======
+        'CreateAdminTable' => __DIR__ . '/../..' . '/database/migrations/2018_04_27_091041_create_admin_table.php',
+>>>>>>> origin/admin
         'CreateFailedJobsTable' => __DIR__ . '/../..' . '/database/migrations/2018_01_22_135112_create_failed_jobs_table.php',
         'CreateHousesTable' => __DIR__ . '/../..' . '/database/migrations/2018_02_04_184948_create_houses_table.php',
         'CreateJobsTable' => __DIR__ . '/../..' . '/database/migrations/2018_01_22_091925_create_jobs_table.php',
