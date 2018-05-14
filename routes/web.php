@@ -12,7 +12,7 @@
 */
 
 // Admin
-Route::get('/admin', 'Admin\AdminController@home');
+
 // Route::get('protected', ['middleware' => ['auth', 'admin'], function() {
 //     Route::get('/admin', 'Admin\AdminController@home');
 // }]);
@@ -22,14 +22,22 @@ Route::get('/', function () {
     return view('home');
 });
 
+Auth::routes();
 
-/*Route::get('/subscribe', function () {
-    return view('subscribe');
-});*/
-
-/*Route::get('/users/{id}', 'UsersController@show');*/
+ Route::prefix('admin')->group(function () {
+    Route::get('/admin', 'AdminController@index')->name('admin.dashboard');
+    // Route::get('/logina', 'Auth\AdminLoginController@showLoginForm');
+//     Route::post('/login', 'Auth\AdminController@login')->name('admin.login.submit');
+});
+Route::get('/logina', 'Auth\AdminLoginController@showLoginForm');
+    Route::post('/logina', 'Auth\AdminLoginController@login');
+    Route::get('/logout','Auth\AdminLoginController@logout');
+    //admin password reset routes
+    Route::post('/password/email','Auth\AdminForgotPasswordController@sendResetLinkEmail');
+    Route::get('/password/reset','Auth\AdminForgotPasswordController@showLinkRequestForm');
+    Route::post('/password/reset','Auth\AdminResetPasswordController@reset');
+    Route::get('/password/reset/{token}','Auth\AdminResetPasswordController@showResetForm');
 Route::group(['middleware' => 'auth'], function () {
-    /*Route::get('/profile', 'HomeController@index');*/
     Route::get('/profile/{id}', 'UsersController@index');
     Route::get('/mylocations/{id}', 'HousesController@mylocations');
     Route::get('/houses/edit/{id}', 'HousesController@edit');
@@ -65,7 +73,6 @@ Route::get('/verifyemail/{token}', 'Auth\RegisterController@verify');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Auth::routes();
 
 Route::group(['prefix' => 'adminapi'], function(){
     Route::resource('house_type', 'HouseTypeController');
