@@ -50,15 +50,12 @@ Route::group(['middleware' => 'auth'], function () {
            return back()->with('msg', 'You are not friend with this person');
     });*/
 
-<<<<<<< HEAD
 // Formulaire
  Route::get('/posts', 'PostsController@index');
 // Route::post('/contact', 'FormController@store'); 
 Route::resource('posts', 'PostsController' , ['only' => ['index', 'store']]); 
 
 
-=======
->>>>>>> admin
 Route::get('/houses/index', 'HousesController@index');
 Route::resource('houses', 'HousesController', ['only' => ['index','show', 'create', 'store', 'edit', 'update', 'destroy', 'mylocations']]);
 Route::get('/register', 'RegistersController@create');
