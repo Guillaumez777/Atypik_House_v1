@@ -29,11 +29,12 @@ class HousesController extends Controller
     /**
      * Show the form for creating a new resource.
      *
+     * * @param  \App\Category  $categories
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Category $categories)
     {
-        $category = category::all();
+        $categories = category::all();
         return view('houses.create')->with('categories', $categories);
     }
 
