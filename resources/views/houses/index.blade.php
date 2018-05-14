@@ -14,7 +14,7 @@
                     <p>Type de bien : Logement</p>
                     <p><i class="fas fa-bed"></i> : 2 lits - <i class="fas fa-users"></i> : pour 2 Personnes</p>
                     <h3 class="price">{{$house->price}}€</h3>
-                    <p class="card-text">{{$house->description}}</p>
+                    <p class="card-text"><?php echo substr($house->description, 0, 20);?></p>
                 </div>
                 <div class="note card-footer">
                     <medium class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</medium>
