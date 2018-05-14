@@ -7,15 +7,19 @@ use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
-class UserTest extends TestCase
+class DatabaseTest extends TestCase
 {
     /**
      * A basic test example.
      *
      * @return void
      */
-    public function testExample()
+    use DatabaseMigrations;
+    
+    public function testDatabase()
     {
-        $this->assertTrue(true);
+        // Make call to application...
+    
+        $this->seeInDatabase('users', ['email' => '']);
     }
-}
+} 
