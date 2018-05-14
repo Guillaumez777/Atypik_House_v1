@@ -92,7 +92,9 @@
     </div>   
 </div>
 @section('script')
-<script src="{{ asset('js/jquery.js') }}"></script>
+<script src ="{{ asset('js/jquery.js') }}"></script>
 <script src="{{ asset('js/jquery-ui.min.js') }}"></script>
 <script src="{{ asset('js/calendar.js') }}"></script>
+
+>>>>>>> vic_test_phpunit
 @endsection

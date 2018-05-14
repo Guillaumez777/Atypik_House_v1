@@ -70,3 +70,6 @@ Auth::routes();
 Route::group(['prefix' => 'adminapi'], function(){
     Route::resource('house_type', 'HouseTypeController');
 });
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
