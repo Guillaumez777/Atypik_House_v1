@@ -61,7 +61,6 @@
                             <li><a href="<?php echo e(route('posts.index')); ?>">Contact</a></li>
                         <?php elseif(Auth::guard('admin')->check()): ?>
                             <li><a href="<?php echo e(route('admin.dashboard')); ?>">Accueil</a></li>
-                            <li><a href="<?php echo e(route('admin.password.reset')); ?>">Connexion</a></li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                     <?php echo e(Auth::user()->prenom); ?> <span class="caret"></span>
