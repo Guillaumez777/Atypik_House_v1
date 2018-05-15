@@ -8,7 +8,7 @@ class AdminLoginController extends Controller
     public function __construct()
     {
         //defining our middleware for this controller
-        //$this->middleware('guest:admin',['except' => ['logout']]);
+        $this->middleware('guest:admin',['except' => ['logout']]);
     }
     //function to show admin login form
     public function showLoginForm() {
@@ -17,7 +17,7 @@ class AdminLoginController extends Controller
     //function to login admins
     public function login(Request $request) {
         //validate the form data
-        $this->validate($request,[
+        $valid = $this->validate($request,[
             'email' => 'required|email',
             'password' => 'required|min:6'
         ]);
@@ -27,6 +27,7 @@ class AdminLoginController extends Controller
             return redirect()->intended(route('admin.dashboard'));
         }
         //if unsuccessfull redirect back to the login for with form data
+        var_dump("ca marche pas");
         return redirect()->back()->withInput($request->only('email','remember'));
     }
     public function logout()
