@@ -13,7 +13,11 @@
                     <p>Type de bien : Logement</p>
                     <p><i class="fas fa-bed"></i> : 2 lits - <i class="fas fa-users"></i> : pour 2 Personnes</p>
                     <h3 class="price"><?php echo e($house->price); ?>€</h3>
+<<<<<<< HEAD
                     <p class="card-text"><?php echo(substr($house->description, 0, 50));?></p>
+=======
+                    <p class="card-text"><?php echo e($house->description); ?></p>
+>>>>>>> master
                 </div>
                 <div class="note card-footer">
                     <medium class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</medium>

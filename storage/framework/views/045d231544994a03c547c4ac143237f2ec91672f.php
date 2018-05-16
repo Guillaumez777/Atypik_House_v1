@@ -146,7 +146,6 @@
                     </ul>
                 </div>
             </div>
-            <?php var_dump(Auth::guard('admin')->check());?>
         </div>
     </footer>
 
