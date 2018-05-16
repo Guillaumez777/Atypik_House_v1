@@ -44,7 +44,6 @@
                                 <input id="name" type="file" class="form-control" name="photo" required autofocus>
                             </div>
                         </div>
-                        
                         <div class="form-group">
                             <label for="email" class="col-md-4 control-label">Description</label>
                             <div class="col-md-6">

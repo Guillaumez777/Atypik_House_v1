@@ -6,32 +6,22 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-<<<<<<< HEAD
     'App\\Admin' => $baseDir . '/app/Admin.php',
-=======
     'App\\Category' => $baseDir . '/app/Category.php',
->>>>>>> category-propriete-catPropriete-tables
     'App\\Comment' => $baseDir . '/app/Comment.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
     'App\\House' => $baseDir . '/app/House.php',
     'App\\HouseType' => $baseDir . '/app/HouseType.php',
-<<<<<<< HEAD
     'App\\Http\\Controllers\\AdminController' => $baseDir . '/app/Http/Controllers/AdminController.php',
     'App\\Http\\Controllers\\Auth\\AdminForgotPasswordController' => $baseDir . '/app/Http/Controllers/Auth/AdminForgotPasswordController.php',
     'App\\Http\\Controllers\\Auth\\AdminLoginController' => $baseDir . '/app/Http/Controllers/Auth/AdminLoginController.php',
     'App\\Http\\Controllers\\Auth\\AdminResetPasswordController' => $baseDir . '/app/Http/Controllers/Auth/AdminResetPasswordController.php',
-=======
-    'App\\Http\\Controllers\\Admin\\AdminController' => $baseDir . '/app/Http/Controllers/Admin/AdminController.php',
->>>>>>> category-propriete-catPropriete-tables
     'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => $baseDir . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
     'App\\Http\\Controllers\\Auth\\LoginController' => $baseDir . '/app/Http/Controllers/Auth/LoginController.php',
     'App\\Http\\Controllers\\Auth\\RegisterController' => $baseDir . '/app/Http/Controllers/Auth/RegisterController.php',
     'App\\Http\\Controllers\\Auth\\ResetPasswordController' => $baseDir . '/app/Http/Controllers/Auth/ResetPasswordController.php',
-<<<<<<< HEAD
-=======
     'App\\Http\\Controllers\\CategoriesController' => $baseDir . '/app/Http/Controllers/CategoriesController.php',
->>>>>>> category-propriete-catPropriete-tables
     'App\\Http\\Controllers\\CommentsController' => $baseDir . '/app/Http/Controllers/CommentsController.php',
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
     'App\\Http\\Controllers\\HomeController' => $baseDir . '/app/Http/Controllers/HomeController.php',
@@ -56,6 +46,7 @@ return array(
     'App\\Reservation' => $baseDir . '/app/Reservation.php',
     'App\\ReservationNight' => $baseDir . '/app/ReservationNight.php',
     'App\\User' => $baseDir . '/app/User.php',
+    'App\\Ville' => $baseDir . '/app/Ville.php',
     'ArithmeticError' => $vendorDir . '/symfony/polyfill-php70/Resources/stubs/ArithmeticError.php',
     'AssertionError' => $vendorDir . '/symfony/polyfill-php70/Resources/stubs/AssertionError.php',
     'Carbon\\Carbon' => $vendorDir . '/nesbot/carbon/src/Carbon/Carbon.php',
@@ -70,22 +61,16 @@ return array(
     'Collective\\Html\\HtmlFacade' => $vendorDir . '/laravelcollective/html/src/HtmlFacade.php',
     'Collective\\Html\\HtmlServiceProvider' => $vendorDir . '/laravelcollective/html/src/HtmlServiceProvider.php',
     'CreateAdminTable' => $baseDir . '/database/migrations/2018_04_27_091041_create_admin_table.php',
-<<<<<<< HEAD
     'CreateAdminsTable' => $baseDir . '/database/migrations/2018_05_14_202742_create_admins_table.php',
-=======
     'CreateCatProprietesTable' => $baseDir . '/database/migrations/2018_04_25_200922_create_catProprietes_table.php',
     'CreateCategoriesTable' => $baseDir . '/database/migrations/2018_04_25_194602_create_categories_table.php',
->>>>>>> category-propriete-catPropriete-tables
     'CreateCommentsTable' => $baseDir . '/database/migrations/2018_04_16_135116_create_comments_table.php',
     'CreateFailedJobsTable' => $baseDir . '/database/migrations/2018_01_22_135112_create_failed_jobs_table.php',
     'CreateHousesTable' => $baseDir . '/database/migrations/2018_02_04_184948_create_houses_table.php',
     'CreateJobsTable' => $baseDir . '/database/migrations/2018_01_22_091925_create_jobs_table.php',
     'CreatePasswordResetsTable' => $baseDir . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
     'CreatePostsTable' => $baseDir . '/database/migrations/2018_04_16_081242_create_posts_table.php',
-<<<<<<< HEAD
-=======
     'CreateProprietesTable' => $baseDir . '/database/migrations/2018_04_25_195248_create_proprietes_table.php',
->>>>>>> category-propriete-catPropriete-tables
     'CreateTableHouseType' => $baseDir . '/database/migrations/2018_03_30_201129_create_table_house_type.php',
     'CreateTableReservations' => $baseDir . '/database/migrations/2018_03_30_191505_create_table_reservations.php',
     'CreateUsersTable' => $baseDir . '/database/migrations/2014_10_12_000000_create_users_table.php',
