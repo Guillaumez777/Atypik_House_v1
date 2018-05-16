@@ -10,7 +10,7 @@
 
     
     
-    <title>AtypikHouse - Votre habitat insolite, partout en Europe</title>
+    <title>AtypikHouse - Votre habitats insolite, partout en Europe</title>
 
     
     <link rel="icon" type="image/png" href="<?php echo e(asset('img/LogoNavigateur.png')); ?>" />
@@ -19,7 +19,9 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 
     <!-- Styles -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css" integrity="sha384-5SOiIsAziJl6AWe0HWRKTXlfcSHKmYV4RBF18PPJ173Kzn7jzMyFuTtk8JA7QQG1" crossorigin="anonymous">
     <link href="<?php echo e(asset('css/app.css')); ?>" rel="stylesheet">
+    <?php echo $__env->yieldContent('link'); ?>
     <link href="<?php echo e(asset('css/custom.css')); ?>" rel="stylesheet">
 </head>
 <body>
@@ -56,6 +58,7 @@
                             <li><a href="<?php echo e(route('houses.index')); ?>">Nos hébergements</a></li>
                             <li><a href="<?php echo e(route('login')); ?>">Connexion</a></li>
                             <li><a href="<?php echo e(route('register')); ?>">Inscription</a></li>
+                            <li><a href="<?php echo e(route('posts.index')); ?>">Contact</a></li>
                         <?php else: ?>
                             <li><a href="<?php echo e(url('/')); ?>">Accueil</a></li>
                             <li><a href="<?php echo e(route('houses.index')); ?>">Nos hébergements</a></li>
@@ -81,6 +84,7 @@
                                     </li>
                                 </ul>
                             </li>
+                            <li><a href="<?php echo e(route('posts.index')); ?>">Contact</a></li>
                         <?php endif; ?>
                     </ul>
                 </div>
@@ -91,7 +95,7 @@
     <footer>
         <div class="container-fluid">
             <div class="row">
-                <div class="col-md-offset-2 col-md-5">
+                <div class="col-md-offset-2 col-md-3">
                     <ul>
                         <li><a href="#">A propos</a></li>
                         <li><a href="#">Mentions légales</a></li>
@@ -99,7 +103,7 @@
                         <li><a href="#">Conditions générales d'utilisation</a></li>
                     </ul>
                 </div>
-                <div class="col-md-5">
+                <div class="col-md-3">
                     <ul>
                         <li><a href="#">Hébergement</a></li>
                         <li><a href="#">devenir hotes</a></li>
@@ -108,11 +112,24 @@
                         <li><a href="#">FAQ</a></li>
                     </ul>
                 </div>
+                <div class="col-md-3">
+                    <ul id="reseaux">
+                        <div>
+                            <li><a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-square fa-2x"></i></a></li>
+                            <li><a href="https://twitter.com" target="_blank"><i class="fab fa-twitter-square fa-2x"></i></a></li>
+                        </div>
+                        <div>
+                            <li><a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram fa-2x"></i></a></li>
+                            <li><a href="https://www.youtube.com" target="_blank"><i class="fab fa-youtube-square fa-2x"></i></a></li>
+                        </div>
+                    </ul>
+                </div>
             </div>
         </div>
     </footer>
 
     <!-- Scripts -->
     <script src="<?php echo e(asset('js/app.js')); ?>"></script>
+    <?php echo $__env->yieldContent('script'); ?>
 </body>
 </html>
