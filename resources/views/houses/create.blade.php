@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
-                <div class="panel-heading">Register</div>
+                <div class="panel-heading">Créer un hébergement</div>
 
                 <div class="panel-body">
                     <form class="form-horizontal" method="POST" action="{{url('houses')}}" enctype="multipart/form-data">
@@ -22,7 +22,13 @@
                             <label for="name" class="col-md-4 control-label">Categorie</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control" name="idCategory" required autofocus>
+                                <!--<input id="name" type="text" class="form-control" name="idCategory" required autofocus>-->
+                                <select id="name" type="text" name="idCategory" class="form-control">
+                                    <option id="" value="defaut" selected="selected" required autofocus>Choisissez votre categorie</option>
+                                    @foreach($categories as $category)
+                                        <option value="<?php echo($category->id);?>"><?php echo($category->categorie);?></option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
 

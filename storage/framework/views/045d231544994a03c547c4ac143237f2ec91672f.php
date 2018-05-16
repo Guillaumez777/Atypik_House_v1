@@ -8,9 +8,13 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
 
+<<<<<<< HEAD
     
     
     <title>AtypikHouse - Votre habitats insolite, partout en Europe</title>
+=======
+    <title>AtypikHouse - Votre habitat insolite, partout en Europe</title>
+>>>>>>> category-propriete-catPropriete-tables
 
     
     <link rel="icon" type="image/png" href="<?php echo e(asset('img/LogoNavigateur.png')); ?>" />

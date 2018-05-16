@@ -54,7 +54,7 @@ Route::group(['middleware' => 'auth'], function () {
 });
 
 // Formulaire
- Route::get('/posts', 'PostsController@index');
+Route::get('/posts', 'PostsController@index');
 // Route::post('/contact', 'FormController@store'); 
 Route::resource('posts', 'PostsController' , ['only' => ['index', 'store']]); 
 
