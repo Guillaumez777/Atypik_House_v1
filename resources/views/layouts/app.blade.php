@@ -60,7 +60,7 @@
                             <li><a href="{{ route('register') }}">Inscription</a></li>
                             <li><a href="{{ route('posts.index') }}">Contact</a></li>
                         @elseif(Auth::guard('admin')->check())
-                            <li><a href="{{ route('admin.dashboard') }}">Accueil</a></li>
+                            <li><a href="{{ route('admin.home') }}">Accueil</a></li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                     {{ Auth::user()->prenom }} <span class="caret"></span>
@@ -144,6 +144,7 @@
                     </ul>
                 </div>
             </div>
+            <?php var_dump(Auth::guard('admin')->check());?>
         </div>
     </footer>
 

@@ -24,10 +24,10 @@ class AdminLoginController extends Controller
         //attempt to login the admins in
         if (Auth::guard('admin')->attempt(['email' => $request->email, 'password' => $request->password], $request->remember)){
             //if successful redirect to admin dashboard
+            //echo '<script type="text/javascript">window.alert("toto");</script>';
             return redirect()->intended(route('admin.dashboard'));
         }
         //if unsuccessfull redirect back to the login for with form data
-        var_dump("ca marche pas");
         return redirect()->back()->withInput($request->only('email','remember'));
     }
     public function logout()

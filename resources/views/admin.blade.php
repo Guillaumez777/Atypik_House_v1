@@ -15,7 +15,6 @@
         </div>
     </div>
 @endsection --}}
-
 @extends('layouts.admin')
 @section('content')
 <div id="hebergement">
@@ -54,7 +53,22 @@
 </div>
 <div id="utilisateur">
     <h2>Utilisateurs : </h2>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus vitae nulla nemo, ipsa, officiis recusandae praesentium nihil, minus cumque nostrum enim aliquam nam libero earum mollitia eaque. Voluptas, cum esse!</p>
+    @foreach($users as $user)
+    <div class="table-responsive">
+        <table class="table">
+            <tbody>
+                <tr>
+                    <td><a href="{{action('AdminController@profilUser', $user['id'])}}">{{$user->nom}}</a></td>
+                    <td>{{$user->email}}€</td>
+                    <td>
+                        <a href="#" class="btn btn-warning">Modifier</a>
+                        <a href="#" class="btn btn-danger">Supprimer</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    @endforeach
 </div>
 <div id="avis">
     <h2>Avis : </h2>
