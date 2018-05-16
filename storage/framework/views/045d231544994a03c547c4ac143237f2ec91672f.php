@@ -59,6 +59,27 @@
                             <li><a href="<?php echo e(route('login')); ?>">Connexion</a></li>
                             <li><a href="<?php echo e(route('register')); ?>">Inscription</a></li>
                             <li><a href="<?php echo e(route('posts.index')); ?>">Contact</a></li>
+                        <?php elseif(Auth::guard('admin')->check()): ?>
+                            <li><a href="<?php echo e(route('admin.home')); ?>">Accueil</a></li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                    <?php echo e(Auth::user()->prenom); ?> <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li>
+                                        <a href="<?php echo e(route('logout')); ?>"
+                                            onclick="event.preventDefault();
+                                                        document.getElementById('logout-form').submit();">
+                                            Se déconnecter
+                                        </a>
+
+                                        <form id="logout-form" action="<?php echo e(route('logout')); ?>" method="POST" style="display: none;">
+                                            <?php echo e(csrf_field()); ?>
+
+                                        </form>
+                                    </li>
+                                </ul>
+                            </li>
                         <?php else: ?>
                             <li><a href="<?php echo e(url('/')); ?>">Accueil</a></li>
                             <li><a href="<?php echo e(route('houses.index')); ?>">Nos hébergements</a></li>

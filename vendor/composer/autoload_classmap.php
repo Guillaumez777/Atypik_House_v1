@@ -6,12 +6,16 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'App\\Admin' => $baseDir . '/app/Admin.php',
     'App\\Comment' => $baseDir . '/app/Comment.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
     'App\\House' => $baseDir . '/app/House.php',
     'App\\HouseType' => $baseDir . '/app/HouseType.php',
-    'App\\Http\\Controllers\\Admin\\AdminController' => $baseDir . '/app/Http/Controllers/Admin/AdminController.php',
+    'App\\Http\\Controllers\\AdminController' => $baseDir . '/app/Http/Controllers/AdminController.php',
+    'App\\Http\\Controllers\\Auth\\AdminForgotPasswordController' => $baseDir . '/app/Http/Controllers/Auth/AdminForgotPasswordController.php',
+    'App\\Http\\Controllers\\Auth\\AdminLoginController' => $baseDir . '/app/Http/Controllers/Auth/AdminLoginController.php',
+    'App\\Http\\Controllers\\Auth\\AdminResetPasswordController' => $baseDir . '/app/Http/Controllers/Auth/AdminResetPasswordController.php',
     'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => $baseDir . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
     'App\\Http\\Controllers\\Auth\\LoginController' => $baseDir . '/app/Http/Controllers/Auth/LoginController.php',
     'App\\Http\\Controllers\\Auth\\RegisterController' => $baseDir . '/app/Http/Controllers/Auth/RegisterController.php',
@@ -54,6 +58,7 @@ return array(
     'Collective\\Html\\HtmlFacade' => $vendorDir . '/laravelcollective/html/src/HtmlFacade.php',
     'Collective\\Html\\HtmlServiceProvider' => $vendorDir . '/laravelcollective/html/src/HtmlServiceProvider.php',
     'CreateAdminTable' => $baseDir . '/database/migrations/2018_04_27_091041_create_admin_table.php',
+    'CreateAdminsTable' => $baseDir . '/database/migrations/2018_05_14_202742_create_admins_table.php',
     'CreateCommentsTable' => $baseDir . '/database/migrations/2018_04_16_135116_create_comments_table.php',
     'CreateFailedJobsTable' => $baseDir . '/database/migrations/2018_01_22_135112_create_failed_jobs_table.php',
     'CreateHousesTable' => $baseDir . '/database/migrations/2018_02_04_184948_create_houses_table.php',

@@ -30,7 +30,7 @@
             <h3 id="titre">Administration AtypikHouse</h3>
             <ul id="menu">
                 <li><a href="{{ url('/') }}" class="btn btn-success">Site Internet</a></li>
-                <li><a href="#" class="btn btn-danger">Déconnexion</a></li>
+                <li><a href="{{route('admin.logout') }}" class="btn btn-danger">Déconnexion</a></li>
             </ul>
         </div>
     </nav>

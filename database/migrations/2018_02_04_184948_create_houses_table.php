@@ -18,6 +18,7 @@ class CreateHousesTable extends Migration
             $table->string('title');
             $table->integer('user_id');
             $table->string('idCategory');
+            $table->integer('idVille');
             $table->string('description');
             $table->float('price');
             $table->string('photo');
@@ -32,6 +33,6 @@ class CreateHousesTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('houses');
     }
 }

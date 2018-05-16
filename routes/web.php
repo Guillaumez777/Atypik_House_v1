@@ -12,7 +12,7 @@
 */
 
 // Admin
-Route::get('/admin', 'Admin\AdminController@home');
+
 // Route::get('protected', ['middleware' => ['auth', 'admin'], function() {
 //     Route::get('/admin', 'Admin\AdminController@home');
 // }]);
@@ -22,14 +22,29 @@ Route::get('/', function () {
     return view('home');
 });
 
+Auth::routes();
 
-/*Route::get('/subscribe', function () {
-    return view('subscribe');
-});*/
+Route::get('/home', 'HomeController@index')->name('home');
+ 
+//admin route for our multi-auth system
 
-/*Route::get('/users/{id}', 'UsersController@show');*/
+ Route::prefix('admin')->group(function () {
+    Route::get('/home', 'HomeController@index')->name('admin.home');
+    Route::get('/profile/{id}', 'AdminController@profilUser')->name('admin.user');
+    
+    Route::get('/', 'AdminController@index')->name('admin.dashboard');
+    Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
+    Route::post('/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
+    Route::get('/logout','Auth\AdminLoginController@logout')->name('admin.logout');
+
+    //admin password reset routes
+    Route::post('/password/email','Auth\AdminForgotPasswordController@sendResetLinkEmail')->name('admin.password.email');
+    Route::get('/password/reset','Auth\AdminForgotPasswordController@showLinkRequestForm')->name('admin.password.request');
+    Route::post('/password/reset','Auth\AdminResetPasswordController@reset');
+    Route::get('/password/reset/{token}','Auth\AdminResetPasswordController@showResetForm')->name('admin.password.reset');
+ });
+
 Route::group(['middleware' => 'auth'], function () {
-    /*Route::get('/profile', 'HomeController@index');*/
     Route::get('/profile/{id}', 'UsersController@index');
     Route::get('/mylocations/{id}', 'HousesController@mylocations');
     Route::get('/houses/edit/{id}', 'HousesController@edit');
@@ -37,18 +52,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/comments', 'CommentsController@index');/*->middleware('auth');*/
     //Route::get('/houses/update/{id}', 'HousesController@update');
 });
-    /*Route::get('/unfriend/{id}', function($id){
-         $loggedUser = Auth::user()->id;
-          DB::table('friendships')
-          ->where('requester', $loggedUser)
-          ->where('user_requested', $id)
-          ->delete();
-          DB::table('friendships')
-          ->where('user_requested', $loggedUser)
-          ->where('requester', $id)
-          ->delete();
-           return back()->with('msg', 'You are not friend with this person');
-    });*/
 
 // Formulaire
  Route::get('/posts', 'PostsController@index');
@@ -65,7 +68,6 @@ Route::get('/verifyemail/{token}', 'Auth\RegisterController@verify');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Auth::routes();
 
 Route::group(['prefix' => 'adminapi'], function(){
     Route::resource('house_type', 'HouseTypeController');
