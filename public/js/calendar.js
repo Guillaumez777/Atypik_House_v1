@@ -7,7 +7,7 @@ $(function () {
                 defaultDate: "+1w",
                 changeMonth: true,
                 numberOfMonths: 2,
-                beforeShowDay: DisableSpecificDates            
+                // beforeShowDay: DisableSpecificDates            
             })
             .on("change", function () {
                 to.datepicker("option", "minDate", getDate(this));
