@@ -69,23 +69,32 @@
                     {{ csrf_field() }}
                 <div class="form-group">
                     <input type="hidden" name="house_id" value="{{ $house->id }}">
-                    {!! Form::label('from', 'Départ : ', array('class' => 'formLabel')) !!} 
+                    {!! Form::label('from', 'Départ : ', array('class' => 'formLabel')) !!}
                     {!! Form::text('start_date', Form::old('from'), array( 
                         'class' => 'form-control',
                         'id' => 'from',
+                        // 'required' => 'required',
                     )) !!} 
                     {!! Form::label('to', 'Arrivée : ', array('class' => 'formLabel')) !!} 
                     {!! Form::text('end_date', Form::old('to'), array( 
                         'class' => 'form-control',
                         'id' => 'to',
+                        // 'required' => 'required',
                     )) !!}
-                    {!! Form::label('traveler', 'Voyageurs : ', array('class' => 'formLabel')) !!} 
+                    {{-- <div id="datepicker"></div> --}}
+                    {{-- {!! Form::label('traveler', 'Voyageurs : ', array('class' => 'formLabel')) !!} 
                     {!! Form::select('traveler', array(
                         'Cats' => array('leopard' => 'Leopard'),
                         'Dogs' => array('spaniel' => 'Spaniel'),
-                    )) !!} 
+                    )) !!}  --}}
                 </div>
-                {!! Form::submit('Réserver', array('class' => 'btn btn-success btn_reserve')) !!} 
+                <h3 class="price">Prix du séjour : {{$house->price}}€</h3>
+                {!! Form::submit('Réserver', array('class' => 'btn btn-success btn_reserve')) !!}
+                @if ($errors->any())
+                    <div class="alert alert-danger">Vous devez remplir tout les champs</div>
+                @else
+                    <div></div>
+                @endif
             </div>
         </div>
 
