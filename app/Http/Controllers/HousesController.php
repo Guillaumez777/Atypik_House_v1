@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\House;
+use App\Category;
+
 use Illuminate\Http\Request;
 use Intervention\Image\ImageManager;
 use Illuminate\Support\Facades\Auth;
@@ -27,11 +29,13 @@ class HousesController extends Controller
     /**
      * Show the form for creating a new resource.
      *
+     * * @param  \App\Category  $categories
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Category $categories)
     {
-        return view('houses.create');
+        $categories = category::all();
+        return view('houses.create')->with('categories', $categories);
     }
 
     /**
