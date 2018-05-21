@@ -42,4 +42,13 @@
     <h2>Avis : </h2>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus vitae nulla nemo, ipsa, officiis recusandae praesentium nihil, minus cumque nostrum enim aliquam nam libero earum mollitia eaque. Voluptas, cum esse!</p>
 </div>
+<div id="proprietes">
+    <h2>Propriétés : </h2>
+    <select id="name" type="text" name="category_id" class="form-control">
+        <option id="" value="defaut" selected="selected" required autofocus>Choisissez votre categorie</option>
+        @foreach($categories as $category)
+            <option value="<?php echo($category->id);?>"><?php echo($category->categorie);?></option>
+        @endforeach
+    </select>
+</div>
 @endsection

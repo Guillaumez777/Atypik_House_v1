@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 use App\User;
+use App\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 class AdminController extends Controller
@@ -20,10 +21,11 @@ class AdminController extends Controller
      * @param  \App\User  $users
      * @return \Illuminate\Http\Response
      */
-    public function index(User $users)
+    public function index(User $users, Category $categories)
     {
+        $categories = category::all();
         $users = user::all();
-        return view('admin')->with('users', $users);
+        return view('admin')->with('users', $users)->with('categories', $categories);
     }
 
     /**
