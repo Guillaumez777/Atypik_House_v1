@@ -23,17 +23,7 @@ class HousesController extends Controller
      */
     public function index(House $house, Ville $villes)
     {
-        //$houses = house::all();
-         //$houses = house::with('ville')->get();
-        //  ->with('villes','villes.id','houses.idVille')
-         
-        // $houses = DB::table('houses')
-        //     ->join('villes', 'houses.idVille', '=', 'villes.id')
-        //     ->select('houses.*', 'villes.*')
-        //     ->get();
-             //$houses = (array)$houses;
-            //var_dump($houses);
-        return view('houses.index');//->with('houses', $houses);
+        return view('houses.index');
         
     }
 

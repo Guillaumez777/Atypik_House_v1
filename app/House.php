@@ -14,7 +14,6 @@ class House extends Model
 
     public function ville() {
         return $this->belongsTo('App\Ville');
-        //return Ville::where('idVille', $this->id)->get();//first()->ville_nom;
     }
     
     public function comments() {
