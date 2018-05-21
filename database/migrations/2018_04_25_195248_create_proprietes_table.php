@@ -13,7 +13,7 @@ class CreateProprietesTable extends Migration
      */
     public function up()
     {
-         Schema::table('proprietes', function (Blueprint $table) {
+        //  Schema::table('proprietes', function (Blueprint $table) {
         //     $table->increments('id');
         //     $table->string('propriete');
         //     $table->boolean('type');
@@ -21,7 +21,7 @@ class CreateProprietesTable extends Migration
         //     $table->integer('category_id');
         //     $table->foreign('category_id')->references('id')->on('categories');
         //     $table->timestamps();
-        });
+        // });
     }
 
     /**

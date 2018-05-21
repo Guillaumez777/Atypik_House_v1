@@ -13,18 +13,18 @@ class CreateVillesTable extends Migration
      */
     public function up()
     {
-        Schema::table('villes', function (Blueprint $table) {
-            // $table->increments('id');
-            // $table->string('ville_departement');
-            // $table->string('ville_nom');
-            // $table->string('ville_nom_simple');
-            // $table->string('ville_nom_reel');
-            // $table->string('ville_code_postal');
-            // $table->string('ville_commune');
-            // $table->string('ville_code_commune');
-            // $table->integer('ville_arrondissement');
-            // $table->timestamps();
-        });
+        // Schema::table('villes', function (Blueprint $table) {
+        //     $table->increments('id');
+        //     $table->string('ville_departement');
+        //     $table->string('ville_nom');
+        //     $table->string('ville_nom_simple');
+        //     $table->string('ville_nom_reel');
+        //     $table->string('ville_code_postal');
+        //     $table->string('ville_commune');
+        //     $table->string('ville_code_commune');
+        //     $table->integer('ville_arrondissement');
+        //     $table->timestamps();
+        //});
     }
 
     /**

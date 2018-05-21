@@ -23,7 +23,7 @@ class HousesController extends Controller
      */
     public function index(House $house, Ville $villes)
     {
-        $houses = house::all();
+        //$houses = house::all();
          //$houses = house::with('ville')->get();
         //  ->with('villes','villes.id','houses.idVille')
          

@@ -13,19 +13,19 @@ class CreateHousesTable extends Migration
      */
     public function up()
     {
-        Schema::table('houses', function (Blueprint $table) {
-            //$table->string('title');
-            //$table->integer('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
-            //$table->integer('category_id');
-            $table->foreign('category_id')->references('id')->on('categories');
-            //$table->integer('ville_id');
-            $table->foreign('ville_id')->references('id')->on('villes');
-            // $table->string('description');
-            // $table->float('price');
-            // $table->string('photo');
-            // $table->timestamps();
-        });
+        // Schema::table('houses', function (Blueprint $table) {
+        //     $table->string('title');
+        //     $table->integer('user_id');
+        //     $table->foreign('user_id')->references('id')->on('users');
+        //     $table->integer('category_id');
+        //     $table->foreign('category_id')->references('id')->on('categories');
+        //     $table->integer('ville_id');
+        //     $table->foreign('ville_id')->references('id')->on('villes');
+        //     $table->string('description');
+        //     $table->float('price');
+        //     $table->string('photo');
+        //     $table->timestamps();
+        // });
     }
 
     /**
@@ -35,6 +35,6 @@ class CreateHousesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('houses');
+        //Schema::dropIfExists('houses');
     }
 }
