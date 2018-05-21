@@ -22,9 +22,7 @@ Route::get('/', function () {
     return view('home');
 });
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
+route::get('/home', 'HomeController@index')->name('home');
  
 //admin route for our multi-auth system
 
@@ -54,21 +52,11 @@ Route::group(['middleware' => 'auth'], function () {
 });
 
 // Formulaire
-Route::get('/posts', 'PostsController@index');
+ //Route::get('/posts', 'PostsController@index');
 // Route::post('/contact', 'FormController@store'); 
 Route::resource('posts', 'PostsController' , ['only' => ['index', 'store']]); 
 
-
 Route::get('/houses/index', 'HousesController@index');
 Route::resource('houses', 'HousesController', ['only' => ['index','show', 'create', 'store', 'edit', 'update', 'destroy', 'mylocations']]);
-Route::get('/register', 'RegistersController@create');
-Route::post('/register', 'RegistersController@store');
-Route::post('/login', 'SessionsController@login');
 Route::get('/verifyemail/{token}', 'Auth\RegisterController@verify');
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-Route::group(['prefix' => 'adminapi'], function(){
-    Route::resource('house_type', 'HouseTypeController');
-});

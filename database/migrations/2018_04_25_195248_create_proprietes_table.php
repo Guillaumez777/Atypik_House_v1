@@ -13,13 +13,14 @@ class CreateProprietesTable extends Migration
      */
     public function up()
     {
-        Schema::create('proprietes', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('propriete');
-            $table->boolean('type');
-            $table->integer('typeInt');
-            $table->integer('idCategory');
-            $table->timestamps();
+         Schema::table('proprietes', function (Blueprint $table) {
+        //     $table->increments('id');
+        //     $table->string('propriete');
+        //     $table->boolean('type');
+        //     $table->integer('typeInt');
+        //     $table->integer('category_id');
+        //     $table->foreign('category_id')->references('id')->on('categories');
+        //     $table->timestamps();
         });
     }
 
@@ -30,6 +31,6 @@ class CreateProprietesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('proprietes');
+        //Schema::dropIfExists('proprietes');
     }
 }

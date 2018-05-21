@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\House;
+use App\Ville;
 use App\Category;
 
 use Illuminate\Http\Request;
@@ -20,22 +21,37 @@ class HousesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(House $house, Ville $villes)
     {
         $houses = house::all();
-        return view('houses.index')->with('houses', $houses);
+         //$houses = house::with('ville')->get();
+        //  ->with('villes','villes.id','houses.idVille')
+         
+        // $houses = DB::table('houses')
+        //     ->join('villes', 'houses.idVille', '=', 'villes.id')
+        //     ->select('houses.*', 'villes.*')
+        //     ->get();
+             //$houses = (array)$houses;
+            //var_dump($houses);
+        return view('houses.index');//->with('houses', $houses);
+        
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * * @param  \App\Category  $categories
+     * @param  \App\Category  $categories
+     * @param  \App\Ville  $villes
      * @return \Illuminate\Http\Response
      */
-    public function create(Category $categories)
+    public function create(Category $categories, Ville $villes)
     {
         $categories = category::all();
-        return view('houses.create')->with('categories', $categories);
+        $villes = ville::all();
+        return view('houses.create', [
+            'villes'=> $villes,
+            'categories' => $categories]
+        );
     }
 
     /**
@@ -48,11 +64,13 @@ class HousesController extends Controller
     {
         $house = new house;
         $house->title = $request->title;
-        $house->idUser = $request->idUser;
-        $house->idCategory = $request->idCategory;
+        $house->user_id = $request->user_id;
+        $house->category_id = $request->category_id;
+        $house->ville_id = $request->ville_id;
         $house->price = $request->price;
         $house->photo = $request->photo;
         $house->description = $request->description;
+        var_dump($house->user_id);
 
         $this->validate($request, [
         // check validtion for image or file
@@ -145,7 +163,7 @@ class HousesController extends Controller
 
      $houseProfil = DB::table('users')
      ->select('users.*', 'houses.*')
-     ->leftJoin('houses', 'houses.idUser','users.id')
+     ->leftJoin('houses', 'houses.user_id','users.id')
      ->where('users.id', '=', $id)
      ->where('houses.id', '!=', NULL)
      ->get();

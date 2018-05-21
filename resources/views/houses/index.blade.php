@@ -15,14 +15,16 @@
                     <p><i class="fas fa-bed"></i> : 2 lits - <i class="fas fa-users"></i> : pour 2 Personnes</p>
                     <h3 class="price">{{$house->price}}€</h3>
                     <p class="card-text"><?php echo(substr($house->description, 0, 50));?></p>
+                    {{-- <p>{{$house->ville->ville_nom}}</p> --}}
+                    {{-- @foreach($houses->ville as $ville)
+                        <p>{{$ville->ville_nom}}</p>
+                    @endforeach --}}
                 </div>
                 <div class="note card-footer">
                     <medium class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</medium>
                     <a class="btn btn-success btn_reserve" href="{{action('HousesController@show', $house['id'])}}">Réserver</a>
                 </div>
             </div>
-          </form>
-        <!-- </form> -->
         </div>   
         @endforeach
     </div>   

@@ -14,7 +14,8 @@ class VillesController extends Controller
      */
     public function index()
     {
-        //
+        $villes = ville::all();
+        //return view('houses.slow')->with('comments', $comments);
     }
 
     /**

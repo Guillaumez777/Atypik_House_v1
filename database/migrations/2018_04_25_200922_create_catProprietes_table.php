@@ -13,12 +13,14 @@ class CreateCatProprietesTable extends Migration
      */
     public function up()
     {
-        Schema::create('catProprietes', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('contenu');
-            $table->integer('idCategory');
-            $table->integer('idPropriete');
-            $table->timestamps();
+        Schema::table('catProprietes', function (Blueprint $table) {
+            // $table->increments('id');
+            // $table->string('contenu');
+            // $table->integer('category_id');
+            // $table->foreign('category_id')->references('id')->on('categories');
+            // $table->integer('propriete_id');
+            // $table->foreign('propriete_id')->references('id')->on('proprietes');
+            //$table->timestamps();
         });
     }
 

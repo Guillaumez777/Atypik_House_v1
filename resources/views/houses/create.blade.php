@@ -23,7 +23,7 @@
 
                             <div class="col-md-6">
                                 <!--<input id="name" type="text" class="form-control" name="idCategory" required autofocus>-->
-                                <select id="name" type="text" name="idCategory" class="form-control">
+                                <select id="name" type="text" name="category_id" class="form-control">
                                     <option id="" value="defaut" selected="selected" required autofocus>Choisissez votre categorie</option>
                                     @foreach($categories as $category)
                                         <option value="<?php echo($category->id);?>"><?php echo($category->categorie);?></option>
@@ -31,7 +31,17 @@
                                 </select>
                             </div>
                         </div>
-
+                        <div class="form-group">
+                            <label for="name" class="col-md-4 control-label">Ville</label>
+                            <div class="col-md-6">
+                                <select id="name" type="text" name="ville_id" class="form-control">
+                                    <option id="" value="defaut" selected="selected" required autofocus>Choisissez votre ville</option>
+                                    @foreach($villes as $ville)
+                                        <option value="<?php echo($ville->id);?>"><?php echo($ville->ville_nom);?></option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>   
                         <div class="form-group">
                             <label for="name" class="col-md-4 control-label">Prix</label>
 
@@ -56,7 +66,7 @@
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <input id="name" type="hidden" class="form-control" name="idUser" required autofocus value="{{ Auth::user()->id }}">
+                            <input id="name" type="hidden" class="form-control" name="user_id" required autofocus value="{{ Auth::user()->id }}">
                         </div>
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">

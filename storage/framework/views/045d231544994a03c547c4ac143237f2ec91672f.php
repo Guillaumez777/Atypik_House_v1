@@ -8,7 +8,10 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
 
-    <title>AtypikHouse - Votre habitat insolite, partout en Europe</title>
+    
+    
+    <title>AtypikHouse - Votre habitats insolite, partout en Europe</title>
+
     
     <link rel="icon" type="image/png" href="<?php echo e(asset('img/LogoNavigateur.png')); ?>" />
 
@@ -143,7 +146,6 @@
                     </ul>
                 </div>
             </div>
-            <?php var_dump(Auth::guard('admin')->check());?>
         </div>
     </footer>
 
