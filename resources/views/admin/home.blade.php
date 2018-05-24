@@ -44,11 +44,11 @@
 </div>
 <div id="proprietes">
     <h2>Propriétés : </h2>
-    <select id="name" type="text" name="category_id" class="form-control">
+    {{-- <select id="name" type="text" name="category_id" class="form-control">
         <option id="" value="defaut" selected="selected" required autofocus>Choisissez votre categorie</option>
         @foreach($categories as $category)
             <option value="<?php echo($category->id);?>"><?php echo($category->categorie);?></option>
         @endforeach
-    </select>
+    </select> --}}
 </div>
 @endsection

@@ -79,3 +79,12 @@ td, th {
         padding: 120px 50px 0 50px;
     }
 }
+
+/* Properties section page */
+
+.block-properties {
+    display: none;
+}
+.create_properties {
+    margin-top: 5%;
+}

@@ -74,4 +74,30 @@
     <h2>Avis : </h2>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus vitae nulla nemo, ipsa, officiis recusandae praesentium nihil, minus cumque nostrum enim aliquam nam libero earum mollitia eaque. Voluptas, cum esse!</p>
 </div>
+<div id="proprietes">
+    <h2>Proprietes : </h2>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                <select id="name" type="text" name="category_id" id="select_category" class="form-control">
+                    <option id="" value="defaut" selected="selected" required autofocus>Choisissez votre categorie</option>
+                    @foreach($categories as $category)
+                        <option value="<?php echo($category->id);?>"><?php echo($category->categorie);?></option>
+                    @endforeach
+                </select>
+            </div>
+        </div>
+        <div class="block-properties">
+            <div class="create_properties row">
+                <div class="col-md-4 col-md-offset-4">   
+                    <input type="text" name="propriete[]" placeholder="Ajouter une propriété"  class="form-control"/>    
+                </div>
+                <a href="javascript:void(0);" class="add_button" title="Ajouter une propriété"><button class="btn btn-primary" style="border-radius:30px;">+</button></a>
+            </div>
+            <div class="row">
+                <div class="text-center" style="margin-top: 5%;">
+                    <input type="submit" class="btn btn-success" value="Sauvegarder"/>
+                </div>
+            </div>
+        </div>
 @endsection

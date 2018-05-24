@@ -33,3 +33,37 @@ $('#5').click(function () {
     $('#avis').css('display', 'none');
     $('#proprietes').css('display', 'block');
 });
+
+/* method to add/remove field*/
+$(document).ready(function(){
+    var maxField = 10; //Input fields increment limitation
+    var addButton = $('.add_button'); //Add button selector
+    var wrapper = $('.create_properties'); //Input field wrapper
+    var fieldHTML = '<div class="create_properties row"><div class="col-md-4 col-md-offset-4"><input type="text" name="propriete[]" placeholder="Saisir une propriété" class="form-control"/></div><a href="javascript:void(0);" class="remove_button" title="Retirer un champ"><button class="btn btn-danger" style="border-radius:30px;">-</button></a></div>'; //New input field html 
+    var x = 1; //Initial field counter is 1
+    $(addButton).click(function(){ //Once add button is clicked
+        if(x < maxField){ //Check maximum number of input fields
+            x++; //Increment field counter
+            $(wrapper).append(fieldHTML); // Add field html
+        }
+    });
+    $(wrapper).on('click', '.remove_button', function(e){ //Once remove button is clicked
+        e.preventDefault();
+        $(this).parent('div').remove(); //Remove field html
+        x--; //Decrement field counter
+    });
+});
+
+$("select").change(function(){
+    //var selectedId = $(this).find("option:selected").attr("id");
+    //if
+    // $("option").change(function(){
+    // var optionValue = $("option").find("option").val();
+    // alert(optionValue);
+        //$(".block-properties").hide();
+    // } else {
+        $(".block-properties").show(); 
+    // }   
+    var optionText = $( "#select_category option:selected" ).text();
+    console.log(optionText);
+    })
