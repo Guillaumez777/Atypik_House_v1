@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\House;
 use App\Ville;
-use App\Category;
+use App\Category; 
 
 use Illuminate\Http\Request;
 use Intervention\Image\ImageManager;
