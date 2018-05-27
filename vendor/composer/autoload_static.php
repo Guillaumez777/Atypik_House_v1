@@ -108,6 +108,10 @@ class ComposerStaticInit104d6085db2bc05ea6d41e453199519e
             'Cron\\' => 5,
             'Collective\\Html\\' => 16,
         ),
+        'B' => 
+        array (
+            'Bestmomo\\LaravelEmailConfirmation\\' => 34,
+        ),
         'A' => 
         array (
             'App\\' => 4,
@@ -289,6 +293,10 @@ class ComposerStaticInit104d6085db2bc05ea6d41e453199519e
         array (
             0 => __DIR__ . '/..' . '/laravelcollective/html/src',
         ),
+        'Bestmomo\\LaravelEmailConfirmation\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/bestmomo/laravel-email-confirmation/src',
+        ),
         'App\\' => 
         array (
             0 => __DIR__ . '/../..' . '/app',
@@ -369,6 +377,7 @@ class ComposerStaticInit104d6085db2bc05ea6d41e453199519e
         'App\\Http\\Controllers\\HouseTypeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HouseTypeController.php',
         'App\\Http\\Controllers\\HousesController' => __DIR__ . '/../..' . '/app/Http/Controllers/HousesController.php',
         'App\\Http\\Controllers\\PostsController' => __DIR__ . '/../..' . '/app/Http/Controllers/PostsController.php',
+        'App\\Http\\Controllers\\QueryController' => __DIR__ . '/../..' . '/app/Http/Controllers/QueryController.php',
         'App\\Http\\Controllers\\UsersController' => __DIR__ . '/../..' . '/app/Http/Controllers/UsersController.php',
         'App\\Http\\Controllers\\VillesController' => __DIR__ . '/../..' . '/app/Http/Controllers/VillesController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
@@ -379,6 +388,7 @@ class ComposerStaticInit104d6085db2bc05ea6d41e453199519e
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
         'App\\Jobs\\SendVerificationEmail' => __DIR__ . '/../..' . '/app/Jobs/SendVerificationEmail.php',
         'App\\Mail\\EmailVerification' => __DIR__ . '/../..' . '/app/Mail/EmailVerification.php',
+        'App\\Notifications\\ConfirmEmail' => __DIR__ . '/../..' . '/app/Notifications/ConfirmEmail.php',
         'App\\Post' => __DIR__ . '/../..' . '/app/Post.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
@@ -390,6 +400,13 @@ class ComposerStaticInit104d6085db2bc05ea6d41e453199519e
         'App\\Ville' => __DIR__ . '/../..' . '/app/Ville.php',
         'ArithmeticError' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/ArithmeticError.php',
         'AssertionError' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/AssertionError.php',
+        'Bestmomo\\LaravelEmailConfirmation\\Commands\\AuthCommand' => __DIR__ . '/..' . '/bestmomo/laravel-email-confirmation/src/Commands/AuthCommand.php',
+        'Bestmomo\\LaravelEmailConfirmation\\Commands\\NotificationCommand' => __DIR__ . '/..' . '/bestmomo/laravel-email-confirmation/src/Commands/NotificationCommand.php',
+        'Bestmomo\\LaravelEmailConfirmation\\Notifications\\ConfirmEmail' => __DIR__ . '/..' . '/bestmomo/laravel-email-confirmation/src/Notifications/ConfirmEmail.php',
+        'Bestmomo\\LaravelEmailConfirmation\\ServiceProvider' => __DIR__ . '/..' . '/bestmomo/laravel-email-confirmation/src/ServiceProvider.php',
+        'Bestmomo\\LaravelEmailConfirmation\\Traits\\AuthenticatesUsers' => __DIR__ . '/..' . '/bestmomo/laravel-email-confirmation/src/Traits/AuthenticatesUsers.php',
+        'Bestmomo\\LaravelEmailConfirmation\\Traits\\RegistersUsers' => __DIR__ . '/..' . '/bestmomo/laravel-email-confirmation/src/Traits/RegistersUsers.php',
+        'Bestmomo\\LaravelEmailConfirmation\\Traits\\ResetsPasswords' => __DIR__ . '/..' . '/bestmomo/laravel-email-confirmation/src/Traits/ResetsPasswords.php',
         'Carbon\\Carbon' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Carbon.php',
         'Carbon\\CarbonInterval' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/CarbonInterval.php',
         'Carbon\\CarbonPeriod' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/CarbonPeriod.php',
@@ -4198,6 +4215,7 @@ class ComposerStaticInit104d6085db2bc05ea6d41e453199519e
         'TijsVerkoyen\\CssToInlineStyles\\Css\\Rule\\Processor' => __DIR__ . '/..' . '/tijsverkoyen/css-to-inline-styles/src/Css/Rule/Processor.php',
         'TijsVerkoyen\\CssToInlineStyles\\Css\\Rule\\Rule' => __DIR__ . '/..' . '/tijsverkoyen/css-to-inline-styles/src/Css/Rule/Rule.php',
         'TypeError' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/TypeError.php',
+        'UpdateUserTable' => __DIR__ . '/../..' . '/database/migrations/2018_05_27_150230_updateUserTable.php',
         'Webmozart\\Assert\\Assert' => __DIR__ . '/..' . '/webmozart/assert/src/Assert.php',
         'XdgBaseDir\\Xdg' => __DIR__ . '/..' . '/dnoegel/php-xdg-base-dir/src/Xdg.php',
         'phpDocumentor\\Reflection\\DocBlock' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlock.php',

@@ -59,3 +59,4 @@ Route::get('/houses/index', 'HousesController@index');
 Route::resource('houses', 'HousesController', ['only' => ['index','show', 'create', 'store', 'edit', 'update', 'destroy', 'mylocations']]);
 Route::get('/verifyemail/{token}', 'Auth\RegisterController@verify');
 Auth::routes();
+Route::get('/users/confirmation/{email_token}', 'Auth\RegisterController@confirmation')->name('confirmation');
