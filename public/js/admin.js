@@ -54,16 +54,16 @@ $(document).ready(function(){
     });
 });
 
-$("select").change(function(){
-    //var selectedId = $(this).find("option:selected").attr("id");
-    //if
-    // $("option").change(function(){
-    // var optionValue = $("option").find("option").val();
-    // alert(optionValue);
-        //$(".block-properties").hide();
-    // } else {
-        $(".block-properties").show(); 
-    // }   
-    var optionText = $( "#select_category option:selected" ).text();
-    console.log(optionText);
-    })
+
+
+    $('select').on('change', function(){
+        // cache the $(this) jQuery object since we're potentially using it twice:
+        console.log($(this).val());
+        if($(this).val() == "defaut"){
+            $(".block-properties").hide();
+            $("input[name*='propriete']" ).val('');
+            //$("input[name*='propriete']" ).nexAll("<div>").remove;
+        } else {
+            $(".block-properties").show();
+        }
+    });
