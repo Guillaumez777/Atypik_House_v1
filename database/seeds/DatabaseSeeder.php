@@ -11,6 +11,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        // Lance le seed pour insérer des données dans la base de donnée
         // $this->call(UsersTableSeeder::class);
+        // $this->call(ReservationsTableSeeder::class);
     }
 }

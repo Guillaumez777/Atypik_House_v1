@@ -169,6 +169,9 @@ return [
          */
         Laravel\Tinker\TinkerServiceProvider::class,
 
+        // Payement system
+        Laravel\Cashier\CashierServiceProvider::class,
+
         /*
          * Application Service Providers...
          */
