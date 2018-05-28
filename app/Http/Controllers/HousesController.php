@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use App\House;
 use App\Ville;
 use App\Category;
+use App\Propriete;
 
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Intervention\Image\ImageManager;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -34,13 +36,17 @@ class HousesController extends Controller
      * @param  \App\Ville  $villes
      * @return \Illuminate\Http\Response
      */
-    public function create(Category $categories, Ville $villes)
+    public function create(Response $response, Category $categories, Ville $villes, Propriete $proprietes)
     {
         $categories = category::all();
         $villes = ville::all();
+        $proprietes = propriete::all();
+        $response = Response::json($proprietes);
         return view('houses.create', [
             'villes'=> $villes,
-            'categories' => $categories]
+            'categories' => $categories,
+            'proprietes' => $proprietes,
+            'response' => $response]
         );
     }
 
