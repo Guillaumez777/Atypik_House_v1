@@ -23,6 +23,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     @yield('link')
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
     <div id="app">

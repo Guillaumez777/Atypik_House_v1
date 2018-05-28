@@ -54,7 +54,7 @@ Route::group(['middleware' => 'auth'], function () {
  //Route::get('/posts', 'PostsController@index');
 // Route::post('/contact', 'FormController@store'); 
 Route::resource('posts', 'PostsController' , ['only' => ['index', 'store']]); 
-
+Route::get('/users/confirmation{email_token}', 'Auth\RegisterController@confirmation');
 Route::get('/houses/index', 'HousesController@index');
 Route::resource('houses', 'HousesController', ['only' => ['index','show', 'create', 'store', 'edit', 'update', 'destroy', 'mylocations']]);
 Route::get('/verifyemail/{token}', 'Auth\RegisterController@verify');
