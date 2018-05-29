@@ -54,6 +54,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/profile/{id}', 'UsersController@index');
     Route::get('/mylocations/{id}', 'HousesController@mylocations');
     Route::get('/houses/edit/{id}', 'HousesController@edit');
+    Route::get('/json_propriete', 'HousesController@json_propriete');
 
     Route::post('/comments', 'CommentsController@index');/*->middleware('auth');*/
     //Route::get('/houses/update/{id}', 'HousesController@update');

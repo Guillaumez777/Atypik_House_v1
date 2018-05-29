@@ -8,13 +8,14 @@ use App\Category;
 use App\Propriete;
 
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
+//use Illuminate\Http\Response;
 use Intervention\Image\ImageManager;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 use Session;
 use Image;
+use Response;
 
 class HousesController extends Controller
 {
@@ -36,18 +37,26 @@ class HousesController extends Controller
      * @param  \App\Ville  $villes
      * @return \Illuminate\Http\Response
      */
-    public function create(Response $response, Category $categories, Ville $villes, Propriete $proprietes)
+    public function create(Response $response, Category $categories, Ville $villes)
     {
         $categories = category::all();
         $villes = ville::all();
-        $proprietes = propriete::all();
-        $response = Response::json($proprietes);
+        //$proprietes = propriete::all();
+
         return view('houses.create', [
             'villes'=> $villes,
             'categories' => $categories,
-            'proprietes' => $proprietes,
-            'response' => $response]
+        ]
         );
+    }
+
+    public function json_propriete(){
+        //$proprietes->load('propriete');
+       // $_GET['data'];
+        //json_decode($data);
+        $proprietes = propriete::all();
+        //$proprietes->category()->where('category_id', data)->get();
+        return response()->json(["proprietes" => $proprietes], 200);     
     }
 
     /**

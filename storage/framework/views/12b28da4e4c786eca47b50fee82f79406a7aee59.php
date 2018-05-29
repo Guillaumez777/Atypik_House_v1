@@ -23,7 +23,7 @@
 
                             <div class="col-md-6">
                                 <!--<input id="name" type="text" class="form-control" name="idCategory" required autofocus>-->
-                                <select id="name" type="text" name="category_id" class="form-control">
+                                <select id="select_category" type="text" name="category_id" class="form-control">
                                     <option id="" value="defaut" selected="selected" required autofocus>Choisissez votre categorie</option>
                                     <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                         <option value="<?php echo($category->id);?>"><?php echo($category->categorie);?></option>
@@ -81,6 +81,8 @@
         </div>
     </div>
 </div>
+<script src="<?php echo e(asset('js/proprietes.js')); ?>"></script>
 <?php $__env->stopSection(); ?>
+
 
 <?php echo $__env->make('layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
