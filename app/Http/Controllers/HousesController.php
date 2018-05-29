@@ -37,7 +37,7 @@ class HousesController extends Controller
      * @param  \App\Ville  $villes
      * @return \Illuminate\Http\Response
      */
-    public function create(Response $response, Category $categories, Ville $villes)
+    public function create(Category $categories, Ville $villes)
     {
         $categories = category::all();
         $villes = ville::all();

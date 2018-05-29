@@ -12,11 +12,7 @@ $(document).ready(function(){
                 data: data,
                 success: function (proprietes) {
                     alert('ca marche');
-                    console.log(proprietes[0].category_id);
-                    for(var i in proprietes){
-                        //console.log(proprietes[i])
-                        console.log(proprietes[i]["propriete"]);
-                    } 
+                    console.log(proprietes[0].propriete);
                 },error: function (){
                     alert('ca marche pas');
                 }
