@@ -1,6 +1,6 @@
 $(document).ready(function(){
     $('#select_category').on('change', function(){
-        var data = $(this).val();
+        var category_id= $(this).val();
         console.log("coco");
         // cache the $(this) jQuery object since we're potentially using it twice:
         console.log($(this).val());
@@ -9,10 +9,14 @@ $(document).ready(function(){
                 type: 'GET', 
                 url: "/json_propriete", 
                 dataType: 'json',
-                data: data,
+                data: 'category_id=' + category_id,
                 success: function (proprietes) {
                     alert('ca marche');
-                    console.log(proprietes[0].propriete);
+                    console.log(category_id);
+                    for(var i in proprietes["proprietes"]){                 
+                        var propriete = proprietes["proprietes"][i]["propriete"];
+                        $("#propriete_category").append( "<label><input type='checkbox'/>"+propriete+"</label> " );                        
+                    }                   
                 },error: function (){
                     alert('ca marche pas');
                 }

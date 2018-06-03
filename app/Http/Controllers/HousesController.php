@@ -52,11 +52,11 @@ class HousesController extends Controller
 
     public function json_propriete(){
         //$proprietes->load('propriete');
-       // $_GET['data'];
+        $category_id = $_GET['category_id'];
         //json_decode($data);
-        $proprietes = propriete::all();
-        //$proprietes->category()->where('category_id', data)->get();
-        return response()->json(["proprietes" => $proprietes], 200);     
+        $proprietes = propriete::where('category_id', $category_id)->get();
+        return response()->json(["proprietes" => $proprietes,
+                                 "category_id" => $category_id], 200);     
     }
 
     /**

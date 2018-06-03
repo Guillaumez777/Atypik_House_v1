@@ -17,10 +17,8 @@
                                 <input id="name" type="text" class="form-control" name="title" required autofocus>
                             </div>
                         </div>
-
                         <div class="form-group">
                             <label for="name" class="col-md-4 control-label">Categorie</label>
-
                             <div class="col-md-6">
                                 <!--<input id="name" type="text" class="form-control" name="idCategory" required autofocus>-->
                                 <select id="select_category" type="text" name="category_id" class="form-control">
@@ -30,6 +28,8 @@
                                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                 </select>
                             </div>
+                        </div>
+                        <div id="propriete_category">
                         </div>
                         <div class="form-group">
                             <label for="name" class="col-md-4 control-label">Ville</label>
