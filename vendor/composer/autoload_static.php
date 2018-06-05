@@ -412,7 +412,7 @@ class ComposerStaticInit104d6085db2bc05ea6d41e453199519e
         'CreateJobsTable' => __DIR__ . '/../..' . '/database/migrations/2018_05_27_171104_create_jobs_table.php',
         'CreateProprietesTable' => __DIR__ . '/../..' . '/database/migrations/2018_04_25_195248_create_proprietes_table.php',
         'CreateUsersTable' => __DIR__ . '/../..' . '/database/migrations/2018_05_20_081116_create_users_table.php',
-        'CreateValueCatProprieteHouseTable' => __DIR__ . '/../..' . '/database/migrations/2018_05_21_160623_create_value_catPropriete_House_table.php',
+        'CreateValuecatProprietesTable' => __DIR__ . '/../..' . '/database/migrations/2018_05_23_195943_create_valuecatProprietes_table.php',
         'CreateVillesTable' => __DIR__ . '/../..' . '/database/migrations/2018_05_17_215925_create_villes_table.php',
         'Cron\\AbstractField' => __DIR__ . '/..' . '/mtdowling/cron-expression/src/Cron/AbstractField.php',
         'Cron\\CronExpression' => __DIR__ . '/..' . '/mtdowling/cron-expression/src/Cron/CronExpression.php',

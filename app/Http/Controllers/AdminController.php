@@ -1,8 +1,12 @@
 <?php
 namespace App\Http\Controllers;
 use App\User;
+use App\Category;
+use App\Propriete;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Auth;
+use Session;
 class AdminController extends Controller
 {
     /**
@@ -17,13 +21,14 @@ class AdminController extends Controller
     /**
      * Show the application dashboard.
      *
-     * @param  \App\User  $users
      * @return \Illuminate\Http\Response
      */
-    public function index(User $users)
+    public function index(User $users, Category $categories, Propriete $proprietes)
     {
+        $proprietes = propriete::all();
+        $categories = category::all();
         $users = user::all();
-        return view('admin')->with('users', $users);
+        return view('admin')->with('users', $users)->with('categories', $categories)->with('proprietes', $proprietes);
     }
 
     /**
@@ -37,4 +42,20 @@ class AdminController extends Controller
         ->get();
         return view('admin.profilUser')->with('user', $user);
     }
+
+    public function createproprietes(Request $request)  
+    {
+        //$proprietes = $request->propriete;
+
+        foreach ($request->get('propriete') as $propertie){
+            $propriete = new propriete;
+            $propriete->type = 2;
+            $propriete->typeInt = 2;
+            $propriete->propriete = $propertie;
+            $propriete->category_id = $request->category_id;
+            $propriete->save();
+        }
+        return redirect()->back()->with('success', 'Votre propriété a bien été ajouté à votre catégorie!');
+    }
+    
 }

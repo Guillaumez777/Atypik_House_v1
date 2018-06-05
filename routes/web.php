@@ -39,12 +39,21 @@ Route::prefix('admin')->group(function () {
     Route::get('/password/reset','Auth\AdminForgotPasswordController@showLinkRequestForm')->name('admin.password.request');
     Route::post('/password/reset','Auth\AdminResetPasswordController@reset');
     Route::get('/password/reset/{token}','Auth\AdminResetPasswordController@showResetForm')->name('admin.password.reset');
+
+    //Admin proprietes
+    // Route::post('/proprietes/store', [
+    //     'uses' => 'AdminController@createproprietes',
+    //     'as' => 'create'
+    // ]);
+    Route::post('/proprietes/store','AdminController@createproprietes');
+    Route::get('/proprietes/index', 'ProprietesController@index')->name('propriete.index');
  });
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/profile/{id}', 'UsersController@index');
     Route::get('/mylocations/{id}', 'HousesController@mylocations');
     Route::get('/houses/edit/{id}', 'HousesController@edit');
+    Route::get('/json_propriete', 'HousesController@json_propriete');
 
     Route::post('/comments', 'CommentsController@index');/*->middleware('auth');*/
     //Route::get('/houses/update/{id}', 'HousesController@update');

@@ -71,7 +71,7 @@ return array(
     'CreateJobsTable' => $baseDir . '/database/migrations/2018_05_27_171104_create_jobs_table.php',
     'CreateProprietesTable' => $baseDir . '/database/migrations/2018_04_25_195248_create_proprietes_table.php',
     'CreateUsersTable' => $baseDir . '/database/migrations/2018_05_20_081116_create_users_table.php',
-    'CreateValueCatProprieteHouseTable' => $baseDir . '/database/migrations/2018_05_21_160623_create_value_catPropriete_House_table.php',
+    'CreateValuecatProprietesTable' => $baseDir . '/database/migrations/2018_05_23_195943_create_valuecatProprietes_table.php',
     'CreateVillesTable' => $baseDir . '/database/migrations/2018_05_17_215925_create_villes_table.php',
     'Cron\\AbstractField' => $vendorDir . '/mtdowling/cron-expression/src/Cron/AbstractField.php',
     'Cron\\CronExpression' => $vendorDir . '/mtdowling/cron-expression/src/Cron/CronExpression.php',
