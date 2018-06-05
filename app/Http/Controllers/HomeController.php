@@ -34,7 +34,6 @@ class HomeController extends Controller
         //$query = Request::input('search');
         $house = house::all();
         //$house = DB::table('houses')->where('ville', 'LIKE', '%' . $query . '%');
-        var_dump($house);
-       // return view('page.search', compact('house', 'query'));
+        return view('page.search', compact('house', 'query'));
     }
 }

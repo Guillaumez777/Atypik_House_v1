@@ -3,14 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\House;
-<<<<<<< HEAD
 use App\Ville;
-use App\Category;
-use App\Propriete;
-
-=======
 use App\Reservation;
->>>>>>> reservationn
 use Illuminate\Http\Request;
 //use Illuminate\Http\Response;
 use Intervention\Image\ImageManager;
