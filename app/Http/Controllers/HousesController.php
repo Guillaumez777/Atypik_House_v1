@@ -3,10 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\House;
+<<<<<<< HEAD
 use App\Ville;
 use App\Category;
 use App\Propriete;
 
+=======
+use App\Reservation;
+>>>>>>> reservationn
 use Illuminate\Http\Request;
 //use Illuminate\Http\Response;
 use Intervention\Image\ImageManager;
@@ -105,12 +109,12 @@ class HousesController extends Controller
      * @param  \App\House  $house
      * @return \Illuminate\Http\Response
      */
-    public function show(House $house)
+    public function show(House $house, Reservation $reservation)
     {
         //$houses->posts()->where('idUser', Auth::user()->idUser)->get();
         /*return view('houses.index')->with('houses', $houses);*/
         $house = house::find($house->id);
-        return view('houses.show', compact('house', 'id'));
+        return view('houses.show', compact('house', 'id'), compact('reservation', 'id'));
     }
 
     /**

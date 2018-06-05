@@ -1,3 +1,5 @@
+<?php $__env->startSection('link'); ?>
+<link href="<?php echo e(asset('css/jquery-ui.min.css')); ?>" rel="stylesheet">
 <?php $__env->startSection('content'); ?>
 <div class="container list-category">
     <h2>Nos hébergements</h2>
@@ -65,7 +67,24 @@
         </div>
         <div class="col-md-6">
             <div class="calendar">
-                <p class="text-center">Calendrier</p>
+                <h4 class="text-center">Réserver vos dates : </h4>
+                <form class="form-horizontal" method="POST" action="<?php echo e(url('reservations')); ?>" enctype="multipart/form-data">
+                    <?php echo e(csrf_field()); ?>
+
+                <div class="form-group">
+                    <input type="hidden" name="house_id" value="<?php echo e($house->id); ?>">
+                    <?php echo Form::label('from', 'Départ : ', array('class' => 'formLabel')); ?> 
+                    <?php echo Form::text('start_date', Form::old('from'), array( 
+                        'class' => 'form-control',
+                        'id' => 'from',
+                    )); ?> 
+                    <?php echo Form::label('to', 'Arrivée : ', array('class' => 'formLabel')); ?> 
+                    <?php echo Form::text('end_date', Form::old('to'), array( 
+                        'class' => 'form-control',
+                        'id' => 'to',
+                    )); ?> 
+                </div>
+                <?php echo Form::submit('Réserver', array('class' => 'btn btn-success')); ?> 
             </div>
         </div>
 
@@ -78,4 +97,9 @@
         </form> -->
     </div>   
 </div>
+<?php $__env->startSection('script'); ?>
+<script src="<?php echo e(asset('js/jquery.js')); ?>"></script>
+<script src="<?php echo e(asset('js/jquery-ui.min.js')); ?>"></script>
+<script src="<?php echo e(asset('js/calendar.js')); ?>"></script>
+<?php $__env->stopSection(); ?>
 <?php echo $__env->make('layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
