@@ -23,10 +23,9 @@ Route::get('/', function () {
 });
 
 route::get('/home', 'HomeController@index')->name('home');
- 
 //admin route for our multi-auth system
-
- Route::prefix('admin')->group(function () {
+Route::resource('search', 'QueryController', ['only' => ['index','show', 'create', 'store', 'search']]);
+Route::prefix('admin')->group(function () {
     Route::get('/home', 'HomeController@index')->name('admin.home');
     Route::get('/profile/{id}', 'AdminController@profilUser')->name('admin.user');
     
@@ -40,12 +39,21 @@ route::get('/home', 'HomeController@index')->name('home');
     Route::get('/password/reset','Auth\AdminForgotPasswordController@showLinkRequestForm')->name('admin.password.request');
     Route::post('/password/reset','Auth\AdminResetPasswordController@reset');
     Route::get('/password/reset/{token}','Auth\AdminResetPasswordController@showResetForm')->name('admin.password.reset');
+
+    //Admin proprietes
+    // Route::post('/proprietes/store', [
+    //     'uses' => 'AdminController@createproprietes',
+    //     'as' => 'create'
+    // ]);
+    Route::post('/proprietes/store','AdminController@createproprietes');
+    Route::get('/proprietes/index', 'ProprietesController@index')->name('propriete.index');
  });
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/profile/{id}', 'UsersController@index');
     Route::get('/mylocations/{id}', 'HousesController@mylocations');
     Route::get('/houses/edit/{id}', 'HousesController@edit');
+    Route::get('/json_propriete', 'HousesController@json_propriete');
 
     Route::post('/comments', 'CommentsController@index');/*->middleware('auth');*/
     //Route::get('/houses/update/{id}', 'HousesController@update');
@@ -55,8 +63,15 @@ Route::group(['middleware' => 'auth'], function () {
  //Route::get('/posts', 'PostsController@index');
 // Route::post('/contact', 'FormController@store'); 
 Route::resource('posts', 'PostsController' , ['only' => ['index', 'store']]); 
-
+Route::get('/users/confirmation{email_token}', 'Auth\RegisterController@confirmation');
 Route::get('/houses/index', 'HousesController@index');
 Route::resource('houses', 'HousesController', ['only' => ['index','show', 'create', 'store', 'edit', 'update', 'destroy', 'mylocations']]);
+
+Route::get('/reservations/index', 'Reservations@index');
+Route::resource('reservations', 'ReservationsController', ['only' => ['index','show', 'create', 'store', 'edit', 'update', 'destroy', 'mylocations']]);
+
+Route::get('/register', 'RegistersController@create');
+Route::post('/register', 'RegistersController@store');
+Route::post('/login', 'SessionsController@login');
 Route::get('/verifyemail/{token}', 'Auth\RegisterController@verify');
 Auth::routes();

@@ -10,6 +10,7 @@ use App\Mail\EmailVerification;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Validator;
+use Mail;
 
 class RegisterController extends Controller
 {
@@ -83,6 +84,48 @@ class RegisterController extends Controller
      * @return \Illuminate\Http\Response
      */
 
+    protected function register(Request $request)
+    {
+        $input = $request->all();
+        $validator = $this->validator($input);
+        if ($validator->passes()) {
+            $data = $this->create($input)->toArray();
+
+            $data['email_token'] = str_random(25);
+
+            $user = User::find($data['id']);
+            $user->email_token = $data['email_token'];
+            $user->save();
+
+            Mail::send('email.confirmation', $data, function($message) use($data){
+                $message->to($data['email']);
+                $message->subject('Registration Confirmation');
+            });
+            return redirect(route('login'))->with('status', 'Confirmation email has been send. Please check your email');
+        }
+        return redirect(route('login'))->with('status', $validator->errors());
+    }
+
+    public function confirmation($email_token) {
+        $user = User::where('email_token', $email_token)->first();
+
+        if (!is_null($user)) {
+            $user->verified = 1;
+            $user->email_token;
+            $user->save();
+            return redirect(route('login'))->with('status', 'Your activation is completed.');
+        }
+        return redirect(route('login'))->with('status', 'Something went wrong.');
+    }
+
+    
+    /**
+    * Handle a registration request for the application.
+     *
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\Response
+     */
+
     // public function register(Request $request)
     // {
     //     $this->validator($request->all())->validate();
@@ -98,7 +141,7 @@ class RegisterController extends Controller
      * @return \Illuminate\Http\Response
      */
     
-    public function verify($token)
+    protected function verify($token)
     {
         $user = User::where('email_token', $token)->first();
         $user->verified = 1;

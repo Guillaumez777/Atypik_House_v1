@@ -4,15 +4,16 @@ namespace App\Http\Controllers;
 
 use App\House;
 use App\Ville;
-use App\Category;
-
+use App\Reservation;
 use Illuminate\Http\Request;
+//use Illuminate\Http\Response;
 use Intervention\Image\ImageManager;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 use Session;
 use Image;
+use Response;
 
 class HousesController extends Controller
 {
@@ -38,10 +39,28 @@ class HousesController extends Controller
     {
         $categories = category::all();
         $villes = ville::all();
+        //$proprietes = propriete::all();
+
         return view('houses.create', [
             'villes'=> $villes,
-            'categories' => $categories]
+            'categories' => $categories,
+        ]
         );
+    }
+
+    public function json_propriete(){
+        
+        //$proprietes->load('propriete');
+       // $_GET['data'];
+        //json_decode($data);
+        //$proprietes = propriete::all();
+        $category_id = $_GET['category_id'];
+        $proprietes = Proprietes::whereHas('propriete', function ($query) {
+            $query->where($category_id, '=', $id);
+        })->get();
+        return response()->json(["proprietes" => $proprietes,
+                                "category_id" => $category_id], 200);   
+  
     }
 
     /**
@@ -84,12 +103,12 @@ class HousesController extends Controller
      * @param  \App\House  $house
      * @return \Illuminate\Http\Response
      */
-    public function show(House $house)
+    public function show(House $house, Reservation $reservation)
     {
         //$houses->posts()->where('idUser', Auth::user()->idUser)->get();
         /*return view('houses.index')->with('houses', $houses);*/
         $house = house::find($house->id);
-        return view('houses.show', compact('house', 'id'));
+        return view('houses.show', compact('house', 'id'), compact('reservation', 'id'));
     }
 
     /**

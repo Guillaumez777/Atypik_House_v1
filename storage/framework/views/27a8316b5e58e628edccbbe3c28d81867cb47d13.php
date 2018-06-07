@@ -42,6 +42,7 @@
                     <li><a href="#" id="2">Réservations</a></li>
                     <li><a href="#" id="3">Utilisateurs</a></li>
                     <li><a href="#" id="4">Avis</a></li>
+                    <li><a href="#" id="5">Propriétés</a></li>
                 </ul>
             </div>
         </div>

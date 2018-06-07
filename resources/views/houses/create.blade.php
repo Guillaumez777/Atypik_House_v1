@@ -23,7 +23,7 @@
 
                             <div class="col-md-6">
                                 <!--<input id="name" type="text" class="form-control" name="idCategory" required autofocus>-->
-                                <select id="name" type="text" name="category_id" class="form-control">
+                                <select id="select_category" type="text" name="category_id" class="form-control">
                                     <option id="" value="defaut" selected="selected" required autofocus>Choisissez votre categorie</option>
                                     @foreach($categories as $category)
                                         <option value="<?php echo($category->id);?>"><?php echo($category->categorie);?></option>
@@ -81,4 +81,6 @@
         </div>
     </div>
 </div>
+<script src="{{ asset('js/proprietes.js') }}"></script>
 @endsection
+
