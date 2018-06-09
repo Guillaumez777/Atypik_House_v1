@@ -68,6 +68,10 @@ a {
 	margin: 0 20px 20px 20px;
 }
 
+.card-text {
+	padding: 15px 10px;
+}
+
 /* Navbar */
 .navbar {
 	border-bottom: none;
@@ -146,7 +150,7 @@ a {
 }
 
 /* Registration */
-.panel {
+.panel, .block {
 	margin: 100px;
 }
 
@@ -187,7 +191,7 @@ footer li a:hover{
 .calendar {
 	width: 400px;
 	height: 400px;
-	background-color: #9C0038;
+	/* background-color: #9C0038; */
 	margin: 0 20px;
 }
 
@@ -207,4 +211,9 @@ footer li a:hover{
 input[type=text],
 input[type=textarea] {
 	width: 100%;
+}
+
+.form-horizontal .form-group {
+	margin: 0;
+	padding: 10px;
 }

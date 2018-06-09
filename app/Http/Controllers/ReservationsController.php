@@ -41,10 +41,10 @@ class ReservationsController extends Controller
      */
     public function store(Request $request, House $house)
     {
-        /*$this->validate($request, [ 
+        $this->validate($request, [ 
             'start_date' => 'required|max:100', 
             'end_date' => 'required|max:100', 
-        ]); */
+        ]);
         $start_date = date("Y-m-d", strtotime($request->start_date));
         $end_date = date("Y-m-d", strtotime($request->end_date));
         $house_id = $request->house_id;
