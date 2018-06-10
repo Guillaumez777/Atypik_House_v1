@@ -7,7 +7,7 @@
     <div class="row">
         <div class="col-lg-6 col-md-6 mb-4">
             <div class="card h-100">
-                <a href="#"><img class="card-img-top" src="http://via.placeholder.com/350x150" alt=""></a>
+                <a href="{{action('HousesController@show', $house['id'])}}"><img class="img-responsive img_house" src="{{ asset('img/houses/'.$house->photo) }}"></a>
                 <div class="card-body">
                     <h4 class="title card-title">
                         <a href="#">{{$house->title}}</a>
