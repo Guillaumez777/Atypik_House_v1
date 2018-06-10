@@ -72,6 +72,10 @@ a {
 	padding: 15px 10px;
 }
 
+.img_house {
+	margin: 0 auto;
+}
+
 /* Navbar */
 .navbar {
 	border-bottom: none;
