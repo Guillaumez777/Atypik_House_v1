@@ -1,5 +1,6 @@
 $(document).ready(function(){
     $('#select_category').on('change', function(){
+        $("#propriete_category").empty();
         var category_id= $(this).val();
         console.log("coco");
         // cache the $(this) jQuery object since we're potentially using it twice:
@@ -11,14 +12,25 @@ $(document).ready(function(){
                 dataType: 'json',
                 data: 'category_id=' + category_id,
                 success: function (proprietes) {
-                    alert('ca marche');
                     console.log(category_id);
-                    for(var i in proprietes["proprietes"]){                 
-                        var propriete = proprietes["proprietes"][i]["propriete"];
-                        $("#propriete_category").append( "<label><input type='checkbox'/>"+propriete+"</label> " );                        
+                    console.log(proprietes);
+                    if(proprietes["proprietes"].length == 0){
+                        $( "div" ).remove( ".proprietediv" );
+                    } else {
+                        $("#propriete_category").append("<div class='form-group proprietediv'><label for='name' class='col-md-4 control-label'>Propriétés: </label><div class='col-md-6 proprietelist'></label></div></div>");
+                        for(var i in proprietes["proprietes"]){     
+                            var id = proprietes["proprietes"][i]["id"]        
+                            var propriete = proprietes["proprietes"][i]["propriete"];
+                            var typePropriete = proprietes["proprietes"][i]["typeProprietes"];
+                            console.log(typePropriete);
+                            if(typePropriete == "checkbox") {
+                                $(".proprietelist").append( "<label></label><input type='checkbox' name='valuePropriete[]'/>"+propriete+"<input type='text' name='propriete_id[]' value="+id+"></div>");
+                            } else {
+                                $(".proprietelist").append( "<label>"+propriete+"</label><input type='text' name='valuePropriete[]'/><input type='text' name='propriete_id[]' value="+id+"></div>");
+                            }              
+                        }
                     }                   
                 },error: function (){
-                    alert('ca marche pas');
                 }
             })
         } else {
@@ -26,4 +38,3 @@ $(document).ready(function(){
         }
     });
 });
-

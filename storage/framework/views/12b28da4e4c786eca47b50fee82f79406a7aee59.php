@@ -9,7 +9,6 @@
                     <form class="form-horizontal" method="POST" action="<?php echo e(url('houses')); ?>" enctype="multipart/form-data">
                         <?php echo e(csrf_field()); ?>
 
-
                         <div class="form-group">
                             <label for="name" class="col-md-4 control-label">Titre</label>
 
@@ -20,7 +19,6 @@
                         <div class="form-group">
                             <label for="name" class="col-md-4 control-label">Categorie</label>
                             <div class="col-md-6">
-                                <!--<input id="name" type="text" class="form-control" name="idCategory" required autofocus>-->
                                 <select id="select_category" type="text" name="category_id" class="form-control">
                                     <option id="" value="defaut" selected="selected" required autofocus>Choisissez votre categorie</option>
                                     <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>

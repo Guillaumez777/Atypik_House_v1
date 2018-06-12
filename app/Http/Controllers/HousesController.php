@@ -6,6 +6,8 @@ use App\House;
 use App\Ville;
 use App\Category;
 use App\Propriete;
+use App\ValuecatPropriete;
+use App\User;
 
 use Illuminate\Http\Request;
 //use Illuminate\Http\Response;
@@ -26,7 +28,8 @@ class HousesController extends Controller
      */
     public function index(House $house, Ville $villes)
     {
-        return view('houses.index');
+        //$houses = category::all();
+        return view('houses.index');//->with('houses', $houses);;
         
     }
 
@@ -75,7 +78,6 @@ class HousesController extends Controller
         $house->price = $request->price;
         $house->photo = $request->photo;
         $house->description = $request->description;
-        var_dump($house->user_id);
 
         $this->validate($request, [
         // check validtion for image or file
@@ -88,9 +90,30 @@ class HousesController extends Controller
         $path = public_path('img/houses/' . $filename);
         Image::make($picture->getRealPath())->resize(350, 200)->save($path);
         $house->photo = $filename;
+        //$house->save();
+            //var_dump($request->propriete_id);
+        var_dump($request->valuePropriete);
+        if(isset($request->valuePropriete) && $request->valuePropriete != '') {
+            foreach($request->valuePropriete as $valueProprietesHouse) {
+                //var_dump($valuecatProprietesHouse);
+                $value = new valuecatPropriete;
+                $value->category_id = $house->category_id;
+                $value->valuePropriete = $valueProprietesHouse;
+                $value->propriete_id =  $request->propriete_id;
+                $value->save();
+                // DB::table('valuecatProprietes')->insert(
+                //     ['category_id' => $house->category_id,
+                //      'valuePropriete' => $valueProprietesHouse,
+                //      'propriete_id' => $request->propriete_id,
+                //      'house_id' => $house->id]
+                // )->toArray();
+                //return redirect('houses/index');
+                // var_dump("coco");
+            }
+        }
         
-        $house->save();
-        return redirect('houses/index');
+        
+        //return redirect('houses/index');
     }
 
     /**
