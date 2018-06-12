@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\House;
 use App\Ville;
 use App\Category;
+use App\Reservation;
 use App\Propriete;
 use App\ValuecatPropriete;
 use App\User;
