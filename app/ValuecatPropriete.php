@@ -3,7 +3,10 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 class ValuecatPropriete extends Model
 {
-    protected $table = "valuecatProprietes";
+    //protected $table = "valuecatProprietes";
+    protected $tables = [
+        'valuecatProprietes' => 'array',
+    ];
 
     public function user() {
         return $this->belongsTo('App\User');
