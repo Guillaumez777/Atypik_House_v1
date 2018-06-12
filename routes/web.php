@@ -66,17 +66,5 @@ Route::group(['middleware' => 'auth'], function () {
 Route::resource('posts', 'PostsController' , ['only' => ['index', 'store']]); 
 Route::get('/users/confirmation{email_token}', 'Auth\RegisterController@confirmation');
 Route::get('/houses/index', 'HousesController@index');
-<<<<<<< HEAD
-Route::resource('houses', 'HousesController', ['only' => ['index','show', 'create', 'store', 'edit', 'update', 'destroy', 'mylocations']]);
-
-Route::get('/reservations/index', 'Reservations@index');
-Route::resource('reservations', 'ReservationsController', ['only' => ['index','show', 'create', 'store', 'edit', 'update', 'destroy', 'mylocations']]);
-
-Route::get('/register', 'RegistersController@create');
-Route::post('/register', 'RegistersController@store');
-Route::post('/login', 'SessionsController@login');
-=======
-
->>>>>>> proprietes-dynamiques
 Route::get('/verifyemail/{token}', 'Auth\RegisterController@verify');
 Auth::routes();
