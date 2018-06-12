@@ -70,3 +70,7 @@ Route::get('/users/confirmation{email_token}', 'Auth\RegisterController@confirma
 Route::get('/houses/index', 'HousesController@index');
 Route::get('/verifyemail/{token}', 'Auth\RegisterController@verify');
 Auth::routes();
+
+Route::get('addmoney/stripe', array('as' => 'addmoney.paywithstripe','uses' => 'AddMoneyController@payWithStripe'));
+Route::post('addmoney/stripe', array('as' => 'addmoney.stripe','uses' => 'AddMoneyController@postPaymentWithStripe'));
+

@@ -64,7 +64,7 @@
         </div>
         <div class="col-md-6">
             <div class="calendar panel panel-default">
-                <h4 class="text-center panel-heading">Réserver vos dates : </h4>
+                <h4 class="text-center panel-heading">Réservez vos dates : </h4>
                 <form class="form-horizontal" method="POST" action="{{url('reservations')}}" enctype="multipart/form-data">
                     {{ csrf_field() }}
                 <div class="form-group">
@@ -73,27 +73,24 @@
                     {!! Form::text('start_date', Form::old('from'), array( 
                         'class' => 'form-control',
                         'id' => 'from',
-                        // 'required' => 'required',
+                        'required' => 'required',
+                        'autocomplete' => 'off'
                     )) !!} 
                     {!! Form::label('to', 'Arrivée : ', array('class' => 'formLabel')) !!} 
                     {!! Form::text('end_date', Form::old('to'), array( 
                         'class' => 'form-control',
                         'id' => 'to',
-                        // 'required' => 'required',
+                        'required' => 'required',
+                        'autocomplete' => "off",
                     )) !!}
-                    {{-- <div id="datepicker"></div> --}}
-                    {{-- {!! Form::label('traveler', 'Voyageurs : ', array('class' => 'formLabel')) !!} 
-                    {!! Form::select('traveler', array(
-                        'Cats' => array('leopard' => 'Leopard'),
-                        'Dogs' => array('spaniel' => 'Spaniel'),
-                    )) !!}  --}}
+                    <div id="datepicker"></div>
                 </div>
-                <h3 class="price">Prix du séjour : {{$house->price}}€</h3>
                 {!! Form::submit('Réserver', array('class' => 'btn btn-success btn_reserve')) !!}
                 @if ($errors->any())
                     <div class="alert alert-danger">Vous devez remplir tout les champs</div>
                 @else
-                    <div></div>
+                    <div>
+                </div>
                 @endif
             </div>
         </div>
