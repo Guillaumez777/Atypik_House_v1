@@ -53,15 +53,13 @@ class ReservationsController extends Controller
         var_dump($request->house_id);*/
 
 
-        // $reservation = new Reservation;
-        // $reservation->start_date = $start_date;
-        // $reservation->end_date = $end_date;
-        // $reservation->user_id = Auth::user()->id;
-        // $reservation->house_id = $house_id;
-        // $reservation->payment_id = 0;
-        // $reservation->reserved = true;
-        // $reservation->save();
-        // $request->session()->flash('status', 'Votre réservation a bien été prise en compte !');
+        $reservation = new Reservation;
+        $reservation->start_date = $start_date;
+        $reservation->end_date = $end_date;
+        //$reservation->user_id = Auth::user()->id;
+        $reservation->house_id = $house_id;
+        $reservation->payment_id = 0;
+        $reservation->reserved = true;
 
         //return view('reservations.recapitulatif_reservation')->with('reservation', $reservation);
 

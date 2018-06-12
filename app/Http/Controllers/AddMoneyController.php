@@ -29,7 +29,8 @@ class AddMoneyController extends Controller
         $input = $request->all();
         if ($validator->passes()) { 
             $input = array_except($input,array('_token'));
-            $stripe = Stripe::make('sk_test_PVXtzkhKGE6eV0iuxTqgh4iZ');
+            $stripe = Stripe::make('sk_test_O5i2wGUrXIk40JlTqI9gpCL4
+            ');
             try {
             $token = $stripe->tokens()->create([
             'card' => [
@@ -61,9 +62,7 @@ class AddMoneyController extends Controller
                 /**
                  * Write Here Your Database insert logic.
                  */
-                echo "<pre>";
-                print_r($charge);exit();
-                return redirect()->route('addmoney.paywithstripe');
+                return redirect('/');
             } else {
                 \Session::put('error','Money not add in wallet!!');
                 return redirect()->route('addmoney.paywithstripe');
