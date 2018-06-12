@@ -28,8 +28,8 @@ class HousesController extends Controller
      */
     public function index(House $house, Ville $villes)
     {
-        //$houses = category::all();
-        return view('houses.index');//->with('houses', $houses);;
+        $houses = house::all();
+        return view('houses.index')->with('houses', $houses);
         
     }
 
@@ -122,11 +122,9 @@ class HousesController extends Controller
                 // )->toArray();
                 //return redirect('houses/index');
                 // var_dump("coco");
-        //     }
+        //    }
         // }
-        
-        
-        return redirect('houses/index');
+        return view('houses.index');
     }
 
     /**
