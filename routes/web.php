@@ -53,6 +53,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/profile/{id}', 'UsersController@index');
     Route::get('/mylocations/{id}', 'HousesController@mylocations');
     Route::get('/houses/edit/{id}', 'HousesController@edit');
+    Route::resource('houses', 'HousesController', ['only' => ['index','show', 'create', 'store', 'edit', 'update', 'destroy', 'mylocations']]);
     Route::get('/json_propriete', 'HousesController@json_propriete');
 
     Route::post('/comments', 'CommentsController@index');/*->middleware('auth');*/
@@ -65,6 +66,7 @@ Route::group(['middleware' => 'auth'], function () {
 Route::resource('posts', 'PostsController' , ['only' => ['index', 'store']]); 
 Route::get('/users/confirmation{email_token}', 'Auth\RegisterController@confirmation');
 Route::get('/houses/index', 'HousesController@index');
+<<<<<<< HEAD
 Route::resource('houses', 'HousesController', ['only' => ['index','show', 'create', 'store', 'edit', 'update', 'destroy', 'mylocations']]);
 
 Route::get('/reservations/index', 'Reservations@index');
@@ -73,5 +75,8 @@ Route::resource('reservations', 'ReservationsController', ['only' => ['index','s
 Route::get('/register', 'RegistersController@create');
 Route::post('/register', 'RegistersController@store');
 Route::post('/login', 'SessionsController@login');
+=======
+
+>>>>>>> proprietes-dynamiques
 Route::get('/verifyemail/{token}', 'Auth\RegisterController@verify');
 Auth::routes();

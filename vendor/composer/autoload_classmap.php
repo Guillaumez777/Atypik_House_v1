@@ -29,8 +29,11 @@ return array(
     'App\\Http\\Controllers\\HousesController' => $baseDir . '/app/Http/Controllers/HousesController.php',
     'App\\Http\\Controllers\\PostsController' => $baseDir . '/app/Http/Controllers/PostsController.php',
     'App\\Http\\Controllers\\ProprietesController' => $baseDir . '/app/Http/Controllers/ProprietesController.php',
+<<<<<<< HEAD
     'App\\Http\\Controllers\\QueryController' => $baseDir . '/app/Http/Controllers/QueryController.php',
     'App\\Http\\Controllers\\ReservationsController' => $baseDir . '/app/Http/Controllers/ReservationsController.php',
+=======
+>>>>>>> proprietes-dynamiques
     'App\\Http\\Controllers\\UsersController' => $baseDir . '/app/Http/Controllers/UsersController.php',
     'App\\Http\\Controllers\\VillesController' => $baseDir . '/app/Http/Controllers/VillesController.php',
     'App\\Http\\Kernel' => $baseDir . '/app/Http/Kernel.php',

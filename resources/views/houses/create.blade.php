@@ -9,7 +9,6 @@
                 <div class="panel-body">
                     <form class="form-horizontal" method="POST" action="{{url('houses')}}" enctype="multipart/form-data">
                         {{ csrf_field() }}
-
                         <div class="form-group">
                             <label for="name" class="col-md-4 control-label">Titre</label>
 
@@ -17,12 +16,9 @@
                                 <input id="name" type="text" class="form-control" name="title" required autofocus>
                             </div>
                         </div>
-
                         <div class="form-group">
                             <label for="name" class="col-md-4 control-label">Categorie</label>
-
                             <div class="col-md-6">
-                                <!--<input id="name" type="text" class="form-control" name="idCategory" required autofocus>-->
                                 <select id="select_category" type="text" name="category_id" class="form-control">
                                     <option id="" value="defaut" selected="selected" required autofocus>Choisissez votre categorie</option>
                                     @foreach($categories as $category)
@@ -30,6 +26,8 @@
                                     @endforeach
                                 </select>
                             </div>
+                        </div>
+                        <div id="propriete_category">
                         </div>
                         <div class="form-group">
                             <label for="name" class="col-md-4 control-label">Ville</label>
