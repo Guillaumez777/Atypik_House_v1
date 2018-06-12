@@ -8,8 +8,6 @@ use App\Category;
 use App\Propriete;
 use App\ValuecatPropriete;
 use App\User;
-
->>>>>>> proprietes-dynamiques
 use Illuminate\Http\Request;
 //use Illuminate\Http\Response;
 use Intervention\Image\ImageManager;
