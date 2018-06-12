@@ -370,11 +370,6 @@ class ComposerStaticInit104d6085db2bc05ea6d41e453199519e
         'App\\Http\\Controllers\\HousesController' => __DIR__ . '/../..' . '/app/Http/Controllers/HousesController.php',
         'App\\Http\\Controllers\\PostsController' => __DIR__ . '/../..' . '/app/Http/Controllers/PostsController.php',
         'App\\Http\\Controllers\\ProprietesController' => __DIR__ . '/../..' . '/app/Http/Controllers/ProprietesController.php',
-<<<<<<< HEAD
-        'App\\Http\\Controllers\\QueryController' => __DIR__ . '/../..' . '/app/Http/Controllers/QueryController.php',
-        'App\\Http\\Controllers\\ReservationsController' => __DIR__ . '/../..' . '/app/Http/Controllers/ReservationsController.php',
-=======
->>>>>>> proprietes-dynamiques
         'App\\Http\\Controllers\\UsersController' => __DIR__ . '/../..' . '/app/Http/Controllers/UsersController.php',
         'App\\Http\\Controllers\\VillesController' => __DIR__ . '/../..' . '/app/Http/Controllers/VillesController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
