@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\DB;
 use Session;
 
 class ReservationsController extends Controller
-{
+{ 
     /**
      * Display a listing of the resource.
      *
@@ -56,7 +56,7 @@ class ReservationsController extends Controller
         $reservation = new Reservation;
         $reservation->start_date = $start_date;
         $reservation->end_date = $end_date;
-        //$reservation->user_id = Auth::user()->id;
+        $reservation->user_id = Auth::user()->id;
         $reservation->house_id = $house_id;
         $reservation->payment_id = 0;
         $reservation->reserved = true;
