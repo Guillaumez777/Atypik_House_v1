@@ -68,11 +68,6 @@ class ListPass extends CodeCleanerPass
 
             $itemFound = true;
 
-        foreach ($items as $item) {
-            if ($item === null) {
-                throw new ParseErrorException('Cannot use empty list', $item->getLine());
-            }
-
             // List_->$vars in PHP-Parser 2.x is Variable instead of ArrayItem.
             if (!$this->atLeastPhp71 && $item instanceof ArrayItem && $item->key !== null) {
                 $msg = 'Syntax error, unexpected T_CONSTANT_ENCAPSED_STRING, expecting \',\' or \')\'';
@@ -90,6 +85,5 @@ class ListPass extends CodeCleanerPass
         if (!$itemFound) {
             throw new ParseErrorException('Cannot use empty list');
         }
-
     }
 }

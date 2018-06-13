@@ -6,6 +6,15 @@
                 <div class="panel-heading">Login</div>
 
                 <div class="panel-body">
+                
+                <?php if($status = Session::get('status')): ?>
+                    <div class="alert alert-info">
+                        <?php echo e($status); ?>
+
+                    </div>
+                <?php endif; ?>
+
+
                     <form class="form-horizontal" method="POST" action="<?php echo e(route('login')); ?>">
                         <?php echo e(csrf_field()); ?>
 
