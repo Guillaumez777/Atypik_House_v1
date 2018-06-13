@@ -53,8 +53,11 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/profile/{id}', 'UsersController@index');
     Route::get('/mylocations/{id}', 'HousesController@mylocations');
     Route::get('/houses/edit/{id}', 'HousesController@edit');
+    Route::post('/houses/store/{id}', 'HousesController@store');
+    Route::get('/houses/index', 'HousesController@index');
+    Route::resource('houses', 'HousesController', ['only' => ['index','show', 'create', 'store', 'edit', 'update', 'destroy', 'mylocations']]);
     Route::get('/json_propriete', 'HousesController@json_propriete');
-
+    Route::post('/reservations', 'ReservationsController@store');
     Route::post('/comments', 'CommentsController@index');/*->middleware('auth');*/
     //Route::get('/houses/update/{id}', 'HousesController@update');
 });
@@ -65,13 +68,9 @@ Route::group(['middleware' => 'auth'], function () {
 Route::resource('posts', 'PostsController' , ['only' => ['index', 'store']]); 
 Route::get('/users/confirmation{email_token}', 'Auth\RegisterController@confirmation');
 Route::get('/houses/index', 'HousesController@index');
-Route::resource('houses', 'HousesController', ['only' => ['index','show', 'create', 'store', 'edit', 'update', 'destroy', 'mylocations']]);
-
-Route::get('/reservations/index', 'Reservations@index');
-Route::resource('reservations', 'ReservationsController', ['only' => ['index','show', 'create', 'store', 'edit', 'update', 'destroy', 'mylocations']]);
-
-Route::get('/register', 'RegistersController@create');
-Route::post('/register', 'RegistersController@store');
-Route::post('/login', 'SessionsController@login');
 Route::get('/verifyemail/{token}', 'Auth\RegisterController@verify');
 Auth::routes();
+
+Route::get('addmoney/stripe', array('as' => 'addmoney.paywithstripe','uses' => 'AddMoneyController@payWithStripe'));
+Route::post('addmoney/stripe', array('as' => 'addmoney.stripe','uses' => 'AddMoneyController@postPaymentWithStripe'));
+

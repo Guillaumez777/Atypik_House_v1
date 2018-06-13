@@ -39,7 +39,7 @@ $(document).ready(function(){
     var maxField = 10; //Input fields increment limitation
     var addButton = $('.add_button'); //Add button selector
     var wrapper = $('.create_properties'); //Input field wrapper
-    var fieldHTML = '<div class="create_properties row"><div class="col-md-4 col-md-offset-4"><input type="text" name="propriete[]" placeholder="Saisir une propriété" class="form-control"/></div><a href="javascript:void(0);" class="remove_button" title="Retirer un champ"><button class="btn btn-danger" style="border-radius:30px;">-</button></a></div>'; //New input field html 
+    var fieldHTML = '<div class="create_properties row"><div class="col-md-4 col-md-offset-4"><input type="text" name="propriete[]" placeholder="Saisir une propriété" class="form-control"/><select id="name" type="text" name="typeProprietes" id="select_typeProprietes" class="form-control"><option id="" value="defaut" selected="selected" required autofocus>Choisissez votre type de propriété</option><option value="checkbox">checkbox</option><option value="checkbox">input</option></select></div><a href="javascript:void(0);" class="remove_button" title="Retirer un champ"><button class="btn btn-danger" style="border-radius:30px;">-</button></a></div>'; //New input field html 
     var x = 1; //Initial field counter is 1
     $(addButton).click(function(){ //Once add button is clicked
         if(x < maxField){ //Check maximum number of input fields

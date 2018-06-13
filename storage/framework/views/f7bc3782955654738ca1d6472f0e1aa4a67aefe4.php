@@ -75,7 +75,12 @@
             <div class="block-properties">
                 <div class="create_properties row">
                     <div class="col-md-4 col-md-offset-4">   
-                        <input type="text" name="propriete[]" placeholder="Ajouter une propriété"  class="form-control"/>    
+                        <input type="text" name="propriete[]" placeholder="Ajouter une propriété"  class="form-control"/>
+                        <select id="name" type="text" name="typeProprietes" id="select_typeProprietes" class="form-control">
+                            <option id="" value="defaut" selected="selected" required autofocus>Choisissez votre type de propriété</option>
+                            <option value="checkbox">checkbox</option>
+                            <option value="checkbox">input</option>
+                        </select> 
                     </div>
                     <a href="javascript:void(0);" class="btn btn-primary add_button" title="Ajouter une propriété"  style="border-radius:30px;"><!--<button class="btn btn-primary add_propriete" style="border-radius:30px;">-->+</a>
                 </div>
@@ -92,6 +97,7 @@
                     <tr>
                         <th>Catégorie : </th>
                         <th>Propriété : </th>
+                        <th>Type de propriété : </th>
                         <th>Actions : </th>
                     </tr>
                 </thead>
@@ -103,6 +109,7 @@
                     <tr>
                         <td><?php echo e($propriete->category->categorie); ?></td>
                         <td><?php echo e($propriete->propriete); ?></td>
+                        <td><?php echo e($propriete->typeProprietes); ?></td>
                         <td>
                             <a href="#" class="btn btn-warning">Modifier</a>
                             <a href="#" class="btn btn-danger">Supprimer</a>

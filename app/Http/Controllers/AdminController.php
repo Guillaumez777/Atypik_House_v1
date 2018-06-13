@@ -28,7 +28,9 @@ class AdminController extends Controller
         $proprietes = propriete::all();
         $categories = category::all();
         $users = user::all();
-        return view('admin')->with('users', $users)->with('categories', $categories)->with('proprietes', $proprietes);
+        return view('admin')->with('users', $users)
+                            ->with('categories', $categories)
+                            ->with('proprietes', $proprietes);
     }
 
     /**
@@ -45,12 +47,9 @@ class AdminController extends Controller
 
     public function createproprietes(Request $request)  
     {
-        //$proprietes = $request->propriete;
-
         foreach ($request->get('propriete') as $propertie){
             $propriete = new propriete;
-            $propriete->type = 2;
-            $propriete->typeInt = 2;
+            $propriete->typeProprietes = $request->typeProprietes;
             $propriete->propriete = $propertie;
             $propriete->category_id = $request->category_id;
             $propriete->save();

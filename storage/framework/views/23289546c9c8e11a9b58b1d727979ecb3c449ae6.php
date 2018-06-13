@@ -6,7 +6,7 @@
     <div class="row">
         <div class="col-lg-6 col-md-6 mb-4">
             <div class="card h-100">
-                <a href="#"><img class="card-img-top" src="http://placehold.it/700x200" alt=""></a>
+                <a href="<?php echo e(action('HousesController@show', $house['id'])); ?>"><img class="img-responsive img_house" src="<?php echo e(asset('img/houses/'.$house->photo)); ?>"></a>
                 <div class="card-body">
                     <h4 class="title card-title">
                         <a href="#"><?php echo e($house->title); ?></a>
@@ -66,25 +66,38 @@
             </div>
         </div>
         <div class="col-md-6">
-            <div class="calendar">
-                <h4 class="text-center">Réserver vos dates : </h4>
+            <div class="calendar panel panel-default">
+                <h4 class="text-center panel-heading">Réserver vos dates : </h4>
                 <form class="form-horizontal" method="POST" action="<?php echo e(url('reservations')); ?>" enctype="multipart/form-data">
                     <?php echo e(csrf_field()); ?>
 
                 <div class="form-group">
                     <input type="hidden" name="house_id" value="<?php echo e($house->id); ?>">
-                    <?php echo Form::label('from', 'Départ : ', array('class' => 'formLabel')); ?> 
+                    <?php echo Form::label('from', 'Départ : ', array('class' => 'formLabel')); ?>
+
                     <?php echo Form::text('start_date', Form::old('from'), array( 
                         'class' => 'form-control',
                         'id' => 'from',
+                        // 'required' => 'required',
                     )); ?> 
                     <?php echo Form::label('to', 'Arrivée : ', array('class' => 'formLabel')); ?> 
                     <?php echo Form::text('end_date', Form::old('to'), array( 
                         'class' => 'form-control',
                         'id' => 'to',
-                    )); ?> 
+                        // 'required' => 'required',
+                    )); ?>
+
+                    
+                    
                 </div>
-                <?php echo Form::submit('Réserver', array('class' => 'btn btn-success')); ?> 
+                <h3 class="price">Prix du séjour : <?php echo e($house->price); ?>€</h3>
+                <?php echo Form::submit('Réserver', array('class' => 'btn btn-success btn_reserve')); ?>
+
+                <?php if($errors->any()): ?>
+                    <div class="alert alert-danger">Vous devez remplir tout les champs</div>
+                <?php else: ?>
+                    <div></div>
+                <?php endif; ?>
             </div>
         </div>
 
