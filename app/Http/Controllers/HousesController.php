@@ -138,7 +138,14 @@ class HousesController extends Controller
         //$houses->posts()->where('idUser', Auth::user()->idUser)->get();
         /*return view('houses.index')->with('houses', $houses);*/
         $house = house::find($house->id);
-        return view('houses.show', compact('house', 'id'), compact('reservation', 'id'));
+        $reservation = DB::table('reservations')
+            ->select('houses.*', 'reservations.*')
+            ->leftJoin('houses', 'reservations.user_id', 'houses.user_id')
+            ->where('reservations.house_id', '=', $house->id)
+            ->where('reservations.user_id', '=', Auth::user()->id)
+            ->where('reservations.reserved', '=', "1")
+            ->get();
+        return view('houses.show', compact('house', 'id'))->with('house', $house)->with('reservation', $reservation);
     }
 
     /**

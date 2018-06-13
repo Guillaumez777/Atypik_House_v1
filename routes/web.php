@@ -58,7 +58,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('houses', 'HousesController', ['only' => ['index','show', 'create', 'store', 'edit', 'update', 'destroy', 'mylocations']]);
     Route::get('/json_propriete', 'HousesController@json_propriete');
     Route::post('/reservations', 'ReservationsController@store');
-    Route::post('/comments', 'CommentsController@index');/*->middleware('auth');*/
+    Route::post('/comments', 'CommentsController@index');
     //Route::get('/houses/update/{id}', 'HousesController@update');
 });
 

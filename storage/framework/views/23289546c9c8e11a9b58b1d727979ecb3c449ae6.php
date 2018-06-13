@@ -33,6 +33,7 @@
                     </div>
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 <?php if(Auth::check()): ?>
+                    <?php if($reservation->count() > 0 OR $house->user_id == Auth::user()->id): ?>
                     <div class="panel panel-default" style="margin: 0; border-radius: 0;">
                         <div class="panel-body">
                             <form action="<?php echo e(url('/comments')); ?>" method="POST" style="display: flex;">
@@ -62,6 +63,7 @@
                             <?php endif; ?>
                         </div>
                     </div>
+                    <?php endif; ?>
                 <?php endif; ?>
             </div>
         </div>
