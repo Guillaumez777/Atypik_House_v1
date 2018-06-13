@@ -1,6 +1,9 @@
 <?php
 
 use Faker\Generator as Faker;
+use App\House;
+use App\User;
+
 /*
 |--------------------------------------------------------------------------
 | Model Factories
@@ -13,14 +16,16 @@ use Faker\Generator as Faker;
 */
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
-$factory->define(App\User::class, function (Faker $faker) {
-    static $password;
-
+$factory->define(House::class, function (Faker $faker) {
     return [
-        'nom' => $faker->nom,
-        'prenom' => $faker->prenom,
-        'email' => $faker->unique()->safeEmail,
-        'password' => $password ?: $password = bcrypt('secret'),
-        'remember_token' => str_random(10),
+        'title' => $faker->city,
+        'user_id' => function () {
+            return factory(User::class)->create()->id;
+        },
+        'category_id' => '1',
+        'ville_id' => '4',
+        'description' => $faker->sentence($nbWords = 15, $variableNbWords = true),
+        'price' => $faker->numberBetween($min = 20, $max = 100),
+        'photo' => $faker->imageUrl($width = 640, $height = 480),
     ];
 });
