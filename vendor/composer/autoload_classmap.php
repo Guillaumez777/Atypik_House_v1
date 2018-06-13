@@ -2967,6 +2967,7 @@ return array(
     'Psy\\Command\\SudoCommand' => $vendorDir . '/psy/psysh/src/Command/SudoCommand.php',
     'Psy\\Command\\ThrowUpCommand' => $vendorDir . '/psy/psysh/src/Command/ThrowUpCommand.php',
     'Psy\\Command\\TimeitCommand' => $vendorDir . '/psy/psysh/src/Command/TimeitCommand.php',
+    'Psy\\Command\\TimeitCommand\\TimeitVisitor' => $vendorDir . '/psy/psysh/src/Command/TimeitCommand/TimeitVisitor.php',
     'Psy\\Command\\TraceCommand' => $vendorDir . '/psy/psysh/src/Command/TraceCommand.php',
     'Psy\\Command\\WhereamiCommand' => $vendorDir . '/psy/psysh/src/Command/WhereamiCommand.php',
     'Psy\\Command\\WtfCommand' => $vendorDir . '/psy/psysh/src/Command/WtfCommand.php',
