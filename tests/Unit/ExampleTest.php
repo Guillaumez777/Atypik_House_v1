@@ -42,21 +42,30 @@ class ExampleTest extends TestCase
         $user = factory(User::class)->make();
     }
 
+    public function testAuthentificationUser()
+    {
+        $user = factory(User::class)->create();
+
+        $this->actingAs($user)
+            ->withSession(['foo' => 'bar'])
+            ->visit('/')
+            ->see('Hello, '.$user->name);
+    }
+
     public function testIsHouseIsEmpty() 
     {
         $user = factory(House::class)->make();
     }
 
-    public function testBasicExample()
-    {
-        $response = $this->json('GET', '/user', ['nom' => 'trinidad']);
-
-        $response
-            ->assertStatus(200)
-            ->assertJson([
-                'created' => true,
-            ]);
-    }
+    // public function testBasicExample()
+    // {
+    //     $response = $this->json('GET', '/user', ['nom' => 'trinidad']);
+    //     $response
+    //         ->assertStatus(200)
+    //         ->assertJson([
+    //             'created' => true,
+    //         ]);
+    // }
 
     // public function testIsPayementIsOk()
     // {
