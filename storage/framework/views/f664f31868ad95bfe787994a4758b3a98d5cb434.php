@@ -30,7 +30,7 @@
             <h3 id="titre">Administration AtypikHouse</h3>
             <ul id="menu">
                 <li><a href="<?php echo e(url('/')); ?>" class="btn btn-success">Site Internet</a></li>
-                <li><a href="#" class="btn btn-danger">Déconnexion</a></li>
+                <li><a href="<?php echo e(route('admin.logout')); ?>" class="btn btn-danger">Déconnexion</a></li>
             </ul>
         </div>
     </nav>
@@ -39,9 +39,10 @@
             <div class="col-sm-3 col-md-2 sidebar">
                 <ul class="nav nav-sidebar">
                     <li><a href="#" id="1">Hébergements</a></li>
-                    <li><a href="#" id="2">Réservations</a></li>
+                    
                     <li><a href="#" id="3">Utilisateurs</a></li>
-                    <li><a href="#" id="4">Avis</a></li>
+                    
+                    <li><a href="#" id="5">Propriétés</a></li>
                 </ul>
             </div>
         </div>

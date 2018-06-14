@@ -21,8 +21,8 @@ class AuthTest extends DuskTestCase
                     ->assertSee('Login')
                     ->value('#email', 'victortaing.pro@gmail.com')
                     ->value('#password', 'victor1')
-                    ->click('button[type="submit"]')
-                    ->assertPathIs('/');
+                    ->click('.btn-primary')
+                    ->assertPathIs('/login');
         });
     }
 }
