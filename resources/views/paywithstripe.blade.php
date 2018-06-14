@@ -68,17 +68,6 @@
                                 @endif
                             </div>
                         </div>
-                        <div class="form-group{{ $errors->has('amount') ? ' has-error' : '' }}">
-                            <label for="amount" class="col-md-4 control-label">Amount</label>
-                            <div class="col-md-6">
-                                <input id="amount" type="text" class="form-control" name="amount" value="{{ old('amount') }}" autofocus>
-                                @if ($errors->has('amount'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('amount') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
                         
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
