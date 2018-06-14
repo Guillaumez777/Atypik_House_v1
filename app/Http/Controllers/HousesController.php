@@ -150,6 +150,7 @@ class HousesController extends Controller
     public function edit(House $house)
     {
         $house = house::find($house->id);
+        
         return view('houses.edit', compact('house', 'id'));
     }
 

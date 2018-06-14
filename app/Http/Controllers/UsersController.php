@@ -36,9 +36,9 @@ class UsersController extends Controller
     }*/
 
     public function index($id) {
-     $userData = DB::table('users')
-     ->where('id', $id)
-     ->get();
+        $userData = DB::table('users')
+        ->where('id', $id)
+        ->get();
         return view('users.index', compact('userData'))->with('data', Auth::user()->user);
     }
 
@@ -51,4 +51,38 @@ class UsersController extends Controller
         return view('users.mylocations', compact('userData'))->with('data', Auth::user()->user);
     }
 
+    public function edit(User $user)
+    {
+        $user = user::find($user->id);
+        return view('users.edit', with('user', $user));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\User  $house
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, User $user)
+    {
+        $user = user::find($user->id);
+        
+        $user->nom = $request->get('nom');
+        $user->prenom = $request->get('prenom');
+        $user->email = $request->get('email');
+
+        $user->save();
+        return redirect('/');
+    }
+    
+    public function list() {
+
+        $users = user::all();
+
+        
+        return response()->json($users);
+    }
+
+    
 }

@@ -221,3 +221,7 @@ input[type=textarea] {
 	margin: 0;
 	padding: 10px;
 }
+
+.container-profile {
+	margin-top: 150px;
+}

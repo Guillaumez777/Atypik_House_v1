@@ -44,7 +44,7 @@ Route::prefix('admin')->group(function () {
     //admin password reset routes
     Route::post('/password/email','Auth\AdminForgotPasswordController@sendResetLinkEmail')->name('admin.password.email');
     Route::get('/password/reset','Auth\AdminForgotPasswordController@showLinkRequestForm')->name('admin.password.request');
-    Route::post('/password/reset','Auth\AdminResetPasswordController@reset');
+    Route::post('/password/reset','Auth\AdminResetPasswordController@reset'); 
     Route::get('/password/reset/{token}','Auth\AdminResetPasswordController@showResetForm')->name('admin.password.reset');
 
     //Admin proprietes
@@ -60,14 +60,24 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/profile/{id}', 'UsersController@index');
     Route::get('/mylocations/{id}', 'HousesController@mylocations');
     Route::get('/houses/edit/{id}', 'HousesController@edit');
+    Route::get('/profile/edit/{id}', 'UsersController@edit');
+    Route::post('/users/update/{id}', 'UsersController@update');
     Route::post('/houses/store/{id}', 'HousesController@store');
     Route::get('/houses/index', 'HousesController@index');
     Route::resource('houses', 'HousesController', ['only' => ['index','show', 'create', 'store', 'edit', 'update', 'destroy', 'mylocations']]);
+    Route::resource('users', 'UserController', ['only' => ['index','mylocations', 'edit', 'update']]);
     Route::get('/json_propriete', 'HousesController@json_propriete');
     Route::post('/reservations', 'ReservationsController@store');
     Route::post('/comments', 'CommentsController@index');/*->middleware('auth');*/
     //Route::get('/houses/update/{id}', 'HousesController@update');
+    Route::get('/list-users', 'UsersController@list');
+
+
 });
+
+Route::post('/create',    'UserController@create');
+Route::get('/user/{id}',  'UserController@get');
+
 
 // Formulaire
  //Route::get('/posts', 'PostsController@index');

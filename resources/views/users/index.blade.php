@@ -1,22 +1,32 @@
 @extends('layouts.app')
 @section('content')
-<div class="container list-category">
-    <h2>Mon profil</h2>
+
+<div class="container container-profile">
     <div class="row">
-        <div class="col-lg-12 col-md-12 mb-4 text-center">
-            <div class="card h-100">
-                <a href="#"><img class="card-img-top" src="http://placehold.it/700x200" alt=""></a>
-                <div class="card-body">
-                    <h4 class="title card-title">
-                        <p>{{Auth::user()->prenom}}</p>
-                    </h4>
-                    <h5>{{Auth::user()->email}}</h5>
-                    <p>Coucou</p>
-                </div>
-                <div class="card-footer">
-                    <medium class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</medium>
+        <div class="col-xs-12 col-sm-6 col-md-12">
+            <div class="well well-sm">
+                <div class="row">
+                    <div class="col-sm-6 col-md-4">
+                    </div>
+                    <div class="col-sm-6 col-md-8">
+                        <h4>
+                        {{Auth::user()->prenom}} {{Auth::user()->nom}}</h4>
+                        <p>
+                            <i class="glyphicon glyphicon-envelope"></i>{{Auth::user()->email}}
+                        </p>
+                        <br>
+                        <div class="btn-group">
+                        <a href="{{action('UsersController@edit', Auth::user()->id)}}" class="btn btn-warning btn_modif_and_delete">Modifier</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>   
+    </div>
 </div>
+<script>
+$(document).ready(function(){
+    console.log("<?php echo(Auth::user()->id)?>");
+});
+</script>
+@endsection
