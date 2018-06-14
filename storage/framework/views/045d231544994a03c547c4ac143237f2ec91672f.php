@@ -12,6 +12,8 @@
     
     <title>AtypikHouse - Votre habitats insolite, partout en Europe</title>
 
+    <meta description="Le site d'habitats insolite, partout en France et en Europe">
+
     
     <link rel="icon" type="image/png" href="<?php echo e(asset('img/LogoNavigateur.png')); ?>" />
 
@@ -91,7 +93,7 @@
                                 </a>
                                 <ul class="dropdown-menu" role="menu">
                                     <li><a href="<?php echo e(url('/profile')); ?>/<?php echo e(Auth::user()->id); ?>">Mon profil</a></li>
-                                    <li><a href="<?php echo e(url('/mylocations')); ?>/<?php echo e(Auth::user()->id); ?>">Mes locations</a></li>
+                                    <li><a href="<?php echo e(url('/mylocations')); ?>/<?php echo e(Auth::user()->id); ?>">Mes hébergements</a></li>
                                     <li><a href="<?php echo e(route('houses.create')); ?>">Créer un hébergement</a></li>
                                     <li>
                                         <a href="<?php echo e(route('logout')); ?>"
@@ -120,10 +122,10 @@
             <div class="row">
                 <div class="col-md-offset-2 col-md-3">
                     <ul>
-                        <li><a href="#">A propos</a></li>
-                        <li><a href="#">Mentions légales</a></li>
-                        <li><a href="#">Politique de confidentialité</a></li>
-                        <li><a href="#">Conditions générales d'utilisation</a></li>
+                        <li><a href="<?php echo e(route('Apropos')); ?>">A propos</a></li>
+                        <li><a href="<?php echo e(route('mentions_legales')); ?>">Mentions légales</a></li>
+                        <li><a href="<?php echo e(route('politique_de_confidentialite')); ?>">Politique de confidentialité</a></li>
+                        <li><a href="<?php echo e(route('cgv')); ?>">Conditions générales d'utilisation</a></li>
                     </ul>
                 </div>
                 <div class="col-md-3">
