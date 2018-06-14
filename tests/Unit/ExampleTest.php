@@ -47,20 +47,31 @@ class ExampleTest extends TestCase
         $user = factory(House::class)->make();
     }
 
-    public function testIsPayementIsOk()
+    public function testBasicExample()
     {
-        $stripe_token = Token::create(array(
-            'card' => array(
-                "number" => "4242 4242 4242 4242",
-                "exp_month" => '1',
-                "exp_year" => '2022',
-                "cvc" => '567',
-            )
-        ));
-        $this->post('ddd', [
-            'token' => $stripe_token,
-            'type' => "subscriber"
-        ]);
+        $response = $this->json('GET', '/user', ['nom' => 'trinidad']);
+
+        $response
+            ->assertStatus(200)
+            ->assertJson([
+                'created' => true,
+            ]);
     }
+
+    // public function testIsPayementIsOk()
+    // {
+    //     $stripe_token = Token::create(array(
+    //         'card' => array(
+    //             "number" => "4242 4242 4242 4242",
+    //             "exp_month" => '1',
+    //             "exp_year" => '2022',
+    //             "cvc" => '567',
+    //         )
+    //     ));
+    //     $this->post('ddd', [
+    //         'token' => $stripe_token,
+    //         'type' => "subscriber"
+    //     ]);
+    // }
 
 }

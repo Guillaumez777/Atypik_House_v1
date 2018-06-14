@@ -12,7 +12,7 @@ class UserController extends Controller
     use Notifiable;
     public function create(Request $request) {
         $id = $request->input('name');
-        
+
         User::create([
             'nom' => $request->input('nom'),
             'prenom' => $request->input('prenom'),
