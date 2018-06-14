@@ -15,7 +15,8 @@ $(function () {
         to = $("#to").datepicker({
             defaultDate: "+1w",
             changeMonth: true,
-            numberOfMonths: 2
+            numberOfMonths: 2,
+            dateFormat: 'dd/mm/yy'
         })
         .on("change", function () {
             from.datepicker("option", "maxDate", getDate(this));
