@@ -22,8 +22,15 @@ Route::get('/', function () {
     return view('home');
 });
 
-route::get('/home', 'HomeController@index')->name('home');
-//admin route for our multi-auth system
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/apropos', 'HomeController@Apropos')->name('Apropos');
+Route::get('/mentions_legales', 'HomeController@mentions_legales')->name('mentions_legales');
+Route::get('/politique_de_confidentialite', 'HomeController@politique_de_confidentialite')->name('politique_de_confidentialite');
+Route::get('/cgv', 'HomeController@cgv')->name('cgv');
+
+
+// admin route for our multi-auth system
 Route::resource('search', 'QueryController', ['only' => ['index','show', 'create', 'store', 'search']]);
 Route::prefix('admin')->group(function () {
     Route::get('/home', 'HomeController@index')->name('admin.home');

@@ -13,15 +13,14 @@
                     <p>Type de bien : Logement</p>
                     <p><i class="fas fa-bed"></i> : 2 lits - <i class="fas fa-users"></i> : pour 2 Personnes</p>
                     <h3 class="price"><?php echo e($house->price); ?>€</h3>
-                    <p class="card-text"><?php echo e($house->description); ?></p>
+                    <p class="card-text"><?php echo(substr($house->description, 0, 50));?></p>
+                    <p><?php echo e($house->ville->ville_nom); ?></p>
                 </div>
                 <div class="note card-footer">
                     <medium class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</medium>
                     <a class="btn btn-success btn_reserve" href="<?php echo e(action('HousesController@show', $house['id'])); ?>">Réserver</a>
                 </div>
             </div>
-          </form>
-        <!-- </form> -->
         </div>   
         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
     </div>   

@@ -118,10 +118,10 @@
             <div class="row">
                 <div class="col-md-offset-2 col-md-3">
                     <ul>
-                        <li><a href="#">A propos</a></li>
-                        <li><a href="#">Mentions légales</a></li>
-                        <li><a href="#">Politique de confidentialité</a></li>
-                        <li><a href="#">Conditions générales d'utilisation</a></li>
+                        <li><a href="{{ route('Apropos') }}">A propos</a></li>
+                        <li><a href="{{ route('mentions_legales') }}">Mentions légales</a></li>
+                        <li><a href="{{ route('politique_de_confidentialite') }}">Politique de confidentialité</a></li>
+                        <li><a href="{{ route('cgv') }}">Conditions générales d'utilisation</a></li>
                     </ul>
                 </div>
                 <div class="col-md-3">

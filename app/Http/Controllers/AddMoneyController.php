@@ -53,8 +53,8 @@ class AddMoneyController extends Controller
             }
             $charge = $stripe->charges()->create([
                 'card' => $token['id'],
-                'currency' => 'USD',
-                'amount' => 10.49,
+                'currency' => 'EUR',
+                'amount' => 20,
                 'description' => 'Add in wallet',
             ]);
             

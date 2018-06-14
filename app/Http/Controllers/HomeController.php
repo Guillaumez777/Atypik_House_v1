@@ -1,5 +1,13 @@
 <?php
 
+/**
+ * A propos
+ * Mentions Légales
+ * Politique de confidentialité
+ * Conditions générales d'utilisation
+ * 
+ */
+
 namespace App\Http\Controllers;
 
 use App\House;
@@ -35,5 +43,17 @@ class HomeController extends Controller
         $house = house::all();
         //$house = DB::table('houses')->where('ville', 'LIKE', '%' . $query . '%');
         return view('page.search', compact('house', 'query'));
+    }
+    public function Apropos() {
+        return view('Apropos');
+    }
+    public function mentions_legales() {
+        return view('mentions_legales');
+    }
+    public function politique_de_confidentialite() {
+        return view('politique_de_confidentialite');
+    }
+    public function cgv() {
+        return view('cgv');
     }
 }
