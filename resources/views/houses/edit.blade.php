@@ -20,11 +20,27 @@
 
                         <div class="form-group">
                             <label for="name" class="col-md-4 control-label">Categorie</label>
-
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control" name="idCategory" required autofocus value="{{$house->idCategory}}">
+                                <select id="select_category" type="text" name="category_id" class="form-control">
+                                    <option id="" value="defaut" selected="selected" required autofocus>Choisissez votre categorie</option>
+                                    @foreach($categories as $category)
+                                        <option value="<?php echo($category->id);?>"><?php echo($category->categorie);?></option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
+
+                        <div class="form-group">
+                            <label for="name" class="col-md-4 control-label">Ville</label>
+                            <div class="col-md-6">
+                                <select id="name" type="text" name="ville_id" class="form-control">
+                                    <option id="" value="defaut" selected="selected" required autofocus>Choisissez votre ville</option>
+                                    @foreach($villes as $ville)
+                                        <option value="<?php echo($ville->id);?>"><?php echo($ville->ville_nom);?></option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>   
 
                         <div class="form-group">
                             <label for="name" class="col-md-4 control-label">Prix</label>

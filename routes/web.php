@@ -59,6 +59,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/json_propriete', 'HousesController@json_propriete');
     Route::post('/reservations', 'ReservationsController@store');
     Route::post('/comments', 'CommentsController@index');
+    Route::post('note', 'HousesController@note');
     //Route::get('/houses/update/{id}', 'HousesController@update');
 });
 
