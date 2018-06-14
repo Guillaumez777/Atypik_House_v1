@@ -12,6 +12,8 @@
     
     <title>AtypikHouse - Votre habitats insolite, partout en Europe</title>
 
+    <meta description="Le site d'habitats insolite, partout en France et en Europe">
+
     
     <link rel="icon" type="image/png" href="<?php echo e(asset('img/LogoNavigateur.png')); ?>" />
 
