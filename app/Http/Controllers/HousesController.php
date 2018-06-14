@@ -152,8 +152,6 @@ class HousesController extends Controller
         foreach($comments as $comment){
             $sommesNote+=$comment->note;
             $i++;
-            var_dump($sommesNote);
-            var_dump($i);
         }
         $moyenne = $sommesNote / $i;    
         return view('houses.show', compact('house', 'id'))->with('house', $house)->with('reservation', $reservation)->with('moyenne', $moyenne);
