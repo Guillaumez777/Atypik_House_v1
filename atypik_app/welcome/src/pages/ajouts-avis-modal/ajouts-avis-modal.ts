@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-import { PrezavisPage } from '../prezavis/prezavis';
+import { PrezAvisPage } from '../prez-avis/prez-avis';
 
 /**
  * Generated class for the AjoutsAvisModalPage page.
@@ -25,7 +25,7 @@ export class AjoutsAvisModalPage {
   }
 
   addavistoavis() {
-  	this.navCtrl.push(PrezavisPage);
+  	this.navCtrl.push(PrezAvisPage);
   }
 
 }

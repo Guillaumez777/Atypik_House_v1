@@ -17,7 +17,17 @@ import { WelcomePPage } from '../welcome-p/welcome-p';
 })
 export class SignupPage {
 
+data:any = {};
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+
+  this.data.nom = '';
+  this.data.prenom = '';
+  this.data.email = '';
+  this.data.password = '';
+  this.data.response = '';
+ 
+  //this.http = http;
   }
 
   ionViewDidLoad() {
@@ -27,13 +37,27 @@ export class SignupPage {
   signup(){
   //api connections
   
-  	this.navCtrl.push(TabsPage);
+  var link = 'http://localhost:8000/create';
+  var myData = JSON.stringify({
+    nom: this.data.nom,
+    prenom: this.data.prenom,
+    email: this.data.email,
+    password: this.data.password 
+  });
+ 
+  /*this.http.post(link, myData)
+  .subscribe(data => {
+    this.data.response = data["_body"];
+  }, error => {
+  console.log("Oooops!");
+ });*/
+  
+}
 
-  }
 
   retour(){
   //api connections
-  
+
     this.navCtrl.push(WelcomePPage);
 
   }

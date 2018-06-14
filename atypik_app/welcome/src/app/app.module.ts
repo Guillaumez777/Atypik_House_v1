@@ -2,6 +2,7 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
+import { HttpModule } from '@angular/http';
 
 import { WelcomePPage } from '../pages/welcome-p/welcome-p';
 import { LoginPage } from '../pages/login/login';
@@ -14,7 +15,7 @@ import { MesCommandesPage } from '../pages/mes-commandes/mes-commandes';
 import { MesAvisPage } from '../pages/mes-avis/mes-avis';
 import { MesAlertesPage } from '../pages/mes-alertes/mes-alertes';
 import { ResetPasswordPage } from '../pages/reset-password/reset-password';
-import { PrezavisPage } from '../pages/prezavis/prezavis';
+import { PrezAvisPage } from '../pages/prez-avis/prez-avis';
 
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -34,11 +35,13 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     MesAvisPage,
     MesAlertesPage,
     ResetPasswordPage,
-    PrezavisPage
+    PrezAvisPage
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     IonicModule.forRoot(MyApp)
+    
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -54,7 +57,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     MesAvisPage,
     MesAlertesPage,
     ResetPasswordPage,
-    PrezavisPage
+    PrezAvisPage
   ],
   providers: [
     StatusBar,
