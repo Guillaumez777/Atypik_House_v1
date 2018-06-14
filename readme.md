@@ -15,7 +15,9 @@
 # Installer les tests fonctionnels : 
     php artisan dusk:install
 
-# Lancer les tests fonctionnels : 
+# Lancer les tests fonctionnels : (seulement sur mac et linux)
+    télécharger : https://chromedriver.storage.googleapis.com/index.html?path=2.40/
+    lancer chromedriver.exe 
     php artisan dusk
 
 # Lancer les tests unitaires : 
