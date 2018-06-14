@@ -16,7 +16,7 @@
                         </p>
                         <br>
                         <div class="btn-group">
-                        <a href="{{action('UsersController@edit', Auth::user()->id)}}" class="btn btn-warning btn_modif_and_delete">Modifier</a>
+                        {{-- <a href="{{action('UsersController@edit', Auth::user()->id)}}" class="btn btn-warning btn_modif_and_delete">Modifier</a> --}}
                         </div>
                     </div>
                 </div>
