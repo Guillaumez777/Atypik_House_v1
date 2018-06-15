@@ -18,7 +18,7 @@
                     <medium class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</medium>
                 </div>
             </div>
-           <a href="<?php echo e(action('HousesController@edit', $house->id)); ?>" class="btn btn-warning btn_modif_and_delete">Modifier</a>
+            <a href="<?php echo e(action('HousesController@edit', $house->id)); ?>" class="btn btn-warning btn_modif_and_delete">Modifier</a>
             <form action="<?php echo e(action('HousesController@destroy', $house->id)); ?>" method="post" class="btn_modif_and_delete">
             <?php echo e(csrf_field()); ?>
 

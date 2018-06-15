@@ -93,38 +93,8 @@ class HousesController extends Controller
         Image::make($picture->getRealPath())->resize(350, 200)->save($path);
         $house->photo = $filename;
         $house->save();
-            //var_dump($request->propriete_id);
-        // var_dump($request->valuePropriete);
-        // if(isset($request->valuePropriete) && $request->valuePropriete != '') {
-            
-            
-            // foreach($request->valuePropriete as $valueProprietesHouse) {
-            //     $value->category_id = $house->category_id;
-            //     $value->valuePropriete = $request->valuePropriete;
-            //     $value->propriete_id =  $request->propriete_id;
-            //     dump($value);
-            //     $value->save();
-
-                
-                // $data = array('category_id'=> $house->category_id,
-                //         'valuePropriete'=> $valueProprietesHouse,
-                //         'propriete_id' => $request->propriete_id
-                // );
-                // valuecatPropriete::insert($data);
-                // DB::table('valuecatProprietes')->insert($data);
-                    //...
-                
-                // DB::table('valuecatProprietes')->insert(
-                //     ['category_id' => $house->category_id,
-                //      'valuePropriete' => $valueProprietesHouse,
-                //      'propriete_id' => $request->propriete_id,
-                //      'house_id' => $house->id]
-                // )->toArray();
-                //return redirect('houses/index');
-                // var_dump("coco");
-        //    }
-        // }
-        return view('houses.index');
+        
+        return redirect('/houses/index');
     }
 
     /**
