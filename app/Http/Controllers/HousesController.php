@@ -165,14 +165,9 @@ class HousesController extends Controller
     public function edit(House $house, Category $categories, Ville $villes)
     {
         $house = house::find($house->id);
-<<<<<<< HEAD
         $categories = category::all();
         $villes = ville::all();
         return view('houses.edit', compact('house', 'id'))->with('categories', $categories)->with('villes', $villes);
-=======
-        
-        return view('houses.edit', compact('house', 'id'));
->>>>>>> master
     }
 
     /**
