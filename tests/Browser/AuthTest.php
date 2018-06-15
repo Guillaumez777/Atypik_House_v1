@@ -19,10 +19,10 @@ class AuthTest extends DuskTestCase
             $browser->visit('http://127.0.0.1:8000/')
                     ->clickLink('Connexion')
                     ->assertSee('Login')
-                    ->value('#email', 'test@tst.fr')
-                    ->value('#password', '123456789')
-                    ->click('button[type="submit"]')
-                    ->assertPathIs('/');
+                    ->value('#email', 'victortaing.pro@gmail.com')
+                    ->value('#password', 'victor1')
+                    ->click('.btn-primary')
+                    ->assertPathIs('/login');
         });
     }
 }

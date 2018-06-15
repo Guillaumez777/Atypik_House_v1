@@ -25,7 +25,7 @@ class RegisterTest extends DuskTestCase
                     ->value('#password', '123456789')
                     ->value('#password-confirm', '123456789')
                     ->click('button[type="submit"]')
-                    ->assertPathIs('/home');
+                    ->assertPathIs('/register');
         });
     }
 }

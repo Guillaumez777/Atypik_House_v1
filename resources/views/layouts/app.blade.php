@@ -12,6 +12,8 @@
     {{-- <title>{{ config('app.name', 'Laravel') }}</title> --}}
     <title>AtypikHouse - Votre habitats insolite, partout en Europe</title>
 
+    <meta description="Le site d'habitats insolite, partout en France et en Europe">
+
     {{-- Logo Navigateur --}}
     <link rel="icon" type="image/png" href="{{ asset('img/LogoNavigateur.png') }}" />
 
@@ -90,7 +92,7 @@
                                 </a>
                                 <ul class="dropdown-menu" role="menu">
                                     <li><a href="{{url('/profile')}}/{{Auth::user()->id}}">Mon profil</a></li>
-                                    <li><a href="{{url('/mylocations')}}/{{Auth::user()->id}}">Mes locations</a></li>
+                                    <li><a href="{{url('/mylocations')}}/{{Auth::user()->id}}">Mes hébergements</a></li>
                                     <li><a href="{{ route('houses.create') }}">Créer un hébergement</a></li>
                                     <li>
                                         <a href="{{ route('logout') }}"
@@ -118,10 +120,10 @@
             <div class="row">
                 <div class="col-md-offset-2 col-md-3">
                     <ul>
-                        <li><a href="#">A propos</a></li>
-                        <li><a href="#">Mentions légales</a></li>
-                        <li><a href="#">Politique de confidentialité</a></li>
-                        <li><a href="#">Conditions générales d'utilisation</a></li>
+                        <li><a href="{{ route('Apropos') }}">A propos</a></li>
+                        <li><a href="{{ route('mentions_legales') }}">Mentions légales</a></li>
+                        <li><a href="{{ route('politique_de_confidentialite') }}">Politique de confidentialité</a></li>
+                        <li><a href="{{ route('cgv') }}">Conditions générales d'utilisation</a></li>
                     </ul>
                 </div>
                 <div class="col-md-3">

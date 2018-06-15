@@ -97,15 +97,14 @@ class HousesController extends Controller
         // var_dump($request->valuePropriete);
         // if(isset($request->valuePropriete) && $request->valuePropriete != '') {
             
-            //foreach($request->valuePropriete as $valueProprietesHouse) {
-                //var_dump($valuecatProprietesHouse);
-                
-                // $value = new valuecatPropriete;
-                // $value->category_id = $house->category_id;
-                // $value->valuePropriete = $request->valuePropriete;
-                // $value->propriete_id =  $request->propriete_id;
-                // dump($value);
-                // $value->save();
+            
+            // foreach($request->valuePropriete as $valueProprietesHouse) {
+            //     $value->category_id = $house->category_id;
+            //     $value->valuePropriete = $request->valuePropriete;
+            //     $value->propriete_id =  $request->propriete_id;
+            //     dump($value);
+            //     $value->save();
+
                 
                 // $data = array('category_id'=> $house->category_id,
                 //         'valuePropriete'=> $valueProprietesHouse,
@@ -166,9 +165,14 @@ class HousesController extends Controller
     public function edit(House $house, Category $categories, Ville $villes)
     {
         $house = house::find($house->id);
+<<<<<<< HEAD
         $categories = category::all();
         $villes = ville::all();
         return view('houses.edit', compact('house', 'id'))->with('categories', $categories)->with('villes', $villes);
+=======
+        
+        return view('houses.edit', compact('house', 'id'));
+>>>>>>> master
     }
 
     /**

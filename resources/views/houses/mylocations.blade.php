@@ -19,7 +19,7 @@
                     <medium class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</medium>
                 </div>
             </div>
-           <a href="{{action('HousesController@edit', $house->id)}}" class="btn btn-warning btn_modif_and_delete">Modifier</a>
+            <a href="{{action('HousesController@edit', $house->id)}}" class="btn btn-warning btn_modif_and_delete">Modifier</a>
             <form action="{{action('HousesController@destroy', $house->id)}}" method="post" class="btn_modif_and_delete">
             {{csrf_field()}}
             <input name="_method" type="hidden" value="DELETE">

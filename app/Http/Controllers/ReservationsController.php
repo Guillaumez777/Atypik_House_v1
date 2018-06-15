@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\DB;
 use Session;
 
 class ReservationsController extends Controller
-{
+{ 
     /**
      * Display a listing of the resource.
      *
@@ -51,6 +51,8 @@ class ReservationsController extends Controller
         /*var_dump($start_date);
         var_dump($end_date);
         var_dump($request->house_id);*/
+
+
         $reservation = new Reservation;
         $reservation->start_date = $start_date;
         $reservation->end_date = $end_date;
@@ -58,10 +60,10 @@ class ReservationsController extends Controller
         $reservation->house_id = $house_id;
         $reservation->payment_id = 0;
         $reservation->reserved = true;
-        $reservation->save();
-        $request->session()->flash('status', 'Votre réservation a bien été prise en compte !');
-        return view('reservations.recapitulatif_reservation')->with('reservation', $reservation);
-        //return redirect('reservations/index')->with('reservation', $reservation);
+
+        //return view('reservations.recapitulatif_reservation')->with('reservation', $reservation);
+
+        return redirect('addmoney/stripe');
     }
 
     /**

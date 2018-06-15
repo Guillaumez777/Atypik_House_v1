@@ -67,7 +67,7 @@
         </div>
         <div class="col-md-6">
             <div class="calendar panel panel-default">
-                <h4 class="text-center panel-heading">Réserver vos dates : </h4>
+                <h4 class="text-center panel-heading">Réservez vos dates : </h4>
                 <form class="form-horizontal" method="POST" action="<?php echo e(url('reservations')); ?>" enctype="multipart/form-data">
                     <?php echo e(csrf_field()); ?>
 
@@ -78,25 +78,26 @@
                     <?php echo Form::text('start_date', Form::old('from'), array( 
                         'class' => 'form-control',
                         'id' => 'from',
-                        // 'required' => 'required',
+                        'required' => 'required',
+                        'autocomplete' => 'off'
                     )); ?> 
                     <?php echo Form::label('to', 'Arrivée : ', array('class' => 'formLabel')); ?> 
                     <?php echo Form::text('end_date', Form::old('to'), array( 
                         'class' => 'form-control',
                         'id' => 'to',
-                        // 'required' => 'required',
+                        'required' => 'required',
+                        'autocomplete' => "off",
                     )); ?>
 
-                    
-                    
+                    <div id="datepicker"></div>
                 </div>
-                <h3 class="price">Prix du séjour : <?php echo e($house->price); ?>€</h3>
                 <?php echo Form::submit('Réserver', array('class' => 'btn btn-success btn_reserve')); ?>
 
                 <?php if($errors->any()): ?>
                     <div class="alert alert-danger">Vous devez remplir tout les champs</div>
                 <?php else: ?>
-                    <div></div>
+                    <div>
+                </div>
                 <?php endif; ?>
             </div>
         </div>

@@ -11,8 +11,6 @@ $(document).ready(function(){
                 dataType: 'json',
                 data: 'category_id=' + category_id,
                 success: function (proprietes) {
-                    console.log(category_id);
-                    console.log(proprietes);
                     if(proprietes["proprietes"].length == 0){
                         $( "div" ).remove( ".proprietediv" );
                     } else {
@@ -21,7 +19,6 @@ $(document).ready(function(){
                             var id = proprietes["proprietes"][i]["id"]        
                             var propriete = proprietes["proprietes"][i]["propriete"];
                             var typePropriete = proprietes["proprietes"][i]["typeProprietes"];
-                            console.log(typePropriete);
                             if(typePropriete == "checkbox") {
                                 $(".proprietelist").append( "<label></label><input type='checkbox' name='valuePropriete[]'/>"+propriete+"<input type='text' name='propriete_id[]' value="+id+" style='display:none;'></div>");
                             } else {
