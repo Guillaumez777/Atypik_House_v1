@@ -16,11 +16,12 @@
         <table class="table">
             <tbody>
                 <tr>
-                    <td><a href="<?php echo e(action('HousesController@show', $house['id'])); ?>"><?php echo e($house->title); ?></a></td>
+                    <td><?php echo e($house->title); ?></td>
                     <td><?php echo e($house->price); ?>€</td>
                     <td>
-                        <a href="#" class="btn btn-warning">Modifier</a>
-                        <a href="#" class="btn btn-danger">Supprimer</a>
+                        <!-- <a href="#" class="btn btn-warning">Modifier</a> -->
+                        <a href="<?php echo e(action('AdminController@editHouse', $house->id)); ?>" class="btn btn-warning btn_modif_and_delete">Modifier</a>
+                        <a href="<?php echo e(action('AdminController@deleteHouse', $house->id)); ?>" class="btn btn-danger">Supprimer</a>
                     </td>
                 </tr>
             </tbody>

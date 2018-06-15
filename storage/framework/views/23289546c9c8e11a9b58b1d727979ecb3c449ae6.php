@@ -91,8 +91,24 @@
 
                     <div id="datepicker"></div>
                 </div>
-                <?php echo Form::submit('Réserver', array('class' => 'btn btn-success btn_reserve')); ?>
+                <!-- <?php echo Form::submit('Réserver', array('class' => 'btn btn-success btn_reserve')); ?> -->
+                <!-- <form action="your-server-side-code" method="POST"> -->
+                <form class="form-horizontal" method="POST" id="payment-form" role="form" action="<?php echo e(route('addmoney.stripe')); ?>" >
+                        <?php echo e(csrf_field()); ?>
 
+                    <script
+                        src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                        data-key="pk_test_g6do5S237ekq10r65BnxO6S0"
+                        data-amount=$house['price']
+                        data-name="Atypikhouse"
+                        data-currency="eur"
+                        data-description="Widget"
+                        data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+                        data-locale="auto"
+                        data-label="Réserver"
+                        data-zip-code="true">
+                    </script>
+                </form>
                 <?php if($errors->any()): ?>
                     <div class="alert alert-danger">Vous devez remplir tout les champs</div>
                 <?php else: ?>
