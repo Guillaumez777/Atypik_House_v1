@@ -16,8 +16,8 @@ class ComposerStaticInit104d6085db2bc05ea6d41e453199519e
         '1d1b89d124cc9cb8219922c9d5569199' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest.php',
         'a0edc8309cc5e1d60e3047b5df6b7052' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/functions_include.php',
         'c964ee0ededf28c96ebd9db5099ef910' => __DIR__ . '/..' . '/guzzlehttp/promises/src/functions_include.php',
-        '2c102faa651ef8ea5874edb585946bce' => __DIR__ . '/..' . '/swiftmailer/swiftmailer/lib/swift_required.php',
         '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
+        '2c102faa651ef8ea5874edb585946bce' => __DIR__ . '/..' . '/swiftmailer/swiftmailer/lib/swift_required.php',
         '801c31d8ed748cfa537fa45402288c95' => __DIR__ . '/..' . '/psy/psysh/src/functions.php',
         'f0906e6318348a765ffb6eb24e0d0938' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/helpers.php',
         '58571171fd5812e6e447dce228f52f4d' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Support/helpers.php',
@@ -79,6 +79,7 @@ class ComposerStaticInit104d6085db2bc05ea6d41e453199519e
         array (
             'League\\Flysystem\\' => 17,
             'Laravel\\Tinker\\' => 15,
+            'Laravel\\Installer\\Console\\' => 26,
             'Laravel\\Dusk\\' => 13,
         ),
         'I' => 
@@ -235,6 +236,10 @@ class ComposerStaticInit104d6085db2bc05ea6d41e453199519e
         'Laravel\\Tinker\\' => 
         array (
             0 => __DIR__ . '/..' . '/laravel/tinker/src',
+        ),
+        'Laravel\\Installer\\Console\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/laravel/installer/src',
         ),
         'Laravel\\Dusk\\' => 
         array (
@@ -2478,6 +2483,7 @@ class ComposerStaticInit104d6085db2bc05ea6d41e453199519e
         'Laravel\\Dusk\\Page' => __DIR__ . '/..' . '/laravel/dusk/src/Page.php',
         'Laravel\\Dusk\\SupportsChrome' => __DIR__ . '/..' . '/laravel/dusk/src/SupportsChrome.php',
         'Laravel\\Dusk\\TestCase' => __DIR__ . '/..' . '/laravel/dusk/src/TestCase.php',
+        'Laravel\\Installer\\Console\\NewCommand' => __DIR__ . '/..' . '/laravel/installer/src/NewCommand.php',
         'Laravel\\Tinker\\ClassAliasAutoloader' => __DIR__ . '/..' . '/laravel/tinker/src/ClassAliasAutoloader.php',
         'Laravel\\Tinker\\Console\\TinkerCommand' => __DIR__ . '/..' . '/laravel/tinker/src/Console/TinkerCommand.php',
         'Laravel\\Tinker\\TinkerCaster' => __DIR__ . '/..' . '/laravel/tinker/src/TinkerCaster.php',
@@ -4218,7 +4224,6 @@ class ComposerStaticInit104d6085db2bc05ea6d41e453199519e
         'Symfony\\Polyfill\\Mbstring\\Mbstring' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/Mbstring.php',
         'Symfony\\Polyfill\\Php70\\Php70' => __DIR__ . '/..' . '/symfony/polyfill-php70/Php70.php',
         'Tests\\Browser\\AuthTest' => __DIR__ . '/../..' . '/tests/Browser/AuthTest.php',
-        'Tests\\Browser\\ExampleTest' => __DIR__ . '/../..' . '/tests/Browser/ExampleTest.php',
         'Tests\\Browser\\MyHouseTest' => __DIR__ . '/../..' . '/tests/Browser/MyHousestest.php',
         'Tests\\Browser\\Pages\\HomePage' => __DIR__ . '/../..' . '/tests/Browser/Pages/HomePage.php',
         'Tests\\Browser\\Pages\\Page' => __DIR__ . '/../..' . '/tests/Browser/Pages/Page.php',
