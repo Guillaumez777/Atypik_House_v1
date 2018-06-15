@@ -64,6 +64,9 @@ a {
 }
 
 .btn_reserve {
+	color: white;
+	background-color:#64764d;
+	border: none;
 	float: right;
 	margin: 0 20px 20px 20px;
 }
@@ -108,7 +111,7 @@ a {
 	/* background-size: 100% 100%; */
 	background-size: cover;
 	display: table;
-	height: 500px;
+	height: 750px;
     width: 100%;
     max-width: 100%;
 }
@@ -147,10 +150,24 @@ a {
 	color: #64764d;
 }
 
-.newsletter-block {
-	background-color: lightgrey;
-	margin: 5% 0;
-	padding: 3% 0 6% 0;
+#block_home_2 {
+	position: relative;
+	background-color: #3f4b30;
+	color: white;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-around;
+}
+.block_home_2_child {
+	width: 350px;
+	text-align: center;
+	margin: 0 20px;
+	padding: 20px;
+}
+
+.block_home_2_child i,
+.block_home_2_child h3 {
+	margin: 15px 0;
 }
 
 /* Registration */

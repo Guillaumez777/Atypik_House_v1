@@ -38,6 +38,10 @@
 <div class="container list-category">
     <h2>A propos</h2>
     <div class="row">
+        <div class="container">
+            <p>Eurodev Agency, agence web de développement, d’entretien et de mise à jours de sites et d’applications web, est une startup fondée par quatre collaborateurs issus de la même formation de chef de projet option « développement web ».</p>
+            <p>Soucieux du détail et de la qualité, nous avons décidé de nous unir pour apporter notre soutien, nos connaissances et nos compétences aux entreprises désireuses d’améliorer leur visibilité sur le web pour augmenter leur chiffre d’affaires annuel. </p>
+        </div>
     </div>
 </div>
 @endsection

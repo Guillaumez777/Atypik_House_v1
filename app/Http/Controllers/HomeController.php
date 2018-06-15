@@ -53,7 +53,7 @@ class HomeController extends Controller
     public function politique_de_confidentialite() {
         return view('politique_de_confidentialite');
     }
-    public function cgv() {
-        return view('cgv');
+    public function cgu() {
+        return view('cgu');
     }
 }

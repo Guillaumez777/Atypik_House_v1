@@ -38,6 +38,9 @@
 <div class="container list-category">
     <h2>Politique de confidentialite</h2>
     <div class="row">
+        <div class="container">
+            <p>Vos données personnelles sont confidentielles et ne seront en aucun cas communiquées à des tiers hormis pour la bonne exécution de la prestation.</p>
+        </div>
     </div>
 </div>
 @endsection
