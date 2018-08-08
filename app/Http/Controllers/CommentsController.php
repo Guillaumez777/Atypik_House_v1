@@ -23,10 +23,11 @@ class CommentsController extends Controller
         ]);
         $comment = new Comment;
         $comment->comment = $request->comment;
+        $comment->note = $request->note;
         $comment->user_id = Auth::user()->id;
         $comment->house_id = $request->house_id;
         $comment->save();
-        Session::flash('success', 'Your comment was succesffuly added');
+        Session::flash('success', 'Votre commentaire a bien été ajouté');
         return redirect()->back();
     }
 
@@ -59,8 +60,8 @@ class CommentsController extends Controller
      */
     public function show($id)
     {
-        $comments = comment::all();
-        return view('houses.slow')->with('comments', $comments);
+        
+        //return view('houses.slow', compact('moyenne', $moyenne))->with('comments', $comments);
     }
 
     /**

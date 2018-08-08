@@ -12,13 +12,13 @@
                         <p><?php echo e($house->title); ?></p>
                     </h3>
                     <h3 class="pruice"><?php echo e($house->price); ?>€</h3>
-                    <p class="card-text"><?php echo e($house->description); ?></p>
+                    <p class="card-text"><?php echo(substr($house->description, 0, 40));?></p>
                 </div>
                 <div class="note card-footer">
                     <medium class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</medium>
                 </div>
             </div>
-           <a href="<?php echo e(action('HousesController@edit', $house->id)); ?>" class="btn btn-warning btn_modif_and_delete">Modifier</a>
+            <a href="<?php echo e(action('HousesController@edit', $house->id)); ?>" class="btn btn-warning btn_modif_and_delete">Modifier</a>
             <form action="<?php echo e(action('HousesController@destroy', $house->id)); ?>" method="post" class="btn_modif_and_delete">
             <?php echo e(csrf_field()); ?>
 

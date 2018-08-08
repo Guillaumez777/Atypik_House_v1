@@ -20,9 +20,9 @@ $(document).ready(function(){
                             var propriete = proprietes["proprietes"][i]["propriete"];
                             var typePropriete = proprietes["proprietes"][i]["typeProprietes"];
                             if(typePropriete == "checkbox") {
-                                $(".proprietelist").append( "<label></label><input type='checkbox' name='valuePropriete[]'/>"+propriete+"<input type='text' style='display:none;' name='propriete_id[]' value="+id+"></div>");
+                                $(".proprietelist").append( "<label></label><input type='checkbox' name='valuePropriete[]'/>"+propriete+"<input type='text' name='propriete_id[]' value="+id+" style='display:none;'></div>");
                             } else {
-                                $(".proprietelist").append( "<label>"+propriete+"</label><input type='text' name='valuePropriete[]'/><input type='text' style='display:none;' name='propriete_id[]' value="+id+"></div>");
+                                $(".proprietelist").append( "<label>"+propriete+"</label><input type='text' name='valuePropriete[]'/><input type='text' name='propriete_id[]' value="+id+" style='display:none;'></div>");
                             }              
                         }
                     }                   

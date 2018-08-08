@@ -35,6 +35,11 @@ Route::resource('search', 'QueryController', ['only' => ['index','show', 'create
 Route::prefix('admin')->group(function () {
     Route::get('/home', 'HomeController@index')->name('admin.home');
     Route::get('/profile/{id}', 'AdminController@profilUser')->name('admin.user');
+
+    //Gestion des hébergement
+    Route::get('/houses/editHouse/{id}', 'AdminController@editHouse')->name('admin.editHouse');
+    Route::put('/houses/updateHouse/{id}', 'AdminController@updateHouse')->name('admin.updateHouse');
+    Route::delete('/houses/deleteHouse/{id}', 'AdminController@deleteHouse')->name('admin.deleteHouse');
     
     Route::get('/', 'AdminController@index')->name('admin.dashboard');
     Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
@@ -68,7 +73,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('users', 'UserController', ['only' => ['index','mylocations', 'edit', 'update']]);
     Route::get('/json_propriete', 'HousesController@json_propriete');
     Route::post('/reservations', 'ReservationsController@store');
-    Route::post('/comments', 'CommentsController@index');/*->middleware('auth');*/
+    Route::post('/comments', 'CommentsController@index');
+    Route::post('note', 'HousesController@note');
     //Route::get('/houses/update/{id}', 'HousesController@update');
     Route::get('/list-users', 'UsersController@list');
 

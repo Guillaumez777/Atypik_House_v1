@@ -95,13 +95,15 @@ class RegisterController extends Controller
 
             $user = User::find($data['id']);
             $user->email_token = $data['email_token'];
+            $user->prenom = $data["prenom"];
             $user->save();
 
-            Mail::send('email.confirmation', $data, function($message) use($data){
+            Mail::send('email.confirmation', $data,function($message) use($data){
                 $message->to($data['email']);
-                $message->subject('Registration Confirmation');
+                $message->subject('Confirmation inscription');
             });
-            return redirect(route('login'))->with('status', 'Confirmation email has been send. Please check your email');
+
+            return redirect(route('login'))->with('status', 'Un email de confirmation vous a été envoyé. Veuillez vérifier votre boîte mail.');
         }
         return redirect(route('login'))->with('status', $validator->errors());
     }
@@ -113,9 +115,9 @@ class RegisterController extends Controller
             $user->verified = 1;
             $user->email_token;
             $user->save();
-            return redirect(route('login'))->with('status', 'Your activation is completed.');
+            return redirect(route('login'))->with('status', 'Votre compte a été activé');
         }
-        return redirect(route('login'))->with('status', 'Something went wrong.');
+        return redirect(route('login'))->with('status', 'Quelque chose ne va pas');
     }
 
     

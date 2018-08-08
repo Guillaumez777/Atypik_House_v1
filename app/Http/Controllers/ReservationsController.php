@@ -60,6 +60,9 @@ class ReservationsController extends Controller
         $reservation->house_id = $house_id;
         $reservation->payment_id = 0;
         $reservation->reserved = true;
+        $reservation->save();
+
+        $request->session()->flash('status', 'Votre réservation a bien été prise en compte !');
 
         //return view('reservations.recapitulatif_reservation')->with('reservation', $reservation);
 

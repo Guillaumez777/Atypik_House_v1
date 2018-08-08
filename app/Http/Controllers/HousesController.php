@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\House;
 use App\Ville;
 use App\Category;
+use App\Comment;
 use App\Reservation;
 use App\Propriete;
 use App\ValuecatPropriete;
@@ -92,39 +93,8 @@ class HousesController extends Controller
         Image::make($picture->getRealPath())->resize(350, 200)->save($path);
         $house->photo = $filename;
         $house->save();
-            //var_dump($request->propriete_id);
-        // var_dump($request->valuePropriete);
-        // if(isset($request->valuePropriete) && $request->valuePropriete != '') {
-            
-            //foreach($request->valuePropriete as $valueProprietesHouse) {
-                //var_dump($valuecatProprietesHouse);
-                
-                // $value = new valuecatPropriete;
-                // $value->category_id = $house->category_id;
-                // $value->valuePropriete = $request->valuePropriete;
-                // $value->propriete_id =  $request->propriete_id;
-                // dump($value);
-                // $value->save();
-                
-                // $data = array('category_id'=> $house->category_id,
-                //         'valuePropriete'=> $valueProprietesHouse,
-                //         'propriete_id' => $request->propriete_id
-                // );
-                // valuecatPropriete::insert($data);
-                // DB::table('valuecatProprietes')->insert($data);
-                    //...
-                
-                // DB::table('valuecatProprietes')->insert(
-                //     ['category_id' => $house->category_id,
-                //      'valuePropriete' => $valueProprietesHouse,
-                //      'propriete_id' => $request->propriete_id,
-                //      'house_id' => $house->id]
-                // )->toArray();
-                //return redirect('houses/index');
-                // var_dump("coco");
-        //    }
-        // }
-        return view('houses.index');
+        
+        return redirect('/houses/index');
     }
 
     /**
@@ -133,12 +103,27 @@ class HousesController extends Controller
      * @param  \App\House  $house
      * @return \Illuminate\Http\Response
      */
-    public function show(House $house, Reservation $reservation)
+    public function show(House $house, Reservation $reservation, Comment $comments)
     {
         //$houses->posts()->where('idUser', Auth::user()->idUser)->get();
         /*return view('houses.index')->with('houses', $houses);*/
         $house = house::find($house->id);
-        return view('houses.show', compact('house', 'id'), compact('reservation', 'id'));
+        $reservation = DB::table('reservations')
+            ->select('houses.*', 'reservations.*')
+            ->leftJoin('houses', 'reservations.user_id', 'houses.user_id')
+            ->where('reservations.house_id', '=', $house->id)
+            ->where('reservations.user_id', '=', Auth::user()->id)
+            ->where('reservations.reserved', '=', "1")
+            ->get();
+        $comments = comment::all();
+        $sommesNote = 0;
+        $i = 0;
+        foreach($comments as $comment){
+            $sommesNote+=$comment->note;
+            $i++;
+        }
+        $moyenne = $sommesNote / $i;    
+        return view('houses.show', compact('house', 'id'))->with('house', $house)->with('reservation', $reservation)->with('moyenne', $moyenne);
     }
 
     /**
@@ -147,11 +132,12 @@ class HousesController extends Controller
      * @param  \App\House  $house
      * @return \Illuminate\Http\Response
      */
-    public function edit(House $house)
+    public function edit(House $house, Category $categories, Ville $villes)
     {
         $house = house::find($house->id);
-        
-        return view('houses.edit', compact('house', 'id'));
+        $categories = category::all();
+        $villes = ville::all();
+        return view('houses.edit', compact('house', 'id'))->with('categories', $categories)->with('villes', $villes);
     }
 
     /**
@@ -165,7 +151,8 @@ class HousesController extends Controller
     {
         $house = house::find($house->id);
         $house->title = $request->get('title');
-        $house->idCategory = $request->get('idCategory');
+        $house->category_id = $request->get('category_id');
+        $house->ville_id = $request->get('ville_id');
         $house->price = $request->get('price');
         $house->photo = $request->get('photo');
         $house->description = $request->get('description');
@@ -208,5 +195,12 @@ class HousesController extends Controller
      ->where('houses.id', '!=', NULL)
      ->get();
         return view('houses.mylocations', compact('houseProfil'))->with('data', Auth::user()->user);
+    }
+
+    public function note(House $house, Note $note) {
+        $note = note::find($house->id);
+        $house->title = $request->get('title');
+        $house->idCategory = $request->get('idCategory');
+        $house->price = $request->get('price');
     }
 }

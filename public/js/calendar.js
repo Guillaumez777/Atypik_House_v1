@@ -1,12 +1,12 @@
 
 $(function () {
     var disableddates = ["05-3-2018", "05-11-2018", "05-25-2018", "05-20-2018"];
-    var dateFormat = "dd/mm/yy",
         from = $("#from")
             .datepicker({
                 defaultDate: "+1w",
                 changeMonth: true,
                 numberOfMonths: 2,
+                dateFormat: 'dd/mm/yy'
                 // beforeShowDay: DisableSpecificDates            
             })
             .on("change", function () {
@@ -15,7 +15,8 @@ $(function () {
         to = $("#to").datepicker({
             defaultDate: "+1w",
             changeMonth: true,
-            numberOfMonths: 2
+            numberOfMonths: 2,
+            dateFormat: 'dd/mm/yy'
         })
         .on("change", function () {
             from.datepicker("option", "maxDate", getDate(this));

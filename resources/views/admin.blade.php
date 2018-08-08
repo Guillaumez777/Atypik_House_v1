@@ -34,11 +34,12 @@
         <table class="table">
             <tbody>
                 <tr>
-                    <td><a href="{{action('HousesController@show', $house['id'])}}">{{$house->title}}</a></td>
+                    <td>{{$house->title}}</td>
                     <td>{{$house->price}}€</td>
                     <td>
-                        <a href="#" class="btn btn-warning">Modifier</a>
-                        <a href="#" class="btn btn-danger">Supprimer</a>
+                        <!-- <a href="#" class="btn btn-warning">Modifier</a> -->
+                        <a href="{{action('AdminController@editHouse', $house->id)}}" class="btn btn-warning btn_modif_and_delete">Modifier</a>
+                        <a href="{{action('AdminController@deleteHouse', $house->id)}}" class="btn btn-danger">Supprimer</a>
                     </td>
                 </tr>
             </tbody>

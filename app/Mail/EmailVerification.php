@@ -33,6 +33,7 @@ class EmailVerification extends Mailable
     {
         return $this->view('email.email')->with([
             'email_token' => $this->user->email_token,
+            'user_prenom' => $this->user->prenom,
         ]);
     }
 }

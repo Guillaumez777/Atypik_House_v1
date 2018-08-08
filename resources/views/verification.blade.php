@@ -4,9 +4,9 @@
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
 			<div class="panel panel-default">
-				<div class="panel-heading">Registration</div>
+				<div class="panel-heading">Inscription</div>
 				<div class="panel-body">
-					You have successfully registered. An email is sent to you for verification.
+					Votre inscription a bien été prise en compte. Un email de vérification vous a été envoyé sur votre adresse mail.
 				</div>
 			</div>
 		</div>

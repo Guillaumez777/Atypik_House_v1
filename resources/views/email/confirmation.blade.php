@@ -1,2 +1,4 @@
-<h1>Click the Link To Verify Your Email</h1>
-Click the following link to verify your email {{url('/users/confirmation'.$email_token)}}
+<h1>Bienvenue {{ $prenom }}</h1>
+<p>Cliquez sur le lien afin de valider <a href="{{url('/users/confirmation'.$email_token)}}">votre compte</a></p>
+<p>Une fois votre compte validée vous pourrez vous connecter</p>
+<p>Notre équipe vous remercie.</p>
