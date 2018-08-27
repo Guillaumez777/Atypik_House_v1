@@ -10,7 +10,7 @@
 
     {{-- Title --}}
     {{-- <title>{{ config('app.name', 'Laravel') }}</title> --}}
-    <title>AtypikHouse - Votre habitats insolite, partout en Europe</title>
+    <title>AtypikHouse - Votre habitats atypique, partout en Europe</title>
 
     <meta description="Le site d'habitats insolite, partout en France et en Europe">
 
@@ -19,6 +19,9 @@
 
     {{-- Fonts --}}
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Karla" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Archivo" rel="stylesheet">
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
     <!-- Styles -->
@@ -59,9 +62,10 @@
                         <!-- Authentication Links -->
                         @if (Auth::guest())
                             <li><a href="{{ url('/') }}">Accueil</a></li>
+                            <li><a href="{{ route('register') }}">Devenir hôte</a></li>
                             <li><a href="{{ route('houses.index') }}">Nos hébergements</a></li>
+                            <li><a href="{{ route('register') }}">Inscpription</a></li>
                             <li><a href="{{ route('login') }}">Connexion</a></li>
-                            <li><a href="{{ route('register') }}">Inscription</a></li>
                             <li><a href="{{ route('posts.index') }}">Contact</a></li>
                         @elseif(Auth::guard('admin')->check())
                             <li><a href="{{ route('admin.home') }}">Accueil</a></li>
@@ -123,6 +127,7 @@
                         <li><a href="{{ route('mentions_legales') }}">Mentions légales</a></li>
                         <li><a href="{{ route('politique_de_confidentialite') }}">Politique de confidentialité</a></li>
                         <li><a href="{{ route('cgu') }}">Conditions générales d'utilisation</a></li>
+                        <li><a href="{{ route('rgpd') }}">Légalités et RGPD</a></li>
                     </ul>
                 </div>
                 <div class="col-md-3">

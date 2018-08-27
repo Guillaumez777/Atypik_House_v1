@@ -56,4 +56,7 @@ class HomeController extends Controller
     public function cgu() {
         return view('cgu');
     }
+    public function rgpd() {
+        return view('rgpd');
+    }
 }

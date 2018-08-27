@@ -1,7 +1,9 @@
 /* Infos : Commenter bien votre code afin qu'il soit plus lisible, merci. */
 /* Générale */
 html, body {
-	font-family: 'Open Sans', sans-serif;
+	/* font-family: 'Open Sans', sans-serif; */
+	/* font-family: 'Karla', sans-serif; */
+	font-family: 'Archivo', sans-serif;
 	margin: 0;
 	padding: 0;
 	font-size: 16px;
@@ -12,6 +14,12 @@ html, body {
 
 .button2 {
 	margin-right: 80px !important;
+	font-size: 20px;
+}
+
+.button2 input {
+	height: 50px;
+	font-size: 18px;
 }
 
 .title {
@@ -44,6 +52,12 @@ a {
 	text-decoration: none;
 }
 
+p {
+	color: black;
+	line-height: 1.4;
+	letter-spacing: 1px;
+}
+
 .text-center {
 	text-align: center;
 	color: white;
@@ -68,11 +82,13 @@ a {
 	background-color:#64764d;
 	border: none;
 	float: right;
-	margin: 0 20px 20px 20px;
+	margin: 0 20px 30px 20px;
+	padding: 10px 25px;
+	font-size: 16px;
 }
 
 .card-text {
-	padding: 15px 10px;
+	padding: 15px 0px;
 }
 
 .img_house {
@@ -107,7 +123,7 @@ a {
 
 /* HomePage */
 .banner {
-	background: url("/img/maison2filtre.jpg") no-repeat center bottom scroll;
+	background: url("/img/vacance.jpg") no-repeat center bottom scroll;
 	/* background-size: 100% 100%; */
 	background-size: cover;
 	display: table;
@@ -144,15 +160,19 @@ a {
 	margin: 60px 0;
 }
 
+.card-body {
+	height: 400px;
+}
+
 .card-title a{
 	text-align: center;
 	font-size: 28px;
 	color: #64764d;
 }
-
+/* #3f4b30 */
 #block_home_2 {
 	position: relative;
-	background-color: #3f4b30;
+	background-color: white;
 	color: white;
 	display: flex;
 	flex-flow: row wrap;
@@ -166,8 +186,10 @@ a {
 }
 
 .block_home_2_child i,
-.block_home_2_child h3 {
+.block_home_2_child h3,
+.block_home_2_child p {
 	margin: 15px 0;
+	color: #3f4b30;
 }
 
 /* Registration */
@@ -303,4 +325,3 @@ input[type=textarea] {
 	  top:2px;
 	  left:2px;
   }
->>>>>>> 9c4f41907f82a4159892f247e98ace47ee37b602
