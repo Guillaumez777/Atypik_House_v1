@@ -16,3 +16,15 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+use App\User;
+Route::get('/users', function () {
+	$users = user::all()->toJson();
+ 	return response($users,200)->header('Content-Type', 'application/json');
+});
+
+use App\House;
+Route::get('/houses', function () {
+	$houses = house::all()->toJson();
+ 	return response($houses,200)->header('Content-Type', 'application/json');
+});
