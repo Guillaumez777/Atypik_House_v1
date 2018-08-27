@@ -122,19 +122,15 @@
             <div class="row">
                 <div class="col-md-offset-2 col-md-3">
                     <ul>
-                        <li><a href="<?php echo e(route('Apropos')); ?>">A propos</a></li>
                         <li><a href="<?php echo e(route('mentions_legales')); ?>">Mentions légales</a></li>
                         <li><a href="<?php echo e(route('politique_de_confidentialite')); ?>">Politique de confidentialité</a></li>
-                        <li><a href="<?php echo e(route('cgv')); ?>">Conditions générales d'utilisation</a></li>
+                        <li><a href="<?php echo e(route('cgu')); ?>">Conditions générales d'utilisation</a></li>
                     </ul>
                 </div>
                 <div class="col-md-3">
                     <ul>
-                        <li><a href="#">Hébergement</a></li>
-                        <li><a href="#">devenir hotes</a></li>
-                        <li><a href="#">Règle pour les Hôtes</a></li>
-                        <li><a href="#">Consigne de sécurité</a></li>
-                        <li><a href="#">FAQ</a></li>
+                        <li><a href="<?php echo e(route('Apropos')); ?>">A propos</a></li>
+                        <li><a href="<?php echo e(route('houses.index')); ?>">Hébergement</a></li>
                     </ul>
                 </div>
                 <div class="col-md-3">
