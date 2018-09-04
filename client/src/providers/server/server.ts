@@ -1,6 +1,5 @@
-import { HttpClient } from '@angular/common/http';
+import { Http } from '@angular/http';
 import { Injectable } from '@angular/core';
-import { DatasourceProvider } from '../datasource/datasource';
 import 'rxjs/add/operator/map';
 
 /*
@@ -12,14 +11,18 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class ServerProvider {
 
-  constructor(public http: HttpClient, public datasource: DatasourceProvider) {
+  constructor(public http: Http) {
     console.log('Hello ServerProvider Provider');
   }
 
-  getData(){
+  // getData(){
+  //   this.http.get('http://127.0.0.1:8000/api/houses')
+  //   .map(res => res.json())
+  //   .subscribe(data => {
+  //     console.log(data);
+  //   }, err => {
+  //     console.log("err");
+  //   });
 
-    return this.http.get('http://127.0.0.1:8000/api/houses')
-    .map(res => res);
-
-  }
+  //}
 }

@@ -9,11 +9,12 @@ import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
+import { LoginPage } from '../pages/login/login';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { ServerProvider } from '../providers/server/server';
-import { DatasourceProvider } from '../providers/datasource/datasource';
+import { AuthServiceProvider } from '../providers/auth-service/auth-service';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { DatasourceProvider } from '../providers/datasource/datasource';
     AboutPage,
     ContactPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    LoginPage
   ],
   imports: [
     BrowserModule,
@@ -36,14 +38,15 @@ import { DatasourceProvider } from '../providers/datasource/datasource';
     AboutPage,
     ContactPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    LoginPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ServerProvider,
-    DatasourceProvider
+    AuthServiceProvider,
   ]
 })
 export class AppModule {}
