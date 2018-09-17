@@ -64,7 +64,7 @@
                             <li><a href="{{ url('/') }}">Accueil</a></li>
                             <li><a href="{{ route('register') }}">Devenir hôte</a></li>
                             <li><a href="{{ route('houses.index') }}">Nos hébergements</a></li>
-                            <li><a href="{{ route('register') }}">Inscpription</a></li>
+                            <li><a href="{{ route('register') }}">Inscription</a></li>
                             <li><a href="{{ route('login') }}">Connexion</a></li>
                             <li><a href="{{ route('posts.index') }}">Contact</a></li>
                         @elseif(Auth::guard('admin')->check())
