@@ -64,7 +64,7 @@
                             <li><a href="<?php echo e(url('/')); ?>">Accueil</a></li>
                             <li><a href="<?php echo e(route('register')); ?>">Devenir hôte</a></li>
                             <li><a href="<?php echo e(route('houses.index')); ?>">Nos hébergements</a></li>
-                            <li><a href="<?php echo e(route('register')); ?>">Inscpription</a></li>
+                            <li><a href="<?php echo e(route('register')); ?>">Inscription</a></li>
                             <li><a href="<?php echo e(route('login')); ?>">Connexion</a></li>
                             <li><a href="<?php echo e(route('posts.index')); ?>">Contact</a></li>
                         <?php elseif(Auth::guard('admin')->check()): ?>

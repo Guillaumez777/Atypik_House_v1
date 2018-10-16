@@ -28,6 +28,6 @@ class CreateCatProprietesTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('catProprietes');
     }
 }
