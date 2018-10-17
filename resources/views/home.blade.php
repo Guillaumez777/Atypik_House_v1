@@ -54,7 +54,7 @@
         <p>Qui a dit que vous deviez vous ruiner pour votre week-end en amoureux. Nous possédons des prix attractifs avec des réductions toute l'année</p>
     </div>
 </div>
-<!-- <div class="container list-category">
+<div class="container list-category">
     <h2>Nos hébergements</h2>
     <div class="row">
       @foreach($houses as $house)
@@ -80,5 +80,5 @@
         </div>   
         @endforeach
     </div>
-</div> -->
+</div>
 @endsection

@@ -23,6 +23,10 @@ Route::get('/', function () {
 });
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/register', 'RegistersController@create');
+Route::post('/register', 'RegistersController@store');
+Route::post('/login', 'SessionsController@login');
+Route::get('/verifyemail/{token}', 'Auth\RegisterController@verify');
 
 Route::get('/apropos', 'HomeController@Apropos')->name('Apropos');
 Route::get('/mentions_legales', 'HomeController@mentions_legales')->name('mentions_legales');

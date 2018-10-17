@@ -492,7 +492,7 @@ class ComposerStaticInit8ea0379a24488074e844ffbbde19ec82
         'CreateCatProprietesTable' => __DIR__ . '/../..' . '/database/migrations/2018_05_21_155955_create_catProprietes_table.php',
         'CreateCommentsTable' => __DIR__ . '/../..' . '/database/migrations/2018_04_16_135116_create_comments_table.php',
         'CreateFailedJobsTable' => __DIR__ . '/../..' . '/database/migrations/2018_05_27_171116_create_failed_jobs_table.php',
-        'CreateHousesTable' => __DIR__ . '/../..' . '/database/migrations/2018_05_19_093319_create_houses_table.php',
+        'CreateHousesTable' => __DIR__ . '/../..' . '/database/migrations/2018_10_16_183150_create_houses_table.php',
         'CreateJobsTable' => __DIR__ . '/../..' . '/database/migrations/2018_05_27_171104_create_jobs_table.php',
         'CreateProprietesTable' => __DIR__ . '/../..' . '/database/migrations/2018_04_25_195248_create_proprietes_table.php',
         'CreateReservationsTable' => __DIR__ . '/../..' . '/database/migrations/2018_04_17_121052_create_reservations_table.php',
