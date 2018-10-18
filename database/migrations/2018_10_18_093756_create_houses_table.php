@@ -13,8 +13,8 @@ class CreateHousesTable extends Migration
      */
     public function up()
     {
-        Schema::table('houses', function (Blueprint $table) {
-            
+        Schema::create('houses', function (Blueprint $table) {
+            $table->increments('id');
             $table->string('title');
             $table->integer('user_id');
             // $table->foreign('user_id')->references('id')->on('users');
