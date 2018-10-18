@@ -1,58 +1,4 @@
 <?php return array (
-  'auth' => 
-  array (
-    'defaults' => 
-    array (
-      'guard' => 'web',
-      'passwords' => 'users',
-    ),
-    'guards' => 
-    array (
-      'web' => 
-      array (
-        'driver' => 'session',
-        'provider' => 'users',
-      ),
-      'api' => 
-      array (
-        'driver' => 'token',
-        'provider' => 'users',
-      ),
-      'admin' => 
-      array (
-        'driver' => 'session',
-        'provider' => 'admins',
-      ),
-    ),
-    'providers' => 
-    array (
-      'users' => 
-      array (
-        'driver' => 'eloquent',
-        'model' => 'App\\User',
-      ),
-      'admins' => 
-      array (
-        'driver' => 'eloquent',
-        'model' => 'App\\Admin',
-      ),
-    ),
-    'passwords' => 
-    array (
-      'users' => 
-      array (
-        'provider' => 'users',
-        'table' => 'password_resets',
-        'expire' => 60,
-      ),
-      'admins' => 
-      array (
-        'provider' => 'admins',
-        'table' => 'password_resets',
-        'expire' => 60,
-      ),
-    ),
-  ),
   'app' => 
   array (
     'name' => 'Laravel',
@@ -62,7 +8,7 @@
     'timezone' => 'UTC',
     'locale' => 'en',
     'fallback_locale' => 'en',
-    'key' => 'base64:XvT4076FErsFxaBNVLkd3nF+8Wlz1o99oPmWfH6ncTc=',
+    'key' => 'base64:apF3BQjIH+fUTiN9xHf7oTDuvjlAbgKc7ea7plMFa+8=',
     'cipher' => 'AES-256-CBC',
     'log' => 'single',
     'log_level' => 'debug',
@@ -140,52 +86,143 @@
       'Stripe' => 'Cartalyst\\Stripe\\Laravel\\Facades\\Stripe',
     ),
   ),
-  'mail' => 
+  'auth' => 
   array (
-    'driver' => 'smtp',
-    'host' => 'smtp.mailtrap.io',
-    'port' => '2525',
-    'from' => 
+    'defaults' => 
     array (
-      'address' => 'gilbert.trinidad1@gmail.com',
-      'name' => 'Gilbert Trinidad',
+      'guard' => 'web',
+      'passwords' => 'users',
     ),
-    'encryption' => NULL,
-    'username' => NULL,
-    'password' => NULL,
-    'sendmail' => '/usr/sbin/sendmail -bs',
-    'markdown' => 
+    'guards' => 
     array (
-      'theme' => 'default',
-      'paths' => 
+      'web' => 
       array (
-        0 => '/Applications/XAMPP/xamppfiles/htdocs/Atypik_House_v1/resources/views/vendor/mail',
+        'driver' => 'session',
+        'provider' => 'users',
+      ),
+      'api' => 
+      array (
+        'driver' => 'token',
+        'provider' => 'users',
+      ),
+      'admin' => 
+      array (
+        'driver' => 'session',
+        'provider' => 'admins',
+      ),
+    ),
+    'providers' => 
+    array (
+      'users' => 
+      array (
+        'driver' => 'eloquent',
+        'model' => 'App\\User',
+      ),
+      'admins' => 
+      array (
+        'driver' => 'eloquent',
+        'model' => 'App\\Admin',
+      ),
+    ),
+    'passwords' => 
+    array (
+      'users' => 
+      array (
+        'provider' => 'users',
+        'table' => 'password_resets',
+        'expire' => 60,
+      ),
+      'admins' => 
+      array (
+        'provider' => 'admins',
+        'table' => 'password_resets',
+        'expire' => 60,
       ),
     ),
   ),
-  'services' => 
+  'broadcasting' => 
   array (
-    'mailgun' => 
+    'default' => 'log',
+    'connections' => 
     array (
-      'domain' => NULL,
-      'secret' => NULL,
+      'pusher' => 
+      array (
+        'driver' => 'pusher',
+        'key' => '',
+        'secret' => '',
+        'app_id' => '',
+        'options' => 
+        array (
+        ),
+      ),
+      'redis' => 
+      array (
+        'driver' => 'redis',
+        'connection' => 'default',
+      ),
+      'log' => 
+      array (
+        'driver' => 'log',
+      ),
+      'null' => 
+      array (
+        'driver' => 'null',
+      ),
     ),
-    'ses' => 
+  ),
+  'cache' => 
+  array (
+    'default' => 'file',
+    'stores' => 
     array (
-      'key' => NULL,
-      'secret' => NULL,
-      'region' => 'us-east-1',
+      'apc' => 
+      array (
+        'driver' => 'apc',
+      ),
+      'array' => 
+      array (
+        'driver' => 'array',
+      ),
+      'database' => 
+      array (
+        'driver' => 'database',
+        'table' => 'cache',
+        'connection' => NULL,
+      ),
+      'file' => 
+      array (
+        'driver' => 'file',
+        'path' => 'C:\\xampp\\htdocs\\Atypik_House_v1\\storage\\framework/cache/data',
+      ),
+      'memcached' => 
+      array (
+        'driver' => 'memcached',
+        'persistent_id' => NULL,
+        'sasl' => 
+        array (
+          0 => NULL,
+          1 => NULL,
+        ),
+        'options' => 
+        array (
+        ),
+        'servers' => 
+        array (
+          0 => 
+          array (
+            'host' => '127.0.0.1',
+            'port' => 11211,
+            'weight' => 100,
+          ),
+        ),
+      ),
+      'redis' => 
+      array (
+        'driver' => 'redis',
+        'connection' => 'default',
+      ),
     ),
-    'sparkpost' => 
-    array (
-      'secret' => NULL,
-    ),
-    'stripe' => 
-    array (
-      'model' => 'App\\User',
-      'key' => NULL,
-      'secret' => NULL,
-    ),
+    'prefix' => 'laravel',
   ),
   'database' => 
   array (
@@ -251,80 +288,60 @@
       ),
     ),
   ),
-  'cache' => 
+  'filesystems' => 
   array (
-    'default' => 'file',
-    'stores' => 
+    'default' => 'local',
+    'cloud' => 's3',
+    'disks' => 
     array (
-      'apc' => 
+      'local' => 
       array (
-        'driver' => 'apc',
+        'driver' => 'local',
+        'root' => 'C:\\xampp\\htdocs\\Atypik_House_v1\\storage\\app',
       ),
-      'array' => 
+      'public' => 
       array (
-        'driver' => 'array',
+        'driver' => 'local',
+        'root' => 'C:\\xampp\\htdocs\\Atypik_House_v1\\storage\\app/public',
+        'url' => 'http://localhost/storage',
+        'visibility' => 'public',
       ),
-      'database' => 
+      's3' => 
       array (
-        'driver' => 'database',
-        'table' => 'cache',
-        'connection' => NULL,
-      ),
-      'file' => 
-      array (
-        'driver' => 'file',
-        'path' => '/Applications/XAMPP/xamppfiles/htdocs/Atypik_House_v1/storage/framework/cache/data',
-      ),
-      'memcached' => 
-      array (
-        'driver' => 'memcached',
-        'persistent_id' => NULL,
-        'sasl' => 
-        array (
-          0 => NULL,
-          1 => NULL,
-        ),
-        'options' => 
-        array (
-        ),
-        'servers' => 
-        array (
-          0 => 
-          array (
-            'host' => '127.0.0.1',
-            'port' => 11211,
-            'weight' => 100,
-          ),
-        ),
-      ),
-      'redis' => 
-      array (
-        'driver' => 'redis',
-        'connection' => 'default',
+        'driver' => 's3',
+        'key' => NULL,
+        'secret' => NULL,
+        'region' => NULL,
+        'bucket' => NULL,
       ),
     ),
-    'prefix' => 'laravel',
   ),
-  'session' => 
+  'image' => 
   array (
-    'driver' => 'file',
-    'lifetime' => 120,
-    'expire_on_close' => false,
-    'encrypt' => false,
-    'files' => '/Applications/XAMPP/xamppfiles/htdocs/Atypik_House_v1/storage/framework/sessions',
-    'connection' => NULL,
-    'table' => 'sessions',
-    'store' => NULL,
-    'lottery' => 
+    'driver' => 'gd',
+  ),
+  'mail' => 
+  array (
+    'driver' => 'smtp',
+    'host' => 'smtp.mailtrap.io',
+    'port' => '2525',
+    'from' => 
     array (
-      0 => 2,
-      1 => 100,
+      'address' => 'gilbert.trinidad1@gmail.com',
+      'name' => 'Gilbert Trinidad',
     ),
-    'cookie' => 'laravel_session',
-    'path' => '/',
-    'domain' => NULL,
-    'secure' => false,
-    'http_only' => true,
+    'encryption' => NULL,
+    'username' => NULL,
+    'password' => NULL,
+    'sendmail' => '/usr/sbin/sendmail -bs',
+    'markdown' => 
+    array (
+      'theme' => 'default',
+      'paths' => 
+      array (
+        0 => 'C:\\xampp\\htdocs\\Atypik_House_v1\\resources\\views/vendor/mail',
+      ),
+    ),
   ),
   'queue' => 
   array (
@@ -372,43 +389,50 @@
       'table' => 'failed_jobs',
     ),
   ),
-  'broadcasting' => 
+  'services' => 
   array (
-    'default' => 'log',
-    'connections' => 
+    'mailgun' => 
     array (
-      'pusher' => 
-      array (
-        'driver' => 'pusher',
-        'key' => '',
-        'secret' => '',
-        'app_id' => '',
-        'options' => 
-        array (
-        ),
-      ),
-      'redis' => 
-      array (
-        'driver' => 'redis',
-        'connection' => 'default',
-      ),
-      'log' => 
-      array (
-        'driver' => 'log',
-      ),
-      'null' => 
-      array (
-        'driver' => 'null',
-      ),
+      'domain' => NULL,
+      'secret' => NULL,
+    ),
+    'ses' => 
+    array (
+      'key' => NULL,
+      'secret' => NULL,
+      'region' => 'us-east-1',
+    ),
+    'sparkpost' => 
+    array (
+      'secret' => NULL,
+    ),
+    'stripe' => 
+    array (
+      'model' => 'App\\User',
+      'key' => NULL,
+      'secret' => NULL,
     ),
   ),
-  'view' => 
+  'session' => 
   array (
-    'paths' => 
+    'driver' => 'file',
+    'lifetime' => 120,
+    'expire_on_close' => false,
+    'encrypt' => false,
+    'files' => 'C:\\xampp\\htdocs\\Atypik_House_v1\\storage\\framework/sessions',
+    'connection' => NULL,
+    'table' => 'sessions',
+    'store' => NULL,
+    'lottery' => 
     array (
-      0 => '/Applications/XAMPP/xamppfiles/htdocs/Atypik_House_v1/resources/views',
+      0 => 2,
+      1 => 100,
     ),
-    'compiled' => '/Applications/XAMPP/xamppfiles/htdocs/Atypik_House_v1/storage/framework/views',
+    'cookie' => 'laravel_session',
+    'path' => '/',
+    'domain' => NULL,
+    'secure' => false,
+    'http_only' => true,
   ),
   'tinker' => 
   array (
@@ -419,36 +443,12 @@
     array (
     ),
   ),
-  'image' => 
+  'view' => 
   array (
-    'driver' => 'gd',
-  ),
-  'filesystems' => 
-  array (
-    'default' => 'local',
-    'cloud' => 's3',
-    'disks' => 
+    'paths' => 
     array (
-      'local' => 
-      array (
-        'driver' => 'local',
-        'root' => '/Applications/XAMPP/xamppfiles/htdocs/Atypik_House_v1/storage/app',
-      ),
-      'public' => 
-      array (
-        'driver' => 'local',
-        'root' => '/Applications/XAMPP/xamppfiles/htdocs/Atypik_House_v1/storage/app/public',
-        'url' => 'http://localhost/storage',
-        'visibility' => 'public',
-      ),
-      's3' => 
-      array (
-        'driver' => 's3',
-        'key' => NULL,
-        'secret' => NULL,
-        'region' => NULL,
-        'bucket' => NULL,
-      ),
+      0 => 'C:\\xampp\\htdocs\\Atypik_House_v1\\resources\\views',
     ),
+    'compiled' => 'C:\\xampp\\htdocs\\Atypik_House_v1\\storage\\framework\\views',
   ),
 );

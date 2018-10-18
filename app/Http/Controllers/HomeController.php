@@ -33,9 +33,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        // $houses = house::all();
-        // $users = user::all();
-        // return view('home')->with('houses', $houses);
+        $houses = house::all();
+        $users = user::all();
+        return view('home')->with('houses', $houses);
     }
     public function search(Request $request)
     {
