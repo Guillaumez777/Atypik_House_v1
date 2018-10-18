@@ -63,7 +63,7 @@
                         @if (Auth::guest())
                             <li><a href="{{ url('/') }}">Accueil</a></li>
                             <li><a href="{{ route('register') }}">Devenir hôte</a></li>
-                            <li><a href="{{ route('houses.index') }}">Nos hébergements</a></li>
+                            <li><a href="{{ route('houses') }}">Nos hébergements</a></li>
                             <li><a href="{{ route('register') }}">Inscription</a></li>
                             <li><a href="{{ route('login') }}">Connexion</a></li>
                             <li><a href="{{ route('posts.index') }}">Contact</a></li>
@@ -89,7 +89,7 @@
                             </li>
                         @else
                             <li><a href="{{ url('/') }}">Accueil</a></li>
-                            <li><a href="{{ route('houses.index') }}">Nos hébergements</a></li>
+                            <li><a href="{{ route('houses') }}">Nos hébergements</a></li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                     {{ Auth::user()->prenom }} <span class="caret"></span>
@@ -133,7 +133,7 @@
                 <div class="col-md-3">
                     <ul>
                         <li><a href="{{ route('Apropos') }}">A propos</a></li>
-                        <li><a href="{{ route('houses.index') }}">Hébergement</a></li>
+                        <li><a href="{{ route('houses') }}">Hébergement</a></li>
                     </ul>
                 </div>
                 <div class="col-md-3">

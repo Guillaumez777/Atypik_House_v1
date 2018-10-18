@@ -23,6 +23,7 @@ Route::get('/', function () {
 });
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/houses', 'HousesController@index')->name('houses');
 Route::get('/register', 'RegistersController@create');
 Route::post('/register', 'RegistersController@store');
 Route::post('/login', 'SessionsController@login');
@@ -73,8 +74,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/profile/edit/{id}', 'UsersController@edit');
     Route::post('/users/update/{id}', 'UsersController@update');
     Route::post('/houses/store/{id}', 'HousesController@store');
-    Route::get('/houses/index', 'HousesController@index');
-    Route::resource('houses', 'HousesController', ['only' => ['index','show', 'create', 'store', 'edit', 'update', 'destroy', 'mylocations']]);
+    //Route::resource('houses', 'HousesController', ['only' => ['index','show', 'create', 'store', 'edit', 'update', 'destroy', 'mylocations']]);
     Route::resource('users', 'UserController', ['only' => ['index','mylocations', 'edit', 'update']]);
     Route::get('/json_propriete', 'HousesController@json_propriete');
     Route::post('/reservations', 'ReservationsController@store');

@@ -63,7 +63,7 @@
                         <?php if(Auth::guest()): ?>
                             <li><a href="<?php echo e(url('/')); ?>">Accueil</a></li>
                             <li><a href="<?php echo e(route('register')); ?>">Devenir hôte</a></li>
-                            <li><a href="<?php echo e(route('houses.index')); ?>">Nos hébergements</a></li>
+                            <li><a href="<?php echo e(route('houses')); ?>">Nos hébergements</a></li>
                             <li><a href="<?php echo e(route('register')); ?>">Inscription</a></li>
                             <li><a href="<?php echo e(route('login')); ?>">Connexion</a></li>
                             <li><a href="<?php echo e(route('posts.index')); ?>">Contact</a></li>
@@ -90,7 +90,7 @@
                             </li>
                         <?php else: ?>
                             <li><a href="<?php echo e(url('/')); ?>">Accueil</a></li>
-                            <li><a href="<?php echo e(route('houses.index')); ?>">Nos hébergements</a></li>
+                            <li><a href="<?php echo e(route('houses')); ?>">Nos hébergements</a></li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                     <?php echo e(Auth::user()->prenom); ?> <span class="caret"></span>
@@ -135,7 +135,7 @@
                 <div class="col-md-3">
                     <ul>
                         <li><a href="<?php echo e(route('Apropos')); ?>">A propos</a></li>
-                        <li><a href="<?php echo e(route('houses.index')); ?>">Hébergement</a></li>
+                        <li><a href="<?php echo e(route('houses')); ?>">Hébergement</a></li>
                     </ul>
                 </div>
                 <div class="col-md-3">
