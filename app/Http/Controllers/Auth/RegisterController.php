@@ -56,7 +56,7 @@ class RegisterController extends Controller
             'nom' => 'required|string|max:255',
             'prenom' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:6|confirmed',
+            'password' => 'required|string|min:8|confirmed',
         ]);
     }
 
@@ -77,6 +77,7 @@ class RegisterController extends Controller
         ]);
     }
 
+
     /**
     * Handle a registration request for the application.
      *
@@ -86,9 +87,18 @@ class RegisterController extends Controller
 
     protected function register(Request $request)
     {
+        echo("caca");
         $input = $request->all();
-        $validator = $this->validator($input);
-        if ($validator->passes()) {
+        //$validator = $this->validator($input);
+        $validator = $this->validate($request, [
+            'nom' => 'required|max:30',
+            'prenom' => 'required|min:1|max:20',
+            'email' => 'required|unique:users|max:30',
+            'email_confirmation' => 'required|same:email|max:30',
+            'password' => 'required|min:8|max:30',
+            'password_confirmation' => 'required|same:password|max:30',
+        ]);
+        
             $data = $this->create($input)->toArray();
 
             $data['email_token'] = str_random(25);
@@ -104,8 +114,7 @@ class RegisterController extends Controller
             });
 
             return redirect(route('login'))->with('status', 'Un email de confirmation vous a été envoyé. Veuillez vérifier votre boîte mail.');
-        }
-        return redirect(route('login'))->with('status', $validator->errors());
+        //return redirect(route('login'))->with('status', $validator->errors());
     }
 
     public function confirmation($email_token) {

@@ -25,7 +25,7 @@ Route::get('/', function () {
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/houses', 'HousesController@index')->name('houses');
 Route::get('/register', 'RegistersController@create');
-Route::post('/register', 'RegistersController@store');
+Route::post('/register', 'RegistersController@register');
 Route::post('/login', 'SessionsController@login');
 Route::get('/verifyemail/{token}', 'Auth\RegisterController@verify');
 
