@@ -92,6 +92,22 @@
                             </div>
                         </div>
 
+                        <div class="form-group<?php echo e($errors->has('g-recaptcha-response') ? ' has-error' : ''); ?>">
+                            <label for="g-recaptcha-response" class="col-md-4 control-label">Captcha</label>
+
+                            <div class="col-md-6">                                                      
+                            <?php echo NoCaptcha::display(); ?>
+
+
+                                <?php if($errors->has('g-recaptcha-response')): ?>
+                                    <span class="help-block">
+                                        <strong><?php echo e($errors->first('g-recaptcha-response')); ?></strong>
+                                    </span>
+                                <?php endif; ?>
+                            </div>
+                        </div>
+                        
+
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">

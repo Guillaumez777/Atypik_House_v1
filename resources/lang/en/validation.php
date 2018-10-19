@@ -130,6 +130,10 @@ return [
             'required' => 'Vous devez confirmer votre mot de passe',
             'same' => "Votre mot de passe doit être identique"   
         ],
+        'g-recaptcha-response' => [
+            'required' => 'Vous devez valider le captcha',
+            'recaptcha' => ""   
+        ]
     ],
 
     /*

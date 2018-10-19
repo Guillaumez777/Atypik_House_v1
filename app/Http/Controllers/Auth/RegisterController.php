@@ -57,6 +57,7 @@ class RegisterController extends Controller
             'prenom' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:8|confirmed',
+            'g-recaptcha-response' => 'required|captcha'
         ]);
     }
 
@@ -97,6 +98,7 @@ class RegisterController extends Controller
             'email_confirmation' => 'required|same:email|max:30',
             'password' => 'required|min:8|max:30',
             'password_confirmation' => 'required|same:password|max:30',
+            'g-recaptcha-response'=>'required|captcha'
         ]);
         
             $data = $this->create($input)->toArray();
@@ -107,13 +109,14 @@ class RegisterController extends Controller
             $user->email_token = $data['email_token'];
             $user->prenom = $data["prenom"];
             $user->save();
+            return view('home');
 
-            Mail::send('email.confirmation', $data,function($message) use($data){
+           /*Mail::send('email.confirmation', $data,function($message) use($data){
                 $message->to($data['email']);
                 $message->subject('Confirmation inscription');
-            });
+            });*/
 
-            return redirect(route('login'))->with('status', 'Un email de confirmation vous a été envoyé. Veuillez vérifier votre boîte mail.');
+            //return redirect(route('login'))->with('status', 'Un email de confirmation vous a été envoyé. Veuillez vérifier votre boîte mail.');
         //return redirect(route('login'))->with('status', $validator->errors());
     }
 

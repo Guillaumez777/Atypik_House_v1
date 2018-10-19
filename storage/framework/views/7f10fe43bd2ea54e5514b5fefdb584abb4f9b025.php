@@ -30,6 +30,8 @@
     <?php echo $__env->yieldContent('link'); ?>
     <link href="<?php echo e(asset('css/custom.css')); ?>" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <?php echo NoCaptcha::renderJs(); ?>
+
 </head>
 <body>
     <div id="app">

@@ -8,7 +8,7 @@
     'timezone' => 'UTC',
     'locale' => 'en',
     'fallback_locale' => 'en',
-    'key' => 'base64:apF3BQjIH+fUTiN9xHf7oTDuvjlAbgKc7ea7plMFa+8=',
+    'key' => 'base64:FuXBg7VMEyJ9RNvC41lfskyKcE2vaSpN5mN3Bm58wmA=',
     'cipher' => 'AES-256-CBC',
     'log' => 'single',
     'log_level' => 'debug',
@@ -37,13 +37,14 @@
       20 => 'Illuminate\\Validation\\ValidationServiceProvider',
       21 => 'Illuminate\\View\\ViewServiceProvider',
       22 => 'Intervention\\Image\\ImageServiceProvider',
-      23 => 'Laravel\\Tinker\\TinkerServiceProvider',
-      24 => 'App\\Providers\\AppServiceProvider',
-      25 => 'App\\Providers\\AuthServiceProvider',
-      26 => 'App\\Providers\\EventServiceProvider',
-      27 => 'App\\Providers\\RouteServiceProvider',
-      28 => 'Collective\\Html\\HtmlServiceProvider',
-      29 => 'Cartalyst\\Stripe\\Laravel\\StripeServiceProvider',
+      23 => 'Anhskohbo\\NoCaptcha\\NoCaptchaServiceProvider',
+      24 => 'Laravel\\Tinker\\TinkerServiceProvider',
+      25 => 'App\\Providers\\AppServiceProvider',
+      26 => 'App\\Providers\\AuthServiceProvider',
+      27 => 'App\\Providers\\EventServiceProvider',
+      28 => 'App\\Providers\\RouteServiceProvider',
+      29 => 'Collective\\Html\\HtmlServiceProvider',
+      30 => 'Cartalyst\\Stripe\\Laravel\\StripeServiceProvider',
     ),
     'aliases' => 
     array (
@@ -84,6 +85,7 @@
       'Html' => 'Collective\\Html\\HtmlFacade',
       'Image' => 'Intervention\\Image\\Facades\\Image',
       'Stripe' => 'Cartalyst\\Stripe\\Laravel\\Facades\\Stripe',
+      'NoCaptcha' => 'Anhskohbo\\NoCaptcha\\Facades\\NoCaptcha',
     ),
   ),
   'auth' => 
@@ -450,5 +452,14 @@
       0 => 'C:\\xampp\\htdocs\\Atypik_House_v1\\resources\\views',
     ),
     'compiled' => 'C:\\xampp\\htdocs\\Atypik_House_v1\\storage\\framework\\views',
+  ),
+  'captcha' => 
+  array (
+    'secret' => '6Lfc4XUUAAAAAMjCjnE1er7tcmlEcxwrAojnomdo',
+    'sitekey' => '6Lfc4XUUAAAAAIImE0jHdcjmv4Z87O_XzkJIMlvA',
+    'options' => 
+    array (
+      'timeout' => 30,
+    ),
   ),
 );
