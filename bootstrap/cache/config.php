@@ -325,16 +325,16 @@
   'mail' => 
   array (
     'driver' => 'smtp',
-    'host' => 'smtp.mailtrap.io',
-    'port' => '2525',
+    'host' => 'smtp.gmail.com',
+    'port' => '587',
     'from' => 
     array (
       'address' => 'gilbert.trinidad1@gmail.com',
       'name' => 'Gilbert Trinidad',
     ),
-    'encryption' => NULL,
-    'username' => NULL,
-    'password' => NULL,
+    'encryption' => 'tls',
+    'username' => 'gilbert.trinidad1@gmail.com',
+    'password' => 'kronos6034',
     'sendmail' => '/usr/sbin/sendmail -bs',
     'markdown' => 
     array (

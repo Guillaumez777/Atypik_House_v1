@@ -109,13 +109,11 @@ class RegisterController extends Controller
             $user->prenom = $data["prenom"];
             $user->save();
             
-           Mail::send('email.confirmation', $data,function($message) use($data){
+            /*Mail::send('email.confirmation', $data,function($message) use($data){
                 $message->to($data['email']);
                 $message->subject('Confirmation inscription');
-            });
-            return view('home');
-
-            //return redirect(route('login'))->with('status', 'Un email de confirmation vous a été envoyé. Veuillez vérifier votre boîte mail.');
+            });*/
+            return redirect(route('login'))->with('status', 'Merci pour votre inscription, vous pouvez dès à présent vous connecter sur le site.');
         //return redirect(route('login'))->with('status', $validator->errors());
     }
 
