@@ -100,7 +100,7 @@
                                 <ul class="dropdown-menu" role="menu">
                                     <li><a href="<?php echo e(url('/profile')); ?>/<?php echo e(Auth::user()->id); ?>">Mon profil</a></li>
                                     <li><a href="<?php echo e(url('/mylocations')); ?>/<?php echo e(Auth::user()->id); ?>">Mes hébergements</a></li>
-                                    <li><a href="<?php echo e(route('houses.create')); ?>">Créer un hébergement</a></li>
+                                    <li><a href="<?php echo e(route('house.create')); ?>">Créer un hébergement</a></li>
                                     <li>
                                         <a href="<?php echo e(route('logout')); ?>"
                                             onclick="event.preventDefault();

@@ -71,6 +71,7 @@ Route::prefix('admin')->group(function () {
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/profile/{id}', 'UsersController@index');
     Route::get('/mylocations/{id}', 'HousesController@mylocations');
+    Route::get('/house/create', 'HousesController@create')->name('house.create');
     Route::get('/houses/edit/{id}', 'HousesController@edit');
     Route::get('/profile/edit/{id}', 'UsersController@edit');
     Route::post('/users/update/{id}', 'UsersController@update');
