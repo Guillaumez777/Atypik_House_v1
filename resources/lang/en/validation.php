@@ -132,7 +132,7 @@ return [
         ],
         'g-recaptcha-response' => [
             'required' => 'Vous devez valider le captcha',
-            'recaptcha' => ""   
+            'captcha' => ""   
         ]
     ],
 
