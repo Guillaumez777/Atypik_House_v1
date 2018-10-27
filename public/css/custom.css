@@ -1,14 +1,104 @@
-body {
+/* Infos : Commenter bien votre code afin qu'il soit plus lisible, merci. */
+/* Générale */
+html, body {
+	/* font-family: 'Open Sans', sans-serif; */
+	/* font-family: 'Karla', sans-serif; */
+	font-family: 'Archivo', sans-serif;
+	margin: 0;
+	padding: 0;
+	font-size: 16px;
+	max-width: 100%;
+    overflow-x: hidden;
+    height: 100%;
+}
+
+.button2 {
+	margin-right: 80px !important;
+	font-size: 20px;
+}
+
+.button2 input {
+	height: 50px;
+	font-size: 18px;
+}
+
+.title {
+	padding: 10px;
+	color: black;
+	text-align: center;
+	font-weight: 500;
+}
+
+.title-intro {
+	color: #fff;
+}
+
+.price {
+	font-weight: 500;
+	font-size: 22px;
+	padding-bottom: 10px;
+	/* float: right; */
+}
+
+.note {
+	padding: 10px 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
 	margin: 0;
 }
 
-h2, h3, h4 {
-	text-align: center;
+a {
+	text-decoration: none;
 }
 
+p {
+	color: black;
+	line-height: 1.4;
+	letter-spacing: 1px;
+}
+
+.text-center {
+	text-align: center;
+	color: white;
+	margin: 0 auto;
+}
+
+.rigth {
+	float: right;
+}
+
+#block {
+	margin-top: 100px;
+}
+
+#logo {
+	height: 50px;
+	width: 50px;
+}
+
+.btn_reserve {
+	color: white;
+	background-color:#64764d;
+	border: none;
+	float: right;
+	margin: 0 20px 30px 20px;
+	padding: 10px 25px;
+	font-size: 16px;
+}
+
+.card-text {
+	padding: 15px 0px;
+}
+
+.img_house {
+	margin: 0 auto;
+}
+
+/* Navbar */
 .navbar {
 	border-bottom: none;
-    background: 0 0;
+    background: rgba(0 ,0 ,0 , .4);
 }
 
 .navbar-static-top {
@@ -27,19 +117,19 @@ h2, h3, h4 {
     color: #FFF;
 }
 .navbar-default .navbar-nav>li>a:hover, .navbar-default .navbar-texta {
-   text-decoration: underline;
+   /* text-decoration: underline; */
    color: #FFF;
 }
+
+/* HomePage */
 .banner {
-	background: url("/img/maison2.jpg") no-repeat center bottom scroll;
-	/* background-size: 100% 100%;
-	height: 500px;
-	max-width: 100%; */
-	background-size: 100% 100%;
-    height: 500px; 
-    display: table;
+	background: url("/img/vacance.jpg") no-repeat center bottom scroll;
+	/* background-size: 100% 100%; */
+	background-size: cover;
+	display: table;
+	height: 750px;
     width: 100%;
-    
+    max-width: 100%;
 }
 
 .intro-body {
@@ -48,10 +138,6 @@ h2, h3, h4 {
     height: 500px;
     text-align: center;
     /*width: 100%;*/
-}
-
-.title-intro {
-	color: #fff;
 }
 
 .search-bar {
@@ -64,20 +150,58 @@ h2, h3, h4 {
 	border-color: #64764d;
 }
 .btn-searchbar:hover {
-	background-color: #000;
+	background-color: #3f4b30;
 	color: #fff;
-	border-color: #000;
+	border-color: #3f4b30;
 }
 
 .list-category h2{
 	text-align: center;
-	margin: 5% 0;
+	margin: 60px 0;
 }
 
-.newsletter-block {
-	background-color: lightgrey;
-	margin: 5% 0;
-	padding: 3% 0 6% 0;
+.card-body {
+	height: 400px;
+}
+
+.card-title a{
+	text-align: center;
+	font-size: 28px;
+	color: #64764d;
+}
+/* #3f4b30 */
+#block_home_2 {
+	position: relative;
+	background-color: white;
+	color: white;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-around;
+}
+.block_home_2_child {
+	width: 350px;
+	text-align: center;
+	margin: 0 20px;
+	padding: 20px;
+}
+
+.block_home_2_child i,
+.block_home_2_child h3,
+.block_home_2_child p {
+	margin: 15px 0;
+	color: #3f4b30;
+}
+
+/* Registration */
+.panel, .block {
+	margin: 100px;
+}
+
+/* Footer */
+footer {
+	bottom: 0;
+	width: 100%;
+	margin-top: 80px;
 }
 
 footer li {
@@ -95,3 +219,109 @@ footer li a:hover{
 	text-decoration: none;
 	color: #000;
 }
+
+/* Réseaux sociaux */
+#reseaux div {
+	display: inline-block;
+}
+#reseaux div li a {
+	color:#3f4b30;
+	margin: 5px;
+}
+
+
+/* Description produit */
+.calendar {
+	width: 400px;
+	height: 400px;
+	/* background-color: #9C0038; */
+	margin: 0 20px;
+}
+
+/* Mes hébergmeents */
+.btn_modif_and_delete {
+	display: inline-block;
+	margin: 10px 5px;
+}
+
+/* Formulaire */
+
+#form {
+	margin: 100px auto;
+	width: 570px;
+}
+
+input[type=text],
+input[type=textarea] {
+	width: 100%;
+}
+
+#input_comment {
+	height: 43px;
+}
+.form-horizontal .form-group {
+	margin: 0;
+	padding: 10px;
+}
+
+.container-profile {
+	margin-top: 150px;
+}
+
+.rating {
+	float:left;
+	width: 250px;
+  }
+
+  /* :not(:checked) is a filter, so that browsers that don’t support :checked don’t 
+	follow these rules. Every browser that supports :checked also supports :not(), so
+	it doesn’t make the test unnecessarily selective */
+  .rating:not(:checked) > input {
+	  position:absolute;
+	  top:-9999px;
+	  clip:rect(0,0,0,0);
+  }
+
+  .rating:not(:checked) > label {
+	  float:right;
+	  width:1em;
+	  /* padding:0 .1em; */
+	  overflow:hidden;
+	  white-space:nowrap;
+	  cursor:pointer;
+	  font-size:150%;
+	  /* line-height:1.2; */
+	  color:#ddd;
+  }
+
+  .rating:not(:checked) > label:before {
+	  content: '★';
+	  width:5px;
+	  height:5px;
+  }
+
+  .rating > input:checked ~ label {
+	  color: dodgerblue;
+	  
+  }
+
+  .rating:not(:checked) > label:hover,
+  .rating:not(:checked) > label:hover ~ label {
+	  color: dodgerblue;
+	  
+  }
+
+  .rating > input:checked + label:hover,
+  .rating > input:checked + label:hover ~ label,
+  .rating > input:checked ~ label:hover,
+  .rating > input:checked ~ label:hover ~ label,
+  .rating > label:hover ~ input:checked ~ label {
+	  color: dodgerblue;
+	  
+  }
+
+  .rating > label:active {
+	  position:relative;
+	  top:2px;
+	  left:2px;
+  }

@@ -1,7 +1,17 @@
 <?php
 
+/**
+ * A propos
+ * Mentions Légales
+ * Politique de confidentialité
+ * Conditions générales d'utilisation
+ * 
+ */
+
 namespace App\Http\Controllers;
 
+use App\House;
+use App\User;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -13,7 +23,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        //$this->middleware('auth');
     }
 
     /**
@@ -23,6 +33,31 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $houses = house::all();
+        $users = user::all();
+        return view('home')->with('houses', $houses);
+    }
+    public function search(Request $request)
+    {
+        //$query = Request::input('search');
+        //$house = DB::table('houses')->where('ville', 'LIKE', '%' . $query . '%');
+        
+        $house = house::all();
+        return view('page.search', compact('house', 'query'));
+    }
+    public function Apropos() {
+        return view('Apropos');
+    }
+    public function mentions_legales() {
+        return view('mentions_legales');
+    }
+    public function politique_de_confidentialite() {
+        return view('politique_de_confidentialite');
+    }
+    public function cgu() {
+        return view('cgu');
+    }
+    public function rgpd() {
+        return view('rgpd');
     }
 }

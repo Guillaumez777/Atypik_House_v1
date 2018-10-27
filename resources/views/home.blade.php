@@ -1,140 +1,84 @@
 @extends('layouts.app')
-
 @section('content')
 <div class="container-fluid banner">
     <div class="intro-body">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="title-intro">Trouvez les meilleurs locations insolites en Europe!</h1>
-                    <div class="col-lg-6 col-lg-offset-3">
-                        <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Saisir une ville">
-                            <span class="input-group-btn">
-                                <button class="btn btn-default btn-searchbar" type="button">Rechercher</button>
-                            </span>
-                        </div>
+                    <div class="input-group">
+                        <span class="input-group-btn">
+                            <form class="form-horizontal" method="get" action="{{url('search')}}" enctype="multipart/form-data">
+                                <div class="row">
+                                    <div class="col-lg-12 col-md-12 col-sm-12">
+                                        <h1 class="title title-intro">Trouvez les meilleurs locations atypique, <br />partout en Europe !</h1>
+                                        <div class="col-lg-8 col-lg-offset-2 col-md-6 col-md-offset-3 col-sm-9 col-sm-offset-1">
+                                            <div class="form-group button2">
+                                                @include('search',['url'=>'search','link'=>'search'])
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </span>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+
+                            <!--
+                            {!! Form::open(['method'=>'GET','url'=>'QueryController@search','class'=>'form','role'=>'search'])  !!}
+                            {!! Form::text('search', null,
+                                                array('required',
+                                                        'class'=>'form-control ',
+                                                        'placeholder'=>'Saisir une ville ...')) !!}
+                            {!! Form::submit('Rechercher',
+                                                        array('class'=>'btn btn-searchbar')) !!}
+                            {!! Form::close() !!}-->
+<div id="block_home_2">
+    <div id="tranquilite" class="block_home_2_child">
+        <i class="fas fa-procedures fa-5x"></i>
+        <h3>Tranquilité</h3>
+        <p>Rester au calme pendant votre séjour dans nos habitats insolite. Nos cabanes et yourte sauront combler vos désirs les plus variés</p>
+    </div>
+    <div id="depaysement" class="block_home_2_child">
+        <i class="fab fa-angellist fa-5x"></i>
+        <h3>Dépaysement</h3>
+        <p>Sortez de la routine quotidienne et venez vivre des expérience unique dans un décor à couper le souffle</p>
+    </div>
+    <div id="money" class="block_home_2_child">
+        <i class="far fa-money-bill-alt fa-5x"></i>
+        <h3>Economie</h3>
+        <p>Qui a dit que vous deviez vous ruiner pour votre week-end en amoureux. Nous possédons des prix attractifs avec des réductions toute l'année</p>
+    </div>
+</div>
 <div class="container list-category">
     <h2>Nos hébergements</h2>
     <div class="row">
-        <div class="col-lg-4 col-md-6 mb-4">
+      @foreach($houses as $house)
+        <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
             <div class="card h-100">
-                <a href="#"><img class="card-img-top" src="http://placehold.it/350x200" alt=""></a>
+                <a href="{{action('HousesController@show', $house['id'])}}"><img class="img-responsive" src="{{ asset('img/houses/'.$house->photo) }}"></a>
                 <div class="card-body">
-                    <h4 class="card-title">
-                        <a href="#">Item One</a>
-                    </h4>
-                    <h5>$24.99</h5>
-                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
+                    <h3 class="title card-title">
+                        <a href="{{action('HousesController@show', $house['id'])}}">{{$house->title}}</a>   
+                    </h3>
+                    <p>Type de bien : Logement</p>
+                    <p><i class="fas fa-bed"></i> : 2 lits - <i class="fas fa-users"></i> : pour 2 Personnes</p>
+                    <p class="price">{{$house->price}}€ par nuit</p>
+                    <p>Annulation gratuite !</p>
+                    <p class="card-text"><?php echo(substr($house->description, 0, 150));?></p>
+                    <p> {{$house->ville->ville_nom}}</p>
                 </div>
-                <div class="card-footer">
-                    <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 mb-4">
-          <div class="card h-100">
-            <a href="#"><img class="card-img-top" src="http://placehold.it/350x200" alt=""></a>
-            <div class="card-body">
-              <h4 class="card-title">
-                <a href="#">Item Two</a>
-              </h4>
-              <h5>$24.99</h5>
-              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur! Lorem ipsum dolor sit amet.</p>
-            </div>
-            <div class="card-footer">
-              <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 mb-4">
-          <div class="card h-100">
-            <a href="#"><img class="card-img-top" src="http://placehold.it/350x200" alt=""></a>
-            <div class="card-body">
-              <h4 class="card-title">
-                <a href="#">Item Three</a>
-              </h4>
-              <h5>$24.99</h5>
-              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
-            </div>
-            <div class="card-footer">
-              <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-            </div>
-          </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-lg-4 col-md-6 mb-4">
-          <div class="card h-100">
-            <a href="#"><img class="card-img-top" src="http://placehold.it/350x200" alt=""></a>
-            <div class="card-body">
-              <h4 class="card-title">
-                <a href="#">Item Four</a>
-              </h4>
-              <h5>$24.99</h5>
-              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
-            </div>
-            <div class="card-footer">
-              <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 mb-4">
-          <div class="card h-100">
-            <a href="#"><img class="card-img-top" src="http://placehold.it/350x200" alt=""></a>
-            <div class="card-body">
-              <h4 class="card-title">
-                <a href="#">Item Five</a>
-              </h4>
-              <h5>$24.99</h5>
-              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur! Lorem ipsum dolor sit amet.</p>
-            </div>
-            <div class="card-footer">
-              <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 mb-4">
-          <div class="card h-100">
-            <a href="#"><img class="card-img-top" src="http://placehold.it/350x200" alt=""></a>
-            <div class="card-body">
-              <h4 class="card-title">
-                <a href="#">Item Six</a>
-              </h4>
-              <h5>$24.99</h5>
-              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
-            </div>
-            <div class="card-footer">
-              <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-            </div>
-          </div>
-        </div>
-
-    </div>
-</div>
-<div class="newsletter-block">
-    <div class="row">
-        <div class="col-lg-12">
-            <h3>Abonnez-vous à notre newsletter afin d'être au courant des dernières nouveautés</h3>
-            <div class="col-lg-6 col-lg-offset-3">
-                <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Saisir une ville">
-                    <span class="input-group-btn">
-                        <button class="btn btn-default btn-searchbar" type="button">Rechercher</button>
-                    </span>
+                <div class="note card-footer">
+                    <medium class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</medium>
+                    <a class="btn btn-success btn_reserve" href="{{action('HousesController@show', $house['id'])}}">Réserver</a>
                 </div>
             </div>
-        </div>
+        </div>   
+        @endforeach
     </div>
 </div>
 @endsection

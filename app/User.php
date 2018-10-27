@@ -35,5 +35,16 @@ class User extends Authenticatable
         $this->email_token = null;
         $this->save();
     }
+
+    public function houses() {
+        return $this->hasMany('App\House');
+    }
+    public function comments() {
+        return $this->hasMany('App\Comment');
+    }
+    public function isAdmin()
+    {
+        return $this->admin; // this looks for an admin column in your users table
+    }
     
 }
