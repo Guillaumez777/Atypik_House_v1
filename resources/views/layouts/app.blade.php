@@ -98,7 +98,7 @@
                                 <ul class="dropdown-menu" role="menu">
                                     <li><a href="{{url('/profile')}}/{{Auth::user()->id}}">Mon profil</a></li>
                                     <li><a href="{{url('/mylocations')}}/{{Auth::user()->id}}">Mes hébergements</a></li>
-                                    <li><a href="{{ route('house.create') }}">Créer un hébergement</a></li>
+                                    <li><a href="{{ url('/house/create_step1') }}">Créer un hébergement</a></li>
                                     <li>
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
@@ -156,6 +156,7 @@
     <!-- Scripts -->
 
     <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/jquery.js') }}"></script>
     
     @yield('script')
 </body>

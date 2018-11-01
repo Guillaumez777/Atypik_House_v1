@@ -15,6 +15,10 @@ class House extends Model
     public function ville() {
         return $this->belongsTo('App\Ville');
     }
+
+    public function category() {
+        return $this->belongsTo('App\Category');
+    }
     
     public function comments() {
         return $this->hasMany('App\Comment');
