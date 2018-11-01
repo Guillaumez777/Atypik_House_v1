@@ -11,14 +11,14 @@ use App\Propriete;
 use App\ValuecatPropriete;
 use App\User;
 use Illuminate\Http\Request;
-//use Illuminate\Http\Response;
+use Illuminate\Http\Response;
 use Intervention\Image\ImageManager;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 use Session;
 use Image;
-use Response;
+use View;
 
 class HousesController extends Controller
 {
@@ -50,8 +50,86 @@ class HousesController extends Controller
         return view('houses.create', [
             'villes'=> $villes,
             'categories' => $categories,
-        ]
-        );
+        ]);
+    }
+
+    public function create_step1(Ville $villes, Request $request) {
+        $villes = ville::all();
+        $houseDatas = $request->session()->flush();
+        $houseDatas = $request->session()->get('houseDatas');
+
+        var_dump($houseDatas);
+        /*$houseDatas = $request->session()->reflash();
+        var_dump($houseDatas);*/
+        return view('houses.create_step1', [
+            'villes'=> $villes,
+            'house' => $houseDatas
+        ]);
+    }
+
+    public function postcreate_step1(Request $request) {
+        /*$validatedVille = $this->validate($request, [
+            'ville_id' => 'required',
+        ]);*/
+        $house = new house;
+        $house->ville_id = $request->ville_id;
+        
+        var_dump($house->ville_id);
+        $houseDatas = session('houseDatas', $house->ville_id);
+        $request->session()->push('houseDatas', $house->ville_id);
+        var_dump($houseDatas);
+
+        return view('houses.create_step2', [
+            'villes'=> $villes,
+            'houseDatas' => $houseDatas
+        ]);
+    }
+
+    public function create_step2(Category $categories, Request $request) {
+        $categories = category::all();
+        $houseDatas = $request->session()->get('houseDatas');
+
+        var_dump($houseDatas);
+        
+        return view('houses.create_step2', [
+            'categories' => $categories,
+            'houseDatas' => $houseDatas
+        ]);
+    }
+
+    public function postcreate_step2(Category $categories, Request $request) {
+        $categories = category::all();
+        
+        $house->category_id = $request->category_id;
+        $house->description = $request->description;
+        $house->title = $request->title;
+        $houseDatas = $request->session()->get('houseDatas');
+        $request->session()->push('houseDatas', $house->category_id);
+        $request->session()->push('houseDatas', $house->description);
+        $request->session()->push('houseDatas', $house->title);
+        return view('houses.create_step2', [
+            'categories' => $categories,
+            'houseDatas' => $houseDatas
+        ]);
+    }
+
+    public function create_step3(Category $categories) {
+        $categories = category::all();
+
+        $houseDatas = $request->session()->get('houseDatas');
+
+        var_dump($houseDatas);
+        return view('houses.create_step3', [
+            'categories' => $categories
+        ]);
+    }
+    
+
+    public function create_step4(Category $categories) {
+        $categories = category::all();
+        return view('houses.create_step4', [
+            'categories' => $categories
+        ]);
     }
 
     public function json_propriete(){

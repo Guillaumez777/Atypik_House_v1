@@ -18,14 +18,15 @@
 // }]);
 
 // Accueil
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('home');
-});
+});*/
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index')->name('home');
 Route::get('/houses', 'HousesController@index')->name('houses');
 Route::get('/register', 'RegistersController@create');
 Route::post('/register', 'RegistersController@register');
+Route::get('/users/confirmation{email_token}', 'Auth\RegisterController@confirmation');
 Route::post('/login', 'SessionsController@login');
 Route::get('/verifyemail/{token}', 'Auth\RegisterController@verify');
 
@@ -70,6 +71,17 @@ Route::prefix('admin')->group(function () {
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/profile/{id}', 'UsersController@index');
     Route::get('/mylocations/{id}', 'HousesController@mylocations');
+
+
+    Route::get('/house/create_step1', 'HousesController@create_step1')->name('house.create_step1');
+    Route::post('/house/postcreate_step1', 'HousesController@postcreate_step1')->name('house.postcreate_step1');
+    Route::get('/house/create_step2', 'HousesController@create_step2')->name('house.create_step2');
+    Route::post('/house/postcreate_step2', 'HousesController@postcreate_step2')->name('house.postcreate_step2');
+    Route::get('/house/create_step3', 'HousesController@create_step3')->name('house.create_step3');
+    //Route::post('/house/postcreate_step3', 'HousesController@postcreate_step3')->name('house.postcreate_step3');
+    Route::get('/house/create_step4', 'HousesController@create_step4')->name('house.create_step4');
+    //Route::post('/house/postcreate_step4', 'HousesController@postcreate_step4')->name('house.postcreate_step4');
+
     Route::get('/houses/edit/{id}', 'HousesController@edit');
     Route::get('/profile/edit/{id}', 'UsersController@edit');
     Route::post('/users/update/{id}', 'UsersController@update');

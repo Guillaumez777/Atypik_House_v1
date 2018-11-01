@@ -89,7 +89,7 @@ class RegisterController extends Controller
     protected function register(Request $request)
     {
         $input = $request->all();
-        //$validator = $this->validator($input);
+
         $validator = $this->validate($request, [
             'nom' => 'required|max:30',
             'prenom' => 'required|min:1|max:20',
@@ -108,14 +108,12 @@ class RegisterController extends Controller
             $user->email_token = $data['email_token'];
             $user->prenom = $data["prenom"];
             $user->save();
-            return view('home');
-
-           /*Mail::send('email.confirmation', $data,function($message) use($data){
+            
+            /*Mail::send('email.confirmation', $data,function($message) use($data){
                 $message->to($data['email']);
                 $message->subject('Confirmation inscription');
             });*/
-
-            //return redirect(route('login'))->with('status', 'Un email de confirmation vous a été envoyé. Veuillez vérifier votre boîte mail.');
+            return redirect(route('login'))->with('status', 'Merci pour votre inscription, vous pouvez dès à présent vous connecter sur le site.');
         //return redirect(route('login'))->with('status', $validator->errors());
     }
 

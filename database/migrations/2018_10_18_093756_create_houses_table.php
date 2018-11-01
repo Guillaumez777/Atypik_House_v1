@@ -20,7 +20,7 @@ class CreateHousesTable extends Migration
             // $table->foreign('user_id')->references('id')->on('users');
             // $table->integer('category_id');
             // $table->foreign('category_id')->references('id')->on('categories');
-            // $table->integer('ville_id');
+             $table->integer('ville_id');
             // $table->foreign('ville_id')->references('id')->on('villes');
             $table->string('description');
             $table->float('price');
