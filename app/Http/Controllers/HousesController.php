@@ -73,8 +73,8 @@ class HousesController extends Controller
         
         //$house->ville_id = $request->ville_id;
         
-        $houseVille = session('houseVille', $request->ville_id);
-        $request->session()->push('houseVille', $request->ville_id);
+        $houseVille = session('houseVille', $request->ville);
+        $request->session()->push('houseVille', $request->ville);
 
         $houseUser = session('houseUser', $request->user_id);
         $request->session()->push('houseUser', $request->user_id);
@@ -162,7 +162,7 @@ class HousesController extends Controller
         $house = new house;
         $house->title = last($houseTitle);
         $house->user_id = last($houseUser);
-        $house->ville_id = last($houseVille);
+        $house->ville = last($houseVille);
         $house->description = last($houseDescription);
         $house->price = last($housePrix);
         //$house->photo = $request->photo;
