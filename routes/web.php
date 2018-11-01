@@ -71,18 +71,16 @@ Route::prefix('admin')->group(function () {
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/profile/{id}', 'UsersController@index');
     Route::get('/mylocations/{id}', 'HousesController@mylocations');
-
-
     Route::get('/house/create_step1', 'HousesController@create_step1')->name('house.create_step1');
     Route::post('/house/postcreate_step1', 'HousesController@postcreate_step1')->name('house.postcreate_step1');
     Route::get('/house/create_step2', 'HousesController@create_step2')->name('house.create_step2');
     Route::post('/house/postcreate_step2', 'HousesController@postcreate_step2')->name('house.postcreate_step2');
     Route::get('/house/create_step3', 'HousesController@create_step3')->name('house.create_step3');
-    //Route::post('/house/postcreate_step3', 'HousesController@postcreate_step3')->name('house.postcreate_step3');
+    Route::post('/house/postcreate_step3', 'HousesController@postcreate_step3')->name('house.postcreate_step3');
     Route::get('/house/create_step4', 'HousesController@create_step4')->name('house.create_step4');
-    //Route::post('/house/postcreate_step4', 'HousesController@postcreate_step4')->name('house.postcreate_step4');
-
-    Route::get('/houses/edit/{id}', 'HousesController@edit');
+    Route::post('/house/postcreate_step4', 'HousesController@postcreate_step4')->name('house.postcreate_step4');
+    Route::get('/house/confirmation_create_house', 'HousesController@confirmation_create_house')->name('house.confirmation_create_house');
+    Route::get('/houses/show/{id}', 'HousesController@show');
     Route::get('/profile/edit/{id}', 'UsersController@edit');
     Route::post('/users/update/{id}', 'UsersController@update');
     Route::post('/houses/store/{id}', 'HousesController@store');
