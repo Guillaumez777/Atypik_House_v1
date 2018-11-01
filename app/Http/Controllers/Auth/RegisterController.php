@@ -88,7 +88,6 @@ class RegisterController extends Controller
 
     protected function register(Request $request)
     {
-        echo("caca");
         $input = $request->all();
         //$validator = $this->validator($input);
         $validator = $this->validate($request, [
