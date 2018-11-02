@@ -507,7 +507,7 @@ class ComposerStaticInitabe8ea9371bc75bf6e5a2b40c0cdd0b2
         'CreateCategoriesTable' => __DIR__ . '/../..' . '/database/migrations/2018_10_22_144619_create_categories_table.php',
         'CreateCommentsTable' => __DIR__ . '/../..' . '/database/migrations/2018_04_16_135116_create_comments_table.php',
         'CreateFailedJobsTable' => __DIR__ . '/../..' . '/database/migrations/2018_05_27_171116_create_failed_jobs_table.php',
-        'CreateHousesTable' => __DIR__ . '/../..' . '/database/migrations/2018_10_18_093756_create_houses_table.php',
+        'CreateHousesTables' => __DIR__ . '/../..' . '/database/migrations/2018_11_02_131326_create_houses_tables.php',
         'CreateJobsTable' => __DIR__ . '/../..' . '/database/migrations/2018_05_27_171104_create_jobs_table.php',
         'CreateProprietesTable' => __DIR__ . '/../..' . '/database/migrations/2018_04_25_195248_create_proprietes_table.php',
         'CreateReservationsTable' => __DIR__ . '/../..' . '/database/migrations/2018_04_17_121052_create_reservations_table.php',

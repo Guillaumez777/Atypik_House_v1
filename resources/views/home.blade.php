@@ -70,7 +70,7 @@
                     <p class="price">{{$house->price}}€ par nuit</p>
                     <p>Annulation gratuite !</p>
                     <p class="card-text"><?php echo(substr($house->description, 0, 150));?></p>
-                    <p> {{$house->ville->ville_nom}}</p>
+                    <p> {{$house->ville}}</p>
                 </div>
                 <div class="note card-footer">
                     <medium class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</medium>

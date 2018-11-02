@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use App\House;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -42,14 +43,25 @@ class UsersController extends Controller
         return view('users.index', compact('userData'))->with('data', Auth::user()->user);
     }
 
-    public function mylocations($id) {
-     $userData = DB::table('users')
+    /*public function mylocations($id) {
+    $userData = DB::table('users')
      ->select('users.*', 'houses.*')
      ->leftJoin('houses', 'houses.idUser','users.id')
      ->where('users.id', '=', $id)
      ->get();
-        return view('users.mylocations', compact('userData'))->with('data', Auth::user()->user);
+     return view('users.mylocations', compact('userData'))->with('data', Auth::user()->user);
+    }*/
+
+    public function houses(Request $request)
+    {
+        $user = $request->user();
+
+        $houses = House::where('user_id', $user->id)->get();
+
+        return view('user.houses', compact('houses'));
     }
+    
+        
 
     public function edit(User $user)
     {

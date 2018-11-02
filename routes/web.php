@@ -80,6 +80,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/house/create_step4', 'HousesController@create_step4')->name('house.create_step4');
     Route::post('/house/postcreate_step4', 'HousesController@postcreate_step4')->name('house.postcreate_step4');
     Route::get('/house/confirmation_create_house', 'HousesController@confirmation_create_house')->name('house.confirmation_create_house');
+    Route::get('/user/houses', 'UsersController@houses')->name('user.houses');
     Route::get('/houses/show/{id}', 'HousesController@show');
     Route::get('/profile/edit/{id}', 'UsersController@edit');
     Route::post('/users/update/{id}', 'UsersController@update');

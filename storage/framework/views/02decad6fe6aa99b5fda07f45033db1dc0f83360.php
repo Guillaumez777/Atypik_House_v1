@@ -14,7 +14,7 @@
                         <div class="form-group">
                             <label for="name" class="col-md-4 control-label">Titre de votre bien</label>
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control" name="title" required autofocus>
+                                <input id="name" type="text" class="form-control" name="ville" required autofocus>
                             </div>
                         </div>
                         <div class="col-md-6">

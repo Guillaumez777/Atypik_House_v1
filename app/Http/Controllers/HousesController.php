@@ -106,37 +106,18 @@ class HousesController extends Controller
 
         $houseDescription = session('houseDescription', $request->description);
         $request->session()->push('houseDescription', $request->description);
-        //$request->session()->push('houseDatas', $house->category_id);
-        
-        
-        /*return view('houses.create_step3', [
-            'houseDatas' => $houseDatas
-        ]);*/
-        /*var_dump($houseVille);
-        var_dump($houseTitle);
-        var_dump($houseDescription);*/
+
         return redirect('/house/create_step3');
     }
 
     public function create_step3(Request $request) {
-
-        //$houseDatas = $request->session()->get('houseDatas');
-        //var_dump($houseDatas);
-        /*return view('houses.create_step3', [
-            'houseDatas' => $houseDatas
-        ]);*/
-        
         return view('houses.create_step3');
     }
 
     public function postcreate_step3(Request $request) {
         $housePrix = session('housePrix', $request->price);
         $request->session()->push('housePrix', $request->price);
-        
-        /*return view('houses.create_step3', [
-            'categories' => $categories,
-            'houseDatas' => $houseDatas
-        ]);*/
+    
         $houseVille = $request->session()->get('houseVille');
         $houseTitle = $request->session()->get('houseTitle');
         $houseDescription = $request->session()->get('houseDescription');
@@ -165,6 +146,7 @@ class HousesController extends Controller
         $house->ville = last($houseVille);
         $house->description = last($houseDescription);
         $house->price = last($housePrix);
+        $house->statut = "En attente de validation";
         //$house->photo = $request->photo;
         var_dump($request->photo);
         //$house->category_id = $houseDatas->category_id;
@@ -183,8 +165,6 @@ class HousesController extends Controller
         Image::make($picture->getRealPath())->resize(350, 200)->save($path);
         $house->photo = $filename;
         $house->save();
-
-        //$house = $request->session()->flush();
         
         return redirect('/house/confirmation_create_house');
         
