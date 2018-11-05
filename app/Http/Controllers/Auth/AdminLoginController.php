@@ -21,8 +21,6 @@ class AdminLoginController extends Controller
             'email' => 'required|email',
             'password' => 'required|min:8'
         ]);
-        var_dump($request->email);
-        var_dump($request->password);
         //attempt to login the admins in
         if (Auth::guard('admin')->attempt(['email' => $request->email, 'password' => $request->password], $request->remember)){
             //if successful redirect to admin dashboard
@@ -30,7 +28,7 @@ class AdminLoginController extends Controller
             return redirect()->intended(route('admin.dashboard'));
         }
         //if unsuccessfull redirect back to the login for with form data
-        //return redirect()->back()->withInput($request->only('email','remember'));
+        return redirect()->back()->withInput($request->only('email','remember'));
       
     }
     public function logout()
