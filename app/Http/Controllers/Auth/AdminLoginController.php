@@ -12,6 +12,7 @@ class AdminLoginController extends Controller
     }
     //function to show admin login form
     public function showLoginForm() {
+        Auth::logout();
         return view('auth.admin-login');
     }
     //function to login admins
