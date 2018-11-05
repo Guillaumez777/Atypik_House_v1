@@ -13,9 +13,9 @@
 
 // Admin
 
-// Route::get('protected', ['middleware' => ['auth', 'admin'], function() {
-//     Route::get('/admin', 'Admin\AdminController@home');
-// }]);
+Route::get('protected', ['middleware' => ['auth', 'admin'], function() {
+   Route::get('/admin', 'Admin\AdminController@home');
+}]);
 
 // Accueil
 /*Route::get('/', function () {
@@ -39,6 +39,7 @@ Route::get('/rgpd', 'HomeController@rgpd')->name('rgpd');
 
 // admin route for our multi-auth system
 Route::resource('search', 'QueryController', ['only' => ['index','show', 'create', 'store', 'search']]);
+
 Route::prefix('admin')->group(function () {
     Route::get('/home', 'HomeController@index')->name('admin.home');
     Route::get('/profile/{id}', 'AdminController@profilUser')->name('admin.user');
