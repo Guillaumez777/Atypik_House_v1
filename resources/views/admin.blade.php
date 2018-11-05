@@ -59,8 +59,8 @@
         <table class="table">
             <tbody>
                 <tr>
-                    <td><a href="{{action('AdminController@profilUser', $user['id'])}}">{{$user->nom}}</a></td>
-                    <td>{{$user->email}}€</td>
+                    <td><a href="{{action('AdminController@profilUser', $user['id'])}}">{{$user->nom}} {{$user->prenom}}</a></td>
+                    <td>{{$user->email}}</td>
                     <td>
                         <a href="#" class="btn btn-warning">Modifier</a>
                         <a href="#" class="btn btn-danger">Supprimer</a>

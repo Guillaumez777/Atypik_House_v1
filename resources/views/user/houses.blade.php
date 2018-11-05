@@ -6,7 +6,7 @@
     <h2>Nos hébergements</h2>
     @foreach ($houses as $house)
     <div class="row">
-        <div class="col-lg-6 col-md-6 mb-4">
+        <div class="col-lg-4 col-md-4 mb-4 thumbnail">
             <div class="card h-100">
                 <a href="{{action('HousesController@show', $house['id'])}}"><img class="img-responsive img_house" src="{{ asset('img/houses/'.$house->photo) }}"></a>
                 <div class="card-body">
