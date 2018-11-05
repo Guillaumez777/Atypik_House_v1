@@ -9,7 +9,7 @@
         <div class="col-lg-4 col-md-4 mb-4 thumbnail">
             <div class="card h-100">
                 <a href="{{action('HousesController@show', $house['id'])}}"><img class="img-responsive img_house" src="{{ asset('img/houses/'.$house->photo) }}"></a>
-                <div class="card-body">
+                <div>
                     <h4 class="title card-title">
                         <a href="#">{{$house->title}}</a>
                     </h4>
