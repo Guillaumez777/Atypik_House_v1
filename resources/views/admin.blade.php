@@ -17,41 +17,6 @@
 @endsection --}}
 @extends('layouts.admin')
 @section('content')
-<div id="hebergement">
-    <h2>Hebergements : </h2>
-    <div class="row">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Titre : </th>
-                    <th>Prix : </th>
-                    <th>Actions : </th>
-                </tr>
-            </thead>
-        </table>
-    @foreach($houses as $house)
-    <div class="table-responsive">
-        <table class="table">
-            <tbody>
-                <tr>
-                    <td>{{$house->title}}</td>
-                    <td>{{$house->price}}€</td>
-                    <td>
-                        <!-- <a href="#" class="btn btn-warning">Modifier</a> -->
-                        <a href="{{action('AdminController@editHouse', $house->id)}}" class="btn btn-warning btn_modif_and_delete">Modifier</a>
-                        <a href="{{action('AdminController@deleteHouse', $house->id)}}" class="btn btn-danger">Supprimer</a>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-    @endforeach
-    </div>
-</div>
-<div id="reservation">
-    <h2>Reservations : </h2>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus vitae nulla nemo, ipsa, officiis recusandae praesentium nihil, minus cumque nostrum enim aliquam nam libero earum mollitia eaque. Voluptas, cum esse!</p>
-</div>
 <div id="utilisateur">
     <h2>Utilisateurs : </h2>
     @foreach($users as $user)
@@ -70,10 +35,6 @@
         </table>
     </div>
     @endforeach
-</div>
-<div id="avis">
-    <h2>Avis : </h2>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus vitae nulla nemo, ipsa, officiis recusandae praesentium nihil, minus cumque nostrum enim aliquam nam libero earum mollitia eaque. Voluptas, cum esse!</p>
 </div>
 <div id="proprietes">
     <h2>Proprietes : </h2>
