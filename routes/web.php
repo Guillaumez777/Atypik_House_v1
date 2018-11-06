@@ -84,8 +84,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/house/confirmation_create_house', 'HousesController@confirmation_create_house')->name('house.confirmation_create_house');
     Route::get('/user/houses', 'UsersController@houses')->name('user.houses');
     Route::get('/houses/show/{id}', 'HousesController@show');
-    Route::get('/profile/edit/{id}', 'UsersController@edit');
-    Route::post('/users/update/{id}', 'UsersController@update');
+    Route::get('/user/editHouse', 'UsersController@editHouse')->name('user.editHouse');
+    Route::post('/users/updateHouse/{id}', 'UsersController@updateHouse')->name('user.updateHouse');
     Route::post('/houses/store/{id}', 'HousesController@store');
     //Route::resource('houses', 'HousesController', ['only' => ['index','show', 'create', 'store', 'edit', 'update', 'destroy', 'mylocations']]);
     Route::resource('users', 'UserController', ['only' => ['index','mylocations', 'edit', 'update']]);

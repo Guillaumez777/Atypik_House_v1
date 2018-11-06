@@ -22,6 +22,13 @@
                     @else
                         <p>Statut: <span style="color:green;"><?php echo($house->statut);?></span></p>
                     @endif
+                    <div class="row">
+                        <div class="form-group">
+                            <div class="col-md-12 text-center">
+                                <a href="{{route('user.editHouse', $house['id']) }}" class="btn btn-primary">Modifier</a>
+                            </div>                      
+                        </div>
+                    </div>
                 </div>
             </div> 
         </div>
