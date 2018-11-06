@@ -42,12 +42,14 @@ class AdminController extends Controller
      *
      * @return Response
      */
-    public function profilUser($id) {
-        $user = DB::table('users')
-        ->where('id', $id)
-        ->get();
-        return view('admin.profilUser')->with('user', $user);
+    public function profilUser($id) {  
+        $users = User::where('id', $id)->get();
+        $houses = House::where('user_id', $id)->get();
+        return view('admin.profilUser')->with('houses', $houses)
+                                       ->with('users', $users);
     }
+
+    
 
     public function editHouse($id)
     { 

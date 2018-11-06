@@ -27,4 +27,14 @@ class Admin extends Authenticatable
     {
         $this->notify(new AdminResetPasswordNotification($token));
     }
+
+    public function users()
+    {
+        return $this->hasMany(User::class);
+    }
+
+    public function houses()
+    {
+        return $this->hasMany(House::class);
+    }
 }
