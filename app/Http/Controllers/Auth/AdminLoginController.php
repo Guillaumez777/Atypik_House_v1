@@ -7,12 +7,12 @@ class AdminLoginController extends Controller
 {
     public function __construct()
     {
+        Auth::logout();
         //defining our middleware for this controller
         $this->middleware('guest:admin',['except' => ['logout']]);
     }
     //function to show admin login form
     public function showLoginForm() {
-        Auth::logout();
         return view('auth.admin-login');
     }
     //function to login admins
