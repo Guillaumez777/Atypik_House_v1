@@ -10,9 +10,10 @@
 
     {{-- Title --}}
     {{-- <title>{{ config('app.name', 'Laravel') }}</title> --}}
-    <title>AtypikHouse - Votre habitats atypique, partout en Europe</title>
 
-    <meta description="Le site d'habitats insolite, partout en France et en Europe">
+    <title>AtypikHouse - @yield('title')</title>
+   <meta description="@yield('meta_description')">
+
 
     {{-- Logo Navigateur --}}
     <link rel="icon" type="image/png" href="{{ asset('img/LogoNavigateur.png') }}" />
