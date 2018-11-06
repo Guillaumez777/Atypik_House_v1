@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Auth;
 use Session;
+use Image;
 class AdminController extends Controller
 {
     /**
@@ -25,13 +26,13 @@ class AdminController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(User $users, Category $categories, Propriete $proprietes)
+    public function dashboard(User $users, Category $categories, Propriete $proprietes)
     {
         $proprietes = propriete::all();
         $categories = category::all();
         $users = user::all();
         $houses = house::all();
-        return view('admin')->with('users', $users)
+        return view('admin.dashboard')->with('users', $users)
                             ->with('categories', $categories)
                             ->with('proprietes', $proprietes)
                             ->with('houses', $houses);
@@ -68,33 +69,39 @@ class AdminController extends Controller
 
     public function updateHouse(Request $request, House $house, $id)
     {
-        $house = house::where('id', '=', $id)->get();
-        dump($house);
-        $house->title = $request->get('title');
-        $house->idCategory = $request->get('idCategory');
-        $house->price = $request->get('price');
-        $house->photo = $request->get('photo');
-        $house->description = $request->get('description');
+        var_dump("coco");
+        $house = house::find($id);
+        var_dump($house->photo);
+        //var_dump($house->photo);
+        $house->title = $request->title;
+        //$house->idCategory = $request->get('idCategory');
+        $house->price = $request->price;
+        $house->description = $request->description;
         /*$this->validate($request, [
-        // check validtion for image or file
             'photo' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:20000',
         ]);*/
-
-        //$picture = $request->file('photo');
-        $picture = $request->file('photo');
-        $filename  = time() . '.' . $picture->getClientOriginalExtension();
-        $path = public_path('img/houses/' . $filename);
-        Image::make($picture->getRealPath())->resize(350, 200)->save($path);
-        $house->photo = $filename;
-
-        $house->save();
-        return redirect()->back()->with('success', 'Votre hebergement a bien été modifié');
+        if($request->photo == NULL){
+            $request->photo = $house->photo;
+            var_dump("non");
+            $house->save();
+            return redirect()->back()->with('success', "L'hébergement de l'utilisateur a bien été modifié");
+           
+        } else {
+            $picture = $request->file('photo');
+            $filename  = time() . '.' . $picture->getClientOriginalExtension();
+            $path = public_path('img/houses/' . $filename);
+            Image::make($picture->getRealPath())->resize(350, 200)->save($path);
+            $house->photo = $filename;
+            var_dump("oui");
+            $house->save();
+            return redirect()->back()->with('success', "L'hébergement de l'utilisateur a bien été modifié");
+        }
     }
 
     public function deleteHouse($id) {
         $house = house::find($house->id);
         $house->delete();
-        return redirect()->back()->with('success', 'Votre hebergement a bien été modifié');
+        return redirect()->back()->with('success', 'Votre hebergement a bien été supprimé');
     }
 
     public function createproprietes(Request $request)  

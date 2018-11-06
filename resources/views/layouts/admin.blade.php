@@ -39,8 +39,8 @@
         <div class="row">
             <div class="col-sm-3 col-md-2 sidebar">
                 <ul class="nav nav-sidebar">
-                    <li><a href="#" id="3">Utilisateurs</a></li>
-                    <li><a href="#" id="5">Propriétés</a></li>
+                    <li><a href="{{route('admin.dashboard') }}" id="3">Utilisateurs</a></li>
+                    <li><a href="" id="5">Propriétés</a></li>
                 </ul>
             </div>
         </div>

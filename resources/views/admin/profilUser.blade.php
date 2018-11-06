@@ -33,13 +33,6 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="form-group">
-                                <div class="col-md-6 col-md-offset-2">
-                                    <a href="{{ url()->previous() }}" class="btn btn-primary">Retour</a>
-                                </div>                      
-                            </div>
-                        </div>
                     </div>
                     @endforeach
                 </div>
@@ -47,9 +40,10 @@
 
             <div class="col-md-7">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Hébergement de </div>
+                @foreach ($houses as $house)
+                    <div class="panel-heading">Hébergement de {{$house->user->nom}} {{$house->user->prenom}}</div>
                     <div class="panel-body">
-                    @foreach ($houses as $house)
+                    
                         <div class="row">
                             <div class="col-lg-4 col-md-4 mb-4 thumbnail">
                                 <div class="card h-100">
@@ -67,6 +61,13 @@
                                         @else
                                             <p>Statut: <span style="color:green;"><?php echo($house->statut);?></span></p>
                                         @endif
+                                        <div class="row">
+                                            <div class="form-group">
+                                                <div class="col-md-12 text-center">
+                                                    <a href="{{route('admin.editHouse', $house['id']) }}" class="btn btn-primary">Modifier</a>
+                                                </div>                      
+                                            </div>
+                                        </div>
                                     </div>
                                 </div> 
                             </div>
