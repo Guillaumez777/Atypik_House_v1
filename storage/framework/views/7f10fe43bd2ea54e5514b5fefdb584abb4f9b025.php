@@ -10,19 +10,26 @@
 
     
     
-    <title>AtypikHouse - Votre habitats insolite, partout en Europe</title>
+    <title>AtypikHouse - Votre habitats atypique, partout en Europe</title>
+
+    <meta description="Le site d'habitats insolite, partout en France et en Europe">
 
     
     <link rel="icon" type="image/png" href="<?php echo e(asset('img/LogoNavigateur.png')); ?>" />
 
     
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Karla" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Archivo" rel="stylesheet">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
     <!-- Styles -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css" integrity="sha384-5SOiIsAziJl6AWe0HWRKTXlfcSHKmYV4RBF18PPJ173Kzn7jzMyFuTtk8JA7QQG1" crossorigin="anonymous">
     <link href="<?php echo e(asset('css/app.css')); ?>" rel="stylesheet">
     <?php echo $__env->yieldContent('link'); ?>
     <link href="<?php echo e(asset('css/custom.css')); ?>" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
     <div id="app">
@@ -55,10 +62,32 @@
                         <!-- Authentication Links -->
                         <?php if(Auth::guest()): ?>
                             <li><a href="<?php echo e(url('/')); ?>">Accueil</a></li>
+                            <li><a href="<?php echo e(route('register')); ?>">Devenir hôte</a></li>
                             <li><a href="<?php echo e(route('houses.index')); ?>">Nos hébergements</a></li>
-                            <li><a href="<?php echo e(route('login')); ?>">Connexion</a></li>
                             <li><a href="<?php echo e(route('register')); ?>">Inscription</a></li>
+                            <li><a href="<?php echo e(route('login')); ?>">Connexion</a></li>
                             <li><a href="<?php echo e(route('posts.index')); ?>">Contact</a></li>
+                        <?php elseif(Auth::guard('admin')->check()): ?>
+                            <li><a href="<?php echo e(route('admin.home')); ?>">Accueil</a></li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                    <?php echo e(Auth::user()->prenom); ?> <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li>
+                                        <a href="<?php echo e(route('logout')); ?>"
+                                            onclick="event.preventDefault();
+                                                        document.getElementById('logout-form').submit();">
+                                            Se déconnecter
+                                        </a>
+
+                                        <form id="logout-form" action="<?php echo e(route('logout')); ?>" method="POST" style="display: none;">
+                                            <?php echo e(csrf_field()); ?>
+
+                                        </form>
+                                    </li>
+                                </ul>
+                            </li>
                         <?php else: ?>
                             <li><a href="<?php echo e(url('/')); ?>">Accueil</a></li>
                             <li><a href="<?php echo e(route('houses.index')); ?>">Nos hébergements</a></li>
@@ -68,7 +97,7 @@
                                 </a>
                                 <ul class="dropdown-menu" role="menu">
                                     <li><a href="<?php echo e(url('/profile')); ?>/<?php echo e(Auth::user()->id); ?>">Mon profil</a></li>
-                                    <li><a href="<?php echo e(url('/mylocations')); ?>/<?php echo e(Auth::user()->id); ?>">Mes locations</a></li>
+                                    <li><a href="<?php echo e(url('/mylocations')); ?>/<?php echo e(Auth::user()->id); ?>">Mes hébergements</a></li>
                                     <li><a href="<?php echo e(route('houses.create')); ?>">Créer un hébergement</a></li>
                                     <li>
                                         <a href="<?php echo e(route('logout')); ?>"
@@ -97,19 +126,16 @@
             <div class="row">
                 <div class="col-md-offset-2 col-md-3">
                     <ul>
-                        <li><a href="#">A propos</a></li>
-                        <li><a href="#">Mentions légales</a></li>
-                        <li><a href="#">Politique de confidentialité</a></li>
-                        <li><a href="#">Conditions générales d'utilisation</a></li>
+                        <li><a href="<?php echo e(route('mentions_legales')); ?>">Mentions légales</a></li>
+                        <li><a href="<?php echo e(route('politique_de_confidentialite')); ?>">Politique de confidentialité</a></li>
+                        <li><a href="<?php echo e(route('cgu')); ?>">Conditions générales d'utilisation</a></li>
+                        <li><a href="<?php echo e(route('rgpd')); ?>">Légalités et RGPD</a></li>
                     </ul>
                 </div>
                 <div class="col-md-3">
                     <ul>
-                        <li><a href="#">Hébergement</a></li>
-                        <li><a href="#">devenir hotes</a></li>
-                        <li><a href="#">Règle pour les Hôtes</a></li>
-                        <li><a href="#">Consigne de sécurité</a></li>
-                        <li><a href="#">FAQ</a></li>
+                        <li><a href="<?php echo e(route('Apropos')); ?>">A propos</a></li>
+                        <li><a href="<?php echo e(route('houses.index')); ?>">Hébergement</a></li>
                     </ul>
                 </div>
                 <div class="col-md-3">
@@ -129,7 +155,9 @@
     </footer>
 
     <!-- Scripts -->
+
     <script src="<?php echo e(asset('js/app.js')); ?>"></script>
+    
     <?php echo $__env->yieldContent('script'); ?>
 </body>
 </html>

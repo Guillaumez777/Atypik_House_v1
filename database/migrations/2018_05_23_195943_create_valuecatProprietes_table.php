@@ -30,6 +30,6 @@ class CreateValuecatProprietesTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('valuecatProprietes');
     }
 }

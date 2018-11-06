@@ -13,16 +13,16 @@ class CreateCommentsTable extends Migration
      */
     public function up()
     {
-        // Schema::table('comments', function (Blueprint $table) {
-        //     $table->increments('id');
-        //     $table->string('comment');
-        //     $table->integer('note');
-        //     $table->integer('user_id')->unsigned();
-        //     $table->foreign('user_id')->references('id')->on('users');
-        //     $table->integer('house_id')->unsigned();
-        //     $table->foreign('house_id')->references('id')->on('houses');       
-        //     $table->timestamps();
-        // });
+        Schema::create('comments', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('comment');
+            $table->integer('note');
+            // $table->integer('user_id')->unsigned();
+            // $table->foreign('user_id')->references('id')->on('users');
+            // $table->integer('house_id')->unsigned();
+            // $table->foreign('house_id')->references('id')->on('houses');       
+            $table->timestamps();
+        });
     }
 
     /**
@@ -32,6 +32,6 @@ class CreateCommentsTable extends Migration
      */
     public function down()
     {
-        //Schema::drop('comments');
+        Schema::dropIfExists('comments');
     }
 }
