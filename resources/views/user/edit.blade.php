@@ -22,6 +22,16 @@
                                 <input id="name" type="text" class="form-control" name="title" required autofocus value="{{$house->title}}">
                             </div>
                         </div>
+                        <div class="form-group">
+                                <label for="name" class="col-md-4 control-label">Categorie</label>
+                                <div class="col-md-6">
+                                    <select id="select_category" type="text" name="category_id" class="form-control">
+                                        <option id="" value="defaut" required autofocus>Choisissez votre categorie</option>                                       
+                                        <option value="<?php echo($house->category->id);?>"selected="selected"><?php echo($house->category->category);?></option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
                         
 
                         <div class="form-group">

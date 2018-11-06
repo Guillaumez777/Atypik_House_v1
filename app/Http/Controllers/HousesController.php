@@ -101,6 +101,9 @@ class HousesController extends Controller
         $categories = category::all();
         $houseVille = $request->session()->get('houseVille');
 
+        $houseCategory = session('houseCategory', $request->category_id);
+        $request->session()->push('houseCategory', $request->category_id);
+
         $houseTitle = session('houseTitle', $request->title);
         $request->session()->push('houseTitle', $request->title);
 
@@ -133,6 +136,7 @@ class HousesController extends Controller
     public function postcreate_step4(Request $request) {
         $houseTitle = $request->session()->get('houseTitle');
         $houseUser = $request->session()->get('houseUser');
+        $houseCategory = $request->session()->get('houseCategory');
         $houseVille = $request->session()->get('houseVille');
         $houseDescription = $request->session()->get('houseDescription');
         $housePrix = $request->session()->get('housePrix');
@@ -143,16 +147,11 @@ class HousesController extends Controller
         $house = new house;
         $house->title = last($houseTitle);
         $house->user_id = last($houseUser);
+        $house->category_id = last($houseCategory);
         $house->ville = last($houseVille);
         $house->description = last($houseDescription);
         $house->price = last($housePrix);
         $house->statut = "En attente de validation";
-        //$house->photo = $request->photo;
-        var_dump($request->photo);
-        //$house->category_id = $houseDatas->category_id;
-        
-        
-        //$house->photo = $request->photo;
         
 
         $this->validate($request, [
