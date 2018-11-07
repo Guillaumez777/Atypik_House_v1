@@ -37,8 +37,12 @@ class User extends Authenticatable
         $this->save();
     }
 
-    public function houses() {
+    /*public function houses() {
         return $this->hasMany('App\House');
+    }*/
+    public function houses()
+    {
+        return $this->hasMany(House::class);
     }
     public function comments() {
         return $this->hasMany('App\Comment');

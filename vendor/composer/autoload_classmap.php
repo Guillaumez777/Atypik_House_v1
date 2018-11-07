@@ -135,7 +135,7 @@ return array(
     'CreateCategoriesTable' => $baseDir . '/database/migrations/2018_10_22_144619_create_categories_table.php',
     'CreateCommentsTable' => $baseDir . '/database/migrations/2018_04_16_135116_create_comments_table.php',
     'CreateFailedJobsTable' => $baseDir . '/database/migrations/2018_05_27_171116_create_failed_jobs_table.php',
-    'CreateHousesTable' => $baseDir . '/database/migrations/2018_10_18_093756_create_houses_table.php',
+    'CreateHousesTables' => $baseDir . '/database/migrations/2018_11_02_131326_create_houses_tables.php',
     'CreateJobsTable' => $baseDir . '/database/migrations/2018_05_27_171104_create_jobs_table.php',
     'CreateProprietesTable' => $baseDir . '/database/migrations/2018_04_25_195248_create_proprietes_table.php',
     'CreateReservationsTable' => $baseDir . '/database/migrations/2018_04_17_121052_create_reservations_table.php',

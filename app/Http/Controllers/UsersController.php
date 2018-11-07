@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use App\House;
+use App\Category;
+use App\Ville;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -42,19 +45,52 @@ class UsersController extends Controller
         return view('users.index', compact('userData'))->with('data', Auth::user()->user);
     }
 
-    public function mylocations($id) {
-     $userData = DB::table('users')
-     ->select('users.*', 'houses.*')
-     ->leftJoin('houses', 'houses.idUser','users.id')
-     ->where('users.id', '=', $id)
-     ->get();
-        return view('users.mylocations', compact('userData'))->with('data', Auth::user()->user);
+    public function houses(Request $request)
+    {
+        $user = $request->user();
+
+        $houses = House::where('user_id', $user->id)->get();
+
+        return view('user.houses', compact('houses'));
+    }
+    
+        
+
+    public function editHouse($id)
+    {
+        //$user = $request->user();
+        $categories = category::all();
+        $villes = ville::all();
+        //$houses = house::where('user_id', $user->id)->get();
+        $houses = house::where('id','=', $id)->get();
+        return view('user.edit')->with('houses', $houses)->with('categories', $categories)->with('villes', $villes);
     }
 
-    public function edit(User $user)
+    public function updateHouse(Request $request,Category $category, Ville $ville, House $house, $id)
     {
-        $user = user::find($user->id);
-        return view('users.edit', with('user', $user));
+        $house = house::find($id);
+        $house->title = $request->title;
+        $house->category_id = $request->category_id;
+        $house->ville = $request->ville;
+        $house->price = $request->price;
+        $house->description = $request->description;
+        /*$this->validate($request, [
+            'photo' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:20000',
+        ]);*/
+        if($request->photo == NULL){
+            $request->photo = $house->photo;
+            $house->save();
+            return redirect()->back()->with('success', "L'hébergement de l'utilisateur a bien été modifié");
+           
+        } else {
+            $picture = $request->file('photo');
+            $filename  = time() . '.' . $picture->getClientOriginalExtension();
+            $path = public_path('img/houses/' . $filename);
+            Image::make($picture->getRealPath())->resize(350, 200)->save($path);
+            $house->photo = $filename;
+            $house->save();
+            return redirect()->back()->with('success', "L'hébergement de l'utilisateur a bien été modifié");
+        }
     }
     
 }

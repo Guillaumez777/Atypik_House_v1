@@ -99,7 +99,7 @@
                                 </a>
                                 <ul class="dropdown-menu" role="menu">
                                     <li><a href="<?php echo e(url('/profile')); ?>/<?php echo e(Auth::user()->id); ?>">Mon profil</a></li>
-                                    <li><a href="<?php echo e(url('/mylocations')); ?>/<?php echo e(Auth::user()->id); ?>">Mes hébergements</a></li>
+                                    <li><a href="<?php echo e(route('user.houses')); ?>">Mes hébergements</a></li>
                                     <li><a href="<?php echo e(url('/house/create_step1')); ?>">Créer un hébergement</a></li>
                                     <li>
                                         <a href="<?php echo e(route('logout')); ?>"

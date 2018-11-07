@@ -1,26 +1,20 @@
-<?php $__env->startSection('content'); ?>
 <div class="container">
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
                 <div class="panel-heading">Créer un hébergement</div>
-                <?php echo Breadcrumbs::render('/house/create'); ?>
+                <?php echo Breadcrumbs::render('page1'); ?>
 
                 <div class="panel-body">
                     <form class="form-horizontal" method="POST" action="<?php echo e(route('house.postcreate_step1')); ?>" enctype="multipart/form-data">
                         <?php echo e(csrf_field()); ?>
 
                         
-                        <p>Où se situe votre bien?</p>
+                        <p>1. Où se situe votre bien?</p>
                         <div class="form-group">
                             <label for="name" class="col-md-4 control-label">Ville</label>
                             <div class="col-md-6">
-                                <select id="name" type="text" name="ville_id" class="form-control">
-                                    <option id="" value="defaut" selected="selected" required autofocus>Choisissez votre ville</option>
-                                    <?php $__currentLoopData = $villes; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $ville): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                        <option value="<?php echo($ville->id);?>"><?php echo($ville->ville_nom);?></option>
-                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                </select>
+                                <input id="name" type="text" class="form-control" name="ville" required autofocus>
                             </div>
                         </div>
                         <div class="col-md-6">
