@@ -93,6 +93,13 @@ class AdminController extends Controller
         return redirect()->back()->with('success', 'Votre hebergement a bien été supprimé');
     }
 
+    public function proprietes(Request $request, Category $categories)  
+    {
+        return view('admin.proprietes')->with('categories', $categories);
+                                      /*->with('proprietes', $proprietes)
+                                      ->with('houses', $houses);*/
+    }
+
     public function createproprietes(Request $request)  
     {
         foreach ($request->get('propriete') as $propertie){

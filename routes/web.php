@@ -67,7 +67,8 @@ Route::prefix('admin')->group(function () {
     //     'as' => 'create'
     // ]);
     Route::post('/proprietes/store','AdminController@createproprietes');
-    Route::get('/proprietes/index', 'ProprietesController@index')->name('propriete.index');
+    Route::get('/proprietes/index', 'AdminController@proprietes')->name('admin.proprietes');
+    //Route::get('/proprietes/index', 'ProprietesController@index')->name('propriete.index');
  });
 
 Route::group(['middleware' => 'auth'], function () {
