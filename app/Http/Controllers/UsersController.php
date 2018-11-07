@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\User;
 use App\House;
+use App\Category;
+use App\Ville;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -54,21 +56,22 @@ class UsersController extends Controller
     
         
 
-    public function editHouse(Request $request)
+    public function editHouse($id)
     {
-        $user = $request->user();
-        $houses = house::where('user_id', $user->id)->get();
-        return view('user.edit', compact('houses'));
+        //$user = $request->user();
+        $categories = category::all();
+        $villes = ville::all();
+        //$houses = house::where('user_id', $user->id)->get();
+        $houses = house::where('id','=', $id)->get();
+        return view('user.edit')->with('houses', $houses)->with('categories', $categories)->with('villes', $villes);
     }
 
-    public function updateHouse(Request $request, House $house, $id)
+    public function updateHouse(Request $request,Category $category, Ville $ville, House $house, $id)
     {
-        var_dump("coco");
         $house = house::find($id);
-        var_dump($house->photo);
-        //var_dump($house->photo);
         $house->title = $request->title;
-        //$house->idCategory = $request->get('idCategory');
+        $house->category_id = $request->category_id;
+        $house->ville = $request->ville;
         $house->price = $request->price;
         $house->description = $request->description;
         /*$this->validate($request, [
@@ -76,7 +79,6 @@ class UsersController extends Controller
         ]);*/
         if($request->photo == NULL){
             $request->photo = $house->photo;
-            var_dump("non");
             $house->save();
             return redirect()->back()->with('success', "L'hébergement de l'utilisateur a bien été modifié");
            
@@ -86,7 +88,6 @@ class UsersController extends Controller
             $path = public_path('img/houses/' . $filename);
             Image::make($picture->getRealPath())->resize(350, 200)->save($path);
             $house->photo = $filename;
-            var_dump("oui");
             $house->save();
             return redirect()->back()->with('success', "L'hébergement de l'utilisateur a bien été modifié");
         }

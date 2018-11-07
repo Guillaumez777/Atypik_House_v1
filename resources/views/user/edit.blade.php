@@ -23,15 +23,22 @@
                             </div>
                         </div>
                         <div class="form-group">
-                                <label for="name" class="col-md-4 control-label">Categorie</label>
-                                <div class="col-md-6">
-                                    <select id="select_category" type="text" name="category_id" class="form-control">
-                                        <option id="" value="defaut" required autofocus>Choisissez votre categorie</option>                                       
-                                        <option value="<?php echo($house->category->id);?>"selected="selected"><?php echo($house->category->category);?></option>
-                                        
-                                    </select>
-                                </div>
+                            <label for="name" class="col-md-4 control-label">Categorie</label>
+                            <div class="col-md-6">
+                                <select id="select_category" type="text" name="category_id" class="form-control">
+                                    <option id="" value="{{$house->category->id}}" selected="selected" required autofocus>{{$house->category->category}}</option>
+                                    @foreach($categories as $category)
+                                        <option value="<?php echo($category->id);?>"><?php echo($category->category);?></option>
+                                    @endforeach
+                                </select>
                             </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="name" class="col-md-4 control-label">Ville</label>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" name="ville" required autofocus value="{{$house->ville}}">
+                            </div>
+                        </div>   
                         
 
                         <div class="form-group">
