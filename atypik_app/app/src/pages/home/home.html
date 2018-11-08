@@ -1,0 +1,15 @@
+<ion-header>
+  <ion-navbar>
+    <img src="assets/imgs/AHlog.png" class="navbarlogo"/><ion-title>Home</ion-title>
+     <button ion-button (click)="logout()" id ="logoutbutton">Logout</button>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding id="homefront">
+  <h2 id="titlehome">Welcome to AtypikHouse Gestion app!</h2>
+<div class="boutonhome">
+  <button ion-button block (click)="GoNotifications()">Mes Notifications</button>
+  <button ion-button block (click)="GoCommandes()">Mes Commandes</button>
+  <button ion-button block (click)="GoAvis()">Mes Avis</button>
+</div>
+</ion-content>
