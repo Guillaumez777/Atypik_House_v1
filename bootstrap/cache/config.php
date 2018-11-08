@@ -91,13 +91,15 @@
       20 => 'Illuminate\\Validation\\ValidationServiceProvider',
       21 => 'Illuminate\\View\\ViewServiceProvider',
       22 => 'Intervention\\Image\\ImageServiceProvider',
-      23 => 'Laravel\\Tinker\\TinkerServiceProvider',
-      24 => 'App\\Providers\\AppServiceProvider',
-      25 => 'App\\Providers\\AuthServiceProvider',
-      26 => 'App\\Providers\\EventServiceProvider',
-      27 => 'App\\Providers\\RouteServiceProvider',
-      28 => 'Collective\\Html\\HtmlServiceProvider',
-      29 => 'Cartalyst\\Stripe\\Laravel\\StripeServiceProvider',
+      23 => 'Anhskohbo\\NoCaptcha\\NoCaptchaServiceProvider',
+      24 => 'DaveJamesMiller\\Breadcrumbs\\ServiceProvider',
+      25 => 'Laravel\\Tinker\\TinkerServiceProvider',
+      26 => 'App\\Providers\\AppServiceProvider',
+      27 => 'App\\Providers\\AuthServiceProvider',
+      28 => 'App\\Providers\\EventServiceProvider',
+      29 => 'App\\Providers\\RouteServiceProvider',
+      30 => 'Collective\\Html\\HtmlServiceProvider',
+      31 => 'Cartalyst\\Stripe\\Laravel\\StripeServiceProvider',
     ),
     'aliases' => 
     array (
@@ -138,6 +140,8 @@
       'Html' => 'Collective\\Html\\HtmlFacade',
       'Image' => 'Intervention\\Image\\Facades\\Image',
       'Stripe' => 'Cartalyst\\Stripe\\Laravel\\Facades\\Stripe',
+      'NoCaptcha' => 'Anhskohbo\\NoCaptcha\\Facades\\NoCaptcha',
+      'Breadcrumbs' => 'DaveJamesMiller\\Breadcrumbs\\Facade',
     ),
   ),
   'mail' => 
@@ -162,6 +166,10 @@
         0 => '/Applications/XAMPP/xamppfiles/htdocs/Atypik_House_v1/resources/views/vendor/mail',
       ),
     ),
+  ),
+  'breadcrumbs' => 
+  array (
+    'view' => '_partials/breadcrumbs',
   ),
   'services' => 
   array (
@@ -409,6 +417,15 @@
       0 => '/Applications/XAMPP/xamppfiles/htdocs/Atypik_House_v1/resources/views',
     ),
     'compiled' => '/Applications/XAMPP/xamppfiles/htdocs/Atypik_House_v1/storage/framework/views',
+  ),
+  'captcha' => 
+  array (
+    'secret' => '6Lfc4XUUAAAAAMjCjnE1er7tcmlEcxwrAojnomdo',
+    'sitekey' => '6Lfc4XUUAAAAAIImE0jHdcjmv4Z87O_XzkJIMlvA',
+    'options' => 
+    array (
+      'timeout' => 30,
+    ),
   ),
   'tinker' => 
   array (
