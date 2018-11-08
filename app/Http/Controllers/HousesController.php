@@ -11,14 +11,14 @@ use App\Propriete;
 use App\ValuecatPropriete;
 use App\User;
 use Illuminate\Http\Request;
-//use Illuminate\Http\Response;
+use Illuminate\Http\Response;
 use Intervention\Image\ImageManager;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 use Session;
 use Image;
-use Response;
+use View;
 
 class HousesController extends Controller
 {
@@ -50,8 +50,127 @@ class HousesController extends Controller
         return view('houses.create', [
             'villes'=> $villes,
             'categories' => $categories,
-        ]
-        );
+        ]);
+    }
+
+    public function create_step1(Ville $villes, Request $request) {
+        $villes = ville::all();
+        //$houseDatas = $request->session()->get('houseDescription');
+
+        //var_dump($houseDatas);
+        /*$houseDatas = $request->session()->reflash();
+        var_dump($houseDatas);*/
+        return view('houses.create_step1', [
+            'villes'=> $villes
+        ]);
+    }
+
+    public function postcreate_step1(Request $request) {
+        /*$validatedVille = $this->validate($request, [
+            'ville_id' => 'required',
+        ]);*/
+        //$houseDatas = $request->session()->flush();
+        
+        //$house->ville_id = $request->ville_id;
+        
+        $houseVille = session('houseVille', $request->ville);
+        $request->session()->push('houseVille', $request->ville);
+
+        $houseUser = session('houseUser', $request->user_id);
+        $request->session()->push('houseUser', $request->user_id);
+
+        /*return view('houses.create_step2', [
+            'houseDatas' => $houseDatas
+        ]);*/
+        return redirect('/house/create_step2');
+    }
+
+    public function create_step2(Category $categories, Request $request) {
+        $categories = category::all();
+        $houseVille = $request->session()->get('houseVille');
+
+        var_dump($houseVille);
+        
+        return view('houses.create_step2', [
+            'categories' => $categories,
+            'houseVille' => $houseVille
+        ]);
+    }
+
+    public function postcreate_step2(/*Category $categories,*/ Request $request) {
+        $categories = category::all();
+        $houseVille = $request->session()->get('houseVille');
+
+        $houseCategory = session('houseCategory', $request->category_id);
+        $request->session()->push('houseCategory', $request->category_id);
+
+        $houseTitle = session('houseTitle', $request->title);
+        $request->session()->push('houseTitle', $request->title);
+
+        $houseDescription = session('houseDescription', $request->description);
+        $request->session()->push('houseDescription', $request->description);
+
+        return redirect('/house/create_step3');
+    }
+
+    public function create_step3(Request $request) {
+        return view('houses.create_step3');
+    }
+
+    public function postcreate_step3(Request $request) {
+        $housePrix = session('housePrix', $request->price);
+        $request->session()->push('housePrix', $request->price);
+    
+        $houseVille = $request->session()->get('houseVille');
+        $houseTitle = $request->session()->get('houseTitle');
+        $houseDescription = $request->session()->get('houseDescription');
+        $housePrix = $request->session()->get('housePrix');
+        return redirect('/house/create_step4');
+    }
+    
+
+    public function create_step4(Request $request) {
+        return view('houses.create_step4');
+    }
+
+    public function postcreate_step4(Request $request) {
+        $houseTitle = $request->session()->get('houseTitle');
+        $houseUser = $request->session()->get('houseUser');
+        $houseCategory = $request->session()->get('houseCategory');
+        $houseVille = $request->session()->get('houseVille');
+        $houseDescription = $request->session()->get('houseDescription');
+        $housePrix = $request->session()->get('housePrix');
+        
+        $housePhoto = session('housePhoto', $request->photo);
+        $request->session()->push('housePhoto', $request->photo);
+        
+        $house = new house;
+        $house->title = last($houseTitle);
+        $house->user_id = last($houseUser);
+        $house->category_id = last($houseCategory);
+        $house->ville = last($houseVille);
+        $house->description = last($houseDescription);
+        $house->price = last($housePrix);
+        $house->statut = "En attente de validation";
+        
+
+        $this->validate($request, [
+            'photo' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:20000',
+        ]);
+
+        $picture = $request->file('photo');
+        $filename  = time() . '.' . $picture->getClientOriginalExtension();
+        $path = public_path('img/houses/' . $filename);
+        Image::make($picture->getRealPath())->resize(350, 200)->save($path);
+        $house->photo = $filename;
+        $house->save();
+        
+        return redirect('/house/confirmation_create_house');
+        
+    }
+
+    public function confirmation_create_house(){
+        return view('houses.confirmation_create_house');
     }
 
     public function json_propriete(){

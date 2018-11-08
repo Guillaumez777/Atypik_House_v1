@@ -13,7 +13,7 @@ class Admin extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','title',
+        'email', 'password',
     ];
     /**
      * The attributes that should be hidden for arrays.
@@ -26,5 +26,15 @@ class Admin extends Authenticatable
     public function sendPasswordResetNotification($token)
     {
         $this->notify(new AdminResetPasswordNotification($token));
+    }
+
+    public function users()
+    {
+        return $this->hasMany(User::class);
+    }
+
+    public function houses()
+    {
+        return $this->hasMany(House::class);
     }
 }

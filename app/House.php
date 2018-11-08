@@ -6,14 +6,23 @@ use Illuminate\Database\Eloquent\Model;
 
 class House extends Model
 {
-    protected $fillable = ['title','user_id','category_id','ville_id', 'photo', 'description'];
+    //protected $fillable = ['title','user_id','category_id','ville_id', 'photo', 'description'];
+    protected $table = 'houses';
 
+    public function admin() {
+        return $this->belongsTo('App\Admin');
+    }
+    
     public function user() {
         return $this->belongsTo('App\User');
     }
 
     public function ville() {
         return $this->belongsTo('App\Ville');
+    }
+
+    public function category() {
+        return $this->belongsTo('App\Category');
     }
     
     public function comments() {

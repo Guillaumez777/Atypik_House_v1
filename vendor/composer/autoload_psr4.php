@@ -51,11 +51,13 @@ return array(
     'Doctrine\\Common\\Cache\\' => array($vendorDir . '/doctrine/cache/lib/Doctrine/Common/Cache'),
     'Doctrine\\Common\\' => array($vendorDir . '/doctrine/event-manager/lib/Doctrine/Common'),
     'DeepCopy\\' => array($vendorDir . '/myclabs/deep-copy/src/DeepCopy'),
+    'DaveJamesMiller\\Breadcrumbs\\' => array($vendorDir . '/davejamesmiller/laravel-breadcrumbs/src'),
     'Cron\\' => array($vendorDir . '/mtdowling/cron-expression/src/Cron'),
     'Collective\\Html\\' => array($vendorDir . '/laravelcollective/html/src'),
     'Cartalyst\\Stripe\\Laravel\\' => array($vendorDir . '/cartalyst/stripe-laravel/src'),
     'Cartalyst\\Stripe\\' => array($vendorDir . '/cartalyst/stripe/src'),
     'Cartalyst\\Collections\\' => array($vendorDir . '/cartalyst/collections/src'),
     'App\\' => array($baseDir . '/app'),
+    'Anhskohbo\\NoCaptcha\\' => array($vendorDir . '/anhskohbo/no-captcha/src'),
     '' => array($vendorDir . '/nesbot/carbon/src'),
 );
