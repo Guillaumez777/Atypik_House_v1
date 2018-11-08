@@ -26,13 +26,13 @@ class AdminController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function dashboard(User $users, Category $categories, Propriete $proprietes)
+    public function listusers(User $users, Category $categories, Propriete $proprietes)
     {
         $proprietes = propriete::all();
         $categories = category::all();
         $users = user::all();
         $houses = house::all();
-        return view('admin.dashboard')->with('users', $users)
+        return view('admin.listusers')->with('users', $users)
                             ->with('categories', $categories)
                             ->with('proprietes', $proprietes)
                             ->with('houses', $houses);
@@ -68,6 +68,7 @@ class AdminController extends Controller
         $house->ville = $request->ville;
         $house->price = $request->price;
         $house->description = $request->description;
+        $house->statut = $request->statut;
         /*$this->validate($request, [
             'photo' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:20000',
         ]);*/

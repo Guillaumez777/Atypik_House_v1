@@ -67,6 +67,16 @@
                                 <textarea class="form-control" name="description" rows="5">{{$house->description}}</textarea>
                             </div>
                         </div>
+                        <div class="form-group">
+                            <label for="name" class="col-md-4 control-label">Statut</label>
+                            <div class="col-md-6">
+                                <select id="select_category" type="text" name="statut" class="form-control">
+                                    <option id="" value="{{$house->statut}}" selected="selected" required autofocus>{{$house->statut}}</option> 
+                                    <option value="En attente de validation">En attente de validation</option>
+                                    <option value="Validé">Validé</option>                       
+                                </select>
+                            </div>
+                        </div>
                         <!--<div class="col-md-6">
                             <input id="name" type="hidden" class="form-control" name="idUser" autofocus value="{{ Auth::user()->id }}">
                         </div>-->
