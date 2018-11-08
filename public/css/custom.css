@@ -27,10 +27,11 @@ html, body {
 	color: black;
 	text-align: center;
 	font-weight: 500;
+	text-shadow: #000000 3px 2px;
 }
 
 .title-intro {
-	color: #fff;
+	color: #eee;
 }
 
 .price {
@@ -138,6 +139,8 @@ p {
     height: 500px;
     text-align: center;
     /*width: 100%;*/
+     z-index: 10;
+
 }
 
 .search-bar {
