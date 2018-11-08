@@ -54,6 +54,10 @@ td, th {
     padding: 100px 50px 0 50px;
 }
 
+.admin-user-profil {
+    margin-top:5%;
+}
+
 @media (max-width: 768px) {
 
     h2 {

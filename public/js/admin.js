@@ -36,6 +36,7 @@ $('#5').click(function () {
 
 /* method to add/remove field*/
 $(document).ready(function(){
+    $('#utilisateur').css('display', 'block');
     var maxField = 10; //Input fields increment limitation
     var addButton = $('.add_button'); //Add button selector
     var wrapper = $('.create_properties'); //Input field wrapper

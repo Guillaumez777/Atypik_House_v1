@@ -103,6 +103,37 @@ return [
         'attribute-name' => [
             'rule-name' => 'custom-message',
         ],
+        'nom' => [
+            'required' => 'Vous devez saisir votre nom',
+            'max' => 'Votre nom ne doit pas dépasser 30 caractères'
+        ],
+        'prenom' => [
+            'required' => 'Vous devez saisir votre prenom',
+            'max' => 'Votre prenom ne doit pas dépasser 30 caractères'
+        ],
+        'email' => [
+            'required' => 'Vous devez saisir votre adresse email',
+            'max' => 'Votre email ne doit pas dépasser 50 caractères',
+            'unique' => "L'adresse email que vous avez saisie a déjà été utilisée"
+        ],
+        'email_confirmation' => [
+            'required' => 'Vous devez confirmer votre adresse email',
+            'max' => 'Votre email ne doit pas dépasser 50 caractères',
+            'same' => "L'adresse email doit être identique"    
+        ],
+        'password' => [
+            'required' => 'Vous devez saisir votre mot de passe',
+            'min' => "Votre mot de passe doit contenir au moins 8 caractères",
+            'max' => "Votre mot de passe doit contenir pas plus de  20 caractères"        
+        ],
+        'password_confirmation' => [
+            'required' => 'Vous devez confirmer votre mot de passe',
+            'same' => "Votre mot de passe doit être identique"   
+        ],
+        'g-recaptcha-response' => [
+            'required' => 'Vous devez valider le captcha',
+            'captcha' => ""   
+        ]
     ],
 
     /*

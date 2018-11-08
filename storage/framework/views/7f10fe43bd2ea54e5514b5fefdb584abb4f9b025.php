@@ -30,6 +30,7 @@
     <?php echo $__env->yieldContent('link'); ?>
     <link href="<?php echo e(asset('css/custom.css')); ?>" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<<<<<<< HEAD
 
     <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" />
     <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js"></script>
@@ -53,6 +54,10 @@
             }
         })});
 </script>
+=======
+    <?php echo NoCaptcha::renderJs(); ?>
+
+>>>>>>> master
 </head>
 <body>
     <div id="app">
@@ -86,7 +91,7 @@
                         <?php if(Auth::guest()): ?>
                             <li><a href="<?php echo e(url('/')); ?>">Accueil</a></li>
                             <li><a href="<?php echo e(route('register')); ?>">Devenir hôte</a></li>
-                            <li><a href="<?php echo e(route('houses.index')); ?>">Nos hébergements</a></li>
+                            <li><a href="<?php echo e(route('houses')); ?>">Nos hébergements</a></li>
                             <li><a href="<?php echo e(route('register')); ?>">Inscription</a></li>
                             <li><a href="<?php echo e(route('login')); ?>">Connexion</a></li>
                             <li><a href="<?php echo e(route('posts.index')); ?>">Contact</a></li>
@@ -113,15 +118,15 @@
                             </li>
                         <?php else: ?>
                             <li><a href="<?php echo e(url('/')); ?>">Accueil</a></li>
-                            <li><a href="<?php echo e(route('houses.index')); ?>">Nos hébergements</a></li>
+                            <li><a href="<?php echo e(route('houses')); ?>">Nos hébergements</a></li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                     <?php echo e(Auth::user()->prenom); ?> <span class="caret"></span>
                                 </a>
                                 <ul class="dropdown-menu" role="menu">
                                     <li><a href="<?php echo e(url('/profile')); ?>/<?php echo e(Auth::user()->id); ?>">Mon profil</a></li>
-                                    <li><a href="<?php echo e(url('/mylocations')); ?>/<?php echo e(Auth::user()->id); ?>">Mes hébergements</a></li>
-                                    <li><a href="<?php echo e(route('houses.create')); ?>">Créer un hébergement</a></li>
+                                    <li><a href="<?php echo e(route('user.houses')); ?>">Mes hébergements</a></li>
+                                    <li><a href="<?php echo e(url('/house/create_step1')); ?>">Créer un hébergement</a></li>
                                     <li>
                                         <a href="<?php echo e(route('logout')); ?>"
                                             onclick="event.preventDefault();
@@ -158,7 +163,7 @@
                 <div class="col-md-3">
                     <ul>
                         <li><a href="<?php echo e(route('Apropos')); ?>">A propos</a></li>
-                        <li><a href="<?php echo e(route('houses.index')); ?>">Hébergement</a></li>
+                        <li><a href="<?php echo e(route('houses')); ?>">Hébergement</a></li>
                     </ul>
                 </div>
                 <div class="col-md-3">
@@ -180,6 +185,7 @@
     <!-- Scripts -->
 
     <script src="<?php echo e(asset('js/app.js')); ?>"></script>
+    <script src="<?php echo e(asset('js/jquery.js')); ?>"></script>
     
     <?php echo $__env->yieldContent('script'); ?>
 </body>

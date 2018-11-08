@@ -7,6 +7,7 @@ class AdminLoginController extends Controller
 {
     public function __construct()
     {
+        Auth::logout();
         //defining our middleware for this controller
         $this->middleware('guest:admin',['except' => ['logout']]);
     }
@@ -19,16 +20,16 @@ class AdminLoginController extends Controller
         //validate the form data
         $valid = $this->validate($request,[
             'email' => 'required|email',
-            'password' => 'required|min:6'
+            'password' => 'required|min:8'
         ]);
         //attempt to login the admins in
         if (Auth::guard('admin')->attempt(['email' => $request->email, 'password' => $request->password], $request->remember)){
-            //if successful redirect to admin dashboard
-            //echo '<script type="text/javascript">window.alert("toto");</script>';
-            return redirect()->intended(route('admin.dashboard'));
+            //if successful redirect to admin dashboard in list users view
+            return redirect()->route('admin.listusers');
         }
         //if unsuccessfull redirect back to the login for with form data
         return redirect()->back()->withInput($request->only('email','remember'));
+      
     }
     public function logout()
     {

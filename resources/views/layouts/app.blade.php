@@ -10,9 +10,10 @@
 
     {{-- Title --}}
     {{-- <title>{{ config('app.name', 'Laravel') }}</title> --}}
-    <title>AtypikHouse - Votre habitats atypique, partout en Europe</title>
 
-    <meta description="Le site d'habitats insolite, partout en France et en Europe">
+    <title>AtypikHouse - @yield('title')</title>
+   <meta description="@yield('meta_description')">
+
 
     {{-- Logo Navigateur --}}
     <link rel="icon" type="image/png" href="{{ asset('img/LogoNavigateur.png') }}" />
@@ -30,6 +31,7 @@
     @yield('link')
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<<<<<<< HEAD
 
     <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" />
     <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js"></script>
@@ -53,6 +55,9 @@
             }
         })});
 </script>
+=======
+    {!! NoCaptcha::renderJs() !!}
+>>>>>>> master
 </head>
 <body>
     <div id="app">
@@ -86,7 +91,7 @@
                         @if (Auth::guest())
                             <li><a href="{{ url('/') }}">Accueil</a></li>
                             <li><a href="{{ route('register') }}">Devenir hôte</a></li>
-                            <li><a href="{{ route('houses.index') }}">Nos hébergements</a></li>
+                            <li><a href="{{ route('houses') }}">Nos hébergements</a></li>
                             <li><a href="{{ route('register') }}">Inscription</a></li>
                             <li><a href="{{ route('login') }}">Connexion</a></li>
                             <li><a href="{{ route('posts.index') }}">Contact</a></li>
@@ -112,15 +117,15 @@
                             </li>
                         @else
                             <li><a href="{{ url('/') }}">Accueil</a></li>
-                            <li><a href="{{ route('houses.index') }}">Nos hébergements</a></li>
+                            <li><a href="{{ route('houses') }}">Nos hébergements</a></li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                     {{ Auth::user()->prenom }} <span class="caret"></span>
                                 </a>
                                 <ul class="dropdown-menu" role="menu">
                                     <li><a href="{{url('/profile')}}/{{Auth::user()->id}}">Mon profil</a></li>
-                                    <li><a href="{{url('/mylocations')}}/{{Auth::user()->id}}">Mes hébergements</a></li>
-                                    <li><a href="{{ route('houses.create') }}">Créer un hébergement</a></li>
+                                    <li><a href="{{route('user.houses')}}">Mes hébergements</a></li>
+                                    <li><a href="{{ url('/house/create_step1') }}">Créer un hébergement</a></li>
                                     <li>
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
@@ -156,7 +161,7 @@
                 <div class="col-md-3">
                     <ul>
                         <li><a href="{{ route('Apropos') }}">A propos</a></li>
-                        <li><a href="{{ route('houses.index') }}">Hébergement</a></li>
+                        <li><a href="{{ route('houses') }}">Hébergement</a></li>
                     </ul>
                 </div>
                 <div class="col-md-3">
@@ -178,6 +183,7 @@
     <!-- Scripts -->
 
     <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/jquery.js') }}"></script>
     
     @yield('script')
 </body>

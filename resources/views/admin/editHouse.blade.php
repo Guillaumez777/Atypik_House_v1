@@ -7,10 +7,13 @@
                 <div class="panel-heading">Modifier</div>
                 @foreach($houses as $house)
                 <div class="panel-body">
-                    <form class="form-horizontal" method="PUT" action="{{action('AdminController@updateHouse', $house->id)}}" enctype="multipart/form-data">
-                        
-                        
-                        <input name="_method" type="hidden" value="PATCH">
+                    @if ($success = Session::get('success'))
+                        <div class="alert alert-info">
+                            {{ $success }}
+                        </div>
+                    @endif
+                    <form class="form-horizontal" method="POST" action="{{ route('admin.updateHouse', $house->id) }}" enctype="multipart/form-data">                      
+                        {{ csrf_field() }}
                         <div class="form-group">
                             <label for="name" class="col-md-4 control-label">Titre</label>
 
@@ -22,9 +25,9 @@
                             <label for="name" class="col-md-4 control-label">Categorie</label>
                             <div class="col-md-6">
                                 <select id="select_category" type="text" name="category_id" class="form-control">
-                                    <option id="" value="defaut" selected="selected" required autofocus>Choisissez votre categorie</option>
+                                    <option id="" value="{{$house->category->id}}" selected="selected" required autofocus>{{$house->category->category}}</option>
                                     @foreach($categories as $category)
-                                        <option value="<?php echo($category->id);?>"><?php echo($category->categorie);?></option>
+                                        <option value="<?php echo($category->id);?>"><?php echo($category->category);?></option>
                                     @endforeach
                                 </select>
                             </div>
@@ -32,54 +35,57 @@
                         <div class="form-group">
                             <label for="name" class="col-md-4 control-label">Ville</label>
                             <div class="col-md-6">
-                                <select id="name" type="text" name="ville_id" class="form-control">
-                                    <option id="" value="defaut" selected="selected" required autofocus>Choisissez votre ville</option>
-                                    @foreach($villes as $ville)
-                                        <option value="<?php echo($ville->id);?>"><?php echo($ville->ville_nom);?></option>
-                                    @endforeach
-                                </select>
+                                <input type="text" class="form-control" name="ville" required autofocus value="{{$house->ville}}">
                             </div>
-
-                        <!-- <div class="form-group">
-                            <label for="name" class="col-md-4 control-label">Categorie</label>
-
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control" name="idCategory" required autofocus value="{{$house->idCategory}}">
-                            </div>
-                        </div> -->
-
+                        </div>
                         <div class="form-group">
                             <label for="name" class="col-md-4 control-label">Prix</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control" name="price" required autofocus value="{{$house->price}}">
+                                <input id="name" type="text" class="form-control" name="price" autofocus value="{{$house->price}}">
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label for="name" class="col-md-4 control-label">Photo</label>
-
+                            
                             <div class="col-md-6">
-                                <input id="name" type="file" class="form-control" name="photo" required autofocus value="{{$house->photo}}">
+                                <img class="img-responsive img_house" src="{{ asset('img/houses/'.$house->photo) }}">
                             </div>
                         </div>
-
+                        
+                        <div class="form-group">
+                            <label class="col-md-4"></label>
+                            <div class="col-md-6">
+                            <input id="name" type="file" class="form-control" name="photo" autofocus value="{{$house->photo}}">
+                            </div>
+                        </div>
                         <div class="form-group">
                             <label for="description" class="col-md-4 control-label">Description</label>
 
                             <div class="col-md-6">
-                                <textarea class="form-control" name="description" required rows="5">{{$house->description}}</textarea>
+                                <textarea class="form-control" name="description" rows="5">{{$house->description}}</textarea>
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <input id="name" type="hidden" class="form-control" name="idUser" required autofocus value="{{ Auth::user()->id }}">
+                        <div class="form-group">
+                            <label for="name" class="col-md-4 control-label">Statut</label>
+                            <div class="col-md-6">
+                                <select id="select_category" type="text" name="statut" class="form-control">
+                                    <option id="" value="{{$house->statut}}" selected="selected" required autofocus>{{$house->statut}}</option> 
+                                    <option value="En attente de validation">En attente de validation</option>
+                                    <option value="Validé">Validé</option>                       
+                                </select>
+                            </div>
                         </div>
+                        <!--<div class="col-md-6">
+                            <input id="name" type="hidden" class="form-control" name="idUser" autofocus value="{{ Auth::user()->id }}">
+                        </div>-->
 
 @endforeach
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
-                                    Modifier
+                                    Enregistrer
                                 </button>
                             </div>
                         </div>
