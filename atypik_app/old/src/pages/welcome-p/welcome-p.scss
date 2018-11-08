@@ -1,0 +1,42 @@
+page-welcome-p {
+
+	#welcome{
+		background-image: url("../assets/imgs/e.jpg");
+		backgrount-position: left;
+		background-size: 100% 50%;
+		background-repeat: no-repeat;
+		background-position: 100% 0%;
+
+		background-color: #D5D3D3;
+		@media only screen and (device-width: 360px) {
+			#intro {
+				margin-top: 75%;
+			}
+		}
+		@media only screen and (device-width: 375px) {
+			#intro {
+				margin-top: 95%;
+			}
+		}
+
+		
+		.login{
+			width: 60px;
+			margin-left: 43%;
+			margin-top: 1%;
+		}
+		.signup{
+			margin-left: 43%;
+			width: 60px;
+			margin-top: 25%;
+
+		}
+
+		.logo{
+			margin-left: -1px;
+			Height: 65px;
+			width: auto;
+		}
+	}
+}
+

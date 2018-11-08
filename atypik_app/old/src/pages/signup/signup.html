@@ -1,0 +1,28 @@
+<ion-content padding>
+	<ion-list>
+
+  		<ion-item>
+            <ion-label stacked>Nom</ion-label>
+            <ion-input type="text" name="nom" [(ngModel)]="data.nom"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label stacked>Prenom</ion-label>
+                <ion-input type="text" name="prenom" [(ngModel)]="data.prenom"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label stacked>Email</ion-label>
+                <ion-input type="email" name="email" [(ngModel)]="data.email"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label stacked>Password</ion-label>
+                <ion-input type="password" name="password" [(ngModel)]="data.password"></ion-input>
+          </ion-item>
+          <button ion-button block (click)="signup()">Signup</button>
+          <button ion-button block (click)="retour()">Retour</button>
+
+	</ion-list>
+
+</ion-content>
