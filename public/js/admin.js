@@ -1,3 +1,6 @@
+$(".delete").on("click", function(){
+    return confirm("Voulez-vous vraiment supprimer cette catégorie?");
+});
 $('#1').click(function() {
     $('#hebergement').css('display', 'block');
     $('#reservation').css('display', 'none');

@@ -44,6 +44,31 @@ class AdminController extends Controller
         return view('admin.listcategories')->with('categories', $categories);
     }
 
+    public function createcategory(Request $request)
+    {
+        return view('admin.create_category');
+    }
+
+    public function registercategory(Request $request, Category $categories)
+    {
+        $categories = category::all();
+        $category = new category;
+        $category->category = $request->category;
+        if ($category->where('category', $category->category)->count() > 0){
+            return redirect()->back()->with('danger', "La catégorie existe déjà")->with('categories', $categories);
+
+        }
+        $category->save();
+        return redirect()->route('admin.categories')->with('success', "La catégorie a bien été ajoutée")->with('categories', $categories);
+    }
+
+    public function deletecategory(Category $category, $id)
+    {
+        $category = category::find($id);
+        $category->delete();
+        return redirect()->back()->with('danger', 'Votre catégorie a bien été supprimée');
+    }
+
     /**
      * Show the profile for the given user.
      *

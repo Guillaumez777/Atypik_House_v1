@@ -61,6 +61,9 @@ Route::prefix('admin')->group(function () {
     
     //Liste des catégories
     Route::get('/categories', 'AdminController@listcategories')->name('admin.categories');
+    Route::get('/create/categorie', 'AdminController@createcategory')->name('admin.create_category');
+    Route::post('/register/categorie', 'AdminController@registercategory')->name('admin.register_category');
+    Route::get('/delete/categorie/{id}', 'AdminController@deletecategory')->name('admin.delete_category');
 
     //admin password reset routes
     Route::post('/password/email','Auth\AdminForgotPasswordController@sendResetLinkEmail')->name('admin.password.email');
