@@ -40,12 +40,18 @@ Route::get('/rgpd', 'HomeController@rgpd')->name('rgpd');
 // admin route for our multi-auth system
 Route::resource('search', 'QueryController', ['only' => ['index','show', 'create', 'store', 'search']]);
 
+//Gestion de l'admin
 Route::prefix('admin')->group(function () {
     Route::get('/home', 'HomeController@index')->name('admin.home');
+    //Liste des utilisateurs 
     Route::get('/', 'AdminController@listusers')->name('admin.listusers');
+
+    //Connexion et déconnexion
     Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
     Route::post('/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
     Route::get('/logout','Auth\AdminLoginController@logout')->name('admin.logout');
+
+    //Profil de l'utilisateur
     Route::get('/profile/{id}', 'AdminController@profilUser')->name('admin.user');
 
     //Gestion des hébergement
@@ -53,7 +59,8 @@ Route::prefix('admin')->group(function () {
     Route::post('/house/updateHouse/{id}', 'AdminController@updateHouse')->name('admin.updateHouse');
     Route::delete('/houses/deleteHouse/{id}', 'AdminController@deleteHouse')->name('admin.deleteHouse');
     
-    
+    //Liste des catégories
+    Route::get('/categories', 'AdminController@listcategories')->name('admin.categories');
 
     //admin password reset routes
     Route::post('/password/email','Auth\AdminForgotPasswordController@sendResetLinkEmail')->name('admin.password.email');
@@ -67,7 +74,7 @@ Route::prefix('admin')->group(function () {
     //     'as' => 'create'
     // ]);
     Route::post('/proprietes/store','AdminController@createproprietes');
-    Route::get('/proprietes/index', 'AdminController@proprietes')->name('admin.proprietes');
+    
     //Route::get('/proprietes/index', 'ProprietesController@index')->name('propriete.index');
  });
 

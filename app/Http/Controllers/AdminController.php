@@ -38,6 +38,12 @@ class AdminController extends Controller
                             ->with('houses', $houses);
     }
 
+    public function listcategories(Category $categories)
+    {
+        $categories = category::all();
+        return view('admin.listcategories')->with('categories', $categories);
+    }
+
     /**
      * Show the profile for the given user.
      *

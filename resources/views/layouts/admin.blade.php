@@ -40,7 +40,7 @@
             <div class="col-sm-3 col-md-2 sidebar">
                 <ul class="nav nav-sidebar">
                     <li><a href="{{route('admin.listusers') }}" id="3">Utilisateurs</a></li>
-                    <li><a href="{{route('admin.proprietes') }}" id="5">Propriétés</a></li>
+                    <li><a href="{{route('admin.categories') }}" id="5">Categories</a></li>
                 </ul>
             </div>
         </div>
