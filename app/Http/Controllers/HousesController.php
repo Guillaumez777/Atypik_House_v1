@@ -227,7 +227,7 @@ class HousesController extends Controller
         //$houses->posts()->where('idUser', Auth::user()->idUser)->get();
         /*return view('houses.index')->with('houses', $houses);*/
         $house = house::find($house->id);
-        $reservation = DB::table('reservations')
+        /*$reservation = DB::table('reservations')
             ->select('houses.*', 'reservations.*')
             ->leftJoin('houses', 'reservations.user_id', 'houses.user_id')
             ->where('reservations.house_id', '=', $house->id)
@@ -241,8 +241,8 @@ class HousesController extends Controller
             $sommesNote+=$comment->note;
             $i++;
         }
-        $moyenne = $sommesNote / $i;    
-        return view('houses.show', compact('house', 'id'))->with('house', $house)->with('reservation', $reservation)->with('moyenne', $moyenne);
+        $moyenne = $sommesNote / $i;  */  
+        return view('houses.show', compact('house', 'id'))->with('house', $house);/*->with('reservation', $reservation)->with('moyenne', $moyenne);*/
     }
 
     /**

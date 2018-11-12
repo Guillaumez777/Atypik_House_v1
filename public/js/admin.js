@@ -30,16 +30,17 @@ $('#4').click(function () {
     $('#proprietes').css('display', 'none');
 });
 $('#5').click(function () {
-    $('#hebergement').css('display', 'none');
-    $('#reservation').css('display', 'none');
-    $('#utilisateur').css('display', 'none');
-    $('#avis').css('display', 'none');
-    $('#proprietes').css('display', 'block');
+    //$('#hebergement').css('display', 'none');
+    //$('#reservation').css('display', 'none');
+    //$('#utilisateur').css('display', 'none');
+    //$('#avis').css('display', 'none');
+    //$('#proprietes').css('display', 'block');
 });
 
 /* method to add/remove field*/
 $(document).ready(function(){
     $('#utilisateur').css('display', 'block');
+    $('#proprietes').css('display', 'block');
     var maxField = 10; //Input fields increment limitation
     var addButton = $('.add_button'); //Add button selector
     var wrapper = $('.create_properties'); //Input field wrapper

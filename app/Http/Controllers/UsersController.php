@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use App\House;
+use App\Reservation;
 use App\Category;
 use App\Ville;
 use Illuminate\Http\Request;
@@ -54,6 +55,35 @@ class UsersController extends Controller
         return view('user.houses', compact('houses'));
     }
     
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\House  $house
+     * @return \Illuminate\Http\Response
+     */
+    public function showHouse($id)
+    {
+        //$houses->posts()->where('idUser', Auth::user()->idUser)->get();
+        /*return view('houses.index')->with('houses', $houses);*/
+        $reservation = reservation::all();
+        $house = house::find($id);
+        /*$reservation = DB::table('reservations')
+            ->select('houses.*', 'reservations.*')
+            ->leftJoin('houses', 'reservations.user_id', 'houses.user_id')
+            ->where('reservations.house_id', '=', $house->id)
+            ->where('reservations.user_id', '=', Auth::user()->id)
+            ->where('reservations.reserved', '=', "1")
+            ->get();
+        $comments = comment::all();
+        $sommesNote = 0;
+        $i = 0;
+        foreach($comments as $comment){
+            $sommesNote+=$comment->note;
+            $i++;
+        }
+        $moyenne = $sommesNote / $i;  */  
+        return view('user.show')->with('reservation', $reservation)->with('house', $house);
+    }
         
 
     public function editHouse($id)

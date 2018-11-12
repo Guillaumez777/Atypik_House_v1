@@ -11,7 +11,7 @@
                 <a href="{{action('HousesController@show', $house['id'])}}"><img class="img-responsive img_house" src="{{ asset('img/houses/'.$house->photo) }}"></a>
                 <div>
                     <h4 class="title card-title">
-                        <a href="#">{{$house->title}}</a>
+                        <a href="{{route('user.showHouse', $house['id']) }}">{{$house->title}}</a>
                     </h4>
                     <p>Type de bien : Logement</p>
                     <p><i class="fas fa-bed"></i> : 2 lits - <i class="fas fa-users"></i> : pour 2 Personnes</p>

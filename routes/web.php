@@ -30,6 +30,8 @@ Route::get('/users/confirmation{email_token}', 'Auth\RegisterController@confirma
 Route::post('/login', 'SessionsController@login');
 Route::get('/verifyemail/{token}', 'Auth\RegisterController@verify');
 
+Route::get('/user/showHouse/{id}', 'UsersController@showHouse')->name('user.showHouse');
+
 Route::get('/apropos', 'HomeController@Apropos')->name('Apropos');
 Route::get('/mentions_legales', 'HomeController@mentions_legales')->name('mentions_legales');
 Route::get('/politique_de_confidentialite', 'HomeController@politique_de_confidentialite')->name('politique_de_confidentialite');
@@ -65,6 +67,9 @@ Route::prefix('admin')->group(function () {
     Route::post('/register/categorie', 'AdminController@registercategory')->name('admin.register_category');
     Route::get('/delete/categorie/{id}', 'AdminController@deletecategory')->name('admin.delete_category');
 
+    //Propriétés de la catégorie
+    Route::get('/proprietes/{id}', 'AdminController@proprietescategory')->name('admin.proprietes_category');
+
     //admin password reset routes
     Route::post('/password/email','Auth\AdminForgotPasswordController@sendResetLinkEmail')->name('admin.password.email');
     Route::get('/password/reset','Auth\AdminForgotPasswordController@showLinkRequestForm')->name('admin.password.request');
@@ -84,6 +89,8 @@ Route::prefix('admin')->group(function () {
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/profile/{id}', 'UsersController@index');
     Route::get('/mylocations/{id}', 'HousesController@mylocations');
+
+    //Create a house, publish an offer
     Route::get('/house/create_step1', 'HousesController@create_step1')->name('house.create_step1');
     Route::post('/house/postcreate_step1', 'HousesController@postcreate_step1')->name('house.postcreate_step1');
     Route::get('/house/create_step2', 'HousesController@create_step2')->name('house.create_step2');
@@ -93,13 +100,16 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/house/create_step4', 'HousesController@create_step4')->name('house.create_step4');
     Route::post('/house/postcreate_step4', 'HousesController@postcreate_step4')->name('house.postcreate_step4');
     Route::get('/house/confirmation_create_house', 'HousesController@confirmation_create_house')->name('house.confirmation_create_house');
+    
+    
+    //User houses
     Route::get('/user/houses', 'UsersController@houses')->name('user.houses');
-    Route::get('/houses/show/{id}', 'HousesController@show');
+    Route::get('/user/showHouse/{id}', 'UsersController@showHouse')->name('user.showHouse');
     Route::get('/user/editHouse/{id}', 'UsersController@editHouse')->name('user.editHouse');
     Route::post('/users/updateHouse/{id}', 'UsersController@updateHouse')->name('user.updateHouse');
     Route::post('/houses/store/{id}', 'HousesController@store');
     //Route::resource('houses', 'HousesController', ['only' => ['index','show', 'create', 'store', 'edit', 'update', 'destroy', 'mylocations']]);
-    Route::resource('users', 'UserController', ['only' => ['index','mylocations', 'edit', 'update']]);
+    //Route::resource('users', 'UserController', ['only' => ['index','mylocations', 'edit', 'update']]);
     Route::get('/json_propriete', 'HousesController@json_propriete');
     Route::post('/reservations', 'ReservationsController@store');
     Route::post('/comments', 'CommentsController@index');

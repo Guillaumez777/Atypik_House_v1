@@ -37,4 +37,14 @@ class Admin extends Authenticatable
     {
         return $this->hasMany(House::class);
     }
+
+    public function categories()
+    {
+        return $this->hasMany(Category::class);
+    }
+
+    public function proprietes()
+    {
+        return $this->belongsTo(Category::class);
+    }
 }

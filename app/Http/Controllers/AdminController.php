@@ -69,6 +69,29 @@ class AdminController extends Controller
         return redirect()->back()->with('danger', 'Votre catégorie a bien été supprimée');
     }
 
+    public function proprietescategory(Request $request, Category $categories, $id)  
+    {
+        $category = category::find($id);
+        $proprietes = propriete::where('category_id', $id)->get();
+        //var_dump($proprietes);
+        return view('admin.proprietes')->with('category', $category)
+                                       ->with('proprietes', $proprietes);
+    }
+
+    public function createproprietes(Request $request)  
+    {
+        foreach ($request->get('propriete') as $propertie){
+            $propriete = new propriete;
+            $propriete->typeProprietes = $request->typeProprietes;
+            $propriete->propriete = $propertie;
+            $propriete->category_id = $request->category_id;
+            $propriete->save();
+        }
+        return redirect()->back()->with('success', 'Votre propriété a bien été ajouté à votre catégorie!');
+    }
+
+    
+
     /**
      * Show the profile for the given user.
      *
@@ -125,23 +148,6 @@ class AdminController extends Controller
         return redirect()->back()->with('success', 'Votre hebergement a bien été supprimé');
     }
 
-    public function proprietes(Request $request, Category $categories)  
-    {
-        return view('admin.proprietes')->with('categories', $categories);
-                                      /*->with('proprietes', $proprietes)
-                                      ->with('houses', $houses);*/
-    }
-
-    public function createproprietes(Request $request)  
-    {
-        foreach ($request->get('propriete') as $propertie){
-            $propriete = new propriete;
-            $propriete->typeProprietes = $request->typeProprietes;
-            $propriete->propriete = $propertie;
-            $propriete->category_id = $request->category_id;
-            $propriete->save();
-        }
-        return redirect()->back()->with('success', 'Votre propriété a bien été ajouté à votre catégorie!');
-    }
+    
     
 }
