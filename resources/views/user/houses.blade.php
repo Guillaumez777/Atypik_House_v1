@@ -3,12 +3,12 @@
 <link href="{{ asset('css/jquery-ui.min.css') }}" rel="stylesheet">
 @section('content')
 <div class="container list-category">
-    <h2>Nos hébergements</h2>
+    <h2>Mes hébergements</h2>
     @foreach ($houses as $house)
     <div class="row">
         <div class="col-lg-4 col-md-4 mb-4 thumbnail">
             <div class="card h-100">
-                <a href="{{action('HousesController@show', $house['id'])}}"><img class="img-responsive img_house" src="{{ asset('img/houses/'.$house->photo) }}"></a>
+                <a href="{{action('UsersController@showHouse', $house['id'])}}"><img class="img-responsive img_house" src="{{ asset('img/houses/'.$house->photo) }}"></a>
                 <div>
                     <h4 class="title card-title">
                         <a href="{{route('user.showHouse', $house['id']) }}">{{$house->title}}</a>

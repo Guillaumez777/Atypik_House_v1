@@ -69,6 +69,8 @@ Route::prefix('admin')->group(function () {
 
     //Propriétés de la catégorie
     Route::get('/proprietes/{id}', 'AdminController@proprietescategory')->name('admin.proprietes_category');
+    Route::get('/create/propriete/{id}', 'AdminController@createpropriete')->name('admin.create_propriete');
+    Route::post('/register/propriete', 'AdminController@registerpropriete')->name('admin.register_propriete');
 
     //admin password reset routes
     Route::post('/password/email','Auth\AdminForgotPasswordController@sendResetLinkEmail')->name('admin.password.email');
@@ -129,7 +131,6 @@ Route::get('/user/{id}',  'UserController@get');
 // Route::post('/contact', 'FormController@store'); 
 Route::resource('posts', 'PostsController' , ['only' => ['index', 'store']]); 
 Route::get('/users/confirmation{email_token}', 'Auth\RegisterController@confirmation');
-Route::get('/houses/index', 'HousesController@index');
 Route::get('/verifyemail/{token}', 'Auth\RegisterController@verify');
 Auth::routes();
 

@@ -27,7 +27,7 @@ class HousesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(House $house, Ville $villes)
+    public function index(House $house)
     {
         $houses = house::all();
         return view('houses.index')->with('houses', $houses);

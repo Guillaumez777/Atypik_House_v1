@@ -78,18 +78,26 @@ class AdminController extends Controller
                                        ->with('proprietes', $proprietes);
     }
 
-    public function createproprietes(Request $request)  
-    {
-        foreach ($request->get('propriete') as $propertie){
-            $propriete = new propriete;
-            $propriete->typeProprietes = $request->typeProprietes;
-            $propriete->propriete = $propertie;
-            $propriete->category_id = $request->category_id;
-            $propriete->save();
-        }
-        return redirect()->back()->with('success', 'Votre propriété a bien été ajouté à votre catégorie!');
+    public function createpropriete(Request $request, $id) {
+        $category = category::find($id);
+        return view('admin.create_propriete')->with('category', $category);
     }
 
+    public function registerpropriete(Request $request)
+    {
+        $propriete = new propriete;
+        $propriete->propriete = $request->propriete;
+        $propriete->category_id = $request->category_id;
+        if ($propriete->where('propriete', $propriete->propriete)->where('category_id', '=', $request->category_id)->count() >0) {
+            return redirect()->back()->with('danger', "La propriété existe déjà");
+
+        }
+        $propriete->save();
+        //return redirect()->back()->with('success', "La propriété a bien été ajoutée");//->with('proprietes', $proprietes);
+        return redirect()->route('admin.proprietes_category', ['id' => $request->category_id])->with('success', "La propriété a bien été ajoutée")->with('category_id', $request->category_id);
+    }
+
+    
     
 
     /**

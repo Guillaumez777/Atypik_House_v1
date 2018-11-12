@@ -71,7 +71,7 @@
                         <h3 class="title card-title">
                             <a href="{{action('UsersController@showHouse', $house->id)}}">{{$house->title}}</a>   
                         </h3>
-                        <p>Type de bien : Logement</p>
+                        <p>Type de bien : {{$house->category->category}}</p>
                         <p><i class="fas fa-bed"></i> : 2 lits - <i class="fas fa-users"></i> : pour 2 Personnes</p>
                         <p class="price">{{$house->price}}€ par nuit</p>
                         <p>Annulation gratuite !</p>

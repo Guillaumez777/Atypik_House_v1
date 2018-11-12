@@ -16,8 +16,6 @@ class CreateProprietesTable extends Migration
          Schema::create('proprietes', function (Blueprint $table) {
             $table->increments('id');
             $table->string('propriete');
-            $table->boolean('type');
-            $table->integer('typeInt');
             $table->integer('category_id');
             // $table->foreign('category_id')->references('id')->on('categories');
             $table->timestamps();
