@@ -77,7 +77,7 @@
                                 <label for="name" class="col-md-4 control-label"><?php echo e($proprietes->propriete); ?></label>
 
                                 <div class="col-md-6">
-                                    <input id="name" type="text" class="form-control" name="price" autofocus value="">
+                                    <input type="text" class="form-control" name="price" autofocus value="">
                                 </div>
                             </div>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

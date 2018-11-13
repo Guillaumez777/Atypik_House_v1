@@ -11,6 +11,12 @@
                         {{ csrf_field() }}
                         <p>2. Décrivez nous votre bien</p>                     
                             <div class="form-group">
+                                <label for="name" class="col-md-4 control-label">Titre de votre bien</label>
+                                <div class="col-md-6">
+                                    <input id="name" type="text" class="form-control" name="title" required autofocus>
+                                </div>
+                            </div>
+                            <div class="form-group">
                                 <label for="name" class="col-md-4 control-label">Categorie</label>
                                 <div class="col-md-6">
                                     <select id="select_category" name="category_id" class="form-control">
@@ -21,12 +27,17 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label for="name" class="col-md-4 control-label">Titre de votre bien</label>
-                                <div class="col-md-6">
-                                    <input id="name" type="text" class="form-control" name="title" required autofocus>
+                            <div class="proprietes"></div>
+                            <!--@foreach($category->propriete as $propriete)
+                                <div class="form-group">
+                                    <label for="name" class="col-md-4 control-label">{{$propriete->propriete}}</label>
+
+                                    <div class="col-md-6">
+                                        <input type="text" class="form-control proprietes" name="price" autofocus value="">
+                                    </div>
                                 </div>
-                            </div>
+                            @endforeach-->
+                            
                             <div class="form-group">
                                 <label for="email" class="col-md-4 control-label">Description</label>
 

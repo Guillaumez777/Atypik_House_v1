@@ -112,7 +112,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/houses/store/{id}', 'HousesController@store');
     //Route::resource('houses', 'HousesController', ['only' => ['index','show', 'create', 'store', 'edit', 'update', 'destroy', 'mylocations']]);
     //Route::resource('users', 'UserController', ['only' => ['index','mylocations', 'edit', 'update']]);
-    Route::get('/json_propriete', 'HousesController@json_propriete');
+    Route::get('/json_propriete/{id}', 'HousesController@json_propriete')->name('json.proprietes');
     Route::post('/reservations', 'ReservationsController@store');
     Route::post('/comments', 'CommentsController@index');
     Route::post('note', 'HousesController@note');

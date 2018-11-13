@@ -66,30 +66,18 @@ class HousesController extends Controller
     }
 
     public function postcreate_step1(Request $request) {
-        /*$validatedVille = $this->validate($request, [
-            'ville_id' => 'required',
-        ]);*/
-        //$houseDatas = $request->session()->flush();
-        
-        //$house->ville_id = $request->ville_id;
-        
         $houseVille = session('houseVille', $request->ville);
         $request->session()->push('houseVille', $request->ville);
 
         $houseUser = session('houseUser', $request->user_id);
         $request->session()->push('houseUser', $request->user_id);
 
-        /*return view('houses.create_step2', [
-            'houseDatas' => $houseDatas
-        ]);*/
         return redirect('/house/create_step2');
     }
 
     public function create_step2(Category $categories, Request $request) {
         $categories = category::all();
         $houseVille = $request->session()->get('houseVille');
-
-        var_dump($houseVille);
         
         return view('houses.create_step2', [
             'categories' => $categories,
@@ -97,8 +85,9 @@ class HousesController extends Controller
         ]);
     }
 
-    public function postcreate_step2(/*Category $categories,*/ Request $request) {
+    public function postcreate_step2(Request $request) {
         $categories = category::all();
+        $proprietes = propriete::all();
         $houseVille = $request->session()->get('houseVille');
 
         $houseCategory = session('houseCategory', $request->category_id);
@@ -173,48 +162,22 @@ class HousesController extends Controller
         return view('houses.confirmation_create_house');
     }
 
-    public function json_propriete(){
-        
-        //$proprietes->load('propriete');
-        $category_id = $_GET['category_id'];
-        //json_decode($data);
-        $proprietes = propriete::where('category_id', $category_id)->get();
+    public function json_propriete($id){
+        $category = category::find($id);
+        $proprietes = propriete::where('category_id', $category->id)->get();
         return response()->json(["proprietes" => $proprietes,
-                                 "category_id" => $category_id], 200);     
+                                 "category_id" => $category->id], 200);     
     }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        $house = new house;
-        $house->title = $request->title;
-        $house->user_id = $request->user_id;
-        $house->category_id = $request->category_id;
-        $house->ville_id = $request->ville_id;
-        $house->price = $request->price;
-        $house->photo = $request->photo;
-        $house->description = $request->description;
-
-        $this->validate($request, [
-        // check validtion for image or file
-            'photo' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:20000',
-        ]);
-
-        //$picture = $request->file('photo');
-        $picture = $request->file('photo');
-        $filename  = time() . '.' . $picture->getClientOriginalExtension();
-        $path = public_path('img/houses/' . $filename);
-        Image::make($picture->getRealPath())->resize(350, 200)->save($path);
-        $house->photo = $filename;
-        $house->save();
+    
+    /*public function proprietescategory(Category $categories, $id) {
+        $category = category::find($id);
         
-        return redirect('/houses/index');
-    }
+        return view('houses.create_step2', [
+            'categories' => $categories,
+            'houseVille' => $houseVille
+        ]);
+    }*/
+
 
     /**
      * Display the specified resource.

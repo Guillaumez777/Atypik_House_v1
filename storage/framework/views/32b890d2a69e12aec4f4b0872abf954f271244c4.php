@@ -64,19 +64,19 @@
                     </div>
                 </div>
                 <?php $__currentLoopData = $house->comments; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $comment): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                <div class="panel panel-default" style="margin: 0; border-radius: 0;">
-                                    <div class="panel-body">
-                                        <div class="col-sm-9">
-                                            <?php echo e($comment->comment); ?>
+                    <div class="panel panel-default" style="margin: 0; border-radius: 0;">
+                        <div class="panel-body">
+                            <div class="col-sm-9">
+                                <?php echo e($comment->comment); ?>
 
-                                        </div>
-                                        <div class="col-sm-3 text-right">
-                                            <small>Posté par <?php echo e($comment->user->prenom); ?></small><br/>
-                                            <small>Note: <?php echo e($comment->note); ?>/5</small>
-                                        </div>
-                                    </div>
-                                </div>
-                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?> 
+                            </div>
+                            <div class="col-sm-3 text-right">
+                                <small>Posté par <?php echo e($comment->user->prenom); ?></small><br/>
+                                <small>Note: <?php echo e($comment->note); ?>/5</small>
+                            </div>
+                        </div>
+                    </div>
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?> 
                     <?php if(Auth::check()): ?>
                                 <?php if($reservation->count() > 0 OR $house->user_id == Auth::user()->id): ?>
                                 <div class="panel panel-default" style="margin: 0; border-radius: 0;">
