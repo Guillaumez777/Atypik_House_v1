@@ -9,7 +9,7 @@ class Category extends Model
     public function house() {
         return $this->belongsTo('App\House');
     }
-    public function propertie() {
-        return $this->hasMany('App\Propertie');
+    public function propriete() {
+        return $this->hasMany('App\Propriete');
     }
 }

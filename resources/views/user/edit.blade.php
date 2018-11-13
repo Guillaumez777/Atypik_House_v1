@@ -63,6 +63,23 @@
                             <input id="name" type="file" class="form-control" name="photo" autofocus value="{{$house->photo}}">
                             </div>
                         </div>
+
+                        <div class="form-group">
+                            <label for="name" class="col-md-4 control-label">Prix</label>
+
+                            <div class="col-md-6">
+                                <input id="name" type="text" class="form-control" name="price" autofocus value="{{$house->price}}">
+                            </div>
+                        </div>
+                        @foreach($house->category->propriete as $proprietes)
+                            <div class="form-group">
+                                <label for="name" class="col-md-4 control-label">{{$proprietes->propriete}}</label>
+
+                                <div class="col-md-6">
+                                    <input id="name" type="text" class="form-control" name="price" autofocus value="">
+                                </div>
+                            </div>
+                        @endforeach
                         <div class="form-group">
                             <label for="description" class="col-md-4 control-label">Description</label>
 

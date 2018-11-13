@@ -6,6 +6,7 @@ use App\User;
 use App\House;
 use App\Reservation;
 use App\Category;
+use App\Propriete;
 use App\Ville;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -90,10 +91,14 @@ class UsersController extends Controller
     {
         //$user = $request->user();
         $categories = category::all();
+        $proprietes = propriete::all();
         $villes = ville::all();
         //$houses = house::where('user_id', $user->id)->get();
         $houses = house::where('id','=', $id)->get();
-        return view('user.edit')->with('houses', $houses)->with('categories', $categories)->with('villes', $villes);
+        return view('user.edit')->with('houses', $houses)
+                                ->with('categories', $categories)
+                                ->with('villes', $villes)
+                                ->with('proprietes', $proprietes);
     }
 
     public function updateHouse(Request $request,Category $category, Ville $ville, House $house, $id)
