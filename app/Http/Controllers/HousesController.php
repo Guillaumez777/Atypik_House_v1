@@ -87,7 +87,11 @@ class HousesController extends Controller
 
     public function postcreate_step2(Request $request) {
         $categories = category::all();
-        $proprietes = propriete::all();
+        //$proprietes = propriete::all();
+        $proprietes='';
+        foreach ($nfo['val'] as $key=>$val) {
+            $output.= $val.", ";
+        }
         $houseVille = $request->session()->get('houseVille');
 
         $houseCategory = session('houseCategory', $request->category_id);

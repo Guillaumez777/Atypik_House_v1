@@ -26,6 +26,8 @@ class AdminController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+     // Utilisateurs
     public function listusers(User $users, Category $categories, Propriete $proprietes)
     {
         $proprietes = propriete::all();
@@ -37,6 +39,8 @@ class AdminController extends Controller
                             ->with('proprietes', $proprietes)
                             ->with('houses', $houses);
     }
+
+    //Categories
 
     public function listcategories(Category $categories)
     {
@@ -62,12 +66,14 @@ class AdminController extends Controller
         return redirect()->route('admin.categories')->with('success', "La catégorie a bien été ajoutée")->with('categories', $categories);
     }
 
-    public function deletecategory(Category $category, $id)
+    public function deletecategory($id)
     {
         $category = category::find($id);
         $category->delete();
         return redirect()->back()->with('danger', 'Votre catégorie a bien été supprimée');
     }
+
+    //Propriétés des catégories
 
     public function proprietescategory(Request $request, Category $categories, $id)  
     {
@@ -95,6 +101,13 @@ class AdminController extends Controller
         $propriete->save();
         //return redirect()->back()->with('success', "La propriété a bien été ajoutée");//->with('proprietes', $proprietes);
         return redirect()->route('admin.proprietes_category', ['id' => $request->category_id])->with('success', "La propriété a bien été ajoutée")->with('category_id', $request->category_id);
+    }
+
+    public function deletepropriete($id)
+    {
+        $propriete = propriete::find($id);
+        $propriete->delete();
+        return redirect()->back()->with('danger', 'Votre propriété a bien été supprimée');
     }
 
     

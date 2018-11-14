@@ -20,8 +20,7 @@
                 <tr>
                     <td><a href=""><?php echo e($propriete->propriete); ?></a></td>
                     <td>
-                        <a href="#" class="btn btn-warning">Modifier</a>
-                        <a href="" class="delete btn btn-danger">Supprimer</a>
+                        <a href="<?php echo e(route('admin.delete_propriete', $propriete->id)); ?>" class="delete-propriete btn btn-danger">Supprimer</a>
                     </td>
                 </tr>
             </tbody>

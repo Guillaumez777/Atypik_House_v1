@@ -19,8 +19,7 @@
                 <tr>
                     <td><a href="">{{$propriete->propriete}}</a></td>
                     <td>
-                        <a href="#" class="btn btn-warning">Modifier</a>
-                        <a href="" class="delete btn btn-danger">Supprimer</a>
+                        <a href="{{ route('admin.delete_propriete', $propriete->id) }}" class="delete-propriete btn btn-danger">Supprimer</a>
                     </td>
                 </tr>
             </tbody>

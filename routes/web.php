@@ -71,6 +71,7 @@ Route::prefix('admin')->group(function () {
     Route::get('/proprietes/{id}', 'AdminController@proprietescategory')->name('admin.proprietes_category');
     Route::get('/create/propriete/{id}', 'AdminController@createpropriete')->name('admin.create_propriete');
     Route::post('/register/propriete', 'AdminController@registerpropriete')->name('admin.register_propriete');
+    Route::get('/delete/propriete/{id}', 'AdminController@deletepropriete')->name('admin.delete_propriete');
 
     //admin password reset routes
     Route::post('/password/email','Auth\AdminForgotPasswordController@sendResetLinkEmail')->name('admin.password.email');

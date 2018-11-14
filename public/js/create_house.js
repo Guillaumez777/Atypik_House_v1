@@ -10,10 +10,9 @@ $(document).ready(function(){
                 data: "",
                 success: function(data) {
                     $('.proprietes').empty();
-                    console.log(data);
                     for (i in data.proprietes) {
                         data.proprietes[i].propriete;
-                        $( ".proprietes" ).append("<div class='form-group'><label for='name' class='col-md-4 control-label'>"+data.proprietes[i].propriete+"</label><div class='col-md-6'><input type='text' class='form-control proprietes' name='value' autofocus value=''></div></div>");
+                        $( ".proprietes" ).append("<div class='form-group'><label for='name' class='col-md-4 control-label'>"+data.proprietes[i].propriete+"</label><div class='col-md-6'><input type='text' class='form-control proprietes' name='value[]' autofocus value=''/></div></div>");
                     }                    
                 },error: function (data){
                     $('.proprietes').empty();

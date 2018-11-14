@@ -1,6 +1,10 @@
 $(".delete").on("click", function(){
     return confirm("Voulez-vous vraiment supprimer cette catégorie?");
 });
+
+$(".delete-propriete").on("click", function(){
+    return confirm("Voulez-vous vraiment supprimer cette proprieté?");
+});
 $('#1').click(function() {
     $('#hebergement').css('display', 'block');
     $('#reservation').css('display', 'none');
@@ -41,34 +45,4 @@ $('#5').click(function () {
 $(document).ready(function(){
     $('#utilisateur').css('display', 'block');
     $('#proprietes').css('display', 'block');
-    var maxField = 10; //Input fields increment limitation
-    var addButton = $('.add_button'); //Add button selector
-    var wrapper = $('.create_properties'); //Input field wrapper
-    var fieldHTML = '<div class="create_properties row"><div class="col-md-4 col-md-offset-4"><input type="text" name="propriete[]" placeholder="Saisir une propriété" class="form-control"/><select id="name" type="text" name="typeProprietes" id="select_typeProprietes" class="form-control"><option id="" value="defaut" selected="selected" required autofocus>Choisissez votre type de propriété</option><option value="checkbox">checkbox</option><option value="checkbox">input</option></select></div><a href="javascript:void(0);" class="remove_button" title="Retirer un champ"><button class="btn btn-danger" style="border-radius:30px;">-</button></a></div>'; //New input field html 
-    var x = 1; //Initial field counter is 1
-    $(addButton).click(function(){ //Once add button is clicked
-        if(x < maxField){ //Check maximum number of input fields
-            x++; //Increment field counter
-            $(wrapper).append(fieldHTML); // Add field html
-        }
-    });
-    $(wrapper).on('click', '.remove_button', function(e){ //Once remove button is clicked
-        e.preventDefault();
-        $(this).parent('div').remove(); //Remove field html
-        x--; //Decrement field counter
-    });
 });
-
-
-
-    $('select').on('change', function(){
-        // cache the $(this) jQuery object since we're potentially using it twice:
-        console.log($(this).val());
-        if($(this).val() == "defaut"){
-            $(".block-properties").hide();
-            $("input[name*='propriete']" ).val('');
-            //$("input[name*='propriete']" ).nexAll("<div>").remove;
-        } else {
-            $(".block-properties").show();
-        }
-    });

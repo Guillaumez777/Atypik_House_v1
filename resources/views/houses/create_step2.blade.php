@@ -28,16 +28,6 @@
                                 </div>
                             </div>
                             <div class="proprietes"></div>
-                            <!--@foreach($category->propriete as $propriete)
-                                <div class="form-group">
-                                    <label for="name" class="col-md-4 control-label">{{$propriete->propriete}}</label>
-
-                                    <div class="col-md-6">
-                                        <input type="text" class="form-control proprietes" name="price" autofocus value="">
-                                    </div>
-                                </div>
-                            @endforeach-->
-                            
                             <div class="form-group">
                                 <label for="email" class="col-md-4 control-label">Description</label>
 
