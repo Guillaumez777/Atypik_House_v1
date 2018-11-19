@@ -51,7 +51,6 @@
                                 @endif
                             </div>
                         </div>
-                        
                         <div class="form-group{{ $errors->has('email_confirmation') ? ' has-error' : '' }}">
                             <label for="email-confirm" class="col-md-4 control-label">Confirmer email</label>
 
@@ -94,8 +93,7 @@
 
                         <div class="form-group{{ $errors->has('g-recaptcha-response') ? ' has-error' : '' }}">
                             <label for="g-recaptcha-response" class="col-md-4 control-label">Captcha</label>
-
-                            <div class="col-md-6">                                                      
+                            <div class="col-md-6">
                             {!! NoCaptcha::display() !!}
 
                                 @if ($errors->has('g-recaptcha-response'))
@@ -105,7 +103,7 @@
                                 @endif
                             </div>
                         </div>
-                        
+
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">

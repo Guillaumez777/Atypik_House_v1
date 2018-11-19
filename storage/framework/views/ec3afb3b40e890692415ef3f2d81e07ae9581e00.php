@@ -1,3 +1,7 @@
+<?php $__env->startSection('title', 'Accueil'); ?>
+
+<?php $__env->startSection('meta_description', 'Venez découvrir nos locations atypique, nous possèdons un vaste choix de loccation tels que des cabanes, des yourtes, des maisons sur piloti et bien dautres choses encore'); ?>
+
 <?php $__env->startSection('content'); ?>
 <div class="container-fluid banner">
     <div class="intro-body">
@@ -43,17 +47,17 @@
     <div id="tranquilite" class="block_home_2_child">
         <i class="fas fa-procedures fa-5x"></i>
         <h3>Tranquilité</h3>
-        <p>Rester au calme pendant votre séjour dans nos habitats insolite. Nos cabanes et yourte sauront combler vos désirs les plus variés</p>
+        <p>Rester au calme pendant votre séjour dans nos habitats insolite. Nos cabanes et yourtes sauront combler vos désirs les plus variés</p>
     </div>
     <div id="depaysement" class="block_home_2_child">
         <i class="fab fa-angellist fa-5x"></i>
         <h3>Dépaysement</h3>
-        <p>Sortez de la routine quotidienne et venez vivre des expérience unique dans un décor à couper le souffle</p>
+        <p>Sortez de la routine quotidienne et venez vivre des expérience unique dans des décors à couper le souffle</p>
     </div>
     <div id="money" class="block_home_2_child">
         <i class="far fa-money-bill-alt fa-5x"></i>
         <h3>Economie</h3>
-        <p>Qui a dit que vous deviez vous ruiner pour votre week-end en amoureux. Nous possédons des prix attractifs avec des réductions toute l'année</p>
+        <p>Profitez de promotions toute l'année sur de nombreuses locations atypique tels que les cabanes, les cocons pour amoureux et bien d'autres. </p>
     </div>
 </div>
 <div class="container list-category">

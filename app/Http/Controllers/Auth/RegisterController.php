@@ -99,7 +99,6 @@ class RegisterController extends Controller
             'password_confirmation' => 'required|same:password|max:30',
             'g-recaptcha-response'=>'required|captcha'
         ]);
-        
             $data = $this->create($input)->toArray();
 
             $data['email_token'] = str_random(25);
@@ -108,7 +107,6 @@ class RegisterController extends Controller
             $user->email_token = $data['email_token'];
             $user->prenom = $data["prenom"];
             $user->save();
-            
             /*Mail::send('email.confirmation', $data,function($message) use($data){
                 $message->to($data['email']);
                 $message->subject('Confirmation inscription');
@@ -128,8 +126,6 @@ class RegisterController extends Controller
         }
         return redirect(route('login'))->with('status', 'Quelque chose ne va pas');
     }
-
-    
     /**
     * Handle a registration request for the application.
      *
@@ -151,7 +147,6 @@ class RegisterController extends Controller
      * @param $token
      * @return \Illuminate\Http\Response
      */
-    
     protected function verify($token)
     {
         $user = User::where('email_token', $token)->first();
