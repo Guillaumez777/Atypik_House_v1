@@ -88,9 +88,14 @@ class HousesController extends Controller
     public function postcreate_step2(Request $request) {
         $categories = category::all();
         //$proprietes = propriete::all();
-        $proprietes='';
-        foreach ($nfo['val'] as $key=>$val) {
-            $output.= $val.", ";
+        //$housePropriete = session('housePropriete', $request->propriete[]);
+        
+        $proprietes = $request->input('propriete');
+        var_dump($proprietes);
+        var_dump("coco");
+        foreach ($proprietes as $key => $val){
+            var_dump($val);
+            //$request->session()->push('housePropriete', $val);
         }
         $houseVille = $request->session()->get('houseVille');
 
@@ -103,7 +108,7 @@ class HousesController extends Controller
         $houseDescription = session('houseDescription', $request->description);
         $request->session()->push('houseDescription', $request->description);
 
-        return redirect('/house/create_step3');
+        //return redirect('/house/create_step3');
     }
 
     public function create_step3(Request $request) {
