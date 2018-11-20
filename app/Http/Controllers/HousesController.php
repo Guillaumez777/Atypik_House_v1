@@ -87,15 +87,12 @@ class HousesController extends Controller
 
     public function postcreate_step2(Request $request) {
         $categories = category::all();
-        //$proprietes = propriete::all();
-        //$housePropriete = session('housePropriete', $request->propriete[]);
         
         $proprietes = $request->input('propriete');
-        var_dump($proprietes);
-        var_dump("coco");
-        foreach ($proprietes as $key => $val){
-            var_dump($val);
-            //$request->session()->push('housePropriete', $val);
+        $housePropriete = session('houseProprietes', $proprietes);
+        foreach ($proprietes as $key => $valuePropriete){
+            var_dump($valuePropriete);
+            $request->session()->push('housePropriete', $valuePropriete);
         }
         $houseVille = $request->session()->get('houseVille');
 
@@ -150,6 +147,14 @@ class HousesController extends Controller
         $house->description = last($houseDescription);
         $house->price = last($housePrix);
         $house->statut = "En attente de validation";
+
+        $housePropriete = $request->session()->get('houseProprietes');
+
+        foreach($housePropriete as $proprietes){
+            $valuecatProprietesHouse = new valuecatPropriete;
+            $valuecatProprietesHouse->value = last($housePropriete);
+        }
+        
         
 
         $this->validate($request, [

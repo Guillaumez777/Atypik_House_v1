@@ -14,6 +14,10 @@ class ValuecatPropriete extends Model
     public function house() {
         return $this->belongsTo('App\House');
     }
+    public function category() {
+        return $this->belongsTo('App\Category');
+    }
+
     public function propertie() {
         return $this->belongsTo('App\Propertie');
     }
