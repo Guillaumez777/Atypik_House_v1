@@ -10,9 +10,10 @@
 
     
     
-    <title>AtypikHouse - Votre habitats atypique, partout en Europe</title>
 
-    <meta description="Le site d'habitats insolite, partout en France et en Europe">
+    <title>AtypikHouse - <?php echo $__env->yieldContent('title'); ?></title>
+   <meta description="<?php echo $__env->yieldContent('meta_description'); ?>">
+
 
     
     <link rel="icon" type="image/png" href="<?php echo e(asset('img/LogoNavigateur.png')); ?>" />
@@ -89,7 +90,7 @@
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
                         <?php if(Auth::guest()): ?>
-                            <li><a href="<?php echo e(url('/')); ?>">Accueil</a></li>
+                            <li><a href="<?php echo e(url('Accueil')); ?>">Accueil</a></li>
                             <li><a href="<?php echo e(route('register')); ?>">Devenir hôte</a></li>
                             <li><a href="<?php echo e(route('houses')); ?>">Nos hébergements</a></li>
                             <li><a href="<?php echo e(route('register')); ?>">Inscription</a></li>
