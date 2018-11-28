@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use App\House;
+use App\Comment;
 use App\Reservation;
 use App\Category;
 use App\Propriete;
@@ -64,10 +65,12 @@ class UsersController extends Controller
      */
     public function showHouse($id)
     {
-        //$houses->posts()->where('idUser', Auth::user()->idUser)->get();
+        
         /*return view('houses.index')->with('houses', $houses);*/
         $reservation = reservation::all();
         $house = house::find($id);
+        $locataire = comment::where('user_id', Auth::user()->id)->get();
+        $client_reserved = reservation::where('house_id', $id)->where('user_id', Auth::user()->id)->get();
         /*$reservation = DB::table('reservations')
             ->select('houses.*', 'reservations.*')
             ->leftJoin('houses', 'reservations.user_id', 'houses.user_id')
@@ -83,7 +86,10 @@ class UsersController extends Controller
             $i++;
         }
         $moyenne = $sommesNote / $i;  */  
-        return view('user.show')->with('reservation', $reservation)->with('house', $house);
+        return view('user.show')->with('reservation', $reservation)
+                                ->with('house', $house)
+                                ->with('locataire', $locataire)
+                                ->with('client_reserved', $client_reserved);
     }
         
 
