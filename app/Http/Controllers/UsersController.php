@@ -65,27 +65,11 @@ class UsersController extends Controller
      */
     public function showHouse($id)
     {
-        
-        /*return view('houses.index')->with('houses', $houses);*/
         $reservation = reservation::all();
         $house = house::find($id);
         $locataire = comment::where('user_id', Auth::user()->id)->get();
         $client_reserved = reservation::where('house_id', $id)->where('user_id', Auth::user()->id)->get();
-        /*$reservation = DB::table('reservations')
-            ->select('houses.*', 'reservations.*')
-            ->leftJoin('houses', 'reservations.user_id', 'houses.user_id')
-            ->where('reservations.house_id', '=', $house->id)
-            ->where('reservations.user_id', '=', Auth::user()->id)
-            ->where('reservations.reserved', '=', "1")
-            ->get();
-        $comments = comment::all();
-        $sommesNote = 0;
-        $i = 0;
-        foreach($comments as $comment){
-            $sommesNote+=$comment->note;
-            $i++;
-        }
-        $moyenne = $sommesNote / $i;  */  
+        
         return view('user.show')->with('reservation', $reservation)
                                 ->with('house', $house)
                                 ->with('locataire', $locataire)
