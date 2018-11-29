@@ -33,17 +33,17 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $houses = house::all();
-        $users = user::all();
-        return view('home')->with('houses', $houses);
+        //$houses = house::all();
+        //$users = user::all();
+        //return view('home');//->with('houses', $houses);
     }
     public function search(Request $request)
     {
         //$query = Request::input('search');
         //$house = DB::table('houses')->where('ville', 'LIKE', '%' . $query . '%');
         
-        $house = house::all();
-        return view('page.search', compact('house', 'query'));
+        //$house = house::all();
+        //return view('page.search', compact('house', 'query'));
     }
     public function Apropos() {
         return view('Apropos');

@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class House extends Model
 {
-    //protected $fillable = ['title','user_id','category_id','ville_id', 'photo', 'description'];
     protected $table = 'houses';
 
     public function admin() {
@@ -31,5 +30,9 @@ class House extends Model
 
     public function reservations() {
         return $this->belongsTo('App\Reservation');
+    }
+
+    public function valuecatpropriete() {
+        return $this->hasMany('App\ValuecatPropriete');
     }
 }

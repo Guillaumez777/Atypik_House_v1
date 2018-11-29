@@ -45,7 +45,6 @@ class HousesController extends Controller
     {
         $categories = category::all();
         $villes = ville::all();
-        //$proprietes = propriete::all();
 
         return view('houses.create', [
             'villes'=> $villes,
@@ -55,11 +54,7 @@ class HousesController extends Controller
 
     public function create_step1(Ville $villes, Request $request) {
         $villes = ville::all();
-        //$houseDatas = $request->session()->get('houseDescription');
-
-        //var_dump($houseDatas);
-        /*$houseDatas = $request->session()->reflash();
-        var_dump($houseDatas);*/
+    
         return view('houses.create_step1', [
             'villes'=> $villes
         ]);
@@ -91,8 +86,7 @@ class HousesController extends Controller
         $proprietes = $request->input('propriete');
         $housePropriete = session('houseProprietes', $proprietes);
         foreach ($proprietes as $key => $valuePropriete){
-            var_dump($valuePropriete);
-            $request->session()->push('housePropriete', $valuePropriete);
+            $request->session()->push('houseProprietes', $valuePropriete);
         }
         $houseVille = $request->session()->get('houseVille');
 
@@ -105,7 +99,7 @@ class HousesController extends Controller
         $houseDescription = session('houseDescription', $request->description);
         $request->session()->push('houseDescription', $request->description);
 
-        //return redirect('/house/create_step3');
+        return redirect('/house/create_step3');
     }
 
     public function create_step3(Request $request) {
@@ -148,14 +142,7 @@ class HousesController extends Controller
         $house->price = last($housePrix);
         $house->statut = "En attente de validation";
 
-        $housePropriete = $request->session()->get('houseProprietes');
-
-        foreach($housePropriete as $proprietes){
-            $valuecatProprietesHouse = new valuecatPropriete;
-            $valuecatProprietesHouse->value = last($housePropriete);
-        }
-        
-        
+        $housePropriete = $request->session()->get('houseProprietes');        
 
         $this->validate($request, [
             'photo' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:20000',
@@ -166,6 +153,14 @@ class HousesController extends Controller
         $path = public_path('img/houses/' . $filename);
         Image::make($picture->getRealPath())->resize(350, 200)->save($path);
         $house->photo = $filename;
+
+        foreach($housePropriete as $proprietes){
+            $valuecatProprietesHouse = new valuecatPropriete;
+            $valuecatProprietesHouse->value = $proprietes;
+            $valuecatProprietesHouse->category_id = $house->category_id;
+            $valuecatProprietesHouse->house_id = $house->id;
+            $valuecatProprietesHouse->save();
+        }
         $house->save();
         
         return redirect('/house/confirmation_create_house');
@@ -199,27 +194,10 @@ class HousesController extends Controller
      * @param  \App\House  $house
      * @return \Illuminate\Http\Response
      */
-    public function show(House $house, Reservation $reservation, Comment $comments)
+    public function show(House $house, Reservation $reservation)
     {
-        //$houses->posts()->where('idUser', Auth::user()->idUser)->get();
-        /*return view('houses.index')->with('houses', $houses);*/
         $house = house::find($house->id);
-        /*$reservation = DB::table('reservations')
-            ->select('houses.*', 'reservations.*')
-            ->leftJoin('houses', 'reservations.user_id', 'houses.user_id')
-            ->where('reservations.house_id', '=', $house->id)
-            ->where('reservations.user_id', '=', Auth::user()->id)
-            ->where('reservations.reserved', '=', "1")
-            ->get();
-        $comments = comment::all();
-        $sommesNote = 0;
-        $i = 0;
-        foreach($comments as $comment){
-            $sommesNote+=$comment->note;
-            $i++;
-        }
-        $moyenne = $sommesNote / $i;  */  
-        return view('houses.show', compact('house', 'id'))->with('house', $house);/*->with('reservation', $reservation)->with('moyenne', $moyenne);*/
+        return view('houses.show', compact('house', 'id'))->with('house', $house);
     }
 
     /**

@@ -17,7 +17,6 @@ class CreateProprietesTable extends Migration
             $table->increments('id');
             $table->string('propriete');
             $table->integer('category_id');
-            // $table->foreign('category_id')->references('id')->on('categories');
             $table->timestamps();
         });
     }

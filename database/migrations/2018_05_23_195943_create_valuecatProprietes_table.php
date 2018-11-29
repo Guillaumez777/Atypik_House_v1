@@ -15,8 +15,8 @@ class CreateValuecatProprietesTable extends Migration
     {
         Schema::create('valuecatProprietes', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('value');
             $table->integer('category_id');
-            $table->integer('catPropriete_id');
             $table->integer('propriete_id');
             $table->integer('house_id');
             $table->timestamps();
