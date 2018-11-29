@@ -15,11 +15,13 @@ class valuecatProprietesTableSeeder extends Seeder
             [
                 'value' => 'oui',
                 'category_id' => 1,
+                'propriete_id' => 1,
                 'house_id' => 1
             ],
             [
                 'value' => 'oui',
                 'category_id' => 7,
+                'propriete_id' => 1,
                 'house_id' => 2
             ]
         ];

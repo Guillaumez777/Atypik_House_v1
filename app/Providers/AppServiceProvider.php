@@ -22,8 +22,8 @@ class AppServiceProvider extends ServiceProvider
             // Display houses in every views
 
             $view->with('houses', $houses);*/
-            $houses = house::all();
-            view()->share('houses', $houses);
+            // $houses = house::all();
+            // view()->share('houses', $houses);
     }
 
     /**

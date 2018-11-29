@@ -13,11 +13,13 @@ class AdminsTableSeeder extends Seeder
     {
         $admins = [
             [
+                'name' => 'admin',
                 'email' => 'admin@gmail.com',
                 'password' => bcrypt('kronos603'),
                 'remember_token' => null
             ],
             [
+                'name' => 'admin2',
                 'email' => 'admin2@gmail.com',
                 'password' => bcrypt('kronos603'),
                 'remember_token' => null
