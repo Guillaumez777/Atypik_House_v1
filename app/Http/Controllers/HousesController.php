@@ -52,12 +52,9 @@ class HousesController extends Controller
         ]);
     }
 
-    public function create_step1(Ville $villes, Request $request) {
-        $villes = ville::all();
-    
-        return view('houses.create_step1', [
-            'villes'=> $villes
-        ]);
+    public function create_step1(Request $request) {
+
+        return view('houses.create_step1');
     }
 
     public function postcreate_step1(Request $request) {
