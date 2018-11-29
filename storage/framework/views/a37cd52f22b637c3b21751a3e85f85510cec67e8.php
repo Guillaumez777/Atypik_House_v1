@@ -14,7 +14,7 @@
                         <div class="form-group">
                             <label for="name" class="col-md-4 control-label">Ville</label>
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control" name="ville" required autofocus>
+                                <input id="name" type="text" class="form-control" name="ville" onkeyup="this.value=this.value.toUpperCase()" placeholder="Saisir la ville" required autofocus>
                             </div>
                         </div>
                         <div class="col-md-6">
