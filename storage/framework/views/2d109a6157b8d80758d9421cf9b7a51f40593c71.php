@@ -65,19 +65,12 @@
                             </div>
                         </div>
 
-                        <div class="form-group">
-                            <label for="name" class="col-md-4 control-label">Prix</label>
-
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control" name="price" autofocus value="<?php echo e($house->price); ?>">
-                            </div>
-                        </div>
                         <?php $__currentLoopData = $house->category->propriete; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $proprietes): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <div class="form-group">
                                 <label for="name" class="col-md-4 control-label"><?php echo e($proprietes->propriete); ?></label>
 
                                 <div class="col-md-6">
-                                    <input type="text" class="form-control" name="price" autofocus value="">
+                                    <input type="text" class="form-control" name="propriete[]" autofocus value="">
                                 </div>
                             </div>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

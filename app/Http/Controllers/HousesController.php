@@ -29,7 +29,7 @@ class HousesController extends Controller
      */
     public function index(House $house)
     {
-        $houses = house::all();
+        $houses = house::all()->where('statut', 'Validé');
         return view('houses.index')->with('houses', $houses);
         
     }

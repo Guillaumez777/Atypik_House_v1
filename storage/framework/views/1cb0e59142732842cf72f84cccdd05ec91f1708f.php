@@ -18,7 +18,7 @@
                 </div>
                 <div class="note card-footer">
                     <medium class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</medium>
-                    <a class="btn btn-success btn_reserve" href="">Réserver</a>
+                    <a class="btn btn-success btn_reserve" href="<?php echo e(action('UsersController@showHouse', $house['id'])); ?>">Réserver</a>
                 </div>
             </div>
         </div>   
