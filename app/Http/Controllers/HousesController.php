@@ -69,6 +69,9 @@ class HousesController extends Controller
 
     public function create_step2(Category $categories, Request $request) {
         $categories = category::all();
+        $request->session()->forget('houseProprietes');
+        $request->session()->forget('houseProprietesId');
+
         $houseVille = $request->session()->get('houseVille');
         
         return view('houses.create_step2', [
@@ -81,9 +84,16 @@ class HousesController extends Controller
         $categories = category::all();
         
         $proprietes = $request->input('propriete');
+        $proprietes_id = $request->input('propriete_id');
+
         $housePropriete = session('houseProprietes', $proprietes);
-        foreach ($proprietes as $key => $valuePropriete){
+        $houseProprieteId = session('houseProprietesId', $proprietes_id);
+
+        foreach ($proprietes as $valuePropriete){
             $request->session()->push('houseProprietes', $valuePropriete);
+        }
+        foreach ($proprietes_id as $keyId => $id){
+            $request->session()->push('houseProprietesId', $id);
         }
         $houseVille = $request->session()->get('houseVille');
 
@@ -95,7 +105,9 @@ class HousesController extends Controller
 
         $houseDescription = session('houseDescription', $request->description);
         $request->session()->push('houseDescription', $request->description);
-
+        var_dump($proprietes);
+        var_dump("cooooooooooooo");
+        var_dump($housePropriete);
         return redirect('/house/create_step3');
     }
 
@@ -139,7 +151,8 @@ class HousesController extends Controller
         $house->price = last($housePrix);
         $house->statut = "En attente de validation";
 
-        $housePropriete = $request->session()->get('houseProprietes');        
+        $housePropriete = $request->session()->get('houseProprietes');
+        $houseProprieteId = $request->session()->get('houseProprietesId');        
 
         $this->validate($request, [
             'photo' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:20000',
@@ -150,15 +163,20 @@ class HousesController extends Controller
         $path = public_path('img/houses/' . $filename);
         Image::make($picture->getRealPath())->resize(350, 200)->save($path);
         $house->photo = $filename;
+        $house->save();
 
-        foreach($housePropriete as $proprietes){
+        foreach($housePropriete as $proprietes){ 
+            var_dump($proprietes);    
             $valuecatProprietesHouse = new valuecatPropriete;
             $valuecatProprietesHouse->value = $proprietes;
+
             $valuecatProprietesHouse->category_id = $house->category_id;
+            foreach($houseProprieteId as $propriete_id){
+                $valuecatProprietesHouse->propriete_id = $propriete_id;
+            }
             $valuecatProprietesHouse->house_id = $house->id;
             $valuecatProprietesHouse->save();
         }
-        $house->save();
         
         return redirect('/house/confirmation_create_house');
         

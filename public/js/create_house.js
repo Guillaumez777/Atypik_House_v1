@@ -20,6 +20,7 @@ $(document).ready(function(){
                             </label>
                             <div class="col-md-6">
                                 <input type="text" class="form-control" name="propriete[]" autofocus value=""/>
+                                <input type="hidden" name="propriete_id[]" value="${data.proprietes[i].id}"/>
                             </div>
                         </div>`);
                     }
@@ -29,4 +30,7 @@ $(document).ready(function(){
             });
         })
     });
+    // if ($('.proprietes').html().length() ) {
+
+    // }
 });

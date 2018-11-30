@@ -19,7 +19,7 @@
                         
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
-                                <a href="{{ url()->previous() }}" class="btn btn-primary">Retour</a>
+                                <a href="{{route('house.create_step3')}}" class="btn btn-primary">Retour</a>
                                 <button type="submit" class="btn btn-primary">
                                     Créer l'hebergement
                                 </button>

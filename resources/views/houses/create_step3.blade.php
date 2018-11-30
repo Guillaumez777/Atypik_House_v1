@@ -21,7 +21,7 @@
                         </div>
                                              
                         <div class="col-md-6 col-md-offset-4">
-                            <a href="{{ url()->previous() }}" class="btn btn-primary">Retour</a>
+                            <a href="{{route('house.create_step2')}}" class="btn btn-primary">Retour</a><!--{{ url()->previous() }}-->
                             <button type="submit" class="btn btn-primary">
                                 Continuer
                             </button>
