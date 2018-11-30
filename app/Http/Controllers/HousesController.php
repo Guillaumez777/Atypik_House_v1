@@ -105,9 +105,7 @@ class HousesController extends Controller
 
         $houseDescription = session('houseDescription', $request->description);
         $request->session()->push('houseDescription', $request->description);
-        var_dump($proprietes);
-        var_dump("cooooooooooooo");
-        var_dump($housePropriete);
+
         return redirect('/house/create_step3');
     }
 
@@ -163,6 +161,13 @@ class HousesController extends Controller
         $path = public_path('img/houses/' . $filename);
         Image::make($picture->getRealPath())->resize(350, 200)->save($path);
         $house->photo = $filename;
+
+        //$photo_name = date('mdYHis') . uniqid() . $request->file('photo')->getClientOriginalName();
+        //$path = base_path() . '/public/img/houses';
+        //$request->file('photo')->move($path,$photo_name);
+        //Image::make($image_name->getRealPath())->resize(350, 200)->save($path);
+        //Image::make($request->file('photo'))->resize(350, 200)->save($path);
+
         $house->save();
 
         foreach($housePropriete as $proprietes){ 
