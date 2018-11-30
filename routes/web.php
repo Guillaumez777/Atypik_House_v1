@@ -80,10 +80,6 @@ Route::prefix('admin')->group(function () {
     Route::get('/password/reset/{token}','Auth\AdminResetPasswordController@showResetForm')->name('admin.password.reset');
 
     //Admin proprietes
-    // Route::post('/proprietes/store', [
-    //     'uses' => 'AdminController@createproprietes',
-    //     'as' => 'create'
-    // ]);
     Route::post('/proprietes/store','AdminController@createproprietes');
     
     //Route::get('/proprietes/index', 'ProprietesController@index')->name('propriete.index');
