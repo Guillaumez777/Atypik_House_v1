@@ -19,7 +19,7 @@ class HousesTableSeeder extends Seeder
                 'ville' => 'PARIS',
                 'description' => 'Super cabane',
                 'price' => 300.00,
-                'photo' => '1541548442.jpg',
+                'photo' => '1523888761.png',
                 'statut' => 'Validé'
             ],
             [
@@ -29,7 +29,7 @@ class HousesTableSeeder extends Seeder
                 'ville' => 'PARIS',
                 'description' => 'Super igloo',
                 'price' => 400.00,
-                'photo' => 'igloo.jpg',
+                'photo' => '1522347485.jpg',
                 'statut' => 'Validé'
             ]
         ];
