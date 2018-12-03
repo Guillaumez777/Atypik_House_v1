@@ -153,6 +153,11 @@ p {
 	width: 50%;
 }
 
+#select_category_home{
+	height: 50px;
+    font-size: 18px;
+}
+
 .btn-searchbar{
 	background-color: #64764d;
 	color: #fff;

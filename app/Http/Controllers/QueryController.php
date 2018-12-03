@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\House;
+use App\Category;
 use App\Ville;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -18,8 +19,10 @@ class QueryController extends Controller
     public function index()
     {
         $ville = \Request::get('search');
+        $categories = category::all();
         $houses = House::where('ville', 'LIKE', '%' . $ville . '%')->get();
-        return view('home')->with('houses', $houses);
+        return view('home')->with('houses', $houses)
+                           ->with('categories', $categories);
     }
 
     /**

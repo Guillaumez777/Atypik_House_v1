@@ -12,6 +12,7 @@ namespace App\Http\Controllers;
 
 use App\House;
 use App\User;
+use App\Category;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -35,7 +36,9 @@ class HomeController extends Controller
     {
         $houses = house::all();
         $users = user::all();
-        return view('home')->with('houses', $houses);
+        $categories = category::all();
+        return view('home')->with('houses', $houses)
+                           ->with('categories', $categories);
     }
     public function search(Request $request)
     {
