@@ -18,9 +18,7 @@ class QueryController extends Controller
     public function index()
     {
         $ville = \Request::get('search');
-        var_dump($ville);
         $houses = House::where('ville', 'LIKE', '%' . $ville . '%')->get();
-        var_dump($houses);
         return view('home')->with('houses', $houses);
     }
 
