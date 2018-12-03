@@ -89,12 +89,18 @@ class HousesController extends Controller
         $housePropriete = session('houseProprietes', $proprietes);
         $houseProprieteId = session('houseProprietesId', $proprietes_id);
 
-        foreach ($proprietes as $valuePropriete){
-            $request->session()->push('houseProprietes', $valuePropriete);
+        var_dump($proprietes);
+        if ($proprietes == null) {
+
+        } else {
+            foreach ($proprietes as $valuePropriete){
+                $request->session()->push('houseProprietes', $valuePropriete);
+            }
+            foreach ($proprietes_id as $keyId => $id){
+                $request->session()->push('houseProprietesId', $id);
+            }
         }
-        foreach ($proprietes_id as $keyId => $id){
-            $request->session()->push('houseProprietesId', $id);
-        }
+        
         $houseVille = $request->session()->get('houseVille');
 
         $houseCategory = session('houseCategory', $request->category_id);
@@ -169,18 +175,22 @@ class HousesController extends Controller
         //Image::make($request->file('photo'))->resize(350, 200)->save($path);
 
         $house->save();
+        if($housePropriete == null){
 
-        foreach($housePropriete as $proprietes){ 
-            var_dump($proprietes);    
-            $valuecatProprietesHouse = new valuecatPropriete;
-            $valuecatProprietesHouse->value = $proprietes;
-
-            $valuecatProprietesHouse->category_id = $house->category_id;
-            foreach($houseProprieteId as $propriete_id){
-                $valuecatProprietesHouse->propriete_id = $propriete_id;
+        } else {
+            foreach($housePropriete as $proprietes){ 
+                  
+                $valuecatProprietesHouse = new valuecatPropriete;
+                $valuecatProprietesHouse->value = $proprietes;
+    
+                $valuecatProprietesHouse->category_id = $house->category_id;
+                foreach($houseProprieteId as $propriete_id){
+                    $valuecatProprietesHouse->propriete_id = $propriete_id;
+                }
+                $valuecatProprietesHouse->house_id = $house->id;
+                $valuecatProprietesHouse->save();
             }
-            $valuecatProprietesHouse->house_id = $house->id;
-            $valuecatProprietesHouse->save();
+        
         }
         
         return redirect('/house/confirmation_create_house');
