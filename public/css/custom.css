@@ -12,14 +12,18 @@ html, body {
     height: 100%;
 }
 
+.padding10 {
+	padding: 0 10px;
+}
+
 .button2 {
-	margin-right: 80px !important;
-	font-size: 20px;
+	display: flex;
 }
 
 .button2 input {
 	height: 50px;
 	font-size: 18px;
+	width: 270px;
 }
 
 .title {
@@ -155,7 +159,8 @@ p {
 
 #select_category_home{
 	height: 50px;
-    font-size: 18px;
+	font-size: 18px;
+	width: 270px;
 }
 
 .btn-searchbar{
@@ -339,3 +344,13 @@ input[type=textarea] {
 	  top:2px;
 	  left:2px;
   }
+
+/* ====================== */
+/* +++++ RESPONSIVE +++++ */
+/* ====================== */
+
+@media only screen and (max-width: 600px) {
+	.button2 {
+		display: block;
+	}
+}
