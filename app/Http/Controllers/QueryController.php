@@ -17,11 +17,11 @@ class QueryController extends Controller
      */
     public function index()
     {
-        $houses = House::whereHas('ville', function ($query) {
-            $search = \Request::get('search');
-            $query->where('ville_nom', 'LIKE', '%'. $search .'%');
-        })->get();
-            return view('home')->with('houses', $houses);
+        $ville = \Request::get('search');
+        var_dump($ville);
+        $houses = House::where('ville', 'LIKE', '%' . $ville . '%')->get();
+        var_dump($houses);
+        return view('home')->with('houses', $houses);
     }
 
     /**
