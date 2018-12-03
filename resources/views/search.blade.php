@@ -1,9 +1,9 @@
 {!! Form::open(['method'=>'GET','url'=>$url,'class'=>'form','role'=>'search'])  !!}
     {!! Form::text('search', null,
             array('required',
-                    'class'=>'form-control ',
+                    'class'=>'form-control',
                     'placeholder'=>'Saisir une ville ...')) !!}
-                    <div class="form-group">          
+                    <div class="padding10">    
                         <select id="select_category_home" name="category_id" class="form-control">
                         <option id="" value="defaut" required autofocus>Choisissez votre type de bien</option>
                         @foreach($categories as $category)
