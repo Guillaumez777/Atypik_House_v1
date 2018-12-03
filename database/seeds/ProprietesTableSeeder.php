@@ -13,6 +13,30 @@ class ProprietesTableSeeder extends Seeder
     {
         $proprietes = [
             [
+                'propriete' => 'nb_personne',
+                'category_id' => 1
+            ],
+            [
+                'propriete' => 'nb_personne',
+                'category_id' => 2
+            ],
+            [
+                'propriete' => 'nb_personne',
+                'category_id' => 3
+            ],
+            [
+                'propriete' => 'lit(s)',
+                'category_id' => 1
+            ],
+            [
+                'propriete' => 'lit(s)',
+                'category_id' => 2
+            ],
+            [
+                'propriete' => 'lit(s)',
+                'category_id' => 3
+            ],
+            [
                 'propriete' => 'cheminée',
                 'category_id' => 1
             ],

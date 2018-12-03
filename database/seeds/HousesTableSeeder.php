@@ -26,10 +26,20 @@ class HousesTableSeeder extends Seeder
                 'title' => 'Igloo',
                 'user_id' => 2,
                 'category_id' => 2,
-                'ville' => 'PARIS',
+                'ville' => 'LYON',
                 'description' => 'Super igloo',
                 'price' => 400.00,
                 'photo' => '1522347485.jpg',
+                'statut' => 'Validé'
+            ],
+            [
+                'title' => 'Yourte Pays de la Loire - Grande Yourte Mongole',
+                'user_id' => 2,
+                'category_id' => 3,
+                'ville' => 'LOIRE',
+                'description' => 'Super yourte',
+                'price' => 400.00,
+                'photo' => '1543837576.jpg',
                 'statut' => 'Validé'
             ]
         ];
