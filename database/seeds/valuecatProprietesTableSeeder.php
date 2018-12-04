@@ -13,15 +13,21 @@ class valuecatProprietesTableSeeder extends Seeder
     {
         $valuecatProprietes = [
             [
-                'value' => 'oui',
+                'value' => '2',
                 'category_id' => 1,
                 'propriete_id' => 1,
                 'house_id' => 1
             ],
             [
-                'value' => 'oui',
-                'category_id' => 7,
-                'propriete_id' => 1,
+                'value' => '1',
+                'category_id' => 2,
+                'propriete_id' => 2,
+                'house_id' => 2
+            ],
+            [
+                'value' => '3',
+                'category_id' => 3,
+                'propriete_id' => 3,
                 'house_id' => 2
             ]
         ];

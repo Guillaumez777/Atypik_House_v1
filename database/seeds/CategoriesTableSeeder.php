@@ -17,6 +17,9 @@ class CategoriesTableSeeder extends Seeder
             ],
             [
                 'category' => 'Igloo',
+            ],
+            [
+                'category' => 'Yourte',
             ]
         ];
         DB::table('categories')->insert($categories);
