@@ -31,7 +31,6 @@
     @yield('link')
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<<<<<<< HEAD
 
     <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" />
     <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js"></script>
@@ -55,9 +54,7 @@
             }
         })});
 </script>
-=======
     {!! NoCaptcha::renderJs() !!}
->>>>>>> master
 </head>
 <body>
     <div id="app">
@@ -155,7 +152,6 @@
                         <li><a href="{{ route('mentions_legales') }}">Mentions légales</a></li>
                         <li><a href="{{ route('politique_de_confidentialite') }}">Politique de confidentialité</a></li>
                         <li><a href="{{ route('cgu') }}">Conditions générales d'utilisation</a></li>
-                        <li><a href="{{ route('rgpd') }}">Légalités et RGPD</a></li>
                     </ul>
                 </div>
                 <div class="col-md-3">
