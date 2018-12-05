@@ -66,7 +66,7 @@
 
                         @foreach($house->category->propriete as $proprietes)
                             <div class="form-group">
-                                <label for="name" class="col-md-4 control-label">{{$proprietes->propriete}}</label>
+                                <label for="name" class="col-md-4 control-label">{{$proprietes->label_propriete}}</label>
 
                                 <div class="col-md-6">
                                     <input type="text" class="form-control" name="propriete[]" autofocus value="">

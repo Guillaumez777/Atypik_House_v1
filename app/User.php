@@ -48,6 +48,10 @@ class User extends Authenticatable
         return $this->hasMany(Comment::class);
     }
 
+    public function valuecatproprietes() {
+        return $this->hasMany('App\ValuecatPropriete');
+    }
+
     public function reservations() {
         return $this->hasMany(Reservation::class);
     }

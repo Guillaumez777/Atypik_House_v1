@@ -71,8 +71,13 @@
                         <h3 class="title card-title">
                             <a href="{{action('UsersController@showHouse', $house->id)}}">{{$house->title}}</a>   
                         </h3>
+                        
                         <p>Type de bien : {{$house->category->category}}</p>
-                        <p><i class="fas fa-bed"></i> : 2 lits - <i class="fas fa-users"></i> : pour 2 Personnes</p>
+                            @foreach($house->valuecatproprietes as $value)
+                                <p><i class="fas fa-users"></i>  {{$house->proprietes->label_propriete}}  : {{$value->value }} </p>
+                                <p><i class="fas fa-bed"> </i>  </p>
+                                
+                            @endforeach
                         <p class="price">{{$house->price}}€ par nuit</p>
                         <p>Annulation gratuite !</p>
                         <p class="card-text"><?php echo(substr($house->description, 0, 150));?></p>

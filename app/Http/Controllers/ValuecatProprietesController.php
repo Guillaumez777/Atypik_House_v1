@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\DB;
 
 use Session;
 
-class valuecatProprietesController extends Controller
+class valuecatproprietesController extends Controller
 {
     public function index()  
     {

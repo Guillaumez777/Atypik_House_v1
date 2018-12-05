@@ -1,9 +1,9 @@
 <?php
 namespace App;
 use Illuminate\Database\Eloquent\Model;
-class ValuecatPropriete extends Model
+class Valuecatpropriete extends Model
 {
-    protected $table = "valuecatProprietes";
+    protected $table = "valuecatproprietes";
 
     public function user() {
         return $this->belongsTo('App\User');
@@ -15,7 +15,7 @@ class ValuecatPropriete extends Model
         return $this->belongsTo('App\Category');
     }
 
-    public function propertie() {
-        return $this->belongsTo('App\Propertie');
+    public function propriete() {
+        return $this->belongsTo('App\Propriete');
     }
 }

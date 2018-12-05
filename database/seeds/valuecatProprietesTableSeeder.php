@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class valuecatProprietesTableSeeder extends Seeder
+class valuecatproprietesTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,7 +11,7 @@ class valuecatProprietesTableSeeder extends Seeder
      */
     public function run()
     {
-        $valuecatProprietes = [
+        $valuecatproprietes = [
             [
                 'value' => '2',
                 'category_id' => 1,
@@ -31,6 +31,6 @@ class valuecatProprietesTableSeeder extends Seeder
                 'house_id' => 2
             ]
         ];
-        DB::table('valuecatProprietes')->insert($valuecatProprietes);
+        DB::table('valuecatProprietes')->insert($valuecatproprietes);
     }
 }

@@ -72,8 +72,13 @@
                         <h3 class="title card-title">
                             <a href="<?php echo e(action('UsersController@showHouse', $house->id)); ?>"><?php echo e($house->title); ?></a>   
                         </h3>
+                        
                         <p>Type de bien : <?php echo e($house->category->category); ?></p>
-                        <p><i class="fas fa-bed"></i> : 2 lits - <i class="fas fa-users"></i> : pour 2 Personnes</p>
+                            <?php $__currentLoopData = $house->valuecatproprietes; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <p><i class="fas fa-users"></i>  <?php echo e($house->proprietes->label_propriete); ?>  : <?php echo e($value->value); ?> </p>
+                                <p><i class="fas fa-bed"> </i>  </p>
+                                
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         <p class="price"><?php echo e($house->price); ?>€ par nuit</p>
                         <p>Annulation gratuite !</p>
                         <p class="card-text"><?php echo(substr($house->description, 0, 150));?></p>

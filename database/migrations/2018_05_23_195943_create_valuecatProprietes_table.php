@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateValuecatProprietesTable extends Migration
+class CreateValuecatproprietesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateValuecatProprietesTable extends Migration
      */
     public function up()
     {
-        Schema::create('valuecatProprietes', function (Blueprint $table) {
+        Schema::create('valuecatproprietes', function (Blueprint $table) {
             $table->increments('id');
             $table->string('value');
             $table->integer('category_id');
@@ -30,6 +30,6 @@ class CreateValuecatProprietesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('valuecatProprietes');
+        Schema::dropIfExists('valuecatproprietes');
     }
 }

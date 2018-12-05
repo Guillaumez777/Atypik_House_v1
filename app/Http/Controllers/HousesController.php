@@ -8,7 +8,7 @@ use App\Category;
 use App\Comment;
 use App\Reservation;
 use App\Propriete;
-use App\ValuecatPropriete;
+use App\Valuecatpropriete;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -30,7 +30,9 @@ class HousesController extends Controller
     public function index(House $house)
     {
         $houses = house::all()->where('statut', 'Validé');
+        //$valuecatProprietesHouse = valuecatPropriete::all();
         return view('houses.index')->with('houses', $houses);
+                                //    ->with('valuecatPropriete', $valuecatProprietesHouse);
         
     }
 

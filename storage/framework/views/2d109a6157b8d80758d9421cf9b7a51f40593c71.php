@@ -67,7 +67,7 @@
 
                         <?php $__currentLoopData = $house->category->propriete; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $proprietes): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <div class="form-group">
-                                <label for="name" class="col-md-4 control-label"><?php echo e($proprietes->propriete); ?></label>
+                                <label for="name" class="col-md-4 control-label"><?php echo e($proprietes->label_propriete); ?></label>
 
                                 <div class="col-md-6">
                                     <input type="text" class="form-control" name="propriete[]" autofocus value="">

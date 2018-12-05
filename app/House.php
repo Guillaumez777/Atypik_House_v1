@@ -32,7 +32,11 @@ class House extends Model
         return $this->belongsTo('App\Reservation');
     }
 
-    public function valuecatpropriete() {
-        return $this->hasMany('App\ValuecatPropriete');
+    public function proprietes() {
+        return $this->belongsTo('App\Propriete', 'category_id');
+    }
+
+    public function valuecatproprietes() {
+        return $this->hasMany('App\Valuecatpropriete');
     }
 }
