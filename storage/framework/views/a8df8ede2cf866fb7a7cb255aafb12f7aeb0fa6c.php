@@ -64,6 +64,8 @@
     <h2>Nos hébergements</h2>
     <div class="row">
     <?php $__currentLoopData = $houses; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $house): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+    <?php echo e($house); ?>
+
         <?php if($house->statut == "Validé"): ?>
             <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
                 <div class="card h-100">
