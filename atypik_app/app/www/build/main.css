@@ -28103,7 +28103,7 @@ page-prezavis .avis {
 
 page-welcome-p #welcome {
   background-image: url("../assets/imgs/e.jpg");
-  backgrount-position: left;
+  background-position: left;
   background-size: 100% 50%;
   background-repeat: no-repeat;
   background-position: 100% 0%;
@@ -28138,4 +28138,8 @@ page-welcome-p #welcome .logo {
   margin-left: -1px;
   Height: 65px;
   width: auto;
+}
+
+page-welcome-p #Btn_Welcome button {
+  display: block;
 }

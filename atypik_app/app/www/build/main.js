@@ -49,6 +49,69 @@ var PrezavisPage = (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__tabs_tabs__ = __webpack_require__(159);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__welcome_p_welcome_p__ = __webpack_require__(32);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__reset_password_reset_password__ = __webpack_require__(106);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+/**
+ * Generated class for the LoginPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var LoginPage = (function () {
+    function LoginPage(navCtrl, navParams) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+    }
+    LoginPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad LoginPage');
+    };
+    LoginPage.prototype.login = function () {
+        //api connections
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__tabs_tabs__["a" /* TabsPage */]);
+    };
+    LoginPage.prototype.retour = function () {
+        //api connections
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__welcome_p_welcome_p__["a" /* WelcomePPage */]);
+    };
+    LoginPage.prototype.resetMdp = function () {
+        //api connections
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__reset_password_reset_password__["a" /* ResetPasswordPage */]);
+    };
+    LoginPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-login',template:/*ion-inline-start:"/Users/guillaume/Desktop/Atypik_House_v1/atypik_app/app/src/pages/login/login.html"*/'\n<ion-content padding>\n<img src="assets/imgs/AHlog.png" class="logo"/>\n\n	<ion-list>\n\n  		<ion-item>\n    		<ion-label floating>Mail</ion-label>\n    		<ion-input type="email"></ion-input>\n  		</ion-item>\n\n  		<ion-item>\n    		<ion-label floating>Password</ion-label>\n    		<ion-input type="password"></ion-input>\n  		</ion-item>\n      <p id = "restMdp"> Mot de passe oublié ? cliquez </p>\n\n      <button id = "buttonrez" ion-button color="primary"  (click)="resetMdp()" clear>ici</button>\n      <button ion-button block id = "loginbutton"(click)="login()">Login</button>\n      <button ion-button block id = "loginbutton"(click)="retour()">Retour</button>\n\n	</ion-list>\n\n</ion-content>\n'/*ion-inline-end:"/Users/guillaume/Desktop/Atypik_House_v1/atypik_app/app/src/pages/login/login.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */]])
+    ], LoginPage);
+    return LoginPage;
+}());
+
+//# sourceMappingURL=login.js.map
+
+/***/ }),
+
+/***/ 102:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MesAlertesPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
@@ -90,7 +153,7 @@ var MesAlertesPage = (function () {
 
 /***/ }),
 
-/***/ 102:
+/***/ 103:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -145,7 +208,7 @@ var MesAvisPage = (function () {
 
 /***/ }),
 
-/***/ 103:
+/***/ 104:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -195,7 +258,81 @@ var MesCommandesPage = (function () {
 
 /***/ }),
 
-/***/ 104:
+/***/ 105:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SignupPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__welcome_p_welcome_p__ = __webpack_require__(32);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+/**
+ * Generated class for the SignupPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var SignupPage = (function () {
+    function SignupPage(navCtrl, navParams) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.data = {};
+        this.data.nom = '';
+        this.data.prenom = '';
+        this.data.email = '';
+        this.data.password = '';
+        this.data.response = '';
+        //this.http = http;
+    }
+    SignupPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad SignupPage');
+    };
+    SignupPage.prototype.signup = function () {
+        //api connections
+        var link = 'http://localhost:8000/create';
+        var myData = JSON.stringify({
+            nom: this.data.nom,
+            prenom: this.data.prenom,
+            email: this.data.email,
+            password: this.data.password
+        });
+        /*this.http.post(link, myData)
+        .subscribe(data => {
+          this.data.response = data["_body"];
+        }, error => {
+        console.log("Oooops!");
+       });*/
+    };
+    SignupPage.prototype.retour = function () {
+        //api connections
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__welcome_p_welcome_p__["a" /* WelcomePPage */]);
+    };
+    SignupPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-signup',template:/*ion-inline-start:"/Users/guillaume/Desktop/Atypik_House_v1/atypik_app/app/src/pages/signup/signup.html"*/'<ion-content padding>\n	<ion-list>\n\n  		<ion-item>\n    		<ion-label stacked>First Name</ion-label>\n    		<ion-input type="text"></ion-input>\n  		</ion-item>\n\n  		<ion-item>\n    		<ion-label stacked>Last Name</ion-label>\n    		<ion-input type="text"></ion-input>\n  		</ion-item>\n\n  		<ion-item>\n    		<ion-label stacked>Username</ion-label>\n    		<ion-input type="text"></ion-input>\n  		</ion-item>\n\n  		<ion-item>\n    		<ion-label stacked>EMail</ion-label>\n    		<ion-input type="email"></ion-input>\n  		</ion-item>\n\n      <ion-item>\n        <ion-label stacked>Phone Number</ion-label>\n        <ion-input type="tel"></ion-input>\n      </ion-item>\n\n  		<ion-item>\n    		<ion-label stacked>Password</ion-label>\n    		<ion-input type="password"></ion-input>\n  		</ion-item>\n  		<button ion-button block (click)="signup()">Signup</button>\n      <button ion-button block (click)="retour()">Retour</button>\n\n	</ion-list>\n\n</ion-content>\n'/*ion-inline-end:"/Users/guillaume/Desktop/Atypik_House_v1/atypik_app/app/src/pages/signup/signup.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */]])
+    ], SignupPage);
+    return SignupPage;
+}());
+
+//# sourceMappingURL=signup.js.map
+
+/***/ }),
+
+/***/ 106:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -322,143 +459,6 @@ var ResetPasswordPage = (function () {
 
 /***/ }),
 
-/***/ 105:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__tabs_tabs__ = __webpack_require__(159);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__welcome_p_welcome_p__ = __webpack_require__(32);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__reset_password_reset_password__ = __webpack_require__(104);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-
-/**
- * Generated class for the LoginPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-var LoginPage = (function () {
-    function LoginPage(navCtrl, navParams) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-    }
-    LoginPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad LoginPage');
-    };
-    LoginPage.prototype.login = function () {
-        //api connections
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__tabs_tabs__["a" /* TabsPage */]);
-    };
-    LoginPage.prototype.retour = function () {
-        //api connections
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__welcome_p_welcome_p__["a" /* WelcomePPage */]);
-    };
-    LoginPage.prototype.resetMdp = function () {
-        //api connections
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__reset_password_reset_password__["a" /* ResetPasswordPage */]);
-    };
-    LoginPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-login',template:/*ion-inline-start:"/Users/guillaume/Desktop/Atypik_House_v1/atypik_app/app/src/pages/login/login.html"*/'\n<ion-content padding>\n<img src="assets/imgs/AHlog.png" class="logo"/>\n\n	<ion-list>\n\n  		<ion-item>\n    		<ion-label floating>Mail</ion-label>\n    		<ion-input type="email"></ion-input>\n  		</ion-item>\n\n  		<ion-item>\n    		<ion-label floating>Password</ion-label>\n    		<ion-input type="password"></ion-input>\n  		</ion-item>\n      <p id = "restMdp"> Mot de passe oublié ? cliquez </p>\n\n      <button id = "buttonrez" ion-button color="primary"  (click)="resetMdp()" clear>ici</button>\n      <button ion-button block id = "loginbutton"(click)="login()">Login</button>\n      <button ion-button block id = "loginbutton"(click)="retour()">Retour</button>\n\n	</ion-list>\n\n</ion-content>\n'/*ion-inline-end:"/Users/guillaume/Desktop/Atypik_House_v1/atypik_app/app/src/pages/login/login.html"*/,
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */]])
-    ], LoginPage);
-    return LoginPage;
-}());
-
-//# sourceMappingURL=login.js.map
-
-/***/ }),
-
-/***/ 106:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SignupPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__welcome_p_welcome_p__ = __webpack_require__(32);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-/**
- * Generated class for the SignupPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-var SignupPage = (function () {
-    function SignupPage(navCtrl, navParams) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-        this.data = {};
-        this.data.nom = '';
-        this.data.prenom = '';
-        this.data.email = '';
-        this.data.password = '';
-        this.data.response = '';
-        //this.http = http;
-    }
-    SignupPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad SignupPage');
-    };
-    SignupPage.prototype.signup = function () {
-        //api connections
-        var link = 'http://localhost:8000/create';
-        var myData = JSON.stringify({
-            nom: this.data.nom,
-            prenom: this.data.prenom,
-            email: this.data.email,
-            password: this.data.password
-        });
-        /*this.http.post(link, myData)
-        .subscribe(data => {
-          this.data.response = data["_body"];
-        }, error => {
-        console.log("Oooops!");
-       });*/
-    };
-    SignupPage.prototype.retour = function () {
-        //api connections
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__welcome_p_welcome_p__["a" /* WelcomePPage */]);
-    };
-    SignupPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-signup',template:/*ion-inline-start:"/Users/guillaume/Desktop/Atypik_House_v1/atypik_app/app/src/pages/signup/signup.html"*/'<ion-content padding>\n	<ion-list>\n\n  		<ion-item>\n    		<ion-label stacked>First Name</ion-label>\n    		<ion-input type="text"></ion-input>\n  		</ion-item>\n\n  		<ion-item>\n    		<ion-label stacked>Last Name</ion-label>\n    		<ion-input type="text"></ion-input>\n  		</ion-item>\n\n  		<ion-item>\n    		<ion-label stacked>Username</ion-label>\n    		<ion-input type="text"></ion-input>\n  		</ion-item>\n\n  		<ion-item>\n    		<ion-label stacked>EMail</ion-label>\n    		<ion-input type="email"></ion-input>\n  		</ion-item>\n\n      <ion-item>\n        <ion-label stacked>Phone Number</ion-label>\n        <ion-input type="tel"></ion-input>\n      </ion-item>\n\n  		<ion-item>\n    		<ion-label stacked>Password</ion-label>\n    		<ion-input type="password"></ion-input>\n  		</ion-item>\n  		<button ion-button block (click)="signup()">Signup</button>\n      <button ion-button block (click)="retour()">Retour</button>\n\n	</ion-list>\n\n</ion-content>\n'/*ion-inline-end:"/Users/guillaume/Desktop/Atypik_House_v1/atypik_app/app/src/pages/signup/signup.html"*/,
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */]])
-    ], SignupPage);
-    return SignupPage;
-}());
-
-//# sourceMappingURL=signup.js.map
-
-/***/ }),
-
 /***/ 117:
 /***/ (function(module, exports) {
 
@@ -485,35 +485,35 @@ var map = {
 		0
 	],
 	"../pages/login/login.module": [
-		290,
+		283,
 		8
 	],
 	"../pages/mes-alertes/mes-alertes.module": [
-		283,
+		284,
 		1
 	],
 	"../pages/mes-avis/mes-avis.module": [
-		284,
+		285,
 		7
 	],
 	"../pages/mes-commandes/mes-commandes.module": [
-		285,
+		286,
 		6
 	],
 	"../pages/prezavis/prezavis.module": [
-		286,
+		287,
 		5
 	],
 	"../pages/reset-password/reset-password.module": [
-		287,
+		288,
 		4
 	],
 	"../pages/signup/signup.module": [
-		288,
+		289,
 		3
 	],
 	"../pages/welcome-p/welcome-p.module": [
-		289,
+		290,
 		2
 	]
 };
@@ -650,9 +650,9 @@ var ContactPage = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mes_alertes_mes_alertes__ = __webpack_require__(101);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__mes_avis_mes_avis__ = __webpack_require__(102);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__mes_commandes_mes_commandes__ = __webpack_require__(103);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mes_alertes_mes_alertes__ = __webpack_require__(102);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__mes_avis_mes_avis__ = __webpack_require__(103);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__mes_commandes_mes_commandes__ = __webpack_require__(104);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -688,7 +688,7 @@ var HomePage = (function () {
     };
     HomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-home',template:/*ion-inline-start:"/Users/guillaume/Desktop/Atypik_House_v1/atypik_app/app/src/pages/home/home.html"*/'<ion-header>\n  <ion-navbar>\n    <img src="assets/imgs/AHlog.png" class="navbarlogo"/><ion-title>Home</ion-title>\n     <button ion-button (click)="logout()" id ="logoutbutton">Logout</button>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding id="homefront">\n  <h2 id="titlehome">Welcome to AtypikHouse Gestion app!</h2>\n<div class="boutonhome">\n  <button ion-button block (click)="GoNotifications()">Mes Notifications</button>\n  <button ion-button block (click)="GoCommandes()">Mes Commandes</button>\n  <button ion-button block (click)="GoAvis()">Mes Avis</button>\n</div>\n</ion-content>\n'/*ion-inline-end:"/Users/guillaume/Desktop/Atypik_House_v1/atypik_app/app/src/pages/home/home.html"*/
+            selector: 'page-home',template:/*ion-inline-start:"/Users/guillaume/Desktop/Atypik_House_v1/atypik_app/app/src/pages/home/home.html"*/'<ion-header>\n  <ion-navbar>\n    <img src="assets/imgs/AHlog.png" class="navbarlogo"/><ion-title>Home</ion-title>\n     <button ion-button (click)="logout()" id ="logoutbutton">Logout</button>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding id="homefront">\n  <h2 id="titlehome" text-center>Atypikhouse - Admin</h2>\n<div class="boutonhome">\n  <button ion-button block (click)="GoNotifications()">Notifications</button>\n  <button ion-button block (click)="GoCommandes()">Les Commandes</button>\n  <button ion-button block (click)="GoAvis()">Les Avis</button>\n</div>\n</ion-content>\n'/*ion-inline-end:"/Users/guillaume/Desktop/Atypik_House_v1/atypik_app/app/src/pages/home/home.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* App */]])
     ], HomePage);
@@ -723,16 +723,16 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__(273);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_welcome_p_welcome_p__ = __webpack_require__(32);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_login_login__ = __webpack_require__(105);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_signup_signup__ = __webpack_require__(106);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_login_login__ = __webpack_require__(101);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_signup_signup__ = __webpack_require__(105);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_about_about__ = __webpack_require__(160);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_contact_contact__ = __webpack_require__(161);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_home_home__ = __webpack_require__(162);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_tabs_tabs__ = __webpack_require__(159);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_mes_commandes_mes_commandes__ = __webpack_require__(103);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_mes_avis_mes_avis__ = __webpack_require__(102);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_mes_alertes_mes_alertes__ = __webpack_require__(101);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_reset_password_reset_password__ = __webpack_require__(104);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_mes_commandes_mes_commandes__ = __webpack_require__(104);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_mes_avis_mes_avis__ = __webpack_require__(103);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_mes_alertes_mes_alertes__ = __webpack_require__(102);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_reset_password_reset_password__ = __webpack_require__(106);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_prezavis_prezavis__ = __webpack_require__(100);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__ionic_native_status_bar__ = __webpack_require__(202);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__ionic_native_splash_screen__ = __webpack_require__(205);
@@ -785,14 +785,14 @@ var AppModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["e" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* MyApp */], {}, {
                     links: [
                         { loadChildren: '../pages/ajouts-avis-modal/ajouts-avis-modal.module#AjoutsAvisModalPageModule', name: 'AjoutsAvisModalPage', segment: 'ajouts-avis-modal', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/mes-alertes/mes-alertes.module#MesAlertesPageModule', name: 'MesAlertesPage', segment: 'mes-alertes', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/mes-avis/mes-avis.module#MesAvisPageModule', name: 'MesAvisPage', segment: 'mes-avis', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/mes-commandes/mes-commandes.module#MesCommandesPageModule', name: 'MesCommandesPage', segment: 'mes-commandes', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/prezavis/prezavis.module#PrezavisPageModule', name: 'PrezavisPage', segment: 'prezavis', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/reset-password/reset-password.module#ResetPasswordPageModule', name: 'ResetPasswordPage', segment: 'reset-password', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/signup/signup.module#SignupPageModule', name: 'SignupPage', segment: 'signup', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/welcome-p/welcome-p.module#WelcomePPageModule', name: 'WelcomePPage', segment: 'welcome-p', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] }
+                        { loadChildren: '../pages/welcome-p/welcome-p.module#WelcomePPageModule', name: 'WelcomePPage', segment: 'welcome-p', priority: 'low', defaultHistory: [] }
                     ]
                 })
             ],
@@ -879,8 +879,8 @@ var MyApp = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return WelcomePPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__login_login__ = __webpack_require__(105);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__signup_signup__ = __webpack_require__(106);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__login_login__ = __webpack_require__(101);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__signup_signup__ = __webpack_require__(105);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -901,10 +901,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Ionic pages and navigation.
  */
 var WelcomePPage = (function () {
-    function WelcomePPage(navCtrl, navParams) {
+    function WelcomePPage(navCtrl, navParams, alertCtrl) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
+        this.alertCtrl = alertCtrl;
     }
+    WelcomePPage.prototype.alert = function () {
+        var alert = this.alertCtrl.create({
+            title: 'Texte',
+            subTitle: 'Du texte à changer',
+            buttons: ['OK']
+        });
+        alert.present();
+    };
     WelcomePPage.prototype.ionViewDidLoad = function () {
         console.log('ionViewDidLoad WelcomePPage');
     };
@@ -916,9 +925,9 @@ var WelcomePPage = (function () {
     };
     WelcomePPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-welcome-p',template:/*ion-inline-start:"/Users/guillaume/Desktop/Atypik_House_v1/atypik_app/app/src/pages/welcome-p/welcome-p.html"*/'\n\n\n<ion-content padding id="welcome">\n\n<img src="assets/imgs/AHlog.png" class="logo"/>\n<div id="intro">\n	<h1> Welcome to AtypikHouse Gestion app </h1>\n	<p>Here you can manage your rent, find notification and post your tought about any location rented</p>\n</div>\n\n<button ion-button block class="signup" (click)="signup()">Signup</button>\n<button ion-button block class="login"(click)="login()">Login</button>\n</ion-content>\n'/*ion-inline-end:"/Users/guillaume/Desktop/Atypik_House_v1/atypik_app/app/src/pages/welcome-p/welcome-p.html"*/,
+            selector: 'page-welcome-p',template:/*ion-inline-start:"/Users/guillaume/Desktop/Atypik_House_v1/atypik_app/app/src/pages/welcome-p/welcome-p.html"*/'\n<ion-content padding id="welcome">\n\n<img src="assets/imgs/AHlog.png" class="logo"/>\n\n<div id="intro">\n	<h1 text-center>Atypikhouse - Gestion</h1>\n</div>\n\n<div id="Btn_Welcome" text-center>\n	<button ion-button block class="signup" (click)="signup()">Signup</button>\n	<button ion-button block class="login" (click)="login()">Login</button>\n</div>\n\n\n</ion-content>\n'/*ion-inline-end:"/Users/guillaume/Desktop/Atypik_House_v1/atypik_app/app/src/pages/welcome-p/welcome-p.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
     ], WelcomePPage);
     return WelcomePPage;
 }());
