@@ -33,7 +33,7 @@ class House extends Model
     }
 
     public function proprietes() {
-        return $this->belongsTo('App\Propriete', 'category_id');
+        return $this->hasMany('App\Propriete', 'category_id');
     }
 
     public function valuecatproprietes() {

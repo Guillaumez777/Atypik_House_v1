@@ -73,11 +73,13 @@
                         </h3>
                         
                         <p>Type de bien : {{$house->category->category}}</p>
-                            @foreach($house->valuecatproprietes as $value)
-                                <p><i class="fas fa-users"></i>  {{$house->proprietes->label_propriete}}  : {{$value->value }} </p>
-                                <p><i class="fas fa-bed"> </i>  </p>
-                                
-                            @endforeach
+                        @foreach($house->proprietes as $proprietes)
+                            <p>{{$proprietes->label_propriete}}: 
+                                @foreach($proprietes->valuecatproprietes as $valuepropriete) 
+                                    {{$valuepropriete->value}}
+                                @endforeach
+                            </p>     
+                        @endforeach
                         <p class="price">{{$house->price}}€ par nuit</p>
                         <p>Annulation gratuite !</p>
                         <p class="card-text"><?php echo(substr($house->description, 0, 150));?></p>

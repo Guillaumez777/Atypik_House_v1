@@ -15,4 +15,8 @@ class Propriete extends Model
         return $this->belongsTo('App\Admin');
     }
 
+    public function valuecatproprietes() {
+        return $this->hasMany('App\Valuecatpropriete');
+    }
+
 }

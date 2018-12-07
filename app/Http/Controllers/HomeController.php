@@ -37,7 +37,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $houses = house::with('valuecatproprietes', 'proprietes')->get();
+        $houses = house::with('valuecatproprietes', 'proprietes', 'category')->get();
         $categories = category::all();
 
         return view('home')->with('houses', $houses)

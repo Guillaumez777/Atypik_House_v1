@@ -64,8 +64,6 @@
     <h2>Nos hébergements</h2>
     <div class="row">
     <?php $__currentLoopData = $houses; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $house): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-    <?php echo e($house); ?>
-
         <?php if($house->statut == "Validé"): ?>
             <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
                 <div class="card h-100">
@@ -76,11 +74,14 @@
                         </h3>
                         
                         <p>Type de bien : <?php echo e($house->category->category); ?></p>
-                            <?php $__currentLoopData = $house->valuecatproprietes; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                <p><i class="fas fa-users"></i>  <?php echo e($house->proprietes->label_propriete); ?>  : <?php echo e($value->value); ?> </p>
-                                <p><i class="fas fa-bed"> </i>  </p>
-                                
-                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                        <?php $__currentLoopData = $house->proprietes; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $proprietes): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <p><?php echo e($proprietes->label_propriete); ?>: 
+                                <?php $__currentLoopData = $proprietes->valuecatproprietes; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $valuepropriete): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?> 
+                                    <?php echo e($valuepropriete->value); ?>
+
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                            </p>     
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         <p class="price"><?php echo e($house->price); ?>€ par nuit</p>
                         <p>Annulation gratuite !</p>
                         <p class="card-text"><?php echo(substr($house->description, 0, 150));?></p>
