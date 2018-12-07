@@ -74,7 +74,7 @@
                         
                         <p>Type de bien : {{$house->category->category}}</p>
                         @foreach($house->proprietes as $proprietes)
-                            <p>{{$proprietes->label_propriete}}: 
+                            <p>{{$proprietes->propriete}}: 
                                 @foreach($proprietes->valuecatproprietes as $valuepropriete) 
                                     {{$valuepropriete->value}}
                                 @endforeach

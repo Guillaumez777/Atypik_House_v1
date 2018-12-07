@@ -75,7 +75,7 @@
                         
                         <p>Type de bien : <?php echo e($house->category->category); ?></p>
                         <?php $__currentLoopData = $house->proprietes; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $proprietes): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                            <p><?php echo e($proprietes->label_propriete); ?>: 
+                            <p><?php echo e($proprietes->propriete); ?>: 
                                 <?php $__currentLoopData = $proprietes->valuecatproprietes; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $valuepropriete): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?> 
                                     <?php echo e($valuepropriete->value); ?>
 
