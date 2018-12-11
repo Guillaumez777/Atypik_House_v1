@@ -100,43 +100,44 @@ class UsersController extends Controller
         $house->ville = $request->ville;
         $house->price = $request->price;
         $house->description = $request->description;
-        
-        $i = 0;
-        foreach ($valueproprietes as $update) {
-        
-            DB::table('valuecatproprietes')
-                ->leftJoin('houses', 'valuecatproprietes.house_id', '=', 'houses.id')
-                ->where('house_id','=', $id)
-                ->where('valuecatproprietes.id','=', $update->id)
-                ->update([
-                    'value' => $request->propriete[$i]
-            ]);
-            $i++;
-        }
+        if(!empty($valueproprietes)){
+            $i = 0;
+            foreach ($valueproprietes as $update) {
+            
+                DB::table('valuecatproprietes')
+                    ->leftJoin('houses', 'valuecatproprietes.house_id', '=', 'houses.id')
+                    ->where('house_id','=', $id)
+                    ->where('valuecatproprietes.id','=', $update->id)
+                    ->update([
+                        'value' => $request->propriete[$i]
+                ]);
+                $i++;
+            }
          
         
         $house->save();
         return redirect()->back()->with('success', "L'hébergement de l'utilisateur a bien été modifié");
-        
-        /*$this->validate($request, [
-            'photo' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:20000',
-        ]);*/
-        
-        if($request->photo == NULL){
-            //$request->photo = $house->first()->photo;
-            $house->save();
-            $valuenewpropriete->save();
-            return redirect()->back()->with('success', "L'hébergement de l'utilisateur a bien été modifié");
-           
         } else {
-            $picture = $request->file('photo');
-            $filename  = time() . '.' . $picture->getClientOriginalExtension();
-            $path = public_path('img/houses/' . $filename);
-            Image::make($picture->getRealPath())->resize(350, 200)->save($path);
-            $house->photo = $filename;
-            $house->save();
-            $valuenewpropriete->save();
-            return redirect()->back()->with('success', "L'hébergement de l'utilisateur a bien été modifié");
+            /*$this->validate($request, [
+                'photo' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:20000',
+            ]);*/
+            
+            if($request->photo == NULL){
+                //$request->photo = $house->first()->photo;
+                $house->save();
+                $valuenewpropriete->save();
+                return redirect()->back()->with('success', "L'hébergement de l'utilisateur a bien été modifié");
+            
+            } else {
+                $picture = $request->file('photo');
+                $filename  = time() . '.' . $picture->getClientOriginalExtension();
+                $path = public_path('img/houses/' . $filename);
+                Image::make($picture->getRealPath())->resize(350, 200)->save($path);
+                $house->photo = $filename;
+                $house->save();
+                $valuenewpropriete->save();
+                return redirect()->back()->with('success', "L'hébergement de l'utilisateur a bien été modifié");
+            }
         }
     }
     
