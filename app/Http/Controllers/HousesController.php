@@ -222,18 +222,12 @@ class HousesController extends Controller
      * @param  \App\House  $house
      * @return \Illuminate\Http\Response
      */
-    
- public function show(House $house, Reservation $reservation)
-    {
-        $house = house::find($house->id);
-        return view('houses.show', compact('house', 'id'))->with('house', $house);
-    }
-    
-    /*public function show(House $house, Reservation $reservation, Comment $comments)
+
+    public function show(House $house, Reservation $reservation, Comment $comments)
     {
         //$houses->posts()->where('idUser', Auth::user()->idUser)->get();
         /*return view('houses.index')->with('houses', $houses);*/
-        /*$house = house::find($house->id);
+        $house = house::find($house->id);
         $reservation = DB::table('reservations')
             ->select('houses.*', 'reservations.*')
             ->leftJoin('houses', 'reservations.user_id', 'houses.user_id')
@@ -250,7 +244,7 @@ class HousesController extends Controller
         }
         $moyenne = $sommesNote / $i;    
         return view('houses.show', compact('house', 'id'))->with('house', $house)->with('reservation', $reservation)->with('moyenne', $moyenne);
-    }*/
+    }
 
     /**
      * Show the form for editing the specified resource.
