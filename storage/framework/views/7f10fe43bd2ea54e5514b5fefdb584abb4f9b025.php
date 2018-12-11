@@ -10,9 +10,10 @@
 
     
     
-    <title>AtypikHouse - Votre habitats atypique, partout en Europe</title>
 
-    <meta description="Le site d'habitats insolite, partout en France et en Europe">
+    <title>AtypikHouse - <?php echo $__env->yieldContent('title'); ?></title>
+   <meta description="<?php echo $__env->yieldContent('meta_description'); ?>">
+
 
     
     <link rel="icon" type="image/png" href="<?php echo e(asset('img/LogoNavigateur.png')); ?>" />
@@ -30,7 +31,6 @@
     <?php echo $__env->yieldContent('link'); ?>
     <link href="<?php echo e(asset('css/custom.css')); ?>" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<<<<<<< HEAD
 
     <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" />
     <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js"></script>
@@ -54,10 +54,8 @@
             }
         })});
 </script>
-=======
     <?php echo NoCaptcha::renderJs(); ?>
 
->>>>>>> master
 </head>
 <body>
     <div id="app">
