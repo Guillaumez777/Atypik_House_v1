@@ -48,6 +48,10 @@ class User extends Authenticatable
         return $this->hasMany(Comment::class);
     }
 
+    public function proprietes() {
+        return $this->hasMany('App\Propriete');
+    }
+
     public function valuecatproprietes() {
         return $this->hasMany('App\ValuecatPropriete');
     }

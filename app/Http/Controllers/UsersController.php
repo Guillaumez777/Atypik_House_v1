@@ -8,6 +8,7 @@ use App\Comment;
 use App\Reservation;
 use App\Category;
 use App\Propriete;
+use App\Valuecatpropriete;
 use App\Ville;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -89,18 +90,42 @@ class UsersController extends Controller
 
     public function updateHouse(Request $request,Category $category, Ville $ville, House $house, $id)
     {
-        $house = house::find($id);
+        //$house = house::find($id);
+        
+        $house = house::with('valuecatproprietes', 'proprietes', 'category')->where('id','=', $id)->first();
+        $valueproprietes = valuecatpropriete::where('house_id','=', $id)->get();
+        //var_dump($valueproprietes);
         $house->title = $request->title;
         $house->category_id = $request->category_id;
         $house->ville = $request->ville;
         $house->price = $request->price;
         $house->description = $request->description;
+        
+        $i = 0;
+        foreach ($valueproprietes as $update) {
+        
+            DB::table('valuecatproprietes')
+                ->leftJoin('houses', 'valuecatproprietes.house_id', '=', 'houses.id')
+                ->where('house_id','=', $id)
+                ->where('valuecatproprietes.id','=', $update->id)
+                ->update([
+                    'value' => $request->propriete[$i]
+            ]);
+            $i++;
+        }
+         
+        
+        $house->save();
+        return redirect()->back()->with('success', "L'hébergement de l'utilisateur a bien été modifié");
+        
         /*$this->validate($request, [
             'photo' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:20000',
         ]);*/
+        
         if($request->photo == NULL){
-            $request->photo = $house->photo;
+            //$request->photo = $house->first()->photo;
             $house->save();
+            $valuenewpropriete->save();
             return redirect()->back()->with('success', "L'hébergement de l'utilisateur a bien été modifié");
            
         } else {
@@ -110,6 +135,7 @@ class UsersController extends Controller
             Image::make($picture->getRealPath())->resize(350, 200)->save($path);
             $house->photo = $filename;
             $house->save();
+            $valuenewpropriete->save();
             return redirect()->back()->with('success', "L'hébergement de l'utilisateur a bien été modifié");
         }
     }

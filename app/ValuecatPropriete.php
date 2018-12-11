@@ -4,6 +4,7 @@ use Illuminate\Database\Eloquent\Model;
 class Valuecatpropriete extends Model
 {
     protected $table = "valuecatproprietes";
+    protected $fillable = ['value'];
 
     public function user() {
         return $this->belongsTo('App\User');
