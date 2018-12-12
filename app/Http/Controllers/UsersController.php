@@ -90,11 +90,8 @@ class UsersController extends Controller
 
     public function updateHouse(Request $request,Category $category, Ville $ville, House $house, $id)
     {
-        //$house = house::find($id);
-        
         $house = house::with('valuecatproprietes', 'proprietes', 'category')->where('id','=', $id)->first();
         $valueproprietes = valuecatpropriete::where('house_id','=', $id)->get();
-        //var_dump($valueproprietes);
         $house->title = $request->title;
         $house->category_id = $request->category_id;
         $house->ville = $request->ville;
