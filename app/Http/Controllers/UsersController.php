@@ -156,6 +156,19 @@ class UsersController extends Controller
                                 ->with('locataire', $locataire)
                                 ->with('client_reserved', $client_reserved);
     }
-        
-    
+
+    public function historiques(Request $request)
+    {
+        $currentDate = date('Y-m-d');
+        echo($currentDate);
+        //$today = $today->format('Y-m-d');
+        $historiques = Reservation::with('house')->where([
+                                                    ['user_id', '=', Auth::user()->id],
+                                                    ['start_date', '<', $currentDate],
+                                                    ['end_date', '<=', $currentDate]
+                                                ])
+                                                ->get();
+                                        
+        return view('user.historiques', compact('historiques'));
+    }
 }

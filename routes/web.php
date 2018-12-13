@@ -118,6 +118,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     //User reservations
     Route::get('/user/reservations', 'UsersController@reservations')->name('user.reservations');
+    Route::get('/user/historiques', 'UsersController@historiques')->name('user.historiques');
 
 
 });
