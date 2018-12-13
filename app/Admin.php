@@ -38,6 +38,11 @@ class Admin extends Authenticatable
         return $this->hasMany(House::class);
     }
 
+    public function villes()
+    {
+        return $this->hasMany(Ville::class);
+    }
+
     public function categories()
     {
         return $this->hasMany(Category::class);
