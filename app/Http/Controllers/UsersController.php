@@ -15,6 +15,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Image;
+use Carbon\Carbon;
+use Jenssegers\Date\Date;
 
 class UsersController extends Controller
 {
@@ -116,24 +118,44 @@ class UsersController extends Controller
         $house->save();
         var_dump("coco");
         
-            /*$this->validate($request, [
-                'photo' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:20000',
-            ]);*/
-            
-            if($request->photo == NULL){
-                $request->photo = $house->first()->photo;
-                $house->save();
-                return redirect()->back()->with('success', "L'hébergement de l'utilisateur a bien été modifié");
-            
-            } else {
-                $picture = $request->file('photo');
-                $filename  = time() . '.' . $picture->getClientOriginalExtension();
-                $path = public_path('img/houses/' . $filename);
-                Image::make($picture->getRealPath())->resize(350, 200)->save($path);
-                $house->photo = $filename;
-                $house->save();
-                return redirect()->back()->with('success', "L'hébergement de l'utilisateur a bien été modifié");
+        /*$this->validate($request, [
+            'photo' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:20000',
+        ]);*/
+        
+        if($request->photo == NULL){
+            $request->photo = $house->first()->photo;
+            $house->save();
+            return redirect()->back()->with('success', "L'hébergement de l'utilisateur a bien été modifié");
+        
+        } else {
+            $picture = $request->file('photo');
+            $filename  = time() . '.' . $picture->getClientOriginalExtension();
+            $path = public_path('img/houses/' . $filename);
+            Image::make($picture->getRealPath())->resize(350, 200)->save($path);
+            $house->photo = $filename;
+            $house->save();
+            return redirect()->back()->with('success', "L'hébergement de l'utilisateur a bien été modifié");
             }
     }
+
+    public function reservations(Request $request)
+    {
+        $reservations = Reservation::with('house')->where('user_id', '=', Auth::user()->id)->get();
+        return view('user.reservations', compact('reservations'));
+    }
+    
+    public function showReservation($id)
+    {
+        $reservation = reservation::all();
+        $house = house::find($id);
+        $locataire = comment::where('user_id', Auth::user()->id)->get();
+        $client_reserved = reservation::where('house_id', $id)->where('user_id', Auth::user()->id)->get();
+        
+        return view('user.show')->with('reservation', $reservation)
+                                ->with('house', $house)
+                                ->with('locataire', $locataire)
+                                ->with('client_reserved', $client_reserved);
+    }
+        
     
 }

@@ -116,6 +116,9 @@ Route::group(['middleware' => 'auth'], function () {
     //Route::get('/houses/update/{id}', 'HousesController@update');
     Route::get('/list-users', 'UsersController@list');
 
+    //User reservations
+    Route::get('/user/reservations', 'UsersController@reservations')->name('user.reservations');
+
 
 });
 
