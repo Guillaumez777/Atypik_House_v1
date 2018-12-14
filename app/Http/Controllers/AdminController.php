@@ -130,9 +130,8 @@ class AdminController extends Controller
     public function editHouse($id)
     { 
         $categories = category::all();
-        $villes = ville::all();
         $houses = house::where('id','=', $id)->get();
-        return view('admin.editHouse')->with('houses', $houses)->with('categories', $categories)->with('villes', $villes);
+        return view('admin.editHouse')->with('houses', $houses)->with('categories', $categories);
     }
 
     public function updateHouse(Request $request,Category $category, Ville $ville, House $house, $id)

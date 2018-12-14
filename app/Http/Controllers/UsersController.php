@@ -14,6 +14,9 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Image;
+use Carbon\Carbon;
+use Jenssegers\Date\Date;
 
 class UsersController extends Controller
 {
@@ -90,55 +93,82 @@ class UsersController extends Controller
 
     public function updateHouse(Request $request,Category $category, Ville $ville, House $house, $id)
     {
-        //$house = house::find($id);
-        
         $house = house::with('valuecatproprietes', 'proprietes', 'category')->where('id','=', $id)->first();
         $valueproprietes = valuecatpropriete::where('house_id','=', $id)->get();
-        //var_dump($valueproprietes);
         $house->title = $request->title;
         $house->category_id = $request->category_id;
         $house->ville = $request->ville;
         $house->price = $request->price;
         $house->description = $request->description;
-        if(!empty($valueproprietes)){
-            $i = 0;
-            foreach ($valueproprietes as $update) {
-            
-                DB::table('valuecatproprietes')
-                    ->leftJoin('houses', 'valuecatproprietes.house_id', '=', 'houses.id')
-                    ->where('house_id','=', $id)
-                    ->where('valuecatproprietes.id','=', $update->id)
-                    ->update([
-                        'value' => $request->propriete[$i]
-                ]);
-                $i++;
-            }
+        
+        $i = 0;
+        foreach ($valueproprietes as $update) {
+        
+            DB::table('valuecatproprietes')
+                ->leftJoin('houses', 'valuecatproprietes.house_id', '=', 'houses.id')
+                ->where('house_id','=', $id)
+                ->where('valuecatproprietes.id','=', $update->id)
+                ->update([
+                    'value' => $request->propriete[$i]
+            ]);
+            $i++;
+        }
          
         
         $house->save();
-        return redirect()->back()->with('success', "L'hébergement de l'utilisateur a bien été modifié");
+        var_dump("coco");
+        
+        /*$this->validate($request, [
+            'photo' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:20000',
+        ]);*/
+        
+        if($request->photo == NULL){
+            $request->photo = $house->first()->photo;
+            $house->save();
+            return redirect()->back()->with('success', "L'hébergement de l'utilisateur a bien été modifié");
+        
         } else {
-            /*$this->validate($request, [
-                'photo' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:20000',
-            ]);*/
-            
-            if($request->photo == NULL){
-                //$request->photo = $house->first()->photo;
-                $house->save();
-                $valuenewpropriete->save();
-                return redirect()->back()->with('success', "L'hébergement de l'utilisateur a bien été modifié");
-            
-            } else {
-                $picture = $request->file('photo');
-                $filename  = time() . '.' . $picture->getClientOriginalExtension();
-                $path = public_path('img/houses/' . $filename);
-                Image::make($picture->getRealPath())->resize(350, 200)->save($path);
-                $house->photo = $filename;
-                $house->save();
-                $valuenewpropriete->save();
-                return redirect()->back()->with('success', "L'hébergement de l'utilisateur a bien été modifié");
+            $picture = $request->file('photo');
+            $filename  = time() . '.' . $picture->getClientOriginalExtension();
+            $path = public_path('img/houses/' . $filename);
+            Image::make($picture->getRealPath())->resize(350, 200)->save($path);
+            $house->photo = $filename;
+            $house->save();
+            return redirect()->back()->with('success', "L'hébergement de l'utilisateur a bien été modifié");
             }
-        }
+    }
+
+    public function reservations(Request $request)
+    {
+        $reservations = Reservation::with('house')->where('user_id', '=', Auth::user()->id)->get();
+        return view('user.reservations', compact('reservations'));
     }
     
+    public function showReservation($id)
+    {
+        $reservation = reservation::all();
+        $house = house::find($id);
+        $locataire = comment::where('user_id', Auth::user()->id)->get();
+        $client_reserved = reservation::where('house_id', $id)->where('user_id', Auth::user()->id)->get();
+        
+        return view('user.show')->with('reservation', $reservation)
+                                ->with('house', $house)
+                                ->with('locataire', $locataire)
+                                ->with('client_reserved', $client_reserved);
+    }
+
+    public function historiques(Request $request)
+    {
+        $currentDate = date('Y-m-d');
+        echo($currentDate);
+        //$today = $today->format('Y-m-d');
+        $historiques = Reservation::with('house')->where([
+                                                    ['user_id', '=', Auth::user()->id],
+                                                    ['start_date', '<', $currentDate],
+                                                    ['end_date', '<=', $currentDate]
+                                                ])
+                                                ->get();
+                                        
+        return view('user.historiques', compact('historiques'));
+    }
 }

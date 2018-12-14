@@ -122,6 +122,8 @@
                                 <ul class="dropdown-menu" role="menu">
                                     <li><a href="{{url('/profile')}}/{{Auth::user()->id}}">Mon profil</a></li>
                                     <li><a href="{{route('user.houses')}}">Mes hébergements</a></li>
+                                    <li><a href="{{route('user.reservations')}}">Mes réservations</a></li>
+                                    <li><a href="{{route('user.historiques')}}">Mes historiques</a></li>
                                     <li><a href="{{ url('/house/create_step1') }}">Créer un hébergement</a></li>
                                     <li>
                                         <a href="{{ route('logout') }}"
