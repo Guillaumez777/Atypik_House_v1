@@ -160,8 +160,6 @@ class UsersController extends Controller
     public function historiques(Request $request)
     {
         $currentDate = date('Y-m-d');
-        echo($currentDate);
-        //$today = $today->format('Y-m-d');
         $historiques = Reservation::with('house')->where([
                                                     ['user_id', '=', Auth::user()->id],
                                                     ['start_date', '<', $currentDate],
