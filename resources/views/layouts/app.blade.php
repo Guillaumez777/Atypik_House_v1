@@ -152,7 +152,6 @@
                         <li><a href="{{ route('mentions_legales') }}">Mentions légales</a></li>
                         <li><a href="{{ route('politique_de_confidentialite') }}">Politique de confidentialité</a></li>
                         <li><a href="{{ route('cgu') }}">Conditions générales d'utilisation</a></li>
-                        <li><a href="{{ route('rgpd') }}">Légalités et RGPD</a></li>
                     </ul>
                 </div>
                 <div class="col-md-3">

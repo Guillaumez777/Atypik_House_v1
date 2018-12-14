@@ -155,7 +155,6 @@
                         <li><a href="<?php echo e(route('mentions_legales')); ?>">Mentions légales</a></li>
                         <li><a href="<?php echo e(route('politique_de_confidentialite')); ?>">Politique de confidentialité</a></li>
                         <li><a href="<?php echo e(route('cgu')); ?>">Conditions générales d'utilisation</a></li>
-                        <li><a href="<?php echo e(route('rgpd')); ?>">Légalités et RGPD</a></li>
                     </ul>
                 </div>
                 <div class="col-md-3">

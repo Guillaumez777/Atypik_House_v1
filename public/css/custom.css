@@ -26,14 +26,14 @@ html, body {
 	width: 270px;
 }
 
-.title {
+/*.title {
 	padding: 10px;
 	color: black;
 	text-align: center;
 	font-weight: 500;
 	text-shadow: #000000 3px 2px;
 	height: 100px;
-}
+}*/
 
 .title-intro {
 	color: #eee;
@@ -43,6 +43,7 @@ html, body {
 	font-weight: 500;
 	font-size: 22px;
 	padding-bottom: 10px;
+	padding-left: 10px;
 	/* float: right; */
 }
 
@@ -84,7 +85,7 @@ p {
 }
 
 #logo img {
-	height: 150px;
+	height: 137px;
 	width: 100px;
 }
 
