@@ -29,11 +29,8 @@ class HousesController extends Controller
      */
     public function index(House $house)
     {
-        $houses = house::all()->where('statut', 'Validé');
-        //$valuecatProprietesHouse = valuecatPropriete::all();
+        $houses = house::with('valuecatproprietes', 'proprietes', 'category')->where('statut', 'Validé')->get();
         return view('houses.index')->with('houses', $houses);
-                                //    ->with('valuecatPropriete', $valuecatProprietesHouse);
-        
     }
 
     /**

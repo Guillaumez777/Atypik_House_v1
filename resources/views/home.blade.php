@@ -82,7 +82,7 @@
                         @endforeach
                         <p class="price">{{$house->price}}€ par nuit</p>
                         <p>Annulation gratuite !</p>
-                        <p class="card-text"><?php echo(substr($house->description, 0, 150));?></p>
+                        <p class="card-text"><?php echo(substr($house->description, 0, 40));?></p>
                         <p> {{$house->ville}}</p>
                     </div>
                     <div class="note card-footer">
