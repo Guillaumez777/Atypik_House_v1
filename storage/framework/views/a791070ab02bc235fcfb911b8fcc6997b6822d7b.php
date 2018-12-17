@@ -13,9 +13,16 @@
                         <h4 class="title card-title">
                             <a href="<?php echo e(route('user.showHouse', $house['id'])); ?>"><?php echo e($house->title); ?></a>
                         </h4>
-                        <p>Type de bien : Logement</p>
-                        <p><i class="fas fa-bed"></i> : 2 lits - <i class="fas fa-users"></i> : pour 2 Personnes</p>
-                        <h3 class="price"><?php echo e($house->price); ?>€</h3>
+                        <p>Type de bien : <?php echo e($house->category->category); ?></p>
+                        <?php $__currentLoopData = $house->proprietes; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $proprietes): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <p><?php echo e($proprietes->propriete); ?>: 
+                                <?php $__currentLoopData = $proprietes->valuecatproprietes; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $valuepropriete): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?> 
+                                    <?php echo e($valuepropriete->value); ?>
+
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                            </p>     
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                        <p class="price"><?php echo e($house->price); ?>€ par nuit</p>
                         <p class="card-text"><?php echo(substr($house->description, 0, 40));?></p>
                         <?php if($house->statut == "En attente de validation"): ?>
                             <p>Statut: <span style="color:red;"><?php echo($house->statut);?></span></p>

@@ -84,7 +84,7 @@
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         <p class="price"><?php echo e($house->price); ?>€ par nuit</p>
                         <p>Annulation gratuite !</p>
-                        <p class="card-text"><?php echo(substr($house->description, 0, 150));?></p>
+                        <p class="card-text"><?php echo(substr($house->description, 0, 40));?></p>
                         <p> <?php echo e($house->ville); ?></p>
                     </div>
                     <div class="note card-footer">

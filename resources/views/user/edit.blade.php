@@ -67,6 +67,7 @@
                         @foreach($house->proprietes as $proprietes)
                             <div class="form-group">
                                 <label for="name" class="col-md-4 control-label">{{$proprietes->propriete}}</label>
+                                <input type="hidden" class="form-control" name="propriete_id[]" autofocus value="{{$proprietes->id}}">
                                 @foreach($proprietes->valuecatproprietes as $valuepropriete)
                                     <div class="col-md-6">
                                         <input type="text" class="form-control" name="propriete[]" autofocus value="{{$valuepropriete->value}}">
@@ -74,7 +75,7 @@
                                 @endforeach
                                 @if($proprietes->valuecatproprietes->isEmpty())
                                     <div class="col-md-6">
-                                        <input type="text" class="form-control" name="propriete[]" autofocus value="0">
+                                        <input type="text" class="form-control" name="propriete[]" autofocus value="">
                                     </div> 
                                 @endif
                                 

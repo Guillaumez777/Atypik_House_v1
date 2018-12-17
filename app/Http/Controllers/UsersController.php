@@ -102,21 +102,47 @@ class UsersController extends Controller
         $house->description = $request->description;
         
         $i = 0;
-        foreach ($valueproprietes as $update) {
-        
-            DB::table('valuecatproprietes')
-                ->leftJoin('houses', 'valuecatproprietes.house_id', '=', 'houses.id')
-                ->where('house_id','=', $id)
-                ->where('valuecatproprietes.id','=', $update->id)
-                ->update([
-                    'value' => $request->propriete[$i]
-            ]);
-            $i++;
+        $j = 0;
+        foreach($request->propriete as $propriete){
+            $query = valuecatpropriete::where('propriete_id', '=', $request->propriete_id[$j])->where('house_id','=', $id)->get();
+            if($query->count() == 0){
+                $valuecatProprietesHouse = new valuecatPropriete;
+                $valuecatProprietesHouse->value = $propriete;
+                $valuecatProprietesHouse->category_id = $request->category_id;
+                $valuecatProprietesHouse->house_id = $house->id;
+                $valuecatProprietesHouse->propriete_id = $request->propriete_id[$j];
+                $valuecatProprietesHouse->save();
+                $j++;
+            
+            } else {
+                $j++;
+            }
+        }
+        foreach ($valueproprietes as $value) {
+            if($request->propriete[$i] == NULL){
+                DB::table('valuecatproprietes')
+                    ->leftJoin('houses', 'valuecatproprietes.house_id', '=', 'houses.id')
+                    ->where('house_id','=', $id)
+                    ->where('valuecatproprietes.id','=', $value->id)
+                    ->update([
+                        'value' => '0'
+                ]);
+                $i++;
+            } else {
+                DB::table('valuecatproprietes')
+                    ->leftJoin('houses', 'valuecatproprietes.house_id', '=', 'houses.id')
+                    ->where('house_id','=', $id)
+                    ->where('valuecatproprietes.id','=', $value->id)
+                    ->update([
+                        'value' => $request->propriete[$i]
+                ]);
+            
+                $i++;
+            }
         }
          
         
         $house->save();
-        var_dump("coco");
         
         /*$this->validate($request, [
             'photo' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:20000',
@@ -135,7 +161,7 @@ class UsersController extends Controller
             $house->photo = $filename;
             $house->save();
             return redirect()->back()->with('success', "L'hébergement de l'utilisateur a bien été modifié");
-            }
+        }
     }
 
     public function reservations(Request $request)
