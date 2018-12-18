@@ -183,11 +183,18 @@ p {
 .card-body {
 	height: 400px;
 }
-
+.card-title {
+	padding: 20px 0 60px 0;
+	height: 60px;
+}
 .card-title a{
 	text-align: center;
 	font-size: 28px;
 	color: #64764d;
+}
+
+.card-infos {
+	padding: 20px 0;
 }
 /* #3f4b30 */
 #block_home_2 {

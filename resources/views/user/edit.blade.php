@@ -19,7 +19,7 @@
                             <label for="name" class="col-md-4 control-label">Titre</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control" name="title" required autofocus value="{{$house->title}}">
+                                <input id="name" type="text" class="form-control" name="title" maxlength="47"required autofocus value="{{$house->title}}">
                             </div>
                         </div>
                         <div class="form-group">
