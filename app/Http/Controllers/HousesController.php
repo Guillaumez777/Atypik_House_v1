@@ -177,17 +177,17 @@ class HousesController extends Controller
         if($housePropriete == null){
 
         } else {
+            $i = 0;
             foreach($housePropriete as $proprietes){ 
-                  
                 $valuecatProprietesHouse = new valuecatPropriete;
                 $valuecatProprietesHouse->value = $proprietes;
     
                 $valuecatProprietesHouse->category_id = $house->category_id;
-                foreach($houseProprieteId as $propriete_id){
-                    $valuecatProprietesHouse->propriete_id = $propriete_id;
-                }
+                $valuecatProprietesHouse->propriete_id = intval($houseProprieteId[$i]);
                 $valuecatProprietesHouse->house_id = $house->id;
+                
                 $valuecatProprietesHouse->save();
+                $i++;  
             }
         
         }

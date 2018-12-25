@@ -12,4 +12,7 @@ class Category extends Model
     public function proprietes() {
         return $this->hasMany('App\Propriete');
     }
+    public function valuecatproprietes() {
+        return $this->hasMany('App\Valuecatpropriete');
+    }
 }

@@ -61,7 +61,7 @@
     </div>
 </div>
 <div class="container list-category">
-    <h2>Nos hébergements</h2>
+    <h2 id="hebergements">Nos hébergements</h2>
     <div class="row">
     <?php $__currentLoopData = $houses; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $house): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
         <?php if($house->statut == "Validé"): ?>

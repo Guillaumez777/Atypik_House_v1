@@ -60,7 +60,7 @@
     </div>
 </div>
 <div class="container list-category">
-    <h2>Nos hébergements</h2>
+    <h2 id="hebergements">Nos hébergements</h2>
     <div class="row">
     @foreach($houses as $house)
         @if($house->statut == "Validé")

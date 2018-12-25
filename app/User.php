@@ -44,10 +44,10 @@ class User extends Authenticatable
     }*/
     public function houses()
     {
-        return $this->hasMany(House::class);
+        return $this->hasMany('App\House');
     }
     public function comments() {
-        return $this->hasMany(Comment::class);
+        return $this->hasMany('App\Comment');
     }
 
     public function proprietes() {

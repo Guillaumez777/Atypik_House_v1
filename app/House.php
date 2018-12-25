@@ -37,6 +37,6 @@ class House extends Model
     }
 
     public function valuecatproprietes() {
-        return $this->hasMany('App\Valuecatpropriete');
+        return $this->hasMany('App\Valuecatpropriete', 'house_id');
     }
 }

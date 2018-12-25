@@ -40,7 +40,7 @@ Route::get('/rgpd', 'HomeController@rgpd')->name('rgpd');
 
 
 // admin route for our multi-auth system
-Route::resource('search', 'QueryController', ['only' => ['index','show', 'create', 'store', 'search']]);
+Route::get('/search', 'QueryController@index');
 
 //Gestion de l'admin
 Route::prefix('admin')->group(function () {
