@@ -83,12 +83,13 @@ class HousesController extends Controller
         $categories = category::all();
         
         $proprietes = $request->input('propriete');
+        //$proprietes_label = $request->input('propriete_label');
         $proprietes_id = $request->input('propriete_id');
 
         $housePropriete = session('houseProprietes', $proprietes);
         $houseProprieteId = session('houseProprietesId', $proprietes_id);
+        //$houseProprieteLabel = session('houseProprieteLabel', $proprietes_label);
 
-        var_dump($proprietes);
         if ($proprietes == null) {
 
         } else {
@@ -97,6 +98,9 @@ class HousesController extends Controller
             }
             foreach ($proprietes_id as $keyId => $id){
                 $request->session()->push('houseProprietesId', $id);
+            }
+            foreach ($proprietes_label as $keyPropriete => $labelPropriete){
+                $request->session()->push('houseProprieteLabel', $labelPropriete);
             }
         }
         
@@ -155,7 +159,8 @@ class HousesController extends Controller
         $house->statut = "En attente de validation";
 
         $housePropriete = $request->session()->get('houseProprietes');
-        $houseProprieteId = $request->session()->get('houseProprietesId');        
+        $houseProprieteId = $request->session()->get('houseProprietesId');  
+        $houseProprieteLabel = $request->session()->get('houseProprieteLabel');      
 
         $this->validate($request, [
             'photo' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:20000',
@@ -178,10 +183,16 @@ class HousesController extends Controller
 
         } else {
             $i = 0;
-            foreach($housePropriete as $proprietes){ 
+            $o = 0;
+            foreach($housePropriete as $proprietes){
+                // $proprietesHouse = new Propriete;
+                // $proprietesHouse->propriete = $houseProprieteLabel[$o];
+                // $proprietesHouse->category_id = $house->category_id;
+                // $proprietesHouse->save();
+                // $o++;
+
                 $valuecatProprietesHouse = new valuecatPropriete;
                 $valuecatProprietesHouse->value = $proprietes;
-    
                 $valuecatProprietesHouse->category_id = $house->category_id;
                 $valuecatProprietesHouse->propriete_id = intval($houseProprieteId[$i]);
                 $valuecatProprietesHouse->house_id = $house->id;

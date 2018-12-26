@@ -15,7 +15,7 @@
                             <a href="{{route('user.showHouse', $house['id']) }}">{{$house->title}}</a>
                         </h4>
                         <p>Type de bien : {{$house->category->category}}</p>
-                            @foreach($house->proprietes as $proprietes)
+                            @foreach($house->category->proprietes as $proprietes)
                                 <p>{{$proprietes->propriete}}: 
                                     @foreach($proprietes->valuecatproprietes as $valuepropriete) 
                                         {{$valuepropriete->value}}
