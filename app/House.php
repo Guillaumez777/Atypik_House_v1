@@ -35,6 +35,7 @@ class House extends Model
     public function proprietes() {
         return $this->hasMany('App\Propriete', 'category_id');
     }
+    
 
     public function valuecatproprietes() {
         return $this->hasMany('App\Valuecatpropriete', 'house_id');

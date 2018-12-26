@@ -14,14 +14,9 @@
                             <a href="<?php echo e(route('user.showHouse', $house['id'])); ?>"><?php echo e($house->title); ?></a>
                         </h4>
                         <p>Type de bien : <?php echo e($house->category->category); ?></p>
-                            <?php $__currentLoopData = $house->category->proprietes; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $proprietes): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                <p><?php echo e($proprietes->propriete); ?>: 
-                                    <?php $__currentLoopData = $proprietes->valuecatproprietes; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $valuepropriete): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?> 
-                                        <?php echo e($valuepropriete->value); ?>
-
-                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                </p>     
-                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                        <?php $__currentLoopData = $house->valuecatproprietes; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $valuecatpropriete): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <p><?php echo e($valuecatpropriete->propriete->propriete); ?>: <?php echo e($valuecatpropriete->value); ?></p>        
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>      
 
                         <p class="price"><?php echo e($house->price); ?>€ par nuit</p>
                         <p class="card-text"><?php echo(substr($house->description, 0, 40));?></p>

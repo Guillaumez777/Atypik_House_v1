@@ -99,9 +99,9 @@ class HousesController extends Controller
             foreach ($proprietes_id as $keyId => $id){
                 $request->session()->push('houseProprietesId', $id);
             }
-            foreach ($proprietes_label as $keyPropriete => $labelPropriete){
-                $request->session()->push('houseProprieteLabel', $labelPropriete);
-            }
+            // foreach ($proprietes_label as $keyPropriete => $labelPropriete){
+            //     $request->session()->push('houseProprieteLabel', $labelPropriete);
+            // }
         }
         
         $houseVille = $request->session()->get('houseVille');
@@ -183,7 +183,7 @@ class HousesController extends Controller
 
         } else {
             $i = 0;
-            $o = 0;
+            
             foreach($housePropriete as $proprietes){
                 // $proprietesHouse = new Propriete;
                 // $proprietesHouse->propriete = $houseProprieteLabel[$o];

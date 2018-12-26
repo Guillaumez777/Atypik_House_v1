@@ -20,6 +20,6 @@ class DatabaseSeeder extends Seeder
         $this->call(ProprietesTableSeeder::class);
         $this->call(ReservationsTableSeeder::class);
         $this->call(UsersTableSeeder::class);
-        $this->call(valuecatProprietesTableSeeder::class);
+        $this->call(valuecatproprietesTableSeeder::class);
     }
 }

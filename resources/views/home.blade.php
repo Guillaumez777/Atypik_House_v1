@@ -31,6 +31,7 @@
         </div>
     </div>
 </div>
+
 <div id="block_home_2">
     <div id="tranquilite" class="block_home_2_child">
         <i class="fas fa-procedures fa-5x"></i>
@@ -62,12 +63,8 @@
                         </h3>
                         <div class="card-infos">
                             <p>Type de bien : {{$house->category->category}}</p>
-                            @foreach($house->proprietes as $proprietes)
-                                <p>{{$proprietes->propriete}}: 
-                                    @foreach($proprietes->valuecatproprietes as $valuepropriete) 
-                                        {{$valuepropriete->value}}
-                                    @endforeach
-                                </p>     
+                            @foreach($house->valuecatproprietes as $valuecatpropriete)
+                                <p>{{$valuecatpropriete->propriete->propriete}}: {{$valuecatpropriete->value}}</p>        
                             @endforeach
                             <p class="price">{{$house->price}}€ par nuit</p>
                             <p>Annulation gratuite !</p>
