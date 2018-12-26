@@ -21,8 +21,8 @@ class QueryController extends Controller
         $ville = \Request::get('search');
         $categories = category::all();
         $houses = House::where('ville', 'LIKE', '%' . $ville . '%')->get();
-        return view('home')->with('houses', $houses)
-                           ->with('categories', $categories);
+        return view('houses.index')->with('houses', $houses)
+                                  ->with('categories', $categories);
     }
 
     /**
