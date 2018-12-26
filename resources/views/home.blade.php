@@ -31,17 +31,6 @@
         </div>
     </div>
 </div>
-
-
-                            <!--
-                            {!! Form::open(['method'=>'GET','url'=>'QueryController@search','class'=>'form','role'=>'search'])  !!}
-                            {!! Form::text('search', null,
-                                                array('required',
-                                                        'class'=>'form-control ',
-                                                        'placeholder'=>'Saisir une ville ...')) !!}
-                            {!! Form::submit('Rechercher',
-                                                        array('class'=>'btn btn-searchbar')) !!}
-                            {!! Form::close() !!}-->
 <div id="block_home_2">
     <div id="tranquilite" class="block_home_2_child">
         <i class="fas fa-procedures fa-5x"></i>
