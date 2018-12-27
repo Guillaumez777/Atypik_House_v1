@@ -85,7 +85,7 @@ class UsersController extends Controller
         $categories = category::all();
         $proprietes = propriete::all();
         $houses = house::with('valuecatproprietes', 'proprietes', 'category')->where('id','=', $id)->get();
-        // var_dump($houses);
+
         return view('user.edit')->with('houses', $houses)
                                 ->with('categories', $categories)
                                 ->with('proprietes', $proprietes);

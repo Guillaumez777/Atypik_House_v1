@@ -214,8 +214,12 @@ class HousesController extends Controller
     public function json_propriete($id){
         $category = category::find($id);
         $proprietes = propriete::where('category_id', $category->id)->get();
+
         return response()->json(["proprietes" => $proprietes,
-                                 "category_id" => $category->id], 200);     
+                                 "category_id" => $category->id], 200); 
+                                 
+        //$houses = house::with('valuecatproprietes', 'proprietes', 'category', 'user')->where('user_id', '=', Auth::user()->id)->get();
+        //return response()->json(['houses' =>$houses], 200);
     }
     
     /*public function proprietescategory(Category $categories, $id) {
