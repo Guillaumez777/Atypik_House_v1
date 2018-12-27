@@ -69,12 +69,9 @@
                                 <label for="name" class="col-md-4 control-label">{{$valuecatproprietes->propriete->propriete}}</label>
                                 <input type="hidden" class="form-control" name="propriete_id[]" autofocus value="{{$valuecatproprietes->propriete->id}}">
                                 
-                                    <div class="col-md-6">
-                                        <input type="text" class="form-control" name="propriete[]" autofocus value="{{$valuecatproprietes->value}}">
-                                    </div>
-                                
-                                
-                                
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" name="propriete[]" autofocus value="{{$valuecatproprietes->value}}">
+                                </div>
                             </div>
                         @endforeach
                         <div class="form-group">
