@@ -31,12 +31,8 @@
                             <a href="{{action('UsersController@showHouse', $house['id'])}}">{{$house->title}}</a>
                         </h3>
                         <p>Type de bien : {{$house->category->category}}</p>
-                        @foreach($house->proprietes as $proprietes)
-                            <p>{{$proprietes->propriete}}: 
-                                @foreach($proprietes->valuecatproprietes as $valuepropriete) 
-                                    {{$valuepropriete->value}}
-                                @endforeach
-                            </p>     
+                        @foreach($house->valuecatproprietes as $valuecatpropriete)
+                            <p>{{$valuecatpropriete->propriete->propriete}}: {{$valuecatpropriete->value}}</p>        
                         @endforeach
                         <p class="price">{{$house->price}}€ par nuit</p>
                         <p class="card-text"><?php echo(substr($house->description, 0, 40));?></p>
