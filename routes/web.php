@@ -103,12 +103,9 @@ Route::group(['middleware' => 'auth'], function () {
     
     //User houses
     Route::get('/user/houses', 'UsersController@houses')->name('user.houses');
-    Route::get('/user/showHouse/{id}', 'UsersController@showHouse')->name('user.showHouse');
     Route::get('/user/editHouse/{id}', 'UsersController@editHouse')->name('user.editHouse');
     Route::post('/users/updateHouse/{id}', 'UsersController@updateHouse')->name('user.updateHouse');
     Route::post('/houses/store/{id}', 'HousesController@store');
-    //Route::resource('houses', 'HousesController', ['only' => ['index','show', 'create', 'store', 'edit', 'update', 'destroy', 'mylocations']]);
-    //Route::resource('users', 'UserController', ['only' => ['index','mylocations', 'edit', 'update']]);
     Route::get('/json_propriete/{id}', 'HousesController@json_propriete')->name('json.proprietes');
     Route::post('/reservations', 'ReservationsController@store');
     Route::post('/comments', 'CommentsController@index');

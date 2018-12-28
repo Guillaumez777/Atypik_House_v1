@@ -70,12 +70,9 @@
                                 <label for="name" class="col-md-4 control-label"><?php echo e($valuecatproprietes->propriete->propriete); ?></label>
                                 <input type="hidden" class="form-control" name="propriete_id[]" autofocus value="<?php echo e($valuecatproprietes->propriete->id); ?>">
                                 
-                                    <div class="col-md-6">
-                                        <input type="text" class="form-control" name="propriete[]" autofocus value="<?php echo e($valuecatproprietes->value); ?>">
-                                    </div>
-                                
-                                
-                                
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" name="propriete[]" autofocus value="<?php echo e($valuecatproprietes->value); ?>">
+                                </div>
                             </div>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         <div class="form-group">

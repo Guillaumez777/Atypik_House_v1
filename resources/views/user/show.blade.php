@@ -27,6 +27,7 @@
                             
                         </div>
                     </div>
+                    
                     <div class="col-md-6">
                         <div class="calendar panel panel-default">
                             <h4 class="text-center panel-heading">Réserver vos dates : </h4>
@@ -54,15 +55,20 @@
                                 )) !!}  --}}
                             </div>
                             <h3 class="price">Prix du séjour : {{$house->price}}€</h3>
-                            {!! Form::submit('Réserver', array('class' => 'btn btn-success btn_reserve')) !!}
-                            @if ($errors->any())
-                                <div class="alert alert-danger">Vous devez remplir tout les champs</div>
+                            @if (Auth::check())
+                                {!! Form::submit('Réserver', array('class' => 'btn btn-success btn_reserve')) !!}
+                                @if ($errors->any())
+                                    <div class="alert alert-danger">Vous devez remplir tout les champs</div>
+                                @else
+                                    <div></div>
+                                @endif
                             @else
-                                <div></div>
-                            @endif
+                                <a href= "{{ route('login') }}" class="btn btn-success btn_reserve">Réserver</a>
+                            @endif    
                         </div>
                         </form>
                     </div>
+                    
                 </div>
                 @foreach ($house->comments as $comment)
                     <div class="panel panel-default" style="margin: 0; border-radius: 0;">

@@ -28,7 +28,7 @@ class UsersController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        //$this->middleware('auth');
 
         /*$this->middleware('log')->only('index');
 
@@ -68,15 +68,23 @@ class UsersController extends Controller
      */
     public function showHouse($id)
     {
-        $reservation = reservation::all();
-        $house = house::find($id);
-        $locataire = comment::where('user_id', Auth::user()->id)->get();
-        $client_reserved = reservation::where('house_id', $id)->where('user_id', Auth::user()->id)->get();
-        
-        return view('user.show')->with('reservation', $reservation)
-                                ->with('house', $house)
-                                ->with('locataire', $locataire)
-                                ->with('client_reserved', $client_reserved);
+        if (Auth::check()) {
+            $reservation = reservation::all();
+            $house = house::find($id);
+            $locataire = comment::where('user_id', Auth::user()->id)->get();
+            $client_reserved = reservation::where('house_id', $id)->where('user_id', Auth::user()->id)->get();
+            
+            return view('user.show')->with('reservation', $reservation)
+                                    ->with('house', $house)
+                                    ->with('locataire', $locataire)
+                                    ->with('client_reserved', $client_reserved);
+        } else {
+            $reservation = reservation::all();
+            $house = house::find($id);
+            
+            return view('user.show')->with('reservation', $reservation)
+                                    ->with('house', $house);
+        }
     }
         
 

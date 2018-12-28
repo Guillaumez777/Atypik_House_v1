@@ -26,6 +26,7 @@
                             
                         </div>
                     </div>
+                    
                     <div class="col-md-6">
                         <div class="calendar panel panel-default">
                             <h4 class="text-center panel-heading">Réserver vos dates : </h4>
@@ -52,16 +53,21 @@
                                 
                             </div>
                             <h3 class="price">Prix du séjour : <?php echo e($house->price); ?>€</h3>
-                            <?php echo Form::submit('Réserver', array('class' => 'btn btn-success btn_reserve')); ?>
+                            <?php if(Auth::check()): ?>
+                                <?php echo Form::submit('Réserver', array('class' => 'btn btn-success btn_reserve')); ?>
 
-                            <?php if($errors->any()): ?>
-                                <div class="alert alert-danger">Vous devez remplir tout les champs</div>
+                                <?php if($errors->any()): ?>
+                                    <div class="alert alert-danger">Vous devez remplir tout les champs</div>
+                                <?php else: ?>
+                                    <div></div>
+                                <?php endif; ?>
                             <?php else: ?>
-                                <div></div>
-                            <?php endif; ?>
+                                <a href= "<?php echo e(route('login')); ?>" class="btn btn-success btn_reserve">Réserver</a>
+                            <?php endif; ?>    
                         </div>
                         </form>
                     </div>
+                    
                 </div>
                 <?php $__currentLoopData = $house->comments; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $comment): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <div class="panel panel-default" style="margin: 0; border-radius: 0;">
