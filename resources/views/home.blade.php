@@ -64,7 +64,12 @@
                         <div class="card-infos">
                             <p>Type de bien : {{$house->category->category}}</p>
                             @foreach($house->valuecatproprietes as $valuecatpropriete)
-                                <p>{{$valuecatpropriete->propriete->propriete}}: {{$valuecatpropriete->value}}</p>        
+                                @if($loop->iteration > 0)
+                                    <p>{{$valuecatpropriete->propriete->propriete}}: {{$valuecatpropriete->value}}</p> 
+
+                                @break
+                                    
+                                @endif      
                             @endforeach
                             <p class="price">{{$house->price}}€ par nuit</p>
                             <p>Annulation gratuite !</p>
