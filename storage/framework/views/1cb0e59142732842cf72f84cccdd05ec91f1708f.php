@@ -26,15 +26,17 @@
                 <div class="card h-100">
                     <a href="<?php echo e(action('UsersController@showHouse', $house['id'])); ?>"><img class="img-responsive" src="<?php echo e(asset('img/houses/'.$house->photo)); ?>"></a>
                     <div class="card-body">
-                        <h3 class="title card-title">
+                        <h3 class="title card-title text-center">
                             <a href="<?php echo e(action('UsersController@showHouse', $house['id'])); ?>"><?php echo e($house->title); ?></a>
                         </h3>
+                        <p class="price"><?php echo e($house->price); ?>€ par nuit</p>
                         <p>Type de bien : <?php echo e($house->category->category); ?></p>
                         <?php $__currentLoopData = $house->valuecatproprietes; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $valuecatpropriete): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <p><?php echo e($valuecatpropriete->propriete->propriete); ?>: <?php echo e($valuecatpropriete->value); ?></p>        
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                        <p class="price"><?php echo e($house->price); ?>€ par nuit</p>
+                        
                         <p class="card-text"><?php echo(substr($house->description, 0, 40));?></p>
+                        <p>Annulation gratuite !</p>
                         <p><?php echo e($house->ville); ?></p>
                     </div>
                     <div class="note card-footer">

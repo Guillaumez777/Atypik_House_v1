@@ -13,10 +13,14 @@
                                 <h4 class="title card-title">
                                     <a href="#"><?php echo e($house->title); ?></a>
                                 </h4>
-                                <p>Type de bien : Logement</p>
-                                <p><i class="fas fa-bed"></i> : 2 lits - <i class="fas fa-users"></i> : pour 2 Personnes</p>
                                 <h3 class="price"><?php echo e($house->price); ?>€</h3>
+                                <p>Type de bien : <?php echo e($house->category->category); ?></p>
+                                <?php $__currentLoopData = $house->valuecatproprietes; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $valuecatpropriete): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>                                  
+                                    <p><?php echo e($valuecatpropriete->propriete->propriete); ?>: <?php echo e($valuecatpropriete->value); ?></p>                     
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                 <p class="card-text"><?php echo e($house->description); ?></p>
+                                <p>Annulation gratuite !</p>
+                                <p> <?php echo e($house->ville); ?></p>
                             </div>
                             <!-- <div class="card-footer">              
                                                 

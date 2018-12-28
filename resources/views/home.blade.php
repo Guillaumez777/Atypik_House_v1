@@ -61,19 +61,17 @@
                         <h3 class="title card-title text-center">
                             <a href="{{action('UsersController@showHouse', $house->id)}}">{{$house->title}}</a>   
                         </h3>
+                        <p class="price">{{$house->price}}€ par nuit</p>
                         <div class="card-infos">
                             <p>Type de bien : {{$house->category->category}}</p>
                             @foreach($house->valuecatproprietes as $valuecatpropriete)
                                 @if($loop->iteration > 0)
                                     <p>{{$valuecatpropriete->propriete->propriete}}: {{$valuecatpropriete->value}}</p> 
-
-                                @break
-                                    
+                                @break   
                                 @endif      
                             @endforeach
-                            <p class="price">{{$house->price}}€ par nuit</p>
+                            <p><?php echo(substr($house->description, 0, 40));?></p>   
                             <p>Annulation gratuite !</p>
-                            <p class="card-text"><?php echo(substr($house->description, 0, 40));?></p>
                             <p> {{$house->ville}}</p>
                         </div>
                     </div>
