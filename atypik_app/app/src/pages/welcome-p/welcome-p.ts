@@ -4,6 +4,9 @@ import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angu
 import { LoginPage } from '../login/login';
 import { SignupPage } from '../signup/signup';
 
+import { NewsApiGlobal } from './../../models/newsapi-global.model';
+import { NewsApiService } from './../../services/newsapi.service';
+
 /**
  * Generated class for the WelcomePPage page.
  *
@@ -18,7 +21,16 @@ import { SignupPage } from '../signup/signup';
 })
 export class WelcomePPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController) {
+  news: NewsApiGlobal = new NewsApiGlobal();
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController, private newsApiService: NewsApiService) {
+    this.newsApiService.getArticles()
+    .then(newsFetched => {
+      this.news = newsFetched;
+      console.log(this.news)
+    })
+    .catch(error => console.log('Erreur dans la Home : ' + this.news));
+
   }
 
   alert() {

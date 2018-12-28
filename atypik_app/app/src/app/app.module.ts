@@ -1,3 +1,5 @@
+
+
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
@@ -20,6 +22,10 @@ import { PrezavisPage } from '../pages/prezavis/prezavis';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
+// Mes imports 
+import { NewsApiService } from './../services/newsapi.service';
+import { HttpModule } from '@angular/http';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -37,6 +43,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     PrezavisPage
   ],
   imports: [
+    HttpModule,
     BrowserModule,
     IonicModule.forRoot(MyApp)
   ],
@@ -57,6 +64,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     PrezavisPage
   ],
   providers: [
+    NewsApiService,
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler}

@@ -5,8 +5,6 @@ import { MesAlertesPage } from '../mes-alertes/mes-alertes';
 import { MesAvisPage } from '../mes-avis/mes-avis';
 import { MesCommandesPage } from '../mes-commandes/mes-commandes';
 
-
-
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -15,7 +13,7 @@ import { MesCommandesPage } from '../mes-commandes/mes-commandes';
 export class HomePage {
 
   constructor(public navCtrl: NavController, public app: App) {
-
+   
   }
 
  logout(){
