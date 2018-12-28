@@ -74,7 +74,7 @@
                     </div>
                     <div class="note card-footer">
                         <medium class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</medium>
-                        <a class="btn btn-success btn_reserve" href="{{action('UsersController@showHouse', $house['id'])}}">Réserver</a>
+                        <a class="btn btn-success btn_reserve" href="{{action('UsersController@showHouse', $house['id'])}}">Voir</a>
                     </div>
                 </div>
             </div>
