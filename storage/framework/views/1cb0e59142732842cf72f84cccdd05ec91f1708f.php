@@ -32,7 +32,10 @@
                         <p class="price"><?php echo e($house->price); ?>€ par nuit</p>
                         <p>Type de bien : <?php echo e($house->category->category); ?></p>
                         <?php $__currentLoopData = $house->valuecatproprietes; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $valuecatpropriete): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                            <p><?php echo e($valuecatpropriete->propriete->propriete); ?>: <?php echo e($valuecatpropriete->value); ?></p>        
+                            <?php if($loop->iteration > 0): ?>
+                                <p><?php echo e($valuecatpropriete->propriete->propriete); ?>: <?php echo e($valuecatpropriete->value); ?></p> 
+                                <?php break; ?>   
+                            <?php endif; ?>         
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         
                         <p class="card-text"><?php echo(substr($house->description, 0, 40));?></p>
@@ -41,7 +44,7 @@
                     </div>
                     <div class="note card-footer">
                         <medium class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</medium>
-                        <a class="btn btn-success btn_reserve" href="<?php echo e(action('UsersController@showHouse', $house['id'])); ?>">Réserver</a>
+                        <a class="btn btn-success btn_reserve" href="<?php echo e(action('UsersController@showHouse', $house['id'])); ?>">Voir</a>
                     </div>
                 </div>
             </div>   

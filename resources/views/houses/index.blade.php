@@ -33,7 +33,10 @@
                         <p class="price">{{$house->price}}€ par nuit</p>
                         <p>Type de bien : {{$house->category->category}}</p>
                         @foreach($house->valuecatproprietes as $valuecatpropriete)
-                            <p>{{$valuecatpropriete->propriete->propriete}}: {{$valuecatpropriete->value}}</p>        
+                            @if($loop->iteration > 0)
+                                <p>{{$valuecatpropriete->propriete->propriete}}: {{$valuecatpropriete->value}}</p> 
+                                @break   
+                            @endif         
                         @endforeach
                         
                         <p class="card-text"><?php echo(substr($house->description, 0, 40));?></p>
@@ -42,7 +45,7 @@
                     </div>
                     <div class="note card-footer">
                         <medium class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</medium>
-                        <a class="btn btn-success btn_reserve" href="{{action('UsersController@showHouse', $house['id'])}}">Réserver</a>
+                        <a class="btn btn-success btn_reserve" href="{{action('UsersController@showHouse', $house['id'])}}">Voir</a>
                     </div>
                 </div>
             </div>   
