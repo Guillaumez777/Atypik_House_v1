@@ -1,6 +1,3 @@
-@extends('layouts.app')
-@section('link')
-<link href="{{ asset('css/jquery-ui.min.css') }}" rel="stylesheet">
 @section('content')
 @extends('layouts.app')
 @section('link')
@@ -31,7 +28,7 @@
                             </div>
                             <p> Si vous voulez réserver cet hébergement veuillez continuer en cliquant sur le bouton ci-dessous</p>
                         <div>
-                        <a class="btn btn-success btn_reserve" href="{{action('UsersController@showHouse', $house['id'])}}">Aller au paiement</a>
+                        <a class="btn btn-success btn_reserve" href="{{action('AddMoneyController@payWithStripe', ['prix' => $house->price, 'start' => $reservation->start_date, 'end' => $reservation->end_date])}}">Aller au paiement</a>
 
                     </div>   
                 </div>

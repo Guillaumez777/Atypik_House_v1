@@ -15,7 +15,10 @@ class AddMoneyController extends Controller
 {
     public function payWithStripe()
     {
-        return view('paywithstripe');
+        $prix = $_GET['prix'];
+        $startdate = $_GET['start'];
+        $enddate = $_GET['end'];
+        return view('paywithstripe')->with('prix', $prix)->with('startdate', $startdate)->with('enddate', $enddate);
     }
     public function postPaymentWithStripe(Request $request)
     {
@@ -54,7 +57,7 @@ class AddMoneyController extends Controller
             $charge = $stripe->charges()->create([
                 'card' => $token['id'],
                 'currency' => 'EUR',
-                'amount' => 455,
+                'amount' => $prix,
                 'description' => 'Add in wallet',
             ]);
             

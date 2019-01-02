@@ -27,7 +27,7 @@
                         <?php echo e(csrf_field()); ?>
 
                         <div class="form-group<?php echo e($errors->has('card_no') ? ' has-error' : ''); ?>">
-                            <label for="card_no" class="col-md-4 control-label">Card No</label>
+                            <label for="card_no" class="col-md-4 control-label">Numéro de carte</label>
                             <div class="col-md-6">
                                 <input id="card_no" type="text" class="form-control" name="card_no" value="<?php echo e(old('card_no')); ?>" autofocus>
                                 <?php if($errors->has('card_no')): ?>
@@ -38,7 +38,7 @@
                             </div>
                         </div>
                         <div class="form-group<?php echo e($errors->has('ccExpiryMonth') ? ' has-error' : ''); ?>">
-                            <label for="ccExpiryMonth" class="col-md-4 control-label">Expiry Month</label>
+                            <label for="ccExpiryMonth" class="col-md-4 control-label">Mois d'expiration</label>
                             <div class="col-md-6">
                                 <input id="ccExpiryMonth" type="text" class="form-control" name="ccExpiryMonth" value="<?php echo e(old('ccExpiryMonth')); ?>" autofocus>
                                 <?php if($errors->has('ccExpiryMonth')): ?>
@@ -49,7 +49,7 @@
                             </div>
                         </div>
                         <div class="form-group<?php echo e($errors->has('ccExpiryYear') ? ' has-error' : ''); ?>">
-                            <label for="ccExpiryYear" class="col-md-4 control-label">Expiry Year</label>
+                            <label for="ccExpiryYear" class="col-md-4 control-label">Année d'expiration</label>
                             <div class="col-md-6">
                                 <input id="ccExpiryYear" type="text" class="form-control" name="ccExpiryYear" value="<?php echo e(old('ccExpiryYear')); ?>" autofocus>
                                 <?php if($errors->has('ccExpiryYear')): ?>
@@ -60,7 +60,7 @@
                             </div>
                         </div>
                         <div class="form-group<?php echo e($errors->has('cvvNumber') ? ' has-error' : ''); ?>">
-                            <label for="cvvNumber" class="col-md-4 control-label">CVV No.</label>
+                            <label for="cvvNumber" class="col-md-4 control-label">CVV</label>
                             <div class="col-md-6">
                                 <input id="cvvNumber" type="text" class="form-control" name="cvvNumber" value="<?php echo e(old('cvvNumber')); ?>" autofocus>
                                 <?php if($errors->has('cvvNumber')): ?>
@@ -70,7 +70,10 @@
                                 <?php endif; ?>
                             </div>
                         </div>
-                        
+                        <input type="hidden" class="form-control" name="prix" value="<?php echo $prix; ?>" autofocus>
+                        <input type="hidden" class="form-control" name="start_date" value=" <?php echo $startdate; ?>" autofocus>
+                        <input type="hidden" class="form-control" name="end_date" value="<?php echo $enddate; ?>" autofocus>
+
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
