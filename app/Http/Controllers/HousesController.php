@@ -11,10 +11,15 @@ use App\Propriete;
 use App\Valuecatpropriete;
 use App\User;
 use Illuminate\Http\Request;
+use App\Http\Requests\CreateHouseStep1Request;
+use App\Http\Requests\CreateHouseStep2Request;
+use App\Http\Requests\CreateHouseStep3Request;
+use App\Http\Requests\CreateHouseStep4Request;
 use Illuminate\Http\Response;
 use Intervention\Image\ImageManager;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
 
 use Session;
 use Image;
@@ -53,12 +58,12 @@ class HousesController extends Controller
         ]);
     }
 
-    public function create_step1(Request $request) {
-
+    public function create_step1(Request $request) {     
         return view('houses.create_step1');
     }
 
-    public function postcreate_step1(Request $request) {
+    public function postcreate_step1(CreateHouseStep1Request $request) {
+
         $houseVille = session('houseVille', $request->ville);
         $request->session()->push('houseVille', $request->ville);
 
@@ -74,6 +79,7 @@ class HousesController extends Controller
         $request->session()->forget('houseProprietesId');
 
         $houseVille = $request->session()->get('houseVille');
+        $ville = $request->old('ville');
         
         return view('houses.create_step2', [
             'categories' => $categories,
@@ -81,7 +87,9 @@ class HousesController extends Controller
         ]);
     }
 
-    public function postcreate_step2(Request $request) {
+    public function postcreate_step2(CreateHouseStep2Request $request) {
+        $ville = $request->old('ville');
+        var_dump($ville);
         $categories = category::all();
         
         $proprietes = $request->input('propriete');
@@ -118,13 +126,14 @@ class HousesController extends Controller
         $request->session()->push('houseDescription', $request->description);
 
         return redirect('/house/create_step3');
+        
     }
 
     public function create_step3(Request $request) {
         return view('houses.create_step3');
     }
 
-    public function postcreate_step3(Request $request) {
+    public function postcreate_step3(CreateHouseStep3Request $request) {
         $housePrix = session('housePrix', $request->price);
         $request->session()->push('housePrix', $request->price);
     

@@ -126,7 +126,7 @@
                                     <li><a href="<?php echo e(route('user.houses')); ?>">Mes hébergements</a></li>
                                     <li><a href="<?php echo e(route('user.reservations')); ?>">Mes réservations</a></li>
                                     <li><a href="<?php echo e(route('user.historiques')); ?>">Mes historiques</a></li>
-                                    <li><a href="<?php echo e(url('/house/create_step1')); ?>">Créer un hébergement</a></li>
+                                    <li><a href="<?php echo e(url('/house/create_step1')); ?>">Ajouter une annonce</a></li>
                                     <li>
                                         <a href="<?php echo e(route('logout')); ?>"
                                             onclick="event.preventDefault();
