@@ -30,7 +30,5 @@ $(document).ready(function(){
             });
         })
     });
-    // if ($('.proprietes').html().length() ) {
-
-    // }
+   
 });

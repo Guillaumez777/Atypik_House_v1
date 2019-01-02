@@ -45,9 +45,11 @@ class ReservationsController extends Controller
             'start_date' => 'required|max:100', 
             'end_date' => 'required|max:100', 
         ]);
+        
         $start_date = date("Y-m-d", strtotime($request->start_date));
         $end_date = date("Y-m-d", strtotime($request->end_date));
         $house_id = $request->house_id;
+        $house = house::find($house_id);
         /*var_dump($start_date);
         var_dump($end_date);
         var_dump($request->house_id);*/
@@ -60,13 +62,12 @@ class ReservationsController extends Controller
         $reservation->house_id = $house_id;
         $reservation->payment_id = 0;
         $reservation->reserved = true;
-        $reservation->save();
+        //$reservation->save();
 
-        $request->session()->flash('status', 'Votre réservation a bien été prise en compte !');
+        //$request->session()->flash('status', 'Votre réservation a bien été prise en compte !');
+        return view('reservations.recapitulatif_reservation')->with('reservation', $reservation)->with('house', $house);
 
-        //return view('reservations.recapitulatif_reservation')->with('reservation', $reservation);
-
-        return redirect('addmoney/stripe');
+        //return redirect('addmoney/stripe');
     }
 
     /**
