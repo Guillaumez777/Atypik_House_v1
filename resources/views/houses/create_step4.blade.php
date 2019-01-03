@@ -9,11 +9,16 @@
                 <div class="panel-body">
                     <form class="form-horizontal" method="POST" action="{{route('house.postcreate_step4')}}" enctype="multipart/form-data">
                         {{ csrf_field() }}
-                        <div class="form-group">
+                        <div class="form-group{{ $errors->has('photo') ? ' has-error' : '' }}">
                             <label for="name" class="col-md-4 control-label">Photo</label>
 
                             <div class="col-md-6">
                                 <input id="name" type="file" class="form-control" name="photo" required autofocus>
+                                @if ($errors->has('photo'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('photo') }}</strong>
+                                    </span>
+                                @endif
                             </div>
                         </div>
                         

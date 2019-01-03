@@ -55,15 +55,19 @@ class HomeController extends Controller
         return view('Apropos');
     }
     public function mentions_legales() {
-        return view('mentions_legales');
+        $categories = category::all();
+        return view('mentions_legales')->with('categories', $categories);
     }
     public function politique_de_confidentialite() {
-        return view('politique_de_confidentialite');
+        $categories = category::all();
+        return view('politique_de_confidentialite')->with('categories', $categories);
     }
     public function cgu() {
-        return view('cgu');
+        $categories = category::all();
+        return view('cgu')->with('categories', $categories);
     }
     public function rgpd() {
-        return view('rgpd');
+        $categories = category::all();
+        return view('rgpd')->with('categories', $categories);
     }
 }

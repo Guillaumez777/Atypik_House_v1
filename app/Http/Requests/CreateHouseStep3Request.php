@@ -38,7 +38,7 @@ class CreateHouseStep3Request extends FormRequest
         return [
             'price.required' => 'Veuillez saisir le prix de votre annonce',
             'price.numeric' => 'Veuillez saisir uniquement des chiffres',
-            'price.max' => 'Vous ne pouvez pas mettre un montant au delà de 100000',
+            'price.max' => 'Vous ne pouvez pas mettre un montant au delà de 100000€',
         ];
     }
 }
