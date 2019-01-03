@@ -40,7 +40,7 @@ $(function () {
 
         // First convert the date in to the mm-dd-yyyy format 
         // Take note that we will increment the month count by 1 
-        var currentdate = (m + 1) + '-' + d + '-' + y;
+        var currentdate = d + '-' + (m + 1) + '-' + y;
 
         // We will now check if the date belongs to disableddates array 
         for (var i = 0; i < disableddates.length; i++) {

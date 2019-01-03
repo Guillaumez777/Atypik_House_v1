@@ -43,21 +43,14 @@ class AddMoneyController extends Controller
                 'cvc' => $request->get('cvvNumber'),
             ],
             ]);
-            // $token = $stripe->tokens()->create([
-            // 'card' => [
-            // 'number' => '4242424242424242',
-            // 'exp_month' => 10,
-            // 'cvc' => 314,
-            // 'exp_year' => 2020,
-            // ],
-            // ]);
+            
             if (!isset($token['id'])) {
                 return redirect()->route('addmoney.paywithstripe');
             }
             $charge = $stripe->charges()->create([
                 'card' => $token['id'],
                 'currency' => 'EUR',
-                'amount' => $prix,
+                'amount' => $request->prix,
                 'description' => 'Add in wallet',
             ]);
             
@@ -68,17 +61,17 @@ class AddMoneyController extends Controller
                 return redirect('/');
             } else {
                 \Session::put('error','Money not add in wallet!!');
-                return redirect()->route('addmoney.paywithstripe');
+                //return redirect()->route('addmoney.paywithstripe');
             }
             } catch (Exception $e) {
                 \Session::put('error',$e->getMessage());
-                return redirect()->route('addmoney.paywithstripe');
+                //return redirect()->route('addmoney.paywithstripe');
             } catch(\Cartalyst\Stripe\Exception\CardErrorException $e) {
                 \Session::put('error',$e->getMessage());
-                return redirect()->route('addmoney.paywithstripe');
+                //return redirect()->route('addmoney.paywithstripe');
             } catch(\Cartalyst\Stripe\Exception\MissingParameterException $e) {
                 \Session::put('error',$e->getMessage());
-                return redirect()->route('addmoney.paywithstripe');
+                //return redirect()->route('addmoney.paywithstripe');
             }
         }
     }

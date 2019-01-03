@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Jenssegers\Date\Date;
 
 use Session;
 
@@ -45,15 +46,12 @@ class ReservationsController extends Controller
             'start_date' => 'required|max:100', 
             'end_date' => 'required|max:100', 
         ]);
-        
-        $start_date = date("Y-m-d", strtotime($request->start_date));
-        $end_date = date("Y-m-d", strtotime($request->end_date));
+        $format_startdate = str_replace('/', '-', $request->start_date);
+        $format_enddate = str_replace('/', '-', $request->end_date);
+        $start_date = date("y-m-d", strtotime($format_startdate));
+        $end_date = date("y-m-d", strtotime($format_enddate));
         $house_id = $request->house_id;
         $house = house::find($house_id);
-        /*var_dump($start_date);
-        var_dump($end_date);
-        var_dump($request->house_id);*/
-
 
         $reservation = new Reservation;
         $reservation->start_date = $start_date;
@@ -62,12 +60,8 @@ class ReservationsController extends Controller
         $reservation->house_id = $house_id;
         $reservation->payment_id = 0;
         $reservation->reserved = true;
-        //$reservation->save();
 
-        //$request->session()->flash('status', 'Votre réservation a bien été prise en compte !');
         return view('reservations.recapitulatif_reservation')->with('reservation', $reservation)->with('house', $house);
-
-        //return redirect('addmoney/stripe');
     }
 
     /**

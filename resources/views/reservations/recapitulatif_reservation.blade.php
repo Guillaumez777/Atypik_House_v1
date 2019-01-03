@@ -10,7 +10,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card h-100 text-center">
-                            <p class="card-text">Vous avez bien réservé pour le <span id="start_date">{{$reservation->start_date}}</span> au <span id="end_date">{{$reservation->end_date}}</span></p>
+                            <p class="card-text">Vous avez bien réservé pour le <?php \Date::setLocale('fr'); $startdate = Date::parse($reservation->start_date)->format('l j F Y'); echo($startdate);?> au <?php \Date::setLocale('fr'); $enddate = Date::parse($reservation->end_date)->format('l j F Y'); echo($enddate);?></p>
                             <p class="card-text">Voici le récapitulatif de l'hebergement que vous avez choisi : </p>
                             <img class="img-responsive img_house" src="{{ asset('img/houses/'.$house->photo) }}"></a>
                             <div class="card-body">
@@ -41,5 +41,5 @@
 <script src="{{ asset('js/jquery-ui.min.js') }}"></script>
 <script src="https://momentjs.com/downloads/moment-with-locales.js"></script>
 <script src="{{ asset('js/calendar.js') }}"></script>
-<script src="{{ asset('js/date_french.js') }}"></script>
+<!-- <script src="{{ asset('js/date_french.js') }}"></script> -->
 @endsection
