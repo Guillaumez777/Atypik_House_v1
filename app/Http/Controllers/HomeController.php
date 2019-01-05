@@ -52,7 +52,8 @@ class HomeController extends Controller
         //return view('page.search', compact('house', 'query'));
     }
     public function Apropos() {
-        return view('Apropos');
+        $categories = category::all();
+        return view('Apropos')->with('categories', $categories);
     }
     public function mentions_legales() {
         $categories = category::all();
