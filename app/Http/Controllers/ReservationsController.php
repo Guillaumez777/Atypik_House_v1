@@ -64,7 +64,8 @@ class ReservationsController extends Controller
         $reservation->end_date = $end_date;
         $reservation->user_id = Auth::user()->id;
         $reservation->house_id = $house_id;
-        $reservation->payment_id = 0;
+        $reservation->total = $total;
+        $reservation->days = $days;
         $reservation->reserved = true;
 
         return view('reservations.recapitulatif_reservation')->with('reservation', $reservation)

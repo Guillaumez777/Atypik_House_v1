@@ -100,7 +100,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card h-100 text-center">
-                        <form action="/charge" method="post" id="payment-form">
+                        <form action="<?php echo e(route('addmoney.stripe')); ?>" method="post" id="payment-form">
                             <div class="form-row" style="padding-bottom:30px;">
                                 <label for="card-element">
                                 Credit or debit card
@@ -112,6 +112,13 @@
                                 <!-- Used to display form errors. -->
                                 <div id="card-errors" role="alert"></div>
                             </div>
+                                <input type="hidden" value="<?php echo($prix);?>" name="price"/>
+                                <input type="hidden" value="<?php echo($startdate);?>" name="start"/>
+                                <input type="hidden" value="<?php echo($enddate);?>" name="end"/>
+                                <input type="hidden" value="<?php echo($total);?>" name="total"/>
+                                <input type="hidden" value="<?php echo($days);?>" name="days"/>
+                                <input type="hidden" value="<?php echo($house_id);?>" name="house_id"/>
+                                <input type="hidden" value="<?php echo($user_id);?>" name="user_id"/>
                                 <button class="btn btn-success btn_reserve">Payer</button>
                         </form>
                     </div>

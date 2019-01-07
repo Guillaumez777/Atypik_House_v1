@@ -15,7 +15,9 @@ class ReservationsTableSeeder extends Seeder
             [
                 'user_id' => 1,
                 'house_id' => 1,
-                'payment_id' => 0,
+                'price' => 400,
+                'total' => 1200,
+                'days' => 3,
                 'reserved' => 1,
                 'start_date' => '2018-01-11',
                 'end_date' => '2018-01-12',
@@ -24,7 +26,9 @@ class ReservationsTableSeeder extends Seeder
             [
                 'user_id' => 2,
                 'house_id' => 1,
-                'payment_id' => 0,
+                'price' => 400,
+                'total' => 1200,
+                'days' => 3,
                 'reserved' => 1,
                 'start_date' => '2018-01-13',
                 'end_date' => '2018-01-14',
