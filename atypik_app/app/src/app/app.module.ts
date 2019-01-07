@@ -24,6 +24,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 // Mes imports 
 import { NewsApiService } from './../services/newsapi.service';
+import { AtypikhouseApiService } from './../services/atypikhouseapi.service';
 import { HttpModule } from '@angular/http';
 
 @NgModule({
@@ -65,6 +66,7 @@ import { HttpModule } from '@angular/http';
   ],
   providers: [
     NewsApiService,
+    AtypikhouseApiService,
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
