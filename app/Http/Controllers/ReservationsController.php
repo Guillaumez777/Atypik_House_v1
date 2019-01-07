@@ -60,8 +60,8 @@ class ReservationsController extends Controller
         $total = $house->price * $days;
 
         $reservation = new Reservation;
-        $reservation->start_date = $start;
-        $reservation->end_date = $end;
+        $reservation->start_date = $start_date;
+        $reservation->end_date = $end_date;
         $reservation->user_id = Auth::user()->id;
         $reservation->house_id = $house_id;
         $reservation->payment_id = 0;
