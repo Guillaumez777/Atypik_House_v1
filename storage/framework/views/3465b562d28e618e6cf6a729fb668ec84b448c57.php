@@ -95,7 +95,7 @@
 </div> -->
 <div class="container list-category">
     <div class="panel panel-default">
-        <div class="panel-heading">Récapitulatif de votre réservation</div>
+        <div class="panel-heading text-center">Etape du paiement</div>
             <div class="panel-body">
                 <div class="row">
                     <div class="col-md-12">

@@ -50,18 +50,29 @@ class ReservationsController extends Controller
         $format_enddate = str_replace('/', '-', $request->end_date);
         $start_date = date("y-m-d", strtotime($format_startdate));
         $end_date = date("y-m-d", strtotime($format_enddate));
+        
         $house_id = $request->house_id;
         $house = house::find($house_id);
 
+        $start = new Date($start_date);
+        $end = new Date($end_date);
+        $days = $start->diffInDays($end) + 1;
+        $total = $house->price * $days;
+
         $reservation = new Reservation;
-        $reservation->start_date = $start_date;
-        $reservation->end_date = $end_date;
+        $reservation->start_date = $start;
+        $reservation->end_date = $end;
         $reservation->user_id = Auth::user()->id;
         $reservation->house_id = $house_id;
         $reservation->payment_id = 0;
         $reservation->reserved = true;
 
-        return view('reservations.recapitulatif_reservation')->with('reservation', $reservation)->with('house', $house);
+        return view('reservations.recapitulatif_reservation')->with('reservation', $reservation)
+                                                             ->with('house', $house)
+                                                             ->with('start', $start)
+                                                             ->with('end', $end)
+                                                             ->with('days', $days)
+                                                             ->with('total', $total);
     }
 
     /**

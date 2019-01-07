@@ -44,6 +44,7 @@ html, body {
 	font-size: 22px;
 	padding-bottom: 10px;
 	padding-left: 10px;
+	color: #000;
 	/* float: right; */
 }
 
@@ -180,7 +181,7 @@ p {
 }
 
 .card-body {
-	height: 400px;
+	height: 520px;
 }
 .card-title {
 	padding: 20px 0 75px 0;
