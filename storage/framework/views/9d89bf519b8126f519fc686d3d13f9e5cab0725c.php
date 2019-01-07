@@ -28,7 +28,7 @@
                                 <h3 class="price"><?php echo e($house->price); ?> €* <?php echo e($days); ?> jours</h3>
                                 <h3 class="price">Total à payer : <?php echo e($total); ?> €</h3>
                                 <p> Si vous voulez réserver cet hébergement veuillez continuer en cliquant sur le bouton ci-dessous</p>
-                                <a class="btn btn-success btn_reserve" href="<?php echo e(action('AddMoneyController@payWithStripe', ['prix' => $house->price, 'start' => $reservation->start_date, 'end' => $reservation->end_date])); ?>">Aller au paiement</a>
+                                <a class="btn btn-success btn_reserve" href="<?php echo e(action('AddMoneyController@payWithStripe', ['prix' => $house->price, 'start' => $reservation->start_date, 'end' => $reservation->end_date, 'days' => $days, 'total => $total'])); ?>">Aller au paiement</a>
 
                             </div>
                             
