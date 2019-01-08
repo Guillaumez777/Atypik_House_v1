@@ -11,17 +11,6 @@
 |
 */
 
-// Admin
-
-/*Route::get('protected', ['middleware' => ['auth', 'admin'], function() {
-   Route::get('/admin', 'Admin\AdminController@home');
-}]);*/
-
-// Accueil
-/*Route::get('/', function () {
-    return view('home');
-});*/
-
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/houses', 'HousesController@index')->name('houses');
 Route::get('/register', 'RegistersController@create');
@@ -81,8 +70,6 @@ Route::prefix('admin')->group(function () {
 
     //Admin proprietes
     Route::post('/proprietes/store','AdminController@createproprietes');
-    
-    //Route::get('/proprietes/index', 'ProprietesController@index')->name('propriete.index');
  });
 
 Route::group(['middleware' => 'auth'], function () {
@@ -122,16 +109,12 @@ Route::group(['middleware' => 'auth'], function () {
 
 Route::post('/create',    'UserController@create');
 Route::get('/user/{id}',  'UserController@get');
-
-
-// Formulaire
- //Route::get('/posts', 'PostsController@index');
-// Route::post('/contact', 'FormController@store'); 
 Route::resource('posts', 'PostsController' , ['only' => ['index', 'store']]); 
 Route::get('/users/confirmation{email_token}', 'Auth\RegisterController@confirmation');
 Route::get('/verifyemail/{token}', 'Auth\RegisterController@verify');
 Auth::routes();
 
+//Paiement Stripe
 Route::get('addmoney/stripe', array('as' => 'addmoney.paywithstripe','uses' => 'AddMoneyController@payWithStripe'));
 Route::post('addmoney/stripe', array('as' => 'addmoney.stripe','uses' => 'AddMoneyController@postPaymentWithStripe'));
 Route::get('/confirmpaymentStripe', array('as' => 'addmoney.confirmpayment','uses' => 'AddMoneyController@confirmpaymentStripe'));
