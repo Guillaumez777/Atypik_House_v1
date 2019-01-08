@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Post;
 use Illuminate\Http\Request;
+use App\Http\Requests\CreatePostRequest;
 
 class PostsController extends Controller
 {
@@ -12,7 +13,7 @@ class PostsController extends Controller
         return view('posts.index'); 
     } 
  
-    public function store(Request $request)  
+    public function store(CreatePostRequest $request)  
     { 
         $this->validate($request, [ 
             'name' => 'required|max:100', 
