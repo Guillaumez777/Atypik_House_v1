@@ -5,6 +5,7 @@ use App\Category;
 use App\House;
 use App\Ville;
 use App\Propriete;
+use App\Valuecatpropriete;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Auth;
@@ -97,10 +98,22 @@ class AdminController extends Controller
         if ($propriete->where('propriete', $propriete->propriete)->where('category_id', '=', $request->category_id)->count() >0) {
             return redirect()->back()->with('danger', "La propriété existe déjà");
 
+        } else {
+            $propriete->save();
+
+            $user = user::all();
+            $houses = house::where('category_id', '=', $request->category_id)->get();
+            foreach($houses as $house){
+                $valuecatpropriete = new valuecatpropriete;
+                $valuecatpropriete->value = 0;
+                $valuecatpropriete->category_id = $request->category_id;
+                $valuecatpropriete->propriete_id = $propriete->id;
+                $valuecatpropriete->house_id = $house->id;
+                $valuecatpropriete->save();
+            }
+            
+            return redirect()->route('admin.proprietes_category', ['id' => $request->category_id])->with('success', "La propriété a bien été ajoutée")->with('category_id', $request->category_id);
         }
-        $propriete->save();
-        //return redirect()->back()->with('success', "La propriété a bien été ajoutée");//->with('proprietes', $proprietes);
-        return redirect()->route('admin.proprietes_category', ['id' => $request->category_id])->with('success', "La propriété a bien été ajoutée")->with('category_id', $request->category_id);
     }
 
     public function deletepropriete($id)
