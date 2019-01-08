@@ -82,11 +82,6 @@
                                 <textarea class="form-control" name="description" rows="5"><?php echo e($house->description); ?></textarea>
                             </div>
                         </div>
-                        <!--<div class="col-md-6">
-                            <input id="name" type="hidden" class="form-control" name="idUser" autofocus value="<?php echo e(Auth::user()->id); ?>">
-                        </div>-->
-
-<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
@@ -95,6 +90,7 @@
                             </div>
                         </div>
                     </form>
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>    
                 </div>
             </div>
         </div>

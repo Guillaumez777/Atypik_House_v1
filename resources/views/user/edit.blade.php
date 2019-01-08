@@ -81,11 +81,6 @@
                                 <textarea class="form-control" name="description" rows="5">{{$house->description}}</textarea>
                             </div>
                         </div>
-                        <!--<div class="col-md-6">
-                            <input id="name" type="hidden" class="form-control" name="idUser" autofocus value="{{ Auth::user()->id }}">
-                        </div>-->
-
-@endforeach
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
@@ -94,6 +89,7 @@
                             </div>
                         </div>
                     </form>
+                @endforeach    
                 </div>
             </div>
         </div>
