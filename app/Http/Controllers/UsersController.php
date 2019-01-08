@@ -11,6 +11,7 @@ use App\Propriete;
 use App\Valuecatpropriete;
 use App\Ville;
 use Illuminate\Http\Request;
+use App\Http\Requests\EditHouseRequest;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -99,7 +100,7 @@ class UsersController extends Controller
                                 ->with('proprietes', $proprietes);
     }
 
-    public function updateHouse(Request $request,Category $category, Ville $ville, House $house, $id)
+    public function updateHouse(EditHouseRequest $request,Category $category, Ville $ville, House $house, $id)
     {
         $house = house::with('valuecatproprietes', 'proprietes', 'category')->where('id','=', $id)->first();
         $valueproprietes = valuecatpropriete::where('house_id','=', $id)->get();

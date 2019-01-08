@@ -196,6 +196,10 @@ p {
 .card-infos {
 	padding: 20px 0;
 }
+
+.rouge {
+	color: #a94442;
+}
 /* #3f4b30 */
 #block_home_2 {
 	position: relative;

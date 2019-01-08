@@ -36,7 +36,7 @@ class CreateHouseStep3Request extends FormRequest
     public function messages()
     {
         return [
-            'price.required' => 'Veuillez saisir le prix de votre annonce',
+            'price.required' => 'Veuillez saisir le prix par nuit',
             'price.numeric' => 'Veuillez saisir uniquement des chiffres',
             'price.max' => 'Vous ne pouvez pas mettre un montant au delà de 100000€',
         ];

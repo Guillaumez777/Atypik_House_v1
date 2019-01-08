@@ -16,11 +16,16 @@
                     <form class="form-horizontal" method="POST" action="<?php echo e(route('user.updateHouse', $house->id)); ?>" enctype="multipart/form-data">                      
                         <?php echo e(csrf_field()); ?>
 
-                        <div class="form-group">
+                        <div class="form-group<?php echo e($errors->has('title') ? ' has-error' : ''); ?>">
                             <label for="name" class="col-md-4 control-label">Titre</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control" name="title" maxlength="47"required autofocus value="<?php echo e($house->title); ?>">
+                                <input id="name" type="text" class="form-control" name="title" maxlength="47" autofocus value="<?php echo e($house->title); ?>">
+                                <?php if($errors->has('title')): ?>
+                                    <span class="help-block">
+                                        <strong><?php echo e($errors->first('title')); ?></strong>
+                                    </span>
+                                <?php endif; ?>
                             </div>
                         </div>
                         <div class="form-group">
@@ -34,23 +39,32 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group<?php echo e($errors->has('ville') ? ' has-error' : ''); ?>">
                             <label for="name" class="col-md-4 control-label">Ville</label>
                             <div class="col-md-6">
-                                <input type="text" class="form-control" name="ville" required autofocus value="<?php echo e($house->ville); ?>">
+                                <input type="text" class="form-control" name="ville" autofocus value="<?php echo e($house->ville); ?>">
+                                <?php if($errors->has('ville')): ?>
+                                    <span class="help-block">
+                                        <strong><?php echo e($errors->first('ville')); ?></strong>
+                                    </span>
+                                <?php endif; ?>
                             </div>
                         </div>   
                         
 
-                        <div class="form-group">
+                        <div class="form-group<?php echo e($errors->has('price') ? ' has-error' : ''); ?>">
                             <label for="name" class="col-md-4 control-label">Prix</label>
-
                             <div class="col-md-6">
                                 <input id="name" type="text" class="form-control" name="price" autofocus value="<?php echo e($house->price); ?>">
+                                <?php if($errors->has('price')): ?>
+                                    <span class="help-block">
+                                        <strong><?php echo e($errors->first('price')); ?></strong>
+                                    </span>
+                                <?php endif; ?>
                             </div>
                         </div>
 
-                        <div class="form-group">
+                        <div class="form-group<?php echo e($errors->has('photo') ? ' has-error' : ''); ?>">
                             <label for="name" class="col-md-4 control-label">Photo</label>
                             
                             <div class="col-md-6">
@@ -58,10 +72,15 @@
                             </div>
                         </div>
                         
-                        <div class="form-group">
+                        <div class="form-group<?php echo e($errors->has('photo') ? ' has-error' : ''); ?>">
                             <label class="col-md-4"></label>
                             <div class="col-md-6">
                             <input id="name" type="file" class="form-control" name="photo" autofocus value="<?php echo e($house->photo); ?>">
+                            <?php if($errors->has('price')): ?>
+                                <span class="help-block">
+                                    <strong><?php echo e($errors->first('photo')); ?></strong>
+                                </span>
+                            <?php endif; ?>
                             </div>
                         </div>
 
@@ -75,12 +94,20 @@
                                 </div>
                             </div>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                        <div class="form-group">
+                        <div class="form-group<?php echo e($errors->has('description') ? ' has-error' : ''); ?>">
                             <label for="description" class="col-md-4 control-label">Description</label>
 
                             <div class="col-md-6">
                                 <textarea class="form-control" name="description" rows="5"><?php echo e($house->description); ?></textarea>
+                                <?php if($errors->has('description')): ?>
+                                <span class="help-block">
+                                    <strong><?php echo e($errors->first('description')); ?></strong>
+                                </span>
+                            <?php endif; ?>
                             </div>
+                        </div>
+                        <div class="form-group">
+                            <p class="rouge">Pour les propriétés mettez 0 losqu'on vous n'avez pas ou si vous ne savez pas encore, la propriété ne sera pas afficher dans l'annonce</p>
                         </div>
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
