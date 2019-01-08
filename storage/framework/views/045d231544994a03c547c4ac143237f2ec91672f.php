@@ -162,7 +162,7 @@
                 <div class="col-md-3">
                     <ul>
                         <li><a href="<?php echo e(route('Apropos')); ?>">A propos</a></li>
-                        <li><a href="<?php echo e(route('houses')); ?>">Hébergement</a></li>
+                        <li><a href="<?php echo e(route('houses')); ?>">Hébergements</a></li>
                     </ul>
                 </div>
                 <div class="col-md-3">
