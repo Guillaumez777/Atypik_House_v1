@@ -101,7 +101,6 @@ class AdminController extends Controller
         } else {
             $propriete->save();
 
-            $user = user::all();
             $houses = house::where('category_id', '=', $request->category_id)->get();
             foreach($houses as $house){
                 $valuecatpropriete = new valuecatpropriete;
@@ -120,6 +119,8 @@ class AdminController extends Controller
     {
         $propriete = propriete::find($id);
         $propriete->delete();
+
+        $valuecatpropriete = valuecatpropriete::where('propriete_id', '=', $propriete->id)->delete();
         return redirect()->back()->with('danger', 'Votre propriété a bien été supprimée');
     }
 
