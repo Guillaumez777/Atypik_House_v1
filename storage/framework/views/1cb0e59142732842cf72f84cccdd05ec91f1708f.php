@@ -33,11 +33,13 @@
                         <p>Type de bien : <?php echo e($house->category->category); ?></p>
                         <?php $__currentLoopData = $house->valuecatproprietes; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $valuecatpropriete): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <?php if($loop->iteration > 0): ?>
-                                <p><?php echo e($valuecatpropriete->propriete->propriete); ?>: <?php echo e($valuecatpropriete->value); ?></p> 
-                                <?php break; ?>   
-                            <?php endif; ?>         
+                                <?php if($valuecatpropriete->value == 0): ?>
+                                <?php else: ?>
+                                    <p><?php echo e($valuecatpropriete->propriete->propriete); ?>: <?php echo e($valuecatpropriete->value); ?></p> 
+                                <?php endif; ?>
+                            <?php break; ?>   
+                            <?php endif; ?>      
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                        
                         <p class="card-text"><?php echo(substr($house->description, 0, 40));?></p>
                         <p>Annulation gratuite !</p>
                         <p><?php echo e($house->ville); ?></p>

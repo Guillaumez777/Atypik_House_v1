@@ -34,11 +34,13 @@
                         <p>Type de bien : {{$house->category->category}}</p>
                         @foreach($house->valuecatproprietes as $valuecatpropriete)
                             @if($loop->iteration > 0)
-                                <p>{{$valuecatpropriete->propriete->propriete}}: {{$valuecatpropriete->value}}</p> 
-                                @break   
-                            @endif         
+                                @if($valuecatpropriete->value == 0)
+                                @else
+                                    <p>{{$valuecatpropriete->propriete->propriete}}: {{$valuecatpropriete->value}}</p> 
+                                @endif
+                            @break   
+                            @endif      
                         @endforeach
-                        
                         <p class="card-text"><?php echo(substr($house->description, 0, 40));?></p>
                         <p>Annulation gratuite !</p>
                         <p>{{$house->ville}}</p>

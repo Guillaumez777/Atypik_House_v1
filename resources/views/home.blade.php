@@ -66,7 +66,10 @@
                             <p>Type de bien : {{$house->category->category}}</p>
                             @foreach($house->valuecatproprietes as $valuecatpropriete)
                                 @if($loop->iteration > 0)
-                                    <p>{{$valuecatpropriete->propriete->propriete}}: {{$valuecatpropriete->value}}</p> 
+                                    @if($valuecatpropriete->value == 0)
+                                    @else
+                                        <p>{{$valuecatpropriete->propriete->propriete}}: {{$valuecatpropriete->value}}</p> 
+                                    @endif
                                 @break   
                                 @endif      
                             @endforeach

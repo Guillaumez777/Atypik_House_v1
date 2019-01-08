@@ -16,8 +16,11 @@
                                 </h4>
                                 <h3 class="price">{{$house->price}}€</h3>
                                 <p>Type de bien : {{$house->category->category}}</p>
-                                @foreach($house->valuecatproprietes as $valuecatpropriete)                                  
-                                    <p>{{$valuecatpropriete->propriete->propriete}}: {{$valuecatpropriete->value}}</p>                     
+                                @foreach($house->valuecatproprietes as $valuecatpropriete)
+                                    @if($valuecatpropriete->value == 0)
+                                    @else
+                                        <p>{{$valuecatpropriete->propriete->propriete}}: {{$valuecatpropriete->value}}</p> 
+                                    @endif                                 
                                 @endforeach
                                 <p class="card-text">{{$house->description}}</p>
                                 <p>Annulation gratuite !</p>
