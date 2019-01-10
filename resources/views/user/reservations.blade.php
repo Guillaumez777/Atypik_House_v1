@@ -11,7 +11,7 @@
                 <div class="card h-100">
                     <a href="{{action('UsersController@showHouse', $reservation->house['id'])}}"><img class="img-responsive img_house" src="{{ asset('img/houses/'.$reservation->house->photo) }}"></a>
                     <div>
-                        <h4 class="title card-title">
+                        <h4 class="title card-title text-center">
                             <a href="{{route('user.showHouse', $reservation->house['id']) }}">{{$reservation->house->title}}</a>
                         </h4>
                         <p class="price">{{$reservation->house->price}}€ par nuit</p>
