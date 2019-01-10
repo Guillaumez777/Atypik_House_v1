@@ -22,6 +22,17 @@
                                 @endif
                             </div>
                         </div>
+                        <div class="form-group{{ $errors->has('adresse') ? ' has-error' : '' }}">
+                            <label for="name" class="col-md-4 control-label">Adresse</label>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" name="adresse" placeholder="Saisir l'adresse" autofocus value="{{ old('adresse') }}">
+                                @if ($errors->has('adresse'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('adresse') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
                         <div class="col-md-6">
                             <input id="name" type="hidden" class="form-control" name="user_id" required autofocus value="{{ Auth::user()->id }}">
                         </div>

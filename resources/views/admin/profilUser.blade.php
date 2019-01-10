@@ -49,13 +49,25 @@
                                 <div class="card h-100">
                                     <img class="img-responsive img_house" src="{{ asset('img/houses/'.$house->photo) }}">
                                     <div>
-                                        <h4 class="title card-title">
-                                            <a href="#">{{$house->title}}</a>
+                                        <<h4 class="title card-title">
+                                            <a href="{{route('user.showHouse', $house['id']) }}">{{$house->title}}</a>
                                         </h4>
-                                        <p>Type de bien : Logement</p>
-                                        <p><i class="fas fa-bed"></i> : 2 lits - <i class="fas fa-users"></i> : pour 2 Personnes</p>
-                                        <h3 class="price">{{$house->price}}€</h3>
-                                        <p class="card-text"><?php echo(substr($house->description, 0, 40));?></p>
+                                        <p class="price">{{$house->price}}€ par nuit</p>
+                                        <div class="card-infos">
+                                            <p>Type de bien : {{$house->category->category}}</p>
+                                            @foreach($house->valuecatproprietes as $valuecatpropriete)
+                                            @if($loop->iteration > 0)
+                                                @if($valuecatpropriete->value == 0)
+                                                @else
+                                                    <p>{{$valuecatpropriete->propriete->propriete}}: {{$valuecatpropriete->value}}</p> 
+                                                @endif
+                                            @break   
+                                            @endif      
+                                        @endforeach      
+                                            <p><?php echo(substr($house->description, 0, 40));?></p>   
+                                            <p>Annulation gratuite !</p>
+                                            <p> {{$house->ville}}</p>
+                                            <p> {{$house->adresse}}</p>
                                         @if($house->statut == "En attente de validation")
                                             <p>Statut: <span style="color:red;"><?php echo($house->statut);?></span></p>
                                         @else

@@ -26,6 +26,7 @@ class CreateHouseStep1Request extends FormRequest
     {
         return [
             'ville' => 'required|regex:/^[a-zA-Z]+$/u|max:30',
+            'adresse' => 'required|regex:/^[a-zA-Z0-9\s]+$/u|max:30'
         ];
     }
 
@@ -39,7 +40,10 @@ class CreateHouseStep1Request extends FormRequest
         return [
             'ville.required' => 'Veuillez saisir une ville',
             'ville.max'  => 'Votre ville ne doit pas dépasser 30 caractères',
-            'ville.regex'  => 'Votre ville doit contenir que des lettres et non des caractères spéciaux'
+            'ville.regex'  => 'Votre ville doit contenir que des lettres et non des caractères spéciaux',
+            'adresse.required' => 'Veuillez saisir une adresse',
+            'adresse.max'  => 'Votre adresse ne doit pas dépasser 30 caractères',
+            'adresse.regex'  => 'Votre adresse ne doit pas contenir des caractères spéciaux'
         ];
     }
 }

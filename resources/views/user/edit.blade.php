@@ -48,7 +48,19 @@
                                     </span>
                                 @endif
                             </div>
-                        </div>   
+                        </div> 
+                        
+                        <div class="form-group{{ $errors->has('adresse') ? ' has-error' : '' }}">
+                            <label for="name" class="col-md-4 control-label">Adresse</label>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" name="adresse" autofocus value="{{$house->adresse}}">
+                                @if ($errors->has('adresse'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('adresse') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
                         
 
                         <div class="form-group{{ $errors->has('price') ? ' has-error' : '' }}">

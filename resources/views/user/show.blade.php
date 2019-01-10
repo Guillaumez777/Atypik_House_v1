@@ -25,6 +25,7 @@
                                 <p class="card-text">{{$house->description}}</p>
                                 <p>Annulation gratuite !</p>
                                 <p> {{$house->ville}}</p>
+                                <p> {{$house->adresse}}</p>
                             </div>
                             
                         </div>

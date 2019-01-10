@@ -61,6 +61,13 @@
                             </div>
                         </div>
                         <div class="form-group">
+                            <label for="adresse" class="col-md-4 control-label">Adresse</label>
+
+                            <div class="col-md-6">
+                                <textarea class="form-control" name="adresse" rows="5">{{$house->adresse}}</textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
                             <label for="description" class="col-md-4 control-label">Description</label>
 
                             <div class="col-md-6">

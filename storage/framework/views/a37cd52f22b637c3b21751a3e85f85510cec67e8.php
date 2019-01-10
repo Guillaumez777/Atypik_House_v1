@@ -22,6 +22,17 @@
                                 <?php endif; ?>
                             </div>
                         </div>
+                        <div class="form-group<?php echo e($errors->has('adresse') ? ' has-error' : ''); ?>">
+                            <label for="name" class="col-md-4 control-label">Adresse</label>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" name="adresse" placeholder="Saisir l'adresse" autofocus value="<?php echo e(old('adresse')); ?>">
+                                <?php if($errors->has('adresse')): ?>
+                                    <span class="help-block">
+                                        <strong><?php echo e($errors->first('adresse')); ?></strong>
+                                    </span>
+                                <?php endif; ?>
+                            </div>
+                        </div>
                         <div class="col-md-6">
                             <input id="name" type="hidden" class="form-control" name="user_id" required autofocus value="<?php echo e(Auth::user()->id); ?>">
                         </div>

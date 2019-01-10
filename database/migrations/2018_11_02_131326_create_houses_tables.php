@@ -19,6 +19,7 @@ class CreateHousesTables extends Migration
             $table->integer('user_id');
             $table->integer('category_id');
             $table->string('ville');
+            $table->string('adresse');
             $table->string('description');
             $table->float('price');
             $table->string('photo');
