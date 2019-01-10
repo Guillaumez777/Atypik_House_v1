@@ -149,7 +149,7 @@ class HousesController extends Controller
         return view('houses.create_step4');
     }
 
-    public function postcreate_step4(Request $request) {
+    public function postcreate_step4(CreateHouseStep4Request $request) {
         $houseTitle = $request->session()->get('houseTitle');
         $houseUser = $request->session()->get('houseUser');
         $houseCategory = $request->session()->get('houseCategory');

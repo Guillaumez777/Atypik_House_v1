@@ -58,8 +58,6 @@
                                     </button>
                                 </div> 
                             </div>                     
-                            
-
                     </form>
                 </div>
             </div>
@@ -68,4 +66,7 @@
 </div>
 <script src="<?php echo e(asset('js/jquery.js')); ?>"></script>
 <script src="<?php echo e(asset('js/create_house.js')); ?>"></script>
+
+
+
 <?php echo $__env->make('layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
