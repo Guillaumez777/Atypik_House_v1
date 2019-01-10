@@ -67,6 +67,9 @@ class HousesController extends Controller
         $houseVille = session('houseVille', $request->ville);
         $request->session()->push('houseVille', $request->ville);
 
+        $houseAdresse = session('houseAdresse', $request->adresse);
+        $request->session()->push('houseAdresse', $request->adresse);
+
         $houseUser = session('houseUser', $request->user_id);
         $request->session()->push('houseUser', $request->user_id);
 
@@ -79,26 +82,25 @@ class HousesController extends Controller
         $request->session()->forget('houseProprietesId');
 
         $houseVille = $request->session()->get('houseVille');
+        $houseAdresse = $request->session()->get('houseAdresse');
         $ville = $request->old('ville');
         
         return view('houses.create_step2', [
             'categories' => $categories,
-            'houseVille' => $houseVille
+            'houseVille' => $houseVille,
+            'houseAdresse' => $houseAdresse
         ]);
     }
 
     public function postcreate_step2(CreateHouseStep2Request $request) {
         $ville = $request->old('ville');
-        var_dump($ville);
         $categories = category::all();
         
         $proprietes = $request->input('propriete');
-        //$proprietes_label = $request->input('propriete_label');
         $proprietes_id = $request->input('propriete_id');
 
         $housePropriete = session('houseProprietes', $proprietes);
         $houseProprieteId = session('houseProprietesId', $proprietes_id);
-        //$houseProprieteLabel = session('houseProprieteLabel', $proprietes_label);
 
         if ($proprietes == null) {
 
@@ -115,6 +117,7 @@ class HousesController extends Controller
         }
         
         $houseVille = $request->session()->get('houseVille');
+        $houseAdresse = $request->session()->get('houseAdresse');
 
         $houseCategory = session('houseCategory', $request->category_id);
         $request->session()->push('houseCategory', $request->category_id);
@@ -138,6 +141,7 @@ class HousesController extends Controller
         $request->session()->push('housePrix', $request->price);
     
         $houseVille = $request->session()->get('houseVille');
+        $houseAdresse = $request->session()->get('houseAdresse');
         $houseTitle = $request->session()->get('houseTitle');
         $houseDescription = $request->session()->get('houseDescription');
         $housePrix = $request->session()->get('housePrix');
@@ -154,6 +158,7 @@ class HousesController extends Controller
         $houseUser = $request->session()->get('houseUser');
         $houseCategory = $request->session()->get('houseCategory');
         $houseVille = $request->session()->get('houseVille');
+        $houseAdresse = $request->session()->get('houseAdresse');
         $houseDescription = $request->session()->get('houseDescription');
         $housePrix = $request->session()->get('housePrix');
         
@@ -165,6 +170,7 @@ class HousesController extends Controller
         $house->user_id = last($houseUser);
         $house->category_id = last($houseCategory);
         $house->ville = last($houseVille);
+        $house->adresse = last($houseAdresse);
         $house->description = last($houseDescription);
         $house->price = last($housePrix);
         $house->statut = "En attente de validation";

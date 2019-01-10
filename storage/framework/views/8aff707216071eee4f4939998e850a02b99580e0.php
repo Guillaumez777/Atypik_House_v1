@@ -13,8 +13,21 @@
                         <h4 class="title card-title">
                             <a href="<?php echo e(route('user.showHouse', $reservation->house['id'])); ?>"><?php echo e($reservation->house->title); ?></a>
                         </h4>
-                        <p>Type de bien : Logement</p>
-                        <p><i class="fas fa-bed"></i> : 2 lits - <i class="fas fa-users"></i> : pour 2 Personnes</p>
+                        <p class="price"><?php echo e($reservation->house->price); ?>€ par nuit</p>
+                        <div class="card-infos">
+                            <p>Type de bien : <?php echo e($reservation->house->category->category); ?></p>
+                            <?php $__currentLoopData = $reservation->house->valuecatproprietes; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $valuecatpropriete): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <?php if($loop->iteration > 0): ?>
+                                <?php if($valuecatpropriete->value == 0): ?>
+                                <?php else: ?>
+                                    <p><?php echo e($valuecatpropriete->propriete->propriete); ?>: <?php echo e($valuecatpropriete->value); ?></p> 
+                                <?php endif; ?>
+                            <?php break; ?>   
+                            <?php endif; ?>      
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>      
+                            <p><?php echo(substr($reservation->house->description, 0, 40));?></p>   
+                            <p>Annulation gratuite !</p>
+                            <p> <?php echo e($reservation->house->ville); ?></p>
                         <p><i class="fas fa-calendar"></i> Début: <?php \Date::setLocale('fr'); $startdate = Date::parse($reservation->start_date)->format('l j F Y'); echo($startdate);?> </p>
                         <p><i class="fas fa-calendar"></i> Fin:  <?php \Date::setLocale('fr'); $enddate = Date::parse($reservation->end_date)->format('l j F Y'); echo($enddate);?></p>
                         <h3 class="price"><?php echo e($reservation->house->price); ?>€</h3>

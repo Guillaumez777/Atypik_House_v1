@@ -107,6 +107,7 @@ class UsersController extends Controller
         $house->title = $request->title;
         $house->category_id = intval($request->category_id);
         $house->ville = $request->ville;
+        $house->adresse = $request->adresse;
         $house->price = $request->price;
         $house->description = $request->description;
 

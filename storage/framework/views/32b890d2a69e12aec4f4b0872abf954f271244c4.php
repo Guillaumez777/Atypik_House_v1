@@ -24,6 +24,7 @@
                                 <p class="card-text"><?php echo e($house->description); ?></p>
                                 <p>Annulation gratuite !</p>
                                 <p> <?php echo e($house->ville); ?></p>
+                                <p> <?php echo e($house->adresse); ?></p>
                             </div>
                             <!-- <div class="card-footer">              
                                                 

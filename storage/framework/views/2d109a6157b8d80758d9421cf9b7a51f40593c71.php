@@ -49,7 +49,19 @@
                                     </span>
                                 <?php endif; ?>
                             </div>
-                        </div>   
+                        </div> 
+                        
+                        <div class="form-group<?php echo e($errors->has('adresse') ? ' has-error' : ''); ?>">
+                            <label for="name" class="col-md-4 control-label">Adresse</label>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" name="adresse" autofocus value="<?php echo e($house->adresse); ?>">
+                                <?php if($errors->has('adresse')): ?>
+                                    <span class="help-block">
+                                        <strong><?php echo e($errors->first('adresse')); ?></strong>
+                                    </span>
+                                <?php endif; ?>
+                            </div>
+                        </div>
                         
 
                         <div class="form-group<?php echo e($errors->has('price') ? ' has-error' : ''); ?>">
