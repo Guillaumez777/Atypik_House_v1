@@ -76,7 +76,7 @@
                             <label class="col-md-4"></label>
                             <div class="col-md-6">
                             <input id="name" type="file" class="form-control" name="photo" autofocus value="<?php echo e($house->photo); ?>">
-                            <?php if($errors->has('price')): ?>
+                            <?php if($errors->has('photo')): ?>
                                 <span class="help-block">
                                     <strong><?php echo e($errors->first('photo')); ?></strong>
                                 </span>
@@ -84,33 +84,43 @@
                             </div>
                         </div>
 
-                        <?php $__currentLoopData = $house->valuecatproprietes; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $valuecatproprietes): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                            <div class="form-group">
-                                <label for="name" class="col-md-4 control-label"><?php echo e($valuecatproprietes->propriete->propriete); ?></label>
-                                <input type="hidden" class="form-control" name="propriete_id[]" autofocus value="<?php echo e($valuecatproprietes->propriete->id); ?>">
-                                
-                                <div class="col-md-6">
-                                    <input type="text" class="form-control" name="propriete[]" autofocus value="<?php echo e($valuecatproprietes->value); ?>">
-                                </div>
-                            </div>
-                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         <div class="form-group<?php echo e($errors->has('description') ? ' has-error' : ''); ?>">
                             <label for="description" class="col-md-4 control-label">Description</label>
 
                             <div class="col-md-6">
                                 <textarea class="form-control" name="description" rows="5"><?php echo e($house->description); ?></textarea>
                                 <?php if($errors->has('description')): ?>
-                                <span class="help-block">
-                                    <strong><?php echo e($errors->first('description')); ?></strong>
-                                </span>
-                            <?php endif; ?>
+                                    <span class="help-block">
+                                        <strong><?php echo e($errors->first('description')); ?></strong>
+                                    </span>
+                                <?php endif; ?>
                             </div>
                         </div>
                         <div class="form-group">
-                            <p class="rouge">Pour les propriétés mettez 0 losqu'on vous n'avez pas ou si vous ne savez pas encore, la propriété ne sera pas afficher dans l'annonce</p>
+                            <label for="name" class="text-center">Informations supplémentaires:</label>
+                        </div>
+                        <?php $__currentLoopData = $house->valuecatproprietes; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $valuecatproprietes): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <div class="form-group<?php echo e($errors->has('propriete[]') ? ' has-error' : ''); ?>">
+                                <label for="name" class="col-md-4 control-label"><?php echo e($valuecatproprietes->propriete->propriete); ?></label>
+                                <input type="hidden" id="propriete" class="form-control" name="propriete_id[]" autofocus value="<?php echo e($valuecatproprietes->propriete->id); ?>">
+                                
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" name="propriete[]" required autofocus value="<?php echo e($valuecatproprietes->value); ?>">
+                                    <?php if($errors->has('propriete[]')): ?>
+                                    <span class="help-block">
+                                        <strong><?php echo e($errors->first('propriete[]')); ?></strong>
+                                    </span>
+                                <?php endif; ?>
+                                </div>
+                            </div>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                        
+                        <div class="form-group">
+                            <p class="rouge">Pour les informations supplémentaires vous ne pouvez mettre que des chiffres. </p>
+                            <p class="rouge">mettez 0 losque vous n'avez pas ou si vous ne savez pas encore, la propriété ne sera pas afficher dans l'annonce</p>
                         </div>
                         <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
+                            <div class="col-md-12 text-center">
                                 <button type="submit" class="btn btn-primary">
                                     Enregistrer
                                 </button>
@@ -124,5 +134,7 @@
     </div>
 </div>
 <?php $__env->stopSection(); ?>
+<script src="<?php echo e(asset('js/jquery.js')); ?>"></script>
+<script src="<?php echo e(asset('js/edit_house.js')); ?>"></script>
 
 <?php echo $__env->make('layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

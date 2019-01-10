@@ -24,7 +24,7 @@ class CreateHouseStep2Request extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required|regex:/^[a-zA-Z]+$/u|max:30',
+            'title' => 'required|regex:/^[\pL\s\-]+$/u|max:30',
             'category' => 'required_if:category_id,0',
             'description' => 'required'
         ];

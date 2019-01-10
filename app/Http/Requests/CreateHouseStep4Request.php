@@ -24,7 +24,7 @@ class CreateHouseStep4Request extends FormRequest
     public function rules()
     {
         return [
-            'photo' => 'required|image'
+            'photo' => 'image|mimes:jpg,png,jpeg,gif,svg|max:20000',
         ];
     }
 
