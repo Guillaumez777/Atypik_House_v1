@@ -5,6 +5,7 @@ use App\Category;
 use App\House;
 use App\Ville;
 use App\Propriete;
+use App\Post;
 use App\Valuecatpropriete;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -39,6 +40,20 @@ class AdminController extends Controller
                             ->with('categories', $categories)
                             ->with('proprietes', $proprietes)
                             ->with('houses', $houses);
+    }
+
+    //Message des clients (formulaire de contact)
+    public function listposts(Post $posts)
+    {
+        $posts = post::all();
+        return view('admin.listposts')->with('posts', $posts);
+    }
+
+    //Vue de détails des messages clients
+    public function showposts($id)
+    {
+        $post = post::find($id);
+        return view('admin.showposts')->with('post', $post);
     }
 
     //Categories

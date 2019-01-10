@@ -47,7 +47,8 @@
                         <strong><?php echo e($errors->first('content')); ?></strong>
                     </span>
                 <?php endif; ?>
-            </div> 
+            </div>
+            <input type="hidden" name="user_id" value="<?php echo("ok");?>"/>
             <?php echo Form::submit('Envoyer !', array('class' => 'btn btn-success')); ?> 
         <?php echo Form::close(); ?> 
     </div> 
