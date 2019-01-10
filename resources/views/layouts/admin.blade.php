@@ -41,6 +41,7 @@
                 <ul class="nav nav-sidebar">
                     <li><a href="{{route('admin.listusers') }}" id="3">Utilisateurs</a></li>
                     <li><a href="{{route('admin.categories') }}" id="5">Categories</a></li>
+                    <li><a href="{{route('admin.messages') }}" id="5">Messages</a></li>
                 </ul>
             </div>
         </div>

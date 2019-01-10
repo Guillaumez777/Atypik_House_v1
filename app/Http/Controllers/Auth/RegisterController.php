@@ -53,8 +53,8 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'nom' => 'required|string|max:255',
-            'prenom' => 'required|string|max:255',
+            'nom' => 'required|alpha|max:50',
+            'prenom' => 'required|alpha|max:50',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:8|confirmed',
             'g-recaptcha-response' => 'required|captcha'
@@ -91,8 +91,8 @@ class RegisterController extends Controller
         $input = $request->all();
 
         $validator = $this->validate($request, [
-            'nom' => 'required|max:30',
-            'prenom' => 'required|min:1|max:20',
+            'nom' => 'required|max:30|regex:/^[\pL\s\-]+$/u',
+            'prenom' => 'required|min:1|max:30|regex:/^[\pL\s\-]+$/u',
             'email' => 'required|unique:users|max:30',
             'email_confirmation' => 'required|same:email|max:30',
             'password' => 'required|min:8|max:30',

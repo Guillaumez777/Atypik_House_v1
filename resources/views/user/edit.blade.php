@@ -75,7 +75,7 @@
                             <label class="col-md-4"></label>
                             <div class="col-md-6">
                             <input id="name" type="file" class="form-control" name="photo" autofocus value="{{$house->photo}}">
-                            @if ($errors->has('price'))
+                            @if ($errors->has('photo'))
                                 <span class="help-block">
                                     <strong>{{ $errors->first('photo') }}</strong>
                                 </span>
@@ -83,33 +83,43 @@
                             </div>
                         </div>
 
-                        @foreach($house->valuecatproprietes as $valuecatproprietes)
-                            <div class="form-group">
-                                <label for="name" class="col-md-4 control-label">{{$valuecatproprietes->propriete->propriete}}</label>
-                                <input type="hidden" class="form-control" name="propriete_id[]" autofocus value="{{$valuecatproprietes->propriete->id}}">
-                                
-                                <div class="col-md-6">
-                                    <input type="text" class="form-control" name="propriete[]" autofocus value="{{$valuecatproprietes->value}}">
-                                </div>
-                            </div>
-                        @endforeach
                         <div class="form-group{{ $errors->has('description') ? ' has-error' : '' }}">
                             <label for="description" class="col-md-4 control-label">Description</label>
 
                             <div class="col-md-6">
                                 <textarea class="form-control" name="description" rows="5">{{$house->description}}</textarea>
                                 @if ($errors->has('description'))
-                                <span class="help-block">
-                                    <strong>{{ $errors->first('description') }}</strong>
-                                </span>
-                            @endif
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('description') }}</strong>
+                                    </span>
+                                @endif
                             </div>
                         </div>
                         <div class="form-group">
-                            <p class="rouge">Pour les propriétés mettez 0 losqu'on vous n'avez pas ou si vous ne savez pas encore, la propriété ne sera pas afficher dans l'annonce</p>
+                            <label for="name" class="text-center">Informations supplémentaires:</label>
+                        </div>
+                        @foreach($house->valuecatproprietes as $valuecatproprietes)
+                            <div class="form-group{{ $errors->has('propriete[]') ? ' has-error' : '' }}">
+                                <label for="name" class="col-md-4 control-label">{{$valuecatproprietes->propriete->propriete}}</label>
+                                <input type="hidden" id="propriete" class="form-control" name="propriete_id[]" autofocus value="{{$valuecatproprietes->propriete->id}}">
+                                
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" name="propriete[]" required autofocus value="{{$valuecatproprietes->value}}">
+                                    @if ($errors->has('propriete[]'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('propriete[]') }}</strong>
+                                    </span>
+                                @endif
+                                </div>
+                            </div>
+                        @endforeach
+                        
+                        <div class="form-group">
+                            <p class="rouge">Pour les informations supplémentaires vous ne pouvez mettre que des chiffres. </p>
+                            <p class="rouge">mettez 0 losque vous n'avez pas ou si vous ne savez pas encore, la propriété ne sera pas afficher dans l'annonce</p>
                         </div>
                         <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
+                            <div class="col-md-12 text-center">
                                 <button type="submit" class="btn btn-primary">
                                     Enregistrer
                                 </button>
@@ -123,3 +133,5 @@
     </div>
 </div>
 @endsection
+<script src="{{ asset('js/jquery.js') }}"></script>
+<script src="{{ asset('js/edit_house.js') }}"></script>

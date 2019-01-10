@@ -49,7 +49,8 @@
                         <strong>{{ $errors->first('content') }}</strong>
                     </span>
                 @endif
-            </div> 
+            </div>
+            <input type="hidden" name="user_id" value="<?php echo("ok");?>"/>
             {!! Form::submit('Envoyer !', array('class' => 'btn btn-success')) !!} 
         {!! Form::close() !!} 
     </div> 

@@ -37,6 +37,12 @@ Route::prefix('admin')->group(function () {
     //Liste des utilisateurs 
     Route::get('/', 'AdminController@listusers')->name('admin.listusers');
 
+    //Liste des messages des clients
+    Route::get('/messages', 'AdminController@listposts')->name('admin.messages');
+    Route::get('/showmessages/{id}', 'AdminController@showposts')->name('admin.showmessages');
+
+
+
     //Connexion et déconnexion
     Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
     Route::post('/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');

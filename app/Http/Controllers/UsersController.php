@@ -100,7 +100,7 @@ class UsersController extends Controller
                                 ->with('proprietes', $proprietes);
     }
 
-    public function updateHouse(EditHouseRequest $request,Category $category, Ville $ville, House $house, $id)
+    public function updateHouse(EditHouseRequest $request, $id)
     {
         $house = house::with('valuecatproprietes', 'proprietes', 'category')->where('id','=', $id)->first();
         $valueproprietes = valuecatpropriete::where('house_id','=', $id)->get();
@@ -109,7 +109,7 @@ class UsersController extends Controller
         $house->ville = $request->ville;
         $house->price = $request->price;
         $house->description = $request->description;
-        //var_dump($request->propriete);
+
         $j = 0;
         foreach($request->propriete as $propriete){
             $query = valuecatpropriete::where('propriete_id', '=', $request->propriete_id[$j])->where('house_id','=', $id)->get();
@@ -127,41 +127,22 @@ class UsersController extends Controller
             }
         }
         $i = 0;
-        //var_dump($request->propriete[$i]);
         foreach ($valueproprietes as $value) {
-            //var_dump($value->value);
-            //if($request->propriete[$i] == NULL){
-                // DB::table('valuecatproprietes')
-                //     ->leftJoin('houses', 'valuecatproprietes.house_id', '=', 'houses.id')
-                //     ->where('house_id','=', $id)
-                //     ->where('valuecatproprietes.id','=', $value->id)
-                //     ->update([
-                //         'value' => '0'
-                // ]);
-            //} else {
-                DB::table('valuecatproprietes')
-                    ->leftJoin('houses', 'valuecatproprietes.house_id', '=', 'houses.id')
-                    ->where('house_id','=', $id)
-                    ->where('valuecatproprietes.id','=', $value->id)
-                    ->update([
-                        'value' => $request->propriete[$i]
-                ]);
-                $i++;
-            //}
+            DB::table('valuecatproprietes')
+                ->leftJoin('houses', 'valuecatproprietes.house_id', '=', 'houses.id')
+                ->where('house_id','=', $id)
+                ->where('valuecatproprietes.id','=', $value->id)
+                ->update([
+                    'value' => $request->propriete[$i]
+            ]);
+            $i++;
         }
-         
-        
         $house->save();
-        
-        /*$this->validate($request, [
-            'photo' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:20000',
-        ]);*/
-        
+    
         if($request->photo == NULL){
             $request->photo = $house->first()->photo;
             $house->save();
             return redirect()->back()->with('success', "L'hébergement de l'utilisateur a bien été modifié");
-        
         } else {
             $picture = $request->file('photo');
             $filename  = time() . '.' . $picture->getClientOriginalExtension();
@@ -171,6 +152,7 @@ class UsersController extends Controller
             $house->save();
             return redirect()->back()->with('success', "L'hébergement de l'utilisateur a bien été modifié");
         }
+        
     }
 
     public function reservations(Request $request)

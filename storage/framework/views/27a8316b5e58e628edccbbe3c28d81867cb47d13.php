@@ -41,6 +41,7 @@
                 <ul class="nav nav-sidebar">
                     <li><a href="<?php echo e(route('admin.listusers')); ?>" id="3">Utilisateurs</a></li>
                     <li><a href="<?php echo e(route('admin.categories')); ?>" id="5">Categories</a></li>
+                    <li><a href="<?php echo e(route('admin.messages')); ?>" id="5">Messages</a></li>
                 </ul>
             </div>
         </div>
