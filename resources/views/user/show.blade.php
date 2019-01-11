@@ -2,16 +2,16 @@
 @section('link')
 <link href="{{ asset('css/jquery-ui.min.css') }}" rel="stylesheet">
 @section('content')
-<div class="container list-category text-center">
+<div class="container list-category">
     <div class="panel panel-default">
         <div class="panel-heading">Détails de l'annonce</div>
             <div class="panel-body">
                 <div class="row">
-                    <div class="col-lg-12 col-md-12 mb-4">
+                    <div class="col-lg-6 col-md-6 mb-4">
                         <div class="card h-100">
                             <img class="img-responsive img_house" src="{{ asset('img/houses/'.$house->photo) }}"></a>
                             <div class="card-body">
-                                <h4 class="title card-title">
+                                <h4 class="title card-title text-center">
                                     <a href="#">{{$house->title}}</a>
                                 </h4>
                                 <h3 class="price">{{$house->price}}€</h3>
@@ -27,10 +27,55 @@
                                 <p> {{$house->ville}}</p>
                                 <p> {{$house->adresse}}</p>
                             </div>
+                            <!-- <div class="card-footer">              
+                                                
+                            </div> -->
+                            
+                            
                             
                         </div>
                     </div>
-          
+                    
+                    <div class="col-md-6">
+                        <div class="calendar panel panel-default">
+                            <h4 class="text-center panel-heading">Réserver vos dates : </h4>
+                            <form class="form-horizontal" method="POST" action="{{url('reservations')}}" enctype="multipart/form-data">
+                                {{ csrf_field() }}
+                            <div class="form-group">
+                                <input type="hidden" name="house_id" value="{{ $house->id }}">
+                                {!! Form::label('from', 'Départ : ', array('class' => 'formLabel')) !!}
+                                {!! Form::text('start_date', Form::old('from'), array( 
+                                    'class' => 'form-control',
+                                    'id' => 'from',
+                                    // 'required' => 'required',
+                                )) !!} 
+                                {!! Form::label('to', 'Arrivée : ', array('class' => 'formLabel')) !!} 
+                                {!! Form::text('end_date', Form::old('to'), array( 
+                                    'class' => 'form-control',
+                                    'id' => 'to',
+                                    // 'required' => 'required',
+                                )) !!}
+                                {{-- <div id="datepicker"></div> --}}
+                                {{-- {!! Form::label('traveler', 'Voyageurs : ', array('class' => 'formLabel')) !!} 
+                                {!! Form::select('traveler', array(
+                                    'Cats' => array('leopard' => 'Leopard'),
+                                    'Dogs' => array('spaniel' => 'Spaniel'),
+                                )) !!}  --}}
+                            </div>
+                            <h3 class="price">Prix du séjour : {{$house->price}}€</h3>
+                            @if (Auth::check())
+                                {!! Form::submit('Réserver', array('class' => 'btn btn-success btn_reserve')) !!}
+                                @if ($errors->any())
+                                    <div class="alert alert-danger">Vous devez remplir tout les champs</div>
+                                @else
+                                    <div></div>
+                                @endif
+                            @else
+                                <a href= "{{ route('login') }}" class="btn btn-success btn_reserve">Réserver</a>
+                            @endif    
+                        </div>
+                        </form>
+                    </div>
                     
                 </div>
                 @foreach ($house->comments as $comment)
