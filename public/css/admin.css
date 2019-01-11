@@ -8,9 +8,19 @@ html, body {
     font-family: Open-sans, sans-serif;
 }
 
+.panel-body {
+    margin: 0 10px;
+    padding: 0 20px;
+}
+
 td, th {
     width: 300px;
 }
+
+.right {
+	float: right;
+}
+
 
 #reservation, #utilisateur, #avis, #proprietes {
     display: none;
