@@ -20,7 +20,9 @@ td, th {
 .right {
 	float: right;
 }
-
+.button-profiluser {
+	margin-bottom:5%;
+}
 
 #reservation, #utilisateur, #avis, #proprietes {
     display: none;

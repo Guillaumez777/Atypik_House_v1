@@ -1,16 +1,16 @@
 <?php $__env->startSection('link'); ?>
 <link href="<?php echo e(asset('css/jquery-ui.min.css')); ?>" rel="stylesheet">
 <?php $__env->startSection('content'); ?>
-<div class="container list-category text-center">
+<div class="container list-category">
     <div class="panel panel-default">
         <div class="panel-heading">Détails de l'annonce</div>
             <div class="panel-body">
                 <div class="row">
-                    <div class="col-lg-12 col-md-12 mb-4">
+                    <div class="col-lg-6 col-md-6 mb-4">
                         <div class="card h-100">
                             <img class="img-responsive img_house" src="<?php echo e(asset('img/houses/'.$house->photo)); ?>"></a>
                             <div class="card-body">
-                                <h4 class="title card-title">
+                                <h4 class="title card-title text-center">
                                     <a href="#"><?php echo e($house->title); ?></a>
                                 </h4>
                                 <h3 class="price"><?php echo e($house->price); ?>€</h3>
@@ -26,10 +26,55 @@
                                 <p> <?php echo e($house->ville); ?></p>
                                 <p> <?php echo e($house->adresse); ?></p>
                             </div>
+                            <!-- <div class="card-footer">              
+                                                
+                            </div> -->
+                            
+                            
                             
                         </div>
                     </div>
-          
+                    
+                    <div class="col-md-6">
+                        <div class="calendar panel panel-default">
+                            <h4 class="text-center panel-heading">Réserver vos dates : </h4>
+                            <form class="form-horizontal" method="POST" action="<?php echo e(url('reservations')); ?>" enctype="multipart/form-data">
+                                <?php echo e(csrf_field()); ?>
+
+                            <div class="form-group">
+                                <input type="hidden" name="house_id" value="<?php echo e($house->id); ?>">
+                                <?php echo Form::label('from', 'Départ : ', array('class' => 'formLabel')); ?>
+
+                                <?php echo Form::text('start_date', Form::old('from'), array( 
+                                    'class' => 'form-control',
+                                    'id' => 'from',
+                                    // 'required' => 'required',
+                                )); ?> 
+                                <?php echo Form::label('to', 'Arrivée : ', array('class' => 'formLabel')); ?> 
+                                <?php echo Form::text('end_date', Form::old('to'), array( 
+                                    'class' => 'form-control',
+                                    'id' => 'to',
+                                    // 'required' => 'required',
+                                )); ?>
+
+                                
+                                
+                            </div>
+                            <h3 class="price">Prix du séjour : <?php echo e($house->price); ?>€</h3>
+                            <?php if(Auth::check()): ?>
+                                <?php echo Form::submit('Réserver', array('class' => 'btn btn-success btn_reserve')); ?>
+
+                                <?php if($errors->any()): ?>
+                                    <div class="alert alert-danger">Vous devez remplir tout les champs</div>
+                                <?php else: ?>
+                                    <div></div>
+                                <?php endif; ?>
+                            <?php else: ?>
+                                <a href= "<?php echo e(route('login')); ?>" class="btn btn-success btn_reserve">Réserver</a>
+                            <?php endif; ?>    
+                        </div>
+                        </form>
+                    </div>
                     
                 </div>
                 <?php $__currentLoopData = $house->comments; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $comment): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>

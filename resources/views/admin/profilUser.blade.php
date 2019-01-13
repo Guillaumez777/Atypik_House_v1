@@ -33,6 +33,17 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <a href="" class="btn btn-success button-profiluser">Ses réservations</a>
+                            </div>
+                            <div class="col-md-4">
+                                <a href="" class="btn btn-success button-profiluser">Ses annonces</a>
+                            </div>
+                            <div class="col-md-4">
+                                <a href="" class="btn btn-success button-profiluser">Ses avis</a>
+                            </div>
+                        </div>
                     </div>
                     @endforeach
                 </div>
