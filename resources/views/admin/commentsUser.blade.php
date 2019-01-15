@@ -1,6 +1,7 @@
 @extends('layouts.admin')
 @section('content')
 <div id="utilisateur">
+<a href="{{ url()->previous() }}" class="btn btn-primary">Retour</a>
     <h2>Commentaires : </h2>
     @if ($success = Session::get('success'))
         <div class="alert alert-success">
