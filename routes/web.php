@@ -37,6 +37,11 @@ Route::prefix('admin')->group(function () {
     //Liste des utilisateurs 
     Route::get('/', 'AdminController@listusers')->name('admin.listusers');
 
+    //Commentaires de l'utilisateur
+    Route::get('/listcomments/{id}', 'AdminController@listcomments')->name('admin.listcomments');
+    Route::get('/comments/deleteComment/{id}', 'AdminController@deleteComment')->name('admin.deleteComment');
+
+
     //Liste des messages des clients
     Route::get('/messages', 'AdminController@listposts')->name('admin.messages');
     Route::get('/showmessages/{id}', 'AdminController@showposts')->name('admin.showmessages');

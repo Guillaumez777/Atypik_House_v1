@@ -41,7 +41,7 @@
                                 <a href="" class="btn btn-success button-profiluser">Ses annonces</a>
                             </div>
                             <div class="col-md-4">
-                                <a href="" class="btn btn-success button-profiluser">Ses avis</a>
+                                <a href="{{route('admin.listcomments', $user['id']) }}" class="btn btn-success button-profiluser">Ses commentaires</a>
                             </div>
                         </div>
                     </div>
