@@ -4,6 +4,7 @@ use App\User;
 use App\Category;
 use App\House;
 use App\Ville;
+use App\Comment;
 use App\Propriete;
 use App\Post;
 use App\Valuecatpropriete;
@@ -195,6 +196,18 @@ class AdminController extends Controller
         $house = house::find($house->id);
         $house->delete();
         return redirect()->back()->with('success', 'Votre hebergement a bien été supprimé');
+    }
+
+    public function listcomments(Comment $comments, $id)
+    {
+        $comments = comment::find($id)->where('user_id', '=', $id)->get();
+        return view('admin.commentsUser')->with('comments', $comments);
+    }
+
+    public function deleteComment($id) {
+        $comment = comment::find($id);
+        $comment->delete();
+        return redirect()->back()->with('success', 'Le commentaire a bien été supprimé');
     }
 
     

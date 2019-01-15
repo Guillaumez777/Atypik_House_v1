@@ -2,6 +2,10 @@ $(".delete").on("click", function(){
     return confirm("Voulez-vous vraiment supprimer cette catégorie?");
 });
 
+$(".delete-comment").on("click", function(){
+    return confirm("Voulez-vous vraiment supprimer ce commentaire?");
+});
+
 $(".delete-propriete").on("click", function(){
     return confirm("Voulez-vous vraiment supprimer cette proprieté?");
 });

@@ -10,7 +10,7 @@
                         <div class="card h-100">
                             <img class="img-responsive img_house" src="<?php echo e(asset('img/houses/'.$house->photo)); ?>"></a>
                             <div class="card-body">
-                                <h4 class="title card-title">
+                                <h4 class="title card-title text-center">
                                     <a href="#"><?php echo e($house->title); ?></a>
                                 </h4>
                                 <h3 class="price"><?php echo e($house->price); ?>€</h3>
