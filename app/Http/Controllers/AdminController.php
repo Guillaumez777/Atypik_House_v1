@@ -209,14 +209,17 @@ class AdminController extends Controller
 
     public function showannonces($id)
     {
+        $users = User::where('id', $id)->get();
         $house = house::find($id);
-        return view('admin.showannonces')->with('house', $house);
+        return view('admin.showannonces')->with('house', $house)
+                                         ->with('users', $users);
     }
 
     public function listcomments(Comment $comments, $id)
     {
         $comments = comment::find($id)->where('user_id', '=', $id)->get();
-        return view('admin.commentsUser')->with('comments', $comments);
+        $id = $user;
+        return view('admin.commentsUser')->with('comments', $comments)->with('id', $id);
     }
 
     public function deleteComment($id) {
