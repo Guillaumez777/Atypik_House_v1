@@ -157,6 +157,7 @@ class AdminController extends Controller
         $house->category_id = $request->category_id;
         $house->ville = $request->ville;
         $house->price = $request->price;
+        $house->adresse = $request->adresse;
         $house->description = $request->description;
         $house->statut = $request->statut;
         /*$this->validate($request, [

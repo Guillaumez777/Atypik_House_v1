@@ -65,7 +65,7 @@
                             <label for="adresse" class="col-md-4 control-label">Adresse</label>
 
                             <div class="col-md-6">
-                                <textarea class="form-control" name="adresse" rows="5"><?php echo e($house->adresse); ?></textarea>
+                                <input type="text" class="form-control" name="adresse" value="<?php echo e($house->adresse); ?>"/>
                             </div>
                         </div>
                         <div class="form-group">
