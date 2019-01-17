@@ -158,21 +158,19 @@ class UsersController extends Controller
 
     public function reservations(Request $request)
     {
-        $reservations = Reservation::with('house')->where('user_id', '=', Auth::user()->id)->get();
+        $today = Date::now();
+        $reservations = reservation::where('start_date', '>=', $today)->where('user_id', '=', Auth::user()->id)->get();
         return view('user.reservations', compact('reservations'));
     }
     
-    public function showReservation($id)
+    public function showreservations($id)
     {
-        $reservation = reservation::all();
-        $house = house::find($id);
-        $locataire = comment::where('user_id', Auth::user()->id)->get();
-        $client_reserved = reservation::where('house_id', $id)->where('user_id', Auth::user()->id)->get();
-        
-        return view('user.show')->with('reservation', $reservation)
-                                ->with('house', $house)
-                                ->with('locataire', $locataire)
-                                ->with('client_reserved', $client_reserved);
+        $users = User::where('id', $id)->get();
+        $houses = House::where('user_id', $id)->get();
+        $reservation = reservation::find($id);
+        return view('user.showreservations')->with('houses', $houses)
+                                              ->with('users', $users)
+                                              ->with('reservation', $reservation);
     }
 
     public function historiques(Request $request)
@@ -186,5 +184,16 @@ class UsersController extends Controller
                                                 ->get();
                                         
         return view('user.historiques', compact('historiques'));
+    }
+
+    //Vue de détails des historiques
+    public function showhistoriques($id)
+    {
+        $users = User::where('id', $id)->get();
+        $houses = House::where('user_id', $id)->get();
+        $historique = reservation::find($id);
+        return view('user.showhistoriques')->with('houses', $houses)
+                                              ->with('users', $users)
+                                              ->with('historique', $historique);
     }
 }

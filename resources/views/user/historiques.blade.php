@@ -9,10 +9,10 @@
         <div class="col-lg-4 col-md-4">
             <div class="thumbnail">
                 <div class="card h-100">
-                    <a href="{{action('UsersController@showHouse', $historique->house['id'])}}"><img class="img-responsive img_house" src="{{ asset('img/houses/'.$historique->house->photo) }}"></a>
+                    <a href="{{action('UsersController@showhistoriques', $historique['id'])}}"><img class="img-responsive img_house" src="{{ asset('img/houses/'.$historique->house->photo) }}"></a>
                     <div>
                         <h4 class="title card-title text-center">
-                            <a href="{{route('user.showHouse', $historique->house['id']) }}">{{$historique->house->title}}</a>
+                            <a href="{{route('user.showhistoriques', $historique['id']) }}">{{$historique->house->title}}</a>
                         </h4>
                         <p>Type de bien : Logement</p>
                         <p><i class="fas fa-bed"></i> : 2 lits - <i class="fas fa-users"></i> : pour 2 Personnes</p>

@@ -9,10 +9,10 @@
         <div class="col-lg-4 col-md-4">
             <div class="thumbnail">
                 <div class="card h-100">
-                    <a href="{{action('UsersController@showHouse', $reservation->house['id'])}}"><img class="img-responsive img_house" src="{{ asset('img/houses/'.$reservation->house->photo) }}"></a>
+                    <a href="{{action('UsersController@showreservations', $reservation['id'])}}"><img class="img-responsive img_house" src="{{ asset('img/houses/'.$reservation->house->photo) }}"></a>
                     <div>
                         <h4 class="title card-title text-center">
-                            <a href="{{route('user.showHouse', $reservation->house['id']) }}">{{$reservation->house->title}}</a>
+                            <a href="{{route('user.showreservations', $reservation['id']) }}">{{$reservation->house->title}}</a>
                         </h4>
                         <p class="price">{{$reservation->house->price}}€ par nuit</p>
                         <div class="card-infos">

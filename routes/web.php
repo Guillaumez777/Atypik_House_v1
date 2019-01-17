@@ -130,7 +130,15 @@ Route::group(['middleware' => 'auth'], function () {
 
     //User reservations
     Route::get('/user/reservations', 'UsersController@reservations')->name('user.reservations');
+
+    //Vue de détails de la reservation de l'utilisateur
+    Route::get('/showreservations/{id}', 'UsersController@showreservations')->name('user.showreservations');
+
+    //User historiques
     Route::get('/user/historiques', 'UsersController@historiques')->name('user.historiques');
+
+    //Vue de détails de l'historique de l'utilisateur
+    Route::get('/showhistoriques/{id}', 'UsersController@showhistoriques')->name('user.showhistoriques');
 
 
 });
