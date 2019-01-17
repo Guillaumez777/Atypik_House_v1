@@ -11,7 +11,7 @@
                                 <img class="img-responsive img_house" src="{{ asset('img/houses/'.$reservation->house->photo) }}"></a>
                                 <div class="card-body">
                                     <h4 class="title card-title text-center">
-                                        <a href="#">{{$reservation->house->title}}</a>
+                                        {{$reservation->house->title}}
                                     </h4>
                                     <h3 class="price">{{$reservation->house->price}}€</h3>
                                     <p>Type de bien : {{$reservation->house->category->category}}</p>

@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 use App\User;
+use App\Admin;
 use App\Category;
 use App\House;
 use App\Ville;
@@ -273,7 +274,5 @@ class AdminController extends Controller
         $comment->delete();
         return redirect()->back()->with('success', 'Le commentaire a bien été supprimé');
     }
-
-    
     
 }

@@ -98,6 +98,9 @@ Route::prefix('admin')->group(function () {
 
     //Admin proprietes
     Route::post('/proprietes/store','AdminController@createproprietes');
+
+    //Commentaire admin
+    Route::post('/addcomments', 'AdminController@addcomments')->name('admin.comments');
  });
 
 Route::group(['middleware' => 'auth'], function () {

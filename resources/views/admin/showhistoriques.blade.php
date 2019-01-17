@@ -12,7 +12,7 @@
                                     <img class="img-responsive img_house" src="{{ asset('img/houses/'.$historique->house->photo) }}"></a>
                                     <div class="card-body">
                                         <h4 class="title card-title text-center">
-                                            <a href="#">{{$historique->house->title}}</a>
+                                            {{$historique->house->title}}
                                         </h4>
                                         <h3 class="price">{{$historique->house->price}}€</h3>
                                         <p>Type de bien : {{$historique->house->category->category}}</p>
