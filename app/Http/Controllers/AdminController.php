@@ -198,6 +198,21 @@ class AdminController extends Controller
         return redirect()->back()->with('success', 'Votre hebergement a bien été supprimé');
     }
 
+    //Vue de détails des annonces des utilisateurs
+    public function listannonces($id)
+    {
+        $users = User::where('id', $id)->get();
+        $houses = House::where('user_id', $id)->get();
+        return view('admin.annonces_user')->with('houses', $houses)
+                                       ->with('users', $users);
+    }
+
+    public function showannonces($id)
+    {
+        $house = house::find($id);
+        return view('admin.showannonces')->with('house', $house);
+    }
+
     public function listcomments(Comment $comments, $id)
     {
         $comments = comment::find($id)->where('user_id', '=', $id)->get();
