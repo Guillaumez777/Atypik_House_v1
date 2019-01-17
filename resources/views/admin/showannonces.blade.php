@@ -2,6 +2,7 @@
 @section('content')
 <div class="admin-user-profil">
     <div class="container list-category">
+    <a href="{{ url()->previous() }}" class="btn btn-primary">Retour</a>
         <div class="panel panel-default">
             <div class="panel-heading">Détails de l'annonce</div>
                 <div class="panel-body">
