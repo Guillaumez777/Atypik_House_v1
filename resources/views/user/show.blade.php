@@ -10,8 +10,8 @@
                     <div class="col-lg-6 col-md-6 mb-4">
                         <div class="card h-100">
                             <img class="img-responsive img_house" src="{{ asset('img/houses/'.$house->photo) }}"></a>
-                            <div class="card-body">
-                                <h4 class="title card-title text-center">
+                            <div class="card-show">
+                                <h4 class="title card-title">
                                     <a href="#">{{$house->title}}</a>
                                 </h4>
                                 <h3 class="price">{{$house->price}}€</h3>
@@ -22,7 +22,7 @@
                                         <p>{{$valuecatpropriete->propriete->propriete}}: {{$valuecatpropriete->value}}</p> 
                                     @endif                                 
                                 @endforeach
-                                <p class="card-text">{{$house->description}}</p>
+                                <p>{{$house->description}}</p>
                                 <p>Annulation gratuite !</p>
                                 <p> {{$house->ville}}</p>
                                 <p> {{$house->adresse}}</p>
