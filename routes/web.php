@@ -41,6 +41,18 @@ Route::prefix('admin')->group(function () {
     Route::get('/listcomments/{id}', 'AdminController@listcomments')->name('admin.listcomments');
     Route::get('/comments/deleteComment/{id}', 'AdminController@deleteComment')->name('admin.deleteComment');
 
+    //Liste des réservations de l'utilisateur
+    Route::get('/listreservations/{id}', 'AdminController@listreservations')->name('admin.listreservations');
+
+    //Vue de détails de la reservation de l'utilisateur
+    Route::get('/showreservations/{id}', 'AdminController@showreservations')->name('admin.showreservations');
+
+    //Liste des historiques de l'utilisateur
+    Route::get('/listhistoriques/{id}', 'AdminController@listhistoriques')->name('admin.listhistoriques');
+
+    //Vue de détails de l'historique de l'utilisateur
+    Route::get('/showhistoriques/{id}', 'AdminController@showhistoriques')->name('admin.showhistoriques');
+
     //Liste des annonces de l'utilisateur
     Route::get('/listannonces/{id}', 'AdminController@listannonces')->name('admin.listannonces');
 

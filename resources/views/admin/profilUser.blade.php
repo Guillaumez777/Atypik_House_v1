@@ -35,10 +35,10 @@
                         </div>
                         <div class="row">
                             <div class="col-md-3">
-                                <a href="{{route('admin.listcomments', $user['id']) }}" class="btn btn-success button-profiluser">Ses réservations</a>
+                                <a href="{{route('admin.listreservations', $user['id']) }}" class="btn btn-success button-profiluser">Ses réservations</a>
                             </div>
                             <div class="col-md-3">
-                                <a href="{{route('admin.listcomments', $user['id']) }}" class="btn btn-success button-profiluser">Ses historiques de reservations</a>
+                                <a href="{{route('admin.listhistoriques', $user['id']) }}" class="btn btn-success button-profiluser">Ses historiques de reservations</a>
                             </div>
                             <div class="col-md-3">
                                 <a href="{{route('admin.listannonces', $user['id']) }}" class="btn btn-success button-profiluser">Ses annonces</a>

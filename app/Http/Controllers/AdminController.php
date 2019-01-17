@@ -7,12 +7,15 @@ use App\Ville;
 use App\Comment;
 use App\Propriete;
 use App\Post;
+use App\Reservation;
 use App\Valuecatpropriete;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Auth;
 use Session;
 use Image;
+use Jenssegers\Date\Date;
+
 class AdminController extends Controller
 {
     /**
@@ -140,23 +143,6 @@ class AdminController extends Controller
         return redirect()->back()->with('danger', 'Votre propriété a bien été supprimée');
     }
 
-    
-    
-
-    /**
-     * Show the profile for the given user.
-     *
-     * @return Response
-     */
-    public function profilUser($id) {  
-        $users = User::where('id', $id)->get();
-        $houses = House::where('user_id', $id)->get();
-        return view('admin.profilUser')->with('houses', $houses)
-                                       ->with('users', $users);
-    }
-
-    
-
     public function editHouse($id)
     { 
         $categories = category::all();
@@ -198,6 +184,66 @@ class AdminController extends Controller
         return redirect()->back()->with('success', 'Votre hebergement a bien été supprimé');
     }
 
+    /**
+     * Show the profile for the given user.
+     *
+     * @return Response
+     */
+    public function profilUser($id) {  
+        $users = User::where('id', $id)->get();
+        $houses = House::where('user_id', $id)->get();
+        return view('admin.profilUser')->with('houses', $houses)
+                                       ->with('users', $users);
+    }
+
+    //Liste des reservations des utilisateurs
+    public function listreservations($id)
+    {
+        $users = User::where('id', $id)->get();
+        $houses = House::where('user_id', $id)->get();
+        $today = Date::now();
+        $reservations = reservation::find($id)->where('start_date', '>=', $today)->get();
+        
+        return view('admin.listreservations')->with('houses', $houses)
+                                              ->with('users', $users)
+                                              ->with('reservations', $reservations);
+    }
+
+    //Vue de détails des reservations des utilisateurs
+    public function showreservations($id)
+    {
+        $users = User::where('id', $id)->get();
+        $houses = House::where('user_id', $id)->get();
+        $reservation = reservation::find($id);
+        return view('admin.showreservations')->with('houses', $houses)
+                                              ->with('users', $users)
+                                              ->with('reservation', $reservation);
+    }
+
+    //Liste des reservations des utilisateurs
+    public function listhistoriques($id)
+    {
+        $users = User::where('id', $id)->get();
+        $houses = House::where('user_id', $id)->get();
+        $today = Date::now();
+        $historiques = reservation::where('house_id', $id)->where('start_date', '<', $today)->get();
+
+        return view('admin.listhistoriques')->with('houses', $houses)
+                                            ->with('users', $users)
+                                            ->with('historiques', $historiques);
+    }
+
+    //Vue de détails des historiques des utilisateurs
+    public function showhistoriques($id)
+    {
+        $users = User::where('id', $id)->get();
+        $houses = House::where('user_id', $id)->get();
+        $historique = reservation::find($id);
+        return view('admin.showhistoriques')->with('houses', $houses)
+                                              ->with('users', $users)
+                                              ->with('historique', $historique);
+    }
+
     //Vue de détails des annonces des utilisateurs
     public function listannonces($id)
     {
@@ -218,8 +264,7 @@ class AdminController extends Controller
     public function listcomments(Comment $comments, $id)
     {
         $comments = comment::find($id)->where('user_id', '=', $id)->get();
-        $id = $user;
-        return view('admin.commentsUser')->with('comments', $comments)->with('id', $id);
+        return view('admin.commentsUser')->with('comments', $comments);
     }
 
     public function deleteComment($id) {
