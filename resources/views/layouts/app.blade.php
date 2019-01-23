@@ -146,7 +146,7 @@
         </nav>
     </div>
         @yield('content')
-    <footer>
+    <footer class="@yield('footer')">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-offset-2 col-md-3">

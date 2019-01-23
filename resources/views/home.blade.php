@@ -2,6 +2,8 @@
 
 @section('title', 'Accueil')
 
+
+
 @section('meta_description', 'Venez découvrir nos locations atypique, nous possèdons un vaste choix de loccation tels que des cabanes, des yourtes, des maisons sur piloti et bien dautres choses encore')
 
 @section('content')
