@@ -62,7 +62,7 @@
                                     'Dogs' => array('spaniel' => 'Spaniel'),
                                 )) !!}  --}}
                             </div>
-                            <h3 class="price">Prix du séjour : {{$house->price}}€</h3>
+                            <h3 class="price_reservation">Prix du séjour : {{$house->price}}€</h3>
                             @if (Auth::check())
                                 {!! Form::submit('Réserver', array('class' => 'btn btn-success btn_reserve')) !!}
                                 @if ($errors->any())
