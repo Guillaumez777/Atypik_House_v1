@@ -14,7 +14,6 @@
                         <div class="card-body">
                             <h3 class="card-title"><a href="{{action('UsersController@showHouse', $house->id)}}">{{$house->title}} - </a></h3>
                             <h3 class="card-title"> {{$house->ville}} </h3>
-                            
                         </div>
                         
                         <p class="price"> {{$house->price}}€ / nuit</p>

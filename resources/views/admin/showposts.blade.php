@@ -7,7 +7,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">Message de {{$post->name}}</div>
                     
-                    <div class="panel-body">
+                    <div class="panel-body card-message">
                         <p>Email: {{$post->email}}</p>
                         <p>{{$post->content}}</p>   
                                                     
