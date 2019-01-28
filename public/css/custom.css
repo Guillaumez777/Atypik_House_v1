@@ -182,16 +182,6 @@ p {
 	background-color: #fff;
 }
 
-.card_reservation {
-	position: relative;
-	background-color: #fff;
-	padding: 10px;
-}
-
-.card_reservation * {
-	padding: 5px 0;
-}
-
 .card-block {
 	padding: 15px 15px;
 }
@@ -210,12 +200,14 @@ p {
 
 .card-show {
 	display: block;
-	padding: 10px;
+	padding: 5px;
 	color: #000;
 }
-.card-show p, .card-show h4, .card-show .price {
-	margin: 10px;
+
+.card-show * {
+	padding: 5px 0;
 }
+
 
 .card-text {
 	padding: 15px 0px;
