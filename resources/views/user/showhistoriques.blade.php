@@ -8,7 +8,7 @@
                 <div class="panel-heading">Détails de l'annonce</div>
                     <div class="panel-body">
                         <div class="row">
-                            <div class="col-lg-12 col-md-6 mb-4">
+                            <div class="col-lg-12 col-md-12">
                                 <div class="card-show h-100">
                                     <img class="img-responsive img_house" src="{{ asset('img/houses/'.$historique->house->photo) }}"></a>
                                     <div class="card-center">
