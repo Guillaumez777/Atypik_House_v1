@@ -182,8 +182,23 @@ p {
 	background-color: #fff;
 }
 
+.card_reservation {
+	position: relative;
+	background-color: #fff;
+	padding: 10px;
+}
+
+.card_reservation * {
+	padding: 5px 0;
+}
+
 .card-block {
 	padding: 15px 15px;
+}
+
+.card-center {
+	display: block;
+	text-align: center;
 }
 
 .card-body {
@@ -265,7 +280,7 @@ footer li {
 footer li a{
 	list-style: none;
 	text-decoration: none;
-	color: #000;
+	cocr: #000;
 }
 
 footer li a:hover{
