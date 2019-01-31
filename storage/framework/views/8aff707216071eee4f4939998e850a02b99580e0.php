@@ -7,7 +7,7 @@
     <?php $__currentLoopData = $reservations; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $reservation): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
         <div class="col-lg-4 col-md-4">
             <div class="thumbnail">
-                <div class="card h-100">
+                <div class="card-show h-100">
                     <a href="<?php echo e(action('UsersController@showreservations', $reservation['id'])); ?>"><img class="img-responsive img_house" src="<?php echo e(asset('img/houses/'.$reservation->house->photo)); ?>"></a>
                     <div>
                         <h4 class="title card-title text-center">

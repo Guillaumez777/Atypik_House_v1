@@ -1,5 +1,7 @@
 <?php $__env->startSection('title', 'Accueil'); ?>
 
+
+
 <?php $__env->startSection('meta_description', 'Venez découvrir nos locations atypique, nous possèdons un vaste choix de loccation tels que des cabanes, des yourtes, des maisons sur piloti et bien dautres choses encore'); ?>
 
 <?php $__env->startSection('content'); ?>
@@ -53,33 +55,21 @@
     <?php $__currentLoopData = $houses; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $house): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
         <?php if($house->statut == "Validé"): ?>
             <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                    
                 <div class="card h-100">
+                        
                     <a href="<?php echo e(action('UsersController@showHouse', $house['id'])); ?>"><img class="img-responsive" src="<?php echo e(asset('img/houses/'.$house->photo)); ?>"></a>
-                    <div class="card-body">
-                        <h3 class="title card-title text-center">
-                            <a href="<?php echo e(action('UsersController@showHouse', $house->id)); ?>"><?php echo e($house->title); ?></a>   
-                        </h3>
-                        <p class="price"><?php echo e($house->price); ?>€ par nuit</p>
-                        <div class="card-infos">
-                            <p>Type de bien : <?php echo e($house->category->category); ?></p>
-                            <?php $__currentLoopData = $house->valuecatproprietes; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $valuecatpropriete): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                <?php if($loop->iteration > 0): ?>
-                                    <?php if($valuecatpropriete->value == 0): ?>
-                                    <?php else: ?>
-                                        <p><?php echo e($valuecatpropriete->propriete->propriete); ?>: <?php echo e($valuecatpropriete->value); ?></p> 
-                                    <?php endif; ?>
-                                <?php break; ?>   
-                                <?php endif; ?>      
-                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                            <p><?php echo(substr($house->description, 0, 40));?></p>   
-                            <p>Annulation gratuite !</p>
-                            <p> <?php echo e($house->ville); ?></p>
+                    <div class="card-block">
+                        <div class="card-body">
+                            <h3 class="card-title"><a href="<?php echo e(action('UsersController@showHouse', $house->id)); ?>"> <?php echo(substr($house->title, 0, 40));?> </a></h3> - 
+                            <h3 class="card-title"> <?php echo e($house->ville); ?> </h3>
+                            
                         </div>
-                    </div>
-                    <div class="note card-footer">
-                        <medium class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</medium>
-                        <a class="btn btn-success btn_reserve" href="<?php echo e(action('UsersController@showHouse', $house['id'])); ?>">Consulter</a>
-                    </div>
+                        
+                        <p class="price"> <?php echo e($house->price); ?>€ / nuit</p>
+                    
+                    
+                </div>
                 </div>
             </div>
         <?php endif; ?>  
