@@ -70,6 +70,19 @@ td, th {
     margin-top:5%;
 }
 
+.card-admin {
+    height: 700px;
+    margin: 5px;
+}
+
+.card-message {
+    padding: 20px;
+}
+
+.list-category {
+	padding-left: 50px; 
+}
+
 @media (max-width: 768px) {
 
     h2 {

@@ -2,18 +2,18 @@
 @section('content')
 <div class="admin-user-profil">
     <div class="col-offset-md-2 col-md-10 right">
-        <a href="{{ url()->previous() }}" class="btn btn-primary">Retour</a>
+        {{-- <a href="{{ url()->previous() }}" class="btn btn-primary">Retour</a> --}}
         @foreach($users as $user)
             <div class="panel panel-default">
                 <div class="panel-heading text-center">Annonces de {{$user->nom}} {{$user->prenom}}</div>
                 @foreach ($houses as $house)           
                     <div class="panel-body">
                         <div class="row">
-                            <div class="col-lg-4 col-md-4 mb-4 thumbnail">
+                            <div class="col-lg-4 col-md-4 mb-4 thumbnail card-admin">
                                 <div class="card h-100">
                                     <img class="img-responsive img_house" src="{{ asset('img/houses/'.$house->photo) }}">
                                     <div>
-                                        <<h4 class="title card-title">
+                                        <h4 class="title card-title">
                                             <a href="{{route('admin.showannonces', $house['id']) }}">{{$house->title}}</a>
                                         </h4>
                                         <p class="price">{{$house->price}}€ par nuit</p>

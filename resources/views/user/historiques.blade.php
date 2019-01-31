@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('footer', 'footer_absolute')
 @section('link')
 <link href="{{ asset('css/jquery-ui.min.css') }}" rel="stylesheet">
 @section('content')
@@ -8,7 +9,7 @@
     @foreach ($historiques as $historique)
         <div class="col-lg-4 col-md-4">
             <div class="thumbnail">
-                <div class="card h-100">
+                <div class="card-show h-100">
                     <a href="{{action('UsersController@showhistoriques', $historique['id'])}}"><img class="img-responsive img_house" src="{{ asset('img/houses/'.$historique->house->photo) }}"></a>
                     <div>
                         <h4 class="title card-title text-center">

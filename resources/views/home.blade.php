@@ -2,6 +2,8 @@
 
 @section('title', 'Accueil')
 
+
+
 @section('meta_description', 'Venez découvrir nos locations atypique, nous possèdons un vaste choix de loccation tels que des cabanes, des yourtes, des maisons sur piloti et bien dautres choses encore')
 
 @section('content')
@@ -55,33 +57,24 @@
     @foreach($houses as $house)
         @if($house->statut == "Validé")
             <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                    
                 <div class="card h-100">
+                        
                     <a href="{{action('UsersController@showHouse', $house['id'])}}"><img class="img-responsive" src="{{ asset('img/houses/'.$house->photo) }}"></a>
-                    <div class="card-body">
-                        <h3 class="title card-title text-center">
-                            <a href="{{action('UsersController@showHouse', $house->id)}}">{{$house->title}}</a>   
-                        </h3>
-                        <p class="price">{{$house->price}}€ par nuit</p>
-                        <div class="card-infos">
-                            <p>Type de bien : {{$house->category->category}}</p>
-                            @foreach($house->valuecatproprietes as $valuecatpropriete)
-                                @if($loop->iteration > 0)
-                                    @if($valuecatpropriete->value == 0)
-                                    @else
-                                        <p>{{$valuecatpropriete->propriete->propriete}}: {{$valuecatpropriete->value}}</p> 
-                                    @endif
-                                @break   
-                                @endif      
-                            @endforeach
-                            <p><?php echo(substr($house->description, 0, 40));?></p>   
-                            <p>Annulation gratuite !</p>
-                            <p> {{$house->ville}}</p>
+                    <div class="card-block">
+                        <div class="card-body">
+                            <h3 class="card-title"><a href="{{action('UsersController@showHouse', $house->id)}}">{{$house->title}} - </a></h3>
+                            <h3 class="card-title"> {{$house->ville}} </h3>
+                            
                         </div>
-                    </div>
-                    <div class="note card-footer">
+                        
+                        <p class="price"> {{$house->price}}€ / nuit</p>
+                    
+                    {{-- <div class="note card-footer">
                         <medium class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</medium>
                         <a class="btn btn-success btn_reserve" href="{{action('UsersController@showHouse', $house['id'])}}">Consulter</a>
-                    </div>
+                    </div> --}}
+                </div>
                 </div>
             </div>
         @endif  

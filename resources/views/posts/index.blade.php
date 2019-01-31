@@ -2,6 +2,7 @@
 <!-- views/form/index.blade.php --> 
 <!--============================--> 
 @extends('layouts.app') 
+@section('footer', 'footer_absolute')
 @section('content') 
     <div class="container" id="form"> 
         {!! Form::open(['url' => 'posts']) !!} 

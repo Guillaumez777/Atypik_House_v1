@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('footer', 'footer_absolute')
 @section('content')
 <div class="admin-user-profil">
     
@@ -7,10 +8,10 @@
                 <div class="panel-heading">Détails de l'annonce</div>
                     <div class="panel-body">
                         <div class="row">
-                            <div class="col-lg-6 col-md-6 mb-4">
-                                <div class="card h-100">
+                            <div class="col-lg-12 col-md-12">
+                                <div class="card-show h-100">
                                     <img class="img-responsive img_house" src="{{ asset('img/houses/'.$historique->house->photo) }}"></a>
-                                    <div class="card-body">
+                                    <div class="card-center">
                                         <h4 class="title card-title text-center">
                                             <a href="#">{{$historique->house->title}}</a>
                                         </h4>

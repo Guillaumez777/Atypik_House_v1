@@ -1,8 +1,6 @@
 /* Infos : Commenter bien votre code afin qu'il soit plus lisible, merci. */
 /* Générale */
 html, body {
-	/* font-family: 'Open Sans', sans-serif; */
-	/* font-family: 'Karla', sans-serif; */
 	font-family: 'Archivo', sans-serif;
 	margin: 0;
 	padding: 0;
@@ -26,15 +24,6 @@ html, body {
 	width: 270px;
 }
 
-/*.title {
-	padding: 10px;
-	color: black;
-	text-align: center;
-	font-weight: 500;
-	text-shadow: #000000 3px 2px;
-	height: 100px;
-}*/
-
 .title-intro {
 	color: #eee;
 }
@@ -42,10 +31,12 @@ html, body {
 .price {
 	font-weight: 500;
 	font-size: 22px;
-	padding-bottom: 10px;
-	padding-left: 10px;
 	color: #000;
-	/* float: right; */
+	margin: 0;
+}
+
+.price_reservation {
+	padding: 10px;
 }
 
 .note {
@@ -56,6 +47,11 @@ h1, h2, h3, h4, h5, h6 {
 	margin: 0;
 }
 
+hr {
+	margin: 10px 0;
+	border-top: 1px solid grey;
+}
+
 a {
 	text-decoration: none;
 }
@@ -64,11 +60,16 @@ p {
 	color: black;
 	line-height: 1.4;
 	letter-spacing: 1px;
+	margin: 0;
 }
 
 .text-center {
 	text-align: center;
 	margin: 0 auto;
+}
+
+.rouge {
+	color: #a94442;
 }
 
 .rigth {
@@ -98,10 +99,6 @@ p {
 	font-size: 16px;
 }
 
-.card-text {
-	padding: 15px 0px;
-}
-
 .img_house {
 	margin: 0 auto;
 }
@@ -118,7 +115,6 @@ p {
     top: 0;
     right: 0;
     left: 0;
-    /*z-index: 1030;*/
 }
 
 .navbar-default .navbar-brand {
@@ -138,7 +134,7 @@ p {
 	background: url("/img/carte_monde.jpg") no-repeat center bottom scroll;
 	background-size: cover;
 	display: table;
-	height: 750px;
+	height: 100%;
     width: 100%;
     max-width: 100%;
 }
@@ -174,31 +170,60 @@ p {
 	border-color: #3f4b30;
 }
 
+
+
 .list-category h2{
 	text-align: center;
-	margin: 60px 0;
+	margin: 60px;
+}
+
+.card {
+	position: relative;
+	background-color: #fff;
+}
+
+.card-block {
+	padding: 15px 15px;
+}
+
+.card-center {
+	display: block;
+	text-align: center;
 }
 
 .card-body {
-	height: 520px;
+	display: flex;
+	justify-content: flex-start;
+	padding: 0;
+	color: #000;
+}
+
+.card-show {
+	display: block;
+	padding: 5px;
+	color: #000;
+}
+
+.card-show * {
+	padding: 5px 0;
+}
+
+
+.card-text {
+	padding: 15px 0px;
 }
 .card-title {
-	padding: 20px 0 75px 0;
-	height: 60px;
+	
 }
 .card-title a{
-	text-align: center;
-	font-size: 28px;
-	color: #64764d;
+	color: #000;
 }
 
 .card-infos {
-	padding: 20px 0;
+	
 }
 
-.rouge {
-	color: #a94442;
-}
+
 /* #3f4b30 */
 #block_home_2 {
 	position: relative;
@@ -229,9 +254,15 @@ p {
 
 /* Footer */
 footer {
+	background-color: #fff;
+	padding: 20px;
 	bottom: 0;
 	width: 100%;
 	margin-top: 80px;
+}
+
+.footer_absolute {
+	position: absolute;
 }
 
 footer li {
@@ -241,7 +272,7 @@ footer li {
 footer li a{
 	list-style: none;
 	text-decoration: none;
-	color: #000;
+	cocr: #000;
 }
 
 footer li a:hover{
@@ -263,7 +294,7 @@ footer li a:hover{
 /* Description produit */
 .calendar {
 	width: 400px;
-	height: 400px;
+	height: 400px; 
 	/* background-color: #9C0038; */
 	margin: 0 20px;
 }
