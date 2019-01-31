@@ -23,6 +23,17 @@ Route::get('/users', function () {
  	return response($users,200)->header('Content-Type', 'application/json');
 });
 
+Route::post('/login_api',function () {
+
+	$this->validate($request, ['email' => 'required|email', 'password' => 'required']);
+        if ($this->signIn($request)) {
+            flash('Welcome back!');
+            return redirect()->intended('/dashboard');
+        }
+        flash('Could not sign you in.');
+        return response(200)->header('Content-Type', 'application/json');
+});
+
 use App\House;
 Route::get('/houses', function () {
 	$houses = house::all()->toJson();

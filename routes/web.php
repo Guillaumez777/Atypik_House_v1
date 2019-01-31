@@ -16,7 +16,7 @@ Route::get('/houses', 'HousesController@index')->name('houses');
 Route::get('/register', 'RegistersController@create');
 Route::post('/register', 'RegistersController@register');
 Route::get('/users/confirmation{email_token}', 'Auth\RegisterController@confirmation');
-Route::post('/login', 'SessionsController@login');
+//Route::post('/login', 'SessionsController@login');
 Route::get('/verifyemail/{token}', 'Auth\RegisterController@verify');
 
 Route::get('/user/showHouse/{id}', 'UsersController@showHouse')->name('user.showHouse');
@@ -67,7 +67,7 @@ Route::prefix('admin')->group(function () {
 
     //Connexion et déconnexion
     Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
-    Route::post('/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
+    //Route::post('/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
     Route::get('/logout','Auth\AdminLoginController@logout')->name('admin.logout');
 
     //Profil de l'utilisateur
