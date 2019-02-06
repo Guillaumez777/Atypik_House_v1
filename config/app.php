@@ -184,7 +184,10 @@ return [
 
         //Html Forms Views
         Collective\Html\HtmlServiceProvider::class,
-        Cartalyst\Stripe\Laravel\StripeServiceProvider::class
+        Cartalyst\Stripe\Laravel\StripeServiceProvider::class,
+
+        //JWT TOKEN
+        'Tymon\JWTAuth\Providers\JWTAuthServiceProvider',
     ],
 
     /*
@@ -240,6 +243,7 @@ return [
         'NoCaptcha' => Anhskohbo\NoCaptcha\Facades\NoCaptcha::class,
         'Breadcrumbs' => DaveJamesMiller\Breadcrumbs\Facade::class,
         'Date' => Jenssegers\Date\Date::class,
+        'JWTAuth' => 'Tymon\JWTAuth\Facades\JWTAuth'
     ],
 
 ];

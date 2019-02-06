@@ -13,8 +13,15 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+// Route::middleware('auth:api')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
+
+Route::post('auth/register', 'AuthenticateController@register');
+Route::post('auth/login', 'AuthenticateController@login');
+Route::group(['middleware' => 'jwt.auth'], function () {
+    Route::get('user', 'AuthenticateController@getAuthUser');
+    Route::get('/mylocations/{id}', 'HousesController@mylocations');
 });
 
 use App\User;
@@ -22,18 +29,6 @@ Route::get('/users', function () {
 	$users = user::all()->toJson();
  	return response($users,200)->header('Content-Type', 'application/json');
 });
-
-Route::post('/login_api',function () {
-
-	$this->validate($request, ['email' => 'required|email', 'password' => 'required']);
-        if ($this->signIn($request)) {
-            flash('Welcome back!');
-            return redirect()->intended('/dashboard');
-        }
-        flash('Could not sign you in.');
-        return response(200)->header('Content-Type', 'application/json');
-});
-
 use App\House;
 Route::get('/houses', function () {
 	$houses = house::all()->toJson();

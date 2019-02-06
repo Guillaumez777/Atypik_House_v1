@@ -34,6 +34,7 @@
     30 => 'App\\Providers\\RouteServiceProvider',
     31 => 'Collective\\Html\\HtmlServiceProvider',
     32 => 'Cartalyst\\Stripe\\Laravel\\StripeServiceProvider',
+    33 => 'Tymon\\JWTAuth\\Providers\\JWTAuthServiceProvider',
   ),
   'eager' => 
   array (
@@ -56,6 +57,7 @@
     16 => 'App\\Providers\\EventServiceProvider',
     17 => 'App\\Providers\\RouteServiceProvider',
     18 => 'Cartalyst\\Stripe\\Laravel\\StripeServiceProvider',
+    19 => 'Tymon\\JWTAuth\\Providers\\JWTAuthServiceProvider',
   ),
   'deferred' => 
   array (

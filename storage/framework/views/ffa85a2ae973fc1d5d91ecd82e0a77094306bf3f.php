@@ -2,6 +2,7 @@
 <!-- views/form/index.blade.php --> 
 <!--============================--> 
  
+<?php $__env->startSection('footer', 'footer_absolute'); ?>
 <?php $__env->startSection('content'); ?> 
     <div class="container" id="form"> 
         <?php echo Form::open(['url' => 'posts']); ?> 
