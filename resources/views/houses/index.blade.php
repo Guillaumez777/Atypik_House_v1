@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('footer', 'footer_absolute')
+{{-- @section('footer', 'footer_absolute') --}}
 @section('content')
 <div class="container list-category">
         <h2 id="hebergements">Nos hébergements</h2>

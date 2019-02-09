@@ -196,4 +196,16 @@ class UsersController extends Controller
                                               ->with('users', $users)
                                               ->with('historique', $historique);
     }
+
+    public function showhebergements($id)
+    {
+        $users = User::where('id', $id)->get();
+        $houses = House::where('user_id', $id)->get();
+        $historique = reservation::find($id);
+        return view('user.showhebergements')->with('houses', $houses)
+                                            ->with('users', $users)
+                                            ->with('historique', $historique);;
+                                              
+    }
+
 }
