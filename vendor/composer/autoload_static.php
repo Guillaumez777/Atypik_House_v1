@@ -477,7 +477,7 @@ class ComposerStaticInitabe8ea9371bc75bf6e5a2b40c0cdd0b2
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
         'App\\Reservation' => __DIR__ . '/../..' . '/app/Reservation.php',
         'App\\User' => __DIR__ . '/../..' . '/app/User.php',
-        'App\\Valuecatpropriete' => __DIR__ . '/../..' . '/app/ValuecatPropriete.php',
+        'App\\Valuecatpropriete' => __DIR__ . '/../..' . '/app/Valuecatpropriete.php',
         'App\\Ville' => __DIR__ . '/../..' . '/app/Ville.php',
         'ArithmeticError' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/ArithmeticError.php',
         'AssertionError' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/AssertionError.php',
@@ -559,7 +559,7 @@ class ComposerStaticInitabe8ea9371bc75bf6e5a2b40c0cdd0b2
         'CreateProprietesTable' => __DIR__ . '/../..' . '/database/migrations/2018_04_25_195248_create_proprietes_table.php',
         'CreateReservationsTable' => __DIR__ . '/../..' . '/database/migrations/2018_04_17_121052_create_reservations_table.php',
         'CreateUsersTable' => __DIR__ . '/../..' . '/database/migrations/2018_10_16_165150_create_users_table.php',
-        'CreateValuecatproprietesTable' => __DIR__ . '/../..' . '/database/migrations/2018_05_23_195943_create_valuecatProprietes_table.php',
+        'CreateValuecatproprietesTable' => __DIR__ . '/../..' . '/database/migrations/2018_05_23_195943_create_valuecatproprietes_table.php',
         'Cron\\AbstractField' => __DIR__ . '/..' . '/mtdowling/cron-expression/src/Cron/AbstractField.php',
         'Cron\\CronExpression' => __DIR__ . '/..' . '/mtdowling/cron-expression/src/Cron/CronExpression.php',
         'Cron\\DayOfMonthField' => __DIR__ . '/..' . '/mtdowling/cron-expression/src/Cron/DayOfMonthField.php',
@@ -899,7 +899,6 @@ class ComposerStaticInitabe8ea9371bc75bf6e5a2b40c0cdd0b2
         'Dotenv\\Exception\\InvalidPathException' => __DIR__ . '/..' . '/vlucas/phpdotenv/src/Exception/InvalidPathException.php',
         'Dotenv\\Exception\\ValidationException' => __DIR__ . '/..' . '/vlucas/phpdotenv/src/Exception/ValidationException.php',
         'Dotenv\\Loader' => __DIR__ . '/..' . '/vlucas/phpdotenv/src/Loader.php',
-        'Dotenv\\Parser' => __DIR__ . '/..' . '/vlucas/phpdotenv/src/Parser.php',
         'Dotenv\\Validator' => __DIR__ . '/..' . '/vlucas/phpdotenv/src/Validator.php',
         'Error' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/Error.php',
         'Facebook\\WebDriver\\Chrome\\ChromeDriver' => __DIR__ . '/..' . '/facebook/webdriver/lib/Chrome/ChromeDriver.php',
@@ -3693,7 +3692,7 @@ class ComposerStaticInitabe8ea9371bc75bf6e5a2b40c0cdd0b2
         'Stripe\\BitcoinTransaction' => __DIR__ . '/..' . '/stripe/stripe-php/lib/BitcoinTransaction.php',
         'Stripe\\Card' => __DIR__ . '/..' . '/stripe/stripe-php/lib/Card.php',
         'Stripe\\Charge' => __DIR__ . '/..' . '/stripe/stripe-php/lib/Charge.php',
-        'Stripe\\Checkout\\Session' => __DIR__ . '/..' . '/stripe/stripe-php/lib/Checkout/Session.php',
+        'Stripe\\CheckoutSession' => __DIR__ . '/..' . '/stripe/stripe-php/lib/CheckoutSession.php',
         'Stripe\\Collection' => __DIR__ . '/..' . '/stripe/stripe-php/lib/Collection.php',
         'Stripe\\CountrySpec' => __DIR__ . '/..' . '/stripe/stripe-php/lib/CountrySpec.php',
         'Stripe\\Coupon' => __DIR__ . '/..' . '/stripe/stripe-php/lib/Coupon.php',
@@ -4513,7 +4512,7 @@ class ComposerStaticInitabe8ea9371bc75bf6e5a2b40c0cdd0b2
         'phpDocumentor\\Reflection\\Types\\String_' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/Types/String_.php',
         'phpDocumentor\\Reflection\\Types\\This' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/Types/This.php',
         'phpDocumentor\\Reflection\\Types\\Void_' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/Types/Void_.php',
-        'valuecatproprietesTableSeeder' => __DIR__ . '/../..' . '/database/seeds/valuecatProprietesTableSeeder.php',
+        'valuecatproprietesTableSeeder' => __DIR__ . '/../..' . '/database/seeds/valuecatproprietesTableSeeder.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
