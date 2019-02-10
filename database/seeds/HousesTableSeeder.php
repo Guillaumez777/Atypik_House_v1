@@ -19,7 +19,7 @@ class HousesTableSeeder extends Seeder
                 'ville' => 'PARIS',
                 'adresse' => '31 rue des peupliers',
                 'description' => 'Super cabane',
-                'price' => 300.00,
+                'price' => 25.00,
                 'photo' => '1523888761.png',
                 'statut' => 'Validé'
             ],
@@ -30,7 +30,7 @@ class HousesTableSeeder extends Seeder
                 'ville' => 'LYON',
                 'adresse' => '32 rue mozart',
                 'description' => 'Super igloo',
-                'price' => 400.00,
+                'price' => 10.00,
                 'photo' => '1522347485.jpg',
                 'statut' => 'Validé'
             ],
@@ -41,7 +41,7 @@ class HousesTableSeeder extends Seeder
                 'ville' => 'LOIRE',
                 'adresse' => '12 rue tolbiac',
                 'description' => 'Super yourte',
-                'price' => 400.00,
+                'price' => 30.00,
                 'photo' => '1543837576.jpg',
                 'statut' => 'Validé'
             ]

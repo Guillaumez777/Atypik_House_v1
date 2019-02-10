@@ -20,6 +20,7 @@ Route::get('/users/confirmation{email_token}', 'Auth\RegisterController@confirma
 Route::get('/verifyemail/{token}', 'Auth\RegisterController@verify');
 
 Route::get('/user/showHouse/{id}', 'UsersController@showHouse')->name('user.showHouse');
+Route::get('/user/showhebergement/{id}', 'UsersController@showhebergements')->name('user.showhebergements');
 
 Route::get('/apropos', 'HomeController@Apropos')->name('Apropos');
 Route::get('/mentions_legales', 'HomeController@mentions_legales')->name('mentions_legales');

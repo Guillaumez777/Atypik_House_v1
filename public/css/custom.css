@@ -247,6 +247,19 @@ p {
 	color: #3f4b30;
 }
 
+/* FAQ */
+#faq {
+	/* background-color: white; */
+}
+
+#faq * {
+	padding: 10px;
+}
+
+#faq h3, #faq h2 {
+	text-align: center;
+}
+
 /* Registration */
 .panel, .block {
 	margin: 100px;
@@ -272,7 +285,7 @@ footer li {
 footer li a{
 	list-style: none;
 	text-decoration: none;
-	cocr: #000;
+	color: #000;
 }
 
 footer li a:hover{

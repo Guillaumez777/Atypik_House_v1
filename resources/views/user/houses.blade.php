@@ -10,10 +10,10 @@
         <div class="col-lg-4 col-md-4">
             <div class="thumbnail">
                 <div class="card-show h-100">
-                    <a href="{{action('UsersController@showHouse', $house['id'])}}"><img class="img-responsive img_house" src="{{ asset('img/houses/'.$house->photo) }}"></a>
+                    <a href="{{action('UsersController@showhebergements', $house['id'])}}"><img class="img-responsive img_house" src="{{ asset('img/houses/'.$house->photo) }}"></a>
                     <div>
                         <h4 class="title card-title">
-                            <a href="{{route('user.showHouse', $house['id']) }}">{{$house->title}}</a>
+                            <a href="{{route('user.showhebergements', $house['id']) }}">{{$house->title}}</a>
                         </h4>
                         <p class="price">{{$house->price}}€ par nuit</p>
                         <div class="card-infos">
