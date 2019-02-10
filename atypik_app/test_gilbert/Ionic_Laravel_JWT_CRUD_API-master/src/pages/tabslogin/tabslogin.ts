@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 
-import { LoginPage } from '../login/login';
 import { HebergementsPage } from '../hebergements/hebergements';
 import { ReservationsPage } from '../reservations/reservations';
 import { HistoriquesPage } from '../historiques/historiques';
@@ -16,7 +15,11 @@ export class TabsloginPage {
   tab7Root = HistoriquesPage;
   tab8Root = AvisPage;
   constructor() {
-    
+  }
+  tabsEnabled = true;
+
+  enableTabs(enable: boolean): void {
+      this.tabsEnabled = enable;
   }
 
   

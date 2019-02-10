@@ -5,7 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { AuthProvider } from '../providers/auth/auth';
 
-import { TabsPage } from '../pages/tabs/tabs';
+import { TabsloginPage } from '../pages/tabslogin/tabslogin';
 
 import { LoginPage } from '../pages/login/login';
 
@@ -31,11 +31,10 @@ export class MyApp {
   
     this.authService.checkAuthentication().then((res)=>{
       console.log("res : " + res)
-  
       if (res === '') {
         this.rootPage  =LoginPage;
       } else {
-        this.rootPage  =TabsPage;
+        this.rootPage  =TabsloginPage;
       }
       
     })

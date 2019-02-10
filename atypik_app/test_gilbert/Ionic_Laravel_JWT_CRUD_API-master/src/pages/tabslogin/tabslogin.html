@@ -16,9 +16,9 @@
 <ion-content padding>
 
 </ion-content> -->
-<ion-tabs>
-    <ion-tab [root]="tab5Root" tabTitle="HebergementsPage" tabIcon="home"></ion-tab>
-    <ion-tab [root]="tab6Root" tabTitle="ReservationsPage" tabIcon="information-circle"></ion-tab>
-    <ion-tab [root]="tab7Root" tabTitle="HistoriquesPage" tabIcon="contacts"></ion-tab>
-    <ion-tab [root]="tab8Root" tabTitle="AvisPage" tabIcon="contacts"></ion-tab>
+<ion-tabs id="tabslogin">
+    <ion-tab [root]="tab5Root" tabTitle="HebergementsPage" tabIcon="home" enabled="{{tabsEnabled}}"></ion-tab>
+    <ion-tab [root]="tab6Root" tabTitle="ReservationsPage" tabIcon="information-circle" enabled="{{tabsEnabled}}"></ion-tab>
+    <ion-tab [root]="tab7Root" tabTitle="HistoriquesPage" tabIcon="contacts" enabled="{{tabsEnabled}}"></ion-tab>
+    <ion-tab [root]="tab8Root" tabTitle="AvisPage" tabIcon="contacts" enabled="{{tabsEnabled}}"></ion-tab>
   </ion-tabs>
