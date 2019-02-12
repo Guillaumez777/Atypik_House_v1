@@ -25,18 +25,14 @@ export class LoginPage {
 
   email:string = '';
   password:string = '';
-
   errorMsg:string;
+  result:string;
+  rootPage:any ;
+  tabsPage:any;
 
 
 
-  constructor(public navCtrl: NavController, 
-    public navParams: NavParams,
-    public authService: AuthProvider ,
-   
-    public alertCtrl: AlertController ,
-  
-  ) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public authService: AuthProvider , public alertCtrl: AlertController) {
   }
 
   ionViewDidLoad() {
@@ -46,7 +42,7 @@ export class LoginPage {
 
   errorFunc(message){
     let alert = this.alertCtrl.create({
-      title: 'Warining!',
+      title: "Désolé Il y a une erreur",
       subTitle: message,
       buttons: ['OK']
     });
@@ -56,68 +52,41 @@ export class LoginPage {
 
 
 
-  myLogIn(){
- 
-    if (this.email.trim() !==''    ) {
-      console.log(this.email.trim() + "   " + this.password.trim() )
-       
-      if (this.password.trim()  === '') {
-        this.errorFunc('Please put your password')
- 
-      }else{
- 
-        let credentials = {
-          email: this.email,
-            password: this.password
-        };
- 
-        
-         this.authService.login(credentials).then((result) => {
-            console.log(result);
-            console.log("hey");
-            console.log(result['token']);
-            result = result['token'];
-            this.navCtrl.push(HebergementsPage, {
-              token : result
-            });
-            this.navCtrl.setRoot(TabsloginPage);
-           
-        }, (err) => {
-     
-            console.log(err);
-            this. errorFunc('Wrong credentials ! try again')
-            console.log("credentials: "+JSON.stringify(credentials))
-            
-        });
- 
-      }
-      
-   }
-   else{
-    
-    this. errorFunc('Please put a vaild password !  for ex:(123456)')
-   
+  myLogin(){
+    if(this.email.trim() == "" && this.password.trim() == ""){
+      this. errorFunc("Vous n'avez pas remplis les champs")
     }
- 
- 
+    else if (this.email.trim() == "") {
+      this. errorFunc("Veuillez saisir une adresse email")
+    }
+    else if (this.password.trim() == '') {
+        this.errorFunc('Veuillez saisir un mot de passe')
+    } else {
+      let user = {
+        email: this.email,
+        password: this.password
+      };
+      console.log(user)
+      this.authService.login(user).then((result) => {
+        console.log(result);
+        console.log("hey");
+        console.log(result['token']);
+        this.navCtrl.push(HebergementsPage, {
+          data : result
+        });
+        this.navCtrl.setRoot(TabsloginPage);
+        
+      }, (err) => {
+      this. errorFunc('Votre identifiant ou votre mot de passe est incorrect')
+      console.log("user: "+JSON.stringify(user))
+      });
+    }  
+  }
 
-}
-
-
-
-
-
-myLogOut(){
-  this.authService.logout();
-}
-
-
-
-
-
-
-
-
-
-
+  myLogout(){
+    this.authService.logout();
+    this.rootPage = LoginPage;
+    
+    // this.navCtrl.setRoot(LoginPage);
+  }
 }

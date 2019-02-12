@@ -1,3 +1,4 @@
+<?php $__env->startSection('footer', 'footer_absolute'); ?>
 <div class="container">
     <div class="row">
         <div class="col-md-12">

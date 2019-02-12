@@ -8,17 +8,20 @@
 
   <ion-navbar>
     <ion-title>hebergements</ion-title>
+    <div padding>
+      <button ion-button color="secondary"  (click)="myLogout()" >Deconnexion</button>
+    </div>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-    <ion-list>
+    <!-- <ion-list>
         <ion-item *ngFor="let house of data">
           <img src="{{house.photo}}"/>
           <p>{{ house.title }}</p>
           <p> {{ house.description}}</p>
         </ion-item>
-    </ion-list>
+    </ion-list> -->
 </ion-content>

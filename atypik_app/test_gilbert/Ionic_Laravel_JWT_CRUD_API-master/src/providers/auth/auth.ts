@@ -21,30 +21,30 @@ export class AuthProvider {
     console.log('Hello AuthProvider Provider');
   }
 
-  login(credentials){
+  login(user){
     return new Promise((resolve, reject) => {
-        let headers = new Headers();
-       // headers.append('Content-Type', 'application/json');
-       headers.append('Access-Control-Allow-Origin' , '*');
-       headers.append('Access-Control-Allow-Methods', 'POST, GET, OPTIONS, PUT');
-       headers.append('Accept','application/json');
-       headers.append('content-type','application/json');
-     
-        this.http.post(apiKey+'auth/login', JSON.stringify(credentials), {headers: headers})
-          .subscribe(res => {
-            let data = res.json();   
-            this.token = data.token;
-            this.storage.set('token', data.token);
-           
-            resolve(data);
-            console.log("coucou");
-            //let data_token = "http://127.0.0.1:8000/api/user?token="+res;
-            console.log(data);
-   }, (err) => {
-            reject(err);
+      let headers = new Headers();
+      
+      headers.append('Access-Control-Allow-Origin' , '*');
+      headers.append('Access-Control-Allow-Headers', '*');
+      headers.append('Access-Control-Allow-Methods', 'POST, GET, OPTIONS, PUT');
+      headers.append('Accept','application/json');
+      headers.append('content-type','application/json');
+      
+    
+      this.http.post(apiKey+'auth/login?email='+user.email+'&password='+user.password+'=', JSON.stringify(user), {headers: headers})
+        .subscribe(res => {
+          let data = res.json();   
+          this.token = data.token;
+          this.storage.set('token', data.token);
           
-          });  });
- 
+          //
+          console.log("coucou");
+          resolve(data);
+        }, (err) => {
+          reject(err);
+        });  
+    });
   }
 
 
@@ -59,7 +59,7 @@ export class AuthProvider {
       this.token = value;
 
       resolve(this.token)
-
+      console.log('haha')
 
     }) 
   });        
@@ -73,7 +73,6 @@ export class AuthProvider {
 
   logout(){
     this.storage.set('token', '');
-  
    }
 
 

@@ -6,8 +6,8 @@ import 'rxjs/add/operator/map';
 
 //import { CrudProvider } from '../../providers/crud/crud';
 
-import { EditPage } from '../edit/edit';
-import { InsertPage } from '../insert/insert';
+// import { EditPage } from '../edit/edit';
+// import { InsertPage } from '../insert/insert';
 
 
 @Component({
@@ -17,54 +17,43 @@ import { InsertPage } from '../insert/insert';
 export class HomePage {
   mydata:any
   constructor(public navCtrl: NavController, private http: Http){
-    this.http.get(apiKey+'users')
-         .map(res => res.json())
-         .subscribe(data => {
-           console.log(data);
-           return data;
-         }, (err) => {
-           console.log(err);
-         });
+    // this.http.get(apiKey+'users')
+    //      .map(res => res.json())
+    //      .subscribe(data => {
+    //        console.log(data);
+    //        return data;
+    //      }, (err) => {
+    //        console.log(err);
+    //      });
   }
-  // constructor(public navCtrl: NavController,
-  //   public crudProvider:CrudProvider) {
 
-  //     this.crudProvider.getPosts().then((data) => {
-     
-  //       this.mydata = data["data"] 
-  //       console.log( this.mydata)
-  //     })
+
+
+
+
+//   onEdit( id, name, details){
+
+//     console.log("hoe edit info: "+id  +   details)
     
+// this.navCtrl.push(EditPage, {
 
-  // }
-
-
-
-
-
-  onEdit( id, name, details){
-
-    console.log("hoe edit info: "+id  +   details)
-    
-this.navCtrl.push(EditPage, {
-
-  id:id, 
-  name:name, 
-  details:details, 
+//   id:id, 
+//   name:name, 
+//   details:details, 
   
 
-})
+// })
     
-  }
+//   }
 
 
 
 
 
 
-  inserPage(){
-    this.navCtrl.push(InsertPage)
-  }
+//   inserPage(){
+//     this.navCtrl.push(InsertPage)
+//   }
 
 
 
