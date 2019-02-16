@@ -9,10 +9,10 @@
         <div class="col-lg-4 col-md-4">
             <div class="thumbnail">
                 <div class="card-show h-100">
-                    <a href="<?php echo e(action('UsersController@showHouse', $house['id'])); ?>"><img class="img-responsive img_house" src="<?php echo e(asset('img/houses/'.$house->photo)); ?>"></a>
+                    <a href="<?php echo e(action('UsersController@showhebergements', $house['id'])); ?>"><img class="img-responsive img_house" src="<?php echo e(asset('img/houses/'.$house->photo)); ?>"></a>
                     <div>
                         <h4 class="title card-title">
-                            <a href="<?php echo e(route('user.showHouse', $house['id'])); ?>"><?php echo e($house->title); ?></a>
+                            <a href="<?php echo e(route('user.showhebergements', $house['id'])); ?>"><?php echo e($house->title); ?></a>
                         </h4>
                         <p class="price"><?php echo e($house->price); ?>€ par nuit</p>
                         <div class="card-infos">

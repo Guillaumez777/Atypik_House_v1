@@ -1805,17 +1805,17 @@
     },
     {
         "name": "mockery/mockery",
-        "version": "0.9.10",
-        "version_normalized": "0.9.10.0",
+        "version": "0.9.11",
+        "version_normalized": "0.9.11.0",
         "source": {
             "type": "git",
             "url": "https://github.com/mockery/mockery.git",
-            "reference": "4876fc0c7d9e5da49712554a35c94d84ed1e9ee5"
+            "reference": "be9bf28d8e57d67883cba9fcadfcff8caab667f8"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/mockery/mockery/zipball/4876fc0c7d9e5da49712554a35c94d84ed1e9ee5",
-            "reference": "4876fc0c7d9e5da49712554a35c94d84ed1e9ee5",
+            "url": "https://api.github.com/repos/mockery/mockery/zipball/be9bf28d8e57d67883cba9fcadfcff8caab667f8",
+            "reference": "be9bf28d8e57d67883cba9fcadfcff8caab667f8",
             "shasum": ""
         },
         "require": {
@@ -1826,7 +1826,7 @@
         "require-dev": {
             "phpunit/phpunit": "~4.0"
         },
-        "time": "2018-11-13T20:50:16+00:00",
+        "time": "2019-02-12T16:07:13+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -3735,17 +3735,17 @@
     },
     {
         "name": "stripe/stripe-php",
-        "version": "v6.29.3",
-        "version_normalized": "6.29.3.0",
+        "version": "v6.30.0",
+        "version_normalized": "6.30.0.0",
         "source": {
             "type": "git",
             "url": "https://github.com/stripe/stripe-php.git",
-            "reference": "373002ee880f24066279f175957e0e372c127298"
+            "reference": "1a2416766200611c6201d16c30ad925cd44316a3"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/stripe/stripe-php/zipball/373002ee880f24066279f175957e0e372c127298",
-            "reference": "373002ee880f24066279f175957e0e372c127298",
+            "url": "https://api.github.com/repos/stripe/stripe-php/zipball/1a2416766200611c6201d16c30ad925cd44316a3",
+            "reference": "1a2416766200611c6201d16c30ad925cd44316a3",
             "shasum": ""
         },
         "require": {
@@ -3760,7 +3760,7 @@
             "squizlabs/php_codesniffer": "~2.0",
             "symfony/process": "~2.8"
         },
-        "time": "2019-01-31T15:23:38+00:00",
+        "time": "2019-02-12T16:48:35+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {

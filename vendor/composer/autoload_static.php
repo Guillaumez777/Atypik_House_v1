@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInitabe8ea9371bc75bf6e5a2b40c0cdd0b2
+class ComposerStaticInit8811ec2dc449c0272fe6763ce592cd66
 {
     public static $files = array (
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
@@ -899,6 +899,7 @@ class ComposerStaticInitabe8ea9371bc75bf6e5a2b40c0cdd0b2
         'Dotenv\\Exception\\InvalidPathException' => __DIR__ . '/..' . '/vlucas/phpdotenv/src/Exception/InvalidPathException.php',
         'Dotenv\\Exception\\ValidationException' => __DIR__ . '/..' . '/vlucas/phpdotenv/src/Exception/ValidationException.php',
         'Dotenv\\Loader' => __DIR__ . '/..' . '/vlucas/phpdotenv/src/Loader.php',
+        'Dotenv\\Parser' => __DIR__ . '/..' . '/vlucas/phpdotenv/src/Parser.php',
         'Dotenv\\Validator' => __DIR__ . '/..' . '/vlucas/phpdotenv/src/Validator.php',
         'Error' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/Error.php',
         'Facebook\\WebDriver\\Chrome\\ChromeDriver' => __DIR__ . '/..' . '/facebook/webdriver/lib/Chrome/ChromeDriver.php',
@@ -3692,7 +3693,7 @@ class ComposerStaticInitabe8ea9371bc75bf6e5a2b40c0cdd0b2
         'Stripe\\BitcoinTransaction' => __DIR__ . '/..' . '/stripe/stripe-php/lib/BitcoinTransaction.php',
         'Stripe\\Card' => __DIR__ . '/..' . '/stripe/stripe-php/lib/Card.php',
         'Stripe\\Charge' => __DIR__ . '/..' . '/stripe/stripe-php/lib/Charge.php',
-        'Stripe\\CheckoutSession' => __DIR__ . '/..' . '/stripe/stripe-php/lib/CheckoutSession.php',
+        'Stripe\\Checkout\\Session' => __DIR__ . '/..' . '/stripe/stripe-php/lib/Checkout/Session.php',
         'Stripe\\Collection' => __DIR__ . '/..' . '/stripe/stripe-php/lib/Collection.php',
         'Stripe\\CountrySpec' => __DIR__ . '/..' . '/stripe/stripe-php/lib/CountrySpec.php',
         'Stripe\\Coupon' => __DIR__ . '/..' . '/stripe/stripe-php/lib/Coupon.php',
@@ -3761,6 +3762,8 @@ class ComposerStaticInitabe8ea9371bc75bf6e5a2b40c0cdd0b2
         'Stripe\\StripeObject' => __DIR__ . '/..' . '/stripe/stripe-php/lib/StripeObject.php',
         'Stripe\\Subscription' => __DIR__ . '/..' . '/stripe/stripe-php/lib/Subscription.php',
         'Stripe\\SubscriptionItem' => __DIR__ . '/..' . '/stripe/stripe-php/lib/SubscriptionItem.php',
+        'Stripe\\SubscriptionSchedule' => __DIR__ . '/..' . '/stripe/stripe-php/lib/SubscriptionSchedule.php',
+        'Stripe\\SubscriptionScheduleRevision' => __DIR__ . '/..' . '/stripe/stripe-php/lib/SubscriptionScheduleRevision.php',
         'Stripe\\Terminal\\ConnectionToken' => __DIR__ . '/..' . '/stripe/stripe-php/lib/Terminal/ConnectionToken.php',
         'Stripe\\Terminal\\Location' => __DIR__ . '/..' . '/stripe/stripe-php/lib/Terminal/Location.php',
         'Stripe\\Terminal\\Reader' => __DIR__ . '/..' . '/stripe/stripe-php/lib/Terminal/Reader.php',
@@ -4518,10 +4521,10 @@ class ComposerStaticInitabe8ea9371bc75bf6e5a2b40c0cdd0b2
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInitabe8ea9371bc75bf6e5a2b40c0cdd0b2::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInitabe8ea9371bc75bf6e5a2b40c0cdd0b2::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInitabe8ea9371bc75bf6e5a2b40c0cdd0b2::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInitabe8ea9371bc75bf6e5a2b40c0cdd0b2::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit8811ec2dc449c0272fe6763ce592cd66::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit8811ec2dc449c0272fe6763ce592cd66::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit8811ec2dc449c0272fe6763ce592cd66::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInit8811ec2dc449c0272fe6763ce592cd66::$classMap;
 
         }, null, ClassLoader::class);
     }
