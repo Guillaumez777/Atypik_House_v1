@@ -154,7 +154,7 @@ Route::get('/users/confirmation{email_token}', 'Auth\RegisterController@confirma
 Route::get('/verifyemail/{token}', 'Auth\RegisterController@verify');
 Auth::routes();
 
-//Paiement Stripe
+// Paiement Stripe
 Route::get('addmoney/stripe', array('as' => 'addmoney.paywithstripe','uses' => 'AddMoneyController@payWithStripe'));
 Route::post('addmoney/stripe', array('as' => 'addmoney.stripe','uses' => 'AddMoneyController@postPaymentWithStripe'));
 Route::get('/confirmpaymentStripe', array('as' => 'addmoney.confirmpayment','uses' => 'AddMoneyController@confirmpaymentStripe'));
