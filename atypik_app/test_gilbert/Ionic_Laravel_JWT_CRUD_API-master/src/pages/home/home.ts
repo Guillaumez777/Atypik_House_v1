@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import {apiKey} from "../../app/apiurls/serverurls.js";
-import { Http } from '@angular/http';
+//import {apiKey} from "../../app/apiurls/serverurls.js";
 import 'rxjs/add/operator/map';
 
 //import { CrudProvider } from '../../providers/crud/crud';
@@ -16,7 +15,7 @@ import 'rxjs/add/operator/map';
 })
 export class HomePage {
   mydata:any
-  constructor(public navCtrl: NavController, private http: Http){
+  constructor(public navCtrl: NavController){
     // this.http.get(apiKey+'users')
     //      .map(res => res.json())
     //      .subscribe(data => {
