@@ -1,10 +1,13 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { Http } from '@angular/http';
-import { HttpClientModule } from '@angular/common/http';
-import { HttpModule } from '@angular/http';
+import { Http, Headers } from '@angular/http';
+import {apiKey} from "../../app/apiurls/serverurls.js";
+//import { HttpClientModule } from '@angular/common/http';
+//import { HttpModule } from '@angular/http';
 import 'rxjs/add/operator/map';
+import { Storage } from '@ionic/storage';
 import { AuthProvider } from '../../providers/auth/auth';
+import { CrudProvider } from '../../providers/crud/crud';
 import { LoginPage } from '../login/login';
 
 
@@ -22,29 +25,45 @@ import { LoginPage } from '../login/login';
 })
 export class HebergementsPage {
   data = [];
-  result: string;
+  houses: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http,public authService: AuthProvider) {
-    this.result = navParams.get('data');
-    console.log(this.result);
+  user:any;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams,public authService: AuthProvider, public storage: Storage, public http: Http) {
+    this.data = navParams.get('data');
+    this.houses = navParams.get('houses');
+    this.user = this.storage.get('user');
+
+    
+    console.log("et oui les gars");
+    console.log(this.user);
+    
+    this.getHouses();
+    
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad HebergementsPage');
-    console.log(this.result)
-    let token = this.result;
-    console.log(token);
-    // this.http.get('http://127.0.0.1:8000/api/mylocations/'+token['id']+'')
-    // // this.http.get('http://127.0.0.1:8000/api/houses')
-    // .map(res => res.json())
-    // .subscribe(data => {
-    //   this.data = data;
-    //   console.log(data);
-    // }, err => {
-    //   console.log("err");
-    // });
-
   }
+
+  getHouses(){
+  this.storage.get("user").then((res)=>{
+  let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+
+    headers.append('Content-Type', 'application/json');
+    headers.append('Accept', 'application/json');
+
+    headers.append('Access-Control-Allow-Origin', '*');
+    headers.append('Access-Control-Allow-Credentials', 'true');
+  this.http.get(apiKey+'mylocations/'+res.id).map(res => res.json())
+    .subscribe(data => {
+        this.houses = data;
+        console.log("gaga");
+        console.log(res.prenom);
+    });
+  })
+ }
 
   myLogout(){
     this.authService.logout();

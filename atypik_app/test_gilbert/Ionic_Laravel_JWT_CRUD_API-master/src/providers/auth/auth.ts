@@ -5,6 +5,7 @@ import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage';
 import {apiKey} from "../../app/apiurls/serverurls.js";
 import { Http , Headers } from '@angular/http';
+import 'rxjs/add/operator/map';
 
 
 /*
@@ -31,20 +32,25 @@ export class AuthProvider {
       headers.append('Accept','application/json');
       headers.append('content-type','application/json');
       
-    
-      this.http.post(apiKey+'auth/login?email='+user.email+'&password='+user.password+'=', JSON.stringify(user), {headers: headers})
+      
+      this.http.post(apiKey+'auth/login?email='+user.email+'&password='+user.password, JSON.stringify(user), {headers: headers})
         .subscribe(res => {
           let data = res.json();   
           this.token = data.token;
           this.storage.set('token', data.token);
-          
-          //
           console.log("coucou");
-          resolve(data);
+          console.log(this.token);
+          this.http.get(apiKey+'user?token='+this.token).map(res => res.json().result).subscribe(data => {
+            this.token = data;
+            console.log(this.token);
+            resolve(this.token)
+        });
         }, (err) => {
           reject(err);
-        });  
+        }); 
     });
+
+    
   }
 
 

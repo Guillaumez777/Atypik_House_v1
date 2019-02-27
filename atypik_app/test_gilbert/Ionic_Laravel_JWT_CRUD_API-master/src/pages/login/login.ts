@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController,AlertController, NavParams  } from 'ionic-angular';
-
+import {apiKey} from "../../app/apiurls/serverurls.js";
+import { Http , Headers } from '@angular/http';
+import { Storage } from '@ionic/storage';
+import 'rxjs/add/operator/map';
 
 import { AuthProvider } from '../../providers/auth/auth';
 import { TabsloginPage } from '../tabslogin/tabslogin';
@@ -25,6 +28,7 @@ export class LoginPage {
 
   email:string = '';
   password:string = '';
+  token:string;
   errorMsg:string;
   result:string;
   rootPage:any ;
@@ -32,7 +36,9 @@ export class LoginPage {
 
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public authService: AuthProvider , public alertCtrl: AlertController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public authService: AuthProvider , public alertCtrl: AlertController,  
+  public http: Http,
+  public storage: Storage) {
   }
 
   ionViewDidLoad() {
@@ -51,7 +57,6 @@ export class LoginPage {
 
 
 
-
   myLogin(){
     if(this.email.trim() == "" && this.password.trim() == ""){
       this. errorFunc("Vous n'avez pas remplis les champs")
@@ -66,22 +71,22 @@ export class LoginPage {
         email: this.email,
         password: this.password
       };
-      console.log(user)
+
       this.authService.login(user).then((result) => {
-        console.log(result);
         console.log("hey");
-        console.log(result['token']);
+        console.log(result); 
+        this.storage.set('user', result)       
         this.navCtrl.push(HebergementsPage, {
-          data : result
+          user : result,
         });
         this.navCtrl.setRoot(TabsloginPage);
         
       }, (err) => {
       this. errorFunc('Votre identifiant ou votre mot de passe est incorrect')
-      console.log("user: "+JSON.stringify(user))
       });
-    }  
   }
+}
+
 
   myLogout(){
     this.authService.logout();

@@ -27,34 +27,7 @@ export class CrudProvider {
 
 
 
-  getPosts(){
-    return new Promise((resolve, reject) => {
-     this.storage.get('token').then((value) => {
-
-       let headers = new Headers();
-       headers.append('Content-Type', 'application/json');
-       headers.append('Authorization', 'Bearer '+value);
-
-       headers.append('Content-Type', 'application/json');
-       headers.append('Accept', 'application/json');
-
-       headers.append('Access-Control-Allow-Origin', 'http://localhost:8100');
-       headers.append('Access-Control-Allow-Credentials', 'true');
-
-       console.log('value: ' + value);
   
-       this.http.get(apiKey+'api/houses', {headers: headers})
-         .map(res => res.json())
-         .subscribe(data => {
-           resolve(data);
-         }, (err) => {
-           reject(err);
-         }); 
-     }) 
-
-   });
-
- }
 
 
 
@@ -72,7 +45,7 @@ export class CrudProvider {
      headers.append('Authorization', 'Bearer '+value);
      console.log('value: ' + value);
 
-     this.http.post(apiKey+'api/houses',  JSON.stringify(postInfo),  {headers: headers})
+     this.http.post(apiKey+'api/',  JSON.stringify(postInfo),  {headers: headers})
        .map(res => res.json())
        .subscribe(data => {
          resolve(data);
