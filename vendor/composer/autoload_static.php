@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit8811ec2dc449c0272fe6763ce592cd66
+class ComposerStaticInit9f724e6450d860f12b14a3b42d4e3a83
 {
     public static $files = array (
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
@@ -477,7 +477,7 @@ class ComposerStaticInit8811ec2dc449c0272fe6763ce592cd66
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
         'App\\Reservation' => __DIR__ . '/../..' . '/app/Reservation.php',
         'App\\User' => __DIR__ . '/../..' . '/app/User.php',
-        'App\\Valuecatpropriete' => __DIR__ . '/../..' . '/app/Valuecatpropriete.php',
+        'App\\Valuecatpropriete' => __DIR__ . '/../..' . '/app/ValuecatPropriete.php',
         'App\\Ville' => __DIR__ . '/../..' . '/app/Ville.php',
         'ArithmeticError' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/ArithmeticError.php',
         'AssertionError' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/AssertionError.php',
@@ -559,7 +559,7 @@ class ComposerStaticInit8811ec2dc449c0272fe6763ce592cd66
         'CreateProprietesTable' => __DIR__ . '/../..' . '/database/migrations/2018_04_25_195248_create_proprietes_table.php',
         'CreateReservationsTable' => __DIR__ . '/../..' . '/database/migrations/2018_04_17_121052_create_reservations_table.php',
         'CreateUsersTable' => __DIR__ . '/../..' . '/database/migrations/2018_10_16_165150_create_users_table.php',
-        'CreateValuecatproprietesTable' => __DIR__ . '/../..' . '/database/migrations/2018_05_23_195943_create_valuecatproprietes_table.php',
+        'CreateValuecatproprietesTable' => __DIR__ . '/../..' . '/database/migrations/2018_05_23_195943_create_valuecatProprietes_table.php',
         'Cron\\AbstractField' => __DIR__ . '/..' . '/mtdowling/cron-expression/src/Cron/AbstractField.php',
         'Cron\\CronExpression' => __DIR__ . '/..' . '/mtdowling/cron-expression/src/Cron/CronExpression.php',
         'Cron\\DayOfMonthField' => __DIR__ . '/..' . '/mtdowling/cron-expression/src/Cron/DayOfMonthField.php',
@@ -3137,6 +3137,7 @@ class ComposerStaticInit8811ec2dc449c0272fe6763ce592cd66
         'PhpParser\\Node\\Expr\\AssignOp\\BitwiseAnd' => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser/Node/Expr/AssignOp/BitwiseAnd.php',
         'PhpParser\\Node\\Expr\\AssignOp\\BitwiseOr' => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser/Node/Expr/AssignOp/BitwiseOr.php',
         'PhpParser\\Node\\Expr\\AssignOp\\BitwiseXor' => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser/Node/Expr/AssignOp/BitwiseXor.php',
+        'PhpParser\\Node\\Expr\\AssignOp\\Coalesce' => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser/Node/Expr/AssignOp/Coalesce.php',
         'PhpParser\\Node\\Expr\\AssignOp\\Concat' => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser/Node/Expr/AssignOp/Concat.php',
         'PhpParser\\Node\\Expr\\AssignOp\\Div' => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser/Node/Expr/AssignOp/Div.php',
         'PhpParser\\Node\\Expr\\AssignOp\\Minus' => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser/Node/Expr/AssignOp/Minus.php',
@@ -4515,16 +4516,16 @@ class ComposerStaticInit8811ec2dc449c0272fe6763ce592cd66
         'phpDocumentor\\Reflection\\Types\\String_' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/Types/String_.php',
         'phpDocumentor\\Reflection\\Types\\This' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/Types/This.php',
         'phpDocumentor\\Reflection\\Types\\Void_' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/Types/Void_.php',
-        'valuecatproprietesTableSeeder' => __DIR__ . '/../..' . '/database/seeds/valuecatproprietesTableSeeder.php',
+        'valuecatproprietesTableSeeder' => __DIR__ . '/../..' . '/database/seeds/valuecatProprietesTableSeeder.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit8811ec2dc449c0272fe6763ce592cd66::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit8811ec2dc449c0272fe6763ce592cd66::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInit8811ec2dc449c0272fe6763ce592cd66::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInit8811ec2dc449c0272fe6763ce592cd66::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit9f724e6450d860f12b14a3b42d4e3a83::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit9f724e6450d860f12b14a3b42d4e3a83::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit9f724e6450d860f12b14a3b42d4e3a83::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInit9f724e6450d860f12b14a3b42d4e3a83::$classMap;
 
         }, null, ClassLoader::class);
     }
