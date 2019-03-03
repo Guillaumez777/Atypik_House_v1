@@ -39,6 +39,7 @@ Route::get('/users', function () {
 	$users = user::all()->toJson();
  	return response($users,200)->header('Content-Type', 'application/json');
 });
+
 Route::get('/houses', function () {
 	$houses = house::all()->toJson();
  	return response($houses,200)->header('Content-Type', 'application/json');
