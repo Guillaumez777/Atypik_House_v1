@@ -42,8 +42,9 @@
                 </div> 
             </div>
         </div>
-    @endforeach
+    
     </div>
+    @endforeach
 </div>
 @section('script')
 <script src="{{ asset('js/jquery.js') }}"></script>
