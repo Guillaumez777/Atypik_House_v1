@@ -1,15 +1,16 @@
 @extends('layouts.app')
+@section('title', 'Nos Hébergements')
 {{-- @section('footer', 'footer_absolute') --}}
 @section('link')
 <link href="{{ asset('css/jquery-ui.min.css') }}" rel="stylesheet">
 @section('content')
 <div class="container list-category">
-    <h2>Mes hébergements</h2>
+    <h2>Mes hébergementssss</h2>
     <div class="row">
     @foreach ($houses as $house)
         <div class="col-lg-4 col-md-4">
             <div class="thumbnail">
-                <div class="card-show h-100">
+                <div class="card-hebergement h-100">
                     <a href="{{action('UsersController@showhebergements', $house['id'])}}"><img class="img-responsive img_house" src="{{ asset('img/houses/'.$house->photo) }}"></a>
                     <div>
                         <h4 class="title card-title">

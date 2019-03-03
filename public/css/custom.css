@@ -198,6 +198,17 @@ p {
 	color: #000;
 }
 
+.card-hebergement {
+	display: block;
+	padding: 5px;
+	color: #000;
+	height: 500px;
+}
+
+.card-hebergement p, .card-hebergement h3, .card-hebergement h4 {
+	padding: 5px 0;
+}
+
 .card-show {
 	display: block;
 	padding: 5px;
