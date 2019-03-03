@@ -13,7 +13,7 @@
                             <p class="card-text">Vous avez bien réservé pour le <?php \Date::setLocale('fr'); $startdate = Date::parse($reservation->start_date)->format('l j F Y'); echo($startdate);?> au <?php \Date::setLocale('fr'); $enddate = Date::parse($reservation->end_date)->format('l j F Y'); echo($enddate);?></p>
                             <p class="card-text">Voici le récapitulatif de l'hebergement que vous avez choisi : </p>
                             <img class="img-responsive img_house" src="{{ asset('img/houses/'.$house->photo) }}"></a>
-                            <div class="card-body">
+                            <div class="card-show">
                                 <h4 class="title card-title">
                                     <a href="#">{{$house->title}}</a>
                                 </h4>
@@ -22,20 +22,21 @@
                                 @foreach($house->valuecatproprietes as $valuecatpropriete)                                  
                                     <p>{{$valuecatpropriete->propriete->propriete}}: {{$valuecatpropriete->value}}</p>                     
                                 @endforeach
-                                <p class="card-text">{{$house->description}}</p>
+                                <p class="card-">{{$house->description}}</p>
                                 <p>Annulation gratuite !</p>
                                 <p> {{$house->ville}}</p>
                                 <h3 class="price">{{$house->price}} € x {{$days}} jours</h3>
                                 <h3 class="price">Total à payer : {{$total}} €</h3>
                                 <p> Si vous voulez réserver cet hébergement veuillez continuer en cliquant sur le bouton ci-dessous</p>
-                                <a class="btn btn-success btn_reserve" href="{{action('AddMoneyController@payWithStripe', ['prix' => $house->price,
-                                                                                                                            'start' => $reservation->start_date,
-                                                                                                                            'end' => $reservation->end_date,
-                                                                                                                            'days' => $days,
-                                                                                                                            'total' => $total,
-                                                                                                                            'user_id' => $reservation->user_id,
-                                                                                                                            'house_id' => $reservation->house_id
-                                                                                                                            ])}}">Aller au paiement</a>
+                                <a class="btn btn-success btn_reserve" href="{{action('AddMoneyController@payWithStripe', 
+                                    ['prix' => $house->price,
+                                    'start' => $reservation->start_date,
+                                    'end' => $reservation->end_date,
+                                    'days' => $days,
+                                    'total' => $total,
+                                    'user_id' => $reservation->user_id,
+                                    'house_id' => $reservation->house_id
+                                    ])}}">Aller au paiement</a>
 
                             </div>
                             
