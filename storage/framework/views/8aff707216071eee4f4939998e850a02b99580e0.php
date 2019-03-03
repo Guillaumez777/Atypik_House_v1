@@ -41,8 +41,9 @@
                 </div> 
             </div>
         </div>
-    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+    
     </div>
+    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 </div>
 <?php $__env->startSection('script'); ?>
 <script src="<?php echo e(asset('js/jquery.js')); ?>"></script>

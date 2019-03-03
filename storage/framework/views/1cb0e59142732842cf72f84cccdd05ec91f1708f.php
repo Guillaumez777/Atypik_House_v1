@@ -2,6 +2,25 @@
 <div class="container list-category">
         <h2 id="hebergements">Nos hébergements</h2>
         <div class="row">
+            <div class="col-lg-12">
+                <div class="input-group">
+                    <span class="input-group-btn">
+                        <form class="form-horizontal" method="get" action="<?php echo e(url('search')); ?>" enctype="multipart/form-data">
+                            <div class="row">
+                                <div class="col-lg-12 col-md-12 col-sm-12" style="margin-bottom: 30px;">
+                                    <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-3 col-sm-9 col-sm-offset-1">
+                                        <div class="form-group button2">
+                                            <?php echo $__env->make('search',['url'=>'search','link'=>'search'], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
         <?php $__currentLoopData = $houses; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $house): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <?php if($house->statut == "Validé"): ?>
                 <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
