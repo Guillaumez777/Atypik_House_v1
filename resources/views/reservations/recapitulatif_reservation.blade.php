@@ -11,6 +11,7 @@
                     <div class="col-md-12">
                         <div class="card h-100 text-center">
                             <p class="card-text">Vous avez bien réservé pour le <?php \Date::setLocale('fr'); $startdate = Date::parse($reservation->start_date)->format('l j F Y'); echo($startdate);?> au <?php \Date::setLocale('fr'); $enddate = Date::parse($reservation->end_date)->format('l j F Y'); echo($enddate);?></p>
+                            <p class="card-text"> à l'adresse: {{$house->adresse}}</p>
                             <p class="card-text">Voici le récapitulatif de l'hebergement que vous avez choisi : </p>
                             <img class="img-responsive img_house" src="{{ asset('img/houses/'.$house->photo) }}"></a>
                             <div class="card-show">

@@ -24,7 +24,7 @@ class HousesTableSeeder extends Seeder
                 'statut' => 'Validé'
             ],
             [
-                'title' => 'Igglo ',
+                'title' => 'Igloo ',
                 'user_id' => 2,
                 'category_id' => 2,
                 'ville' => 'LYON',
