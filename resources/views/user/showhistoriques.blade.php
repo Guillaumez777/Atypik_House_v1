@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title', 'Détail de l"annonde')
 @section('footer', 'footer_absolute')
 @section('content')
 <div class="admin-user-profil">

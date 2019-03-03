@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title', 'Utilisateur')
 @section('footer', 'footer_absolute')
 @section('content')
 

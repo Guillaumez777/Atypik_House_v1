@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title', 'Nos Réservation')
 @section('link')
 <link href="{{ asset('css/jquery-ui.min.css') }}" rel="stylesheet">
 @section('content')

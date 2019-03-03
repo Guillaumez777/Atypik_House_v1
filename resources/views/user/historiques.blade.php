@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title', 'Nos Historiques')
 @section('footer', 'footer_absolute')
 @section('link')
 <link href="{{ asset('css/jquery-ui.min.css') }}" rel="stylesheet">

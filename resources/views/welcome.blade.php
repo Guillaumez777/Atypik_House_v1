@@ -1,7 +1,8 @@
 
         @extends('layouts.app')
+        
         @section('title')
-            Atypikhouse
+            Atypikhouse - Welcome
         @stop
         @section('body')
             <h1 class="text-center">Bienvenue sur Atypikhouse</h1>

@@ -1,4 +1,6 @@
 @extends('layouts.app')
+@section('title', 'Nos Hébergements')
+@section('meta_description', 'Venez découvrir nos locations atypique, nous possèdons un vaste choix de loccation tels que des cabanes, des yourtes, des maisons sur piloti et bien dautres choses encore')
 {{-- @section('footer', 'footer_absolute') --}}
 @section('content')
 <div class="container list-category">
@@ -30,18 +32,21 @@
                     <div class="card h-100">
                             
                         <a href="{{action('UsersController@showHouse', $house['id'])}}"><img class="img-responsive" src="{{ asset('img/houses/'.$house->photo) }}"></a>
-    
-                        <div class="card-body">
-                            <h3 class="card-title"><a href="{{action('UsersController@showHouse', $house->id)}}">{{$house->title}} - </a></h3>
-                            <h3 class="card-title"> {{$house->ville}} </h3>
-                        </div>
                         
-                        <p class="price"> {{$house->price}}€ / nuit</p>
+                        <div class="card-block">
+                            <div class="card-body">
+                                <h3 class="card-title"><a href="{{action('UsersController@showHouse', $house->id)}}"> <?php echo(substr($house->title, 0, 40));?>  </a></h3> 
+                                <h3 class="card-title"> - {{$house->ville}} </h3>
+                                
+                            </div>
+                            
+                            <p class="price"> {{$house->price}}€ / nuit</p>
                         
                         {{-- <div class="note card-footer">
                             <medium class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</medium>
                             <a class="btn btn-success btn_reserve" href="{{action('UsersController@showHouse', $house['id'])}}">Consulter</a>
                         </div> --}}
+                    </div>
                     </div>
                 </div>
             @endif  

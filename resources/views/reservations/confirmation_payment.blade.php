@@ -1,4 +1,5 @@
 @section('content')
+@section('title', 'Confirmation payement')
 @extends('layouts.app')
 @section('link')
 <link href="{{ asset('css/jquery-ui.min.css') }}" rel="stylesheet">

@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title', 'A propose')
 @section('content')
 <div class="container-fluid banner">
     <div class="intro-body">
