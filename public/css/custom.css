@@ -204,7 +204,7 @@ p {
 	color: #000;
 }
 
-.card-show p, .card-show a, .card-show h3, .card-show h4 {
+.card-show p, .card-show h3, .card-show h4 {
 	padding: 5px 0;
 }
 
