@@ -8,21 +8,21 @@
     "packages": [
         {
             "name": "anhskohbo/no-captcha",
-            "version": "3.0.3",
+            "version": "3.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/anhskohbo/no-captcha.git",
-                "reference": "164715a2de0fded5979e7a9b7721785d72a4a7d3"
+                "reference": "fd08c84bd0e05f4a048a9bba800ab64ada9fadfc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/anhskohbo/no-captcha/zipball/164715a2de0fded5979e7a9b7721785d72a4a7d3",
-                "reference": "164715a2de0fded5979e7a9b7721785d72a4a7d3",
+                "url": "https://api.github.com/repos/anhskohbo/no-captcha/zipball/fd08c84bd0e05f4a048a9bba800ab64ada9fadfc",
+                "reference": "fd08c84bd0e05f4a048a9bba800ab64ada9fadfc",
                 "shasum": ""
             },
             "require": {
                 "guzzlehttp/guzzle": "^6.2",
-                "illuminate/support": "5.0.*|5.1.*|5.2.*|5.3.*|5.4.*|5.5.*|5.6.*|5.7.*",
+                "illuminate/support": "5.0.*|5.1.*|5.2.*|5.3.*|5.4.*|5.5.*|5.6.*|5.7.*|5.8.*",
                 "php": ">=5.5.5"
             },
             "require-dev": {
@@ -63,7 +63,7 @@
                 "no-captcha",
                 "recaptcha"
             ],
-            "time": "2018-08-27T02:16:31+00:00"
+            "time": "2019-02-25T10:51:21+00:00"
         },
         {
             "name": "cartalyst/collections",
@@ -1726,16 +1726,16 @@
         },
         {
             "name": "nikic/php-parser",
-            "version": "v4.2.0",
+            "version": "v4.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "594bcae1fc0bccd3993d2f0d61a018e26ac2865a"
+                "reference": "5221f49a608808c1e4d436df32884cbc1b821ac0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/594bcae1fc0bccd3993d2f0d61a018e26ac2865a",
-                "reference": "594bcae1fc0bccd3993d2f0d61a018e26ac2865a",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/5221f49a608808c1e4d436df32884cbc1b821ac0",
+                "reference": "5221f49a608808c1e4d436df32884cbc1b821ac0",
                 "shasum": ""
             },
             "require": {
@@ -1773,7 +1773,7 @@
                 "parser",
                 "php"
             ],
-            "time": "2019-01-12T16:31:37+00:00"
+            "time": "2019-02-16T20:54:15+00:00"
         },
         {
             "name": "paragonie/random_compat",
@@ -2119,16 +2119,16 @@
         },
         {
             "name": "stripe/stripe-php",
-            "version": "v6.30.0",
+            "version": "v6.30.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/stripe/stripe-php.git",
-                "reference": "1a2416766200611c6201d16c30ad925cd44316a3"
+                "reference": "0d9e2773b1df27d4f0c590b15bed3a1433e0414c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/stripe/stripe-php/zipball/1a2416766200611c6201d16c30ad925cd44316a3",
-                "reference": "1a2416766200611c6201d16c30ad925cd44316a3",
+                "url": "https://api.github.com/repos/stripe/stripe-php/zipball/0d9e2773b1df27d4f0c590b15bed3a1433e0414c",
+                "reference": "0d9e2773b1df27d4f0c590b15bed3a1433e0414c",
                 "shasum": ""
             },
             "require": {
@@ -2171,7 +2171,7 @@
                 "payment processing",
                 "stripe"
             ],
-            "time": "2019-02-12T16:48:35+00:00"
+            "time": "2019-02-27T18:07:30+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",

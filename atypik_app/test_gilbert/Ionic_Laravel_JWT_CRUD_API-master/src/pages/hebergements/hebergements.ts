@@ -2,12 +2,9 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Http, Headers } from '@angular/http';
 import {apiKey} from "../../app/apiurls/serverurls.js";
-//import { HttpClientModule } from '@angular/common/http';
-//import { HttpModule } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { Storage } from '@ionic/storage';
 import { AuthProvider } from '../../providers/auth/auth';
-import { CrudProvider } from '../../providers/crud/crud';
 import { LoginPage } from '../login/login';
 
 
@@ -26,10 +23,11 @@ import { LoginPage } from '../login/login';
 export class HebergementsPage {
   data = [];
   houses: any;
-
   user:any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,public authService: AuthProvider, public storage: Storage, public http: Http) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,public authService: AuthProvider,
+    public storage: Storage,
+    public http: Http) {
     this.data = navParams.get('data');
     this.houses = navParams.get('houses');
     this.user = this.storage.get('user');

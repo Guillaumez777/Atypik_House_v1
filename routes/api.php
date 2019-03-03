@@ -35,6 +35,19 @@ Route::get('/mylocations/{id}', function ($id) {
      ->get()->toJson();
  	return response($houseProfil,200)->header('Content-Type', 'application/json');
 });
+
+Route::get('/user/reservations', function ($id) {
+	//$houses = house::get()->where('id', '=', $id)->toJson();
+	$reservationProfil = DB::table('reservations')
+     ->select('users.*', 'reservations.*')
+	 ->leftJoin('reservations', 'reservations.user_id','users.id')
+     ->where('users.id', '=', $id)
+	 ->where('reservations.id', '!=', NULL)
+	 ->where('')
+     ->get()->toJson();
+ 	return response($reservationProfil,200)->header('Content-Type', 'application/json');
+});
+Route::get('/user/reservations/{id}', 'UsersController@reservations')->name('user.reservations');
 Route::get('/users', function () {
 	$users = user::all()->toJson();
  	return response($users,200)->header('Content-Type', 'application/json');

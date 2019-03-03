@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController,AlertController, NavParams  } from 'ionic-angular';
-import {apiKey} from "../../app/apiurls/serverurls.js";
-import { Http , Headers } from '@angular/http';
+import { Http} from '@angular/http';
 import { Storage } from '@ionic/storage';
 import 'rxjs/add/operator/map';
 
