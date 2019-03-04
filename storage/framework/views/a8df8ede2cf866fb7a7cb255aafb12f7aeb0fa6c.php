@@ -1,9 +1,5 @@
 <?php $__env->startSection('title', 'Accueil'); ?>
-
-
-
 <?php $__env->startSection('meta_description', 'Venez découvrir nos locations atypique, nous possèdons un vaste choix de loccation tels que des cabanes, des yourtes, des maisons sur piloti et bien dautres choses encore'); ?>
-
 <?php $__env->startSection('content'); ?>
 <div class="container-fluid banner">
     <div class="intro-body">

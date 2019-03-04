@@ -1,3 +1,6 @@
+<?php $__env->startSection('title', 'Nos Hébergements'); ?>
+<?php $__env->startSection('meta_description', 'Venez découvrir nos locations atypique, nous possèdons un vaste choix de loccation tels que des cabanes, des yourtes, des maisons sur piloti et bien dautres choses encore'); ?>
+
 <?php $__env->startSection('content'); ?>
 <div class="container list-category">
         <h2 id="hebergements">Nos hébergements</h2>
@@ -28,15 +31,18 @@
                     <div class="card h-100">
                             
                         <a href="<?php echo e(action('UsersController@showHouse', $house['id'])); ?>"><img class="img-responsive" src="<?php echo e(asset('img/houses/'.$house->photo)); ?>"></a>
-    
-                        <div class="card-body">
-                            <h3 class="card-title"><a href="<?php echo e(action('UsersController@showHouse', $house->id)); ?>"><?php echo e($house->title); ?> - </a></h3>
-                            <h3 class="card-title"> <?php echo e($house->ville); ?> </h3>
-                        </div>
                         
-                        <p class="price"> <?php echo e($house->price); ?>€ / nuit</p>
+                        <div class="card-block">
+                            <div class="card-body">
+                                <h3 class="card-title"><a href="<?php echo e(action('UsersController@showHouse', $house->id)); ?>"> <?php echo(substr($house->title, 0, 40));?>  </a></h3> 
+                                <h3 class="card-title"> - <?php echo e($house->ville); ?> </h3>
+                                
+                            </div>
+                            
+                            <p class="price"> <?php echo e($house->price); ?>€ / nuit</p>
                         
                         
+                    </div>
                     </div>
                 </div>
             <?php endif; ?>  

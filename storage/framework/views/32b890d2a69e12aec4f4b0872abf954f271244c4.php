@@ -1,3 +1,4 @@
+<?php $__env->startSection('title', 'Détail de l"annonce'); ?>
 <?php $__env->startSection('link'); ?>
 <link href="<?php echo e(asset('css/jquery-ui.min.css')); ?>" rel="stylesheet">
 <?php $__env->startSection('content'); ?>
