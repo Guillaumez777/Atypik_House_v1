@@ -5,7 +5,7 @@
 <link href="{{ asset('css/jquery-ui.min.css') }}" rel="stylesheet">
 @section('content')
 <div class="container list-category">
-    <h2>Mes hébergementssss</h2>
+    <h2>Mes hébergements</h2>
     <div class="row">
     @foreach ($houses as $house)
         <div class="col-lg-4 col-md-4">

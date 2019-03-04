@@ -1,3 +1,4 @@
+<?php $__env->startSection('title', 'Utilisateur'); ?>
 <?php $__env->startSection('footer', 'footer_absolute'); ?>
 <?php $__env->startSection('content'); ?>
 

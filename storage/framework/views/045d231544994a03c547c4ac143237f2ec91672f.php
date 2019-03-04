@@ -88,7 +88,6 @@
                         <!-- Authentication Links -->
                         <?php if(Auth::guest()): ?>
                             <li><a href="<?php echo e(url('/')); ?>">Accueil</a></li>
-                            <li><a href="<?php echo e(route('register')); ?>">Devenir hôte</a></li>
                             <li><a href="<?php echo e(route('houses')); ?>">Nos hébergements</a></li>
                             <li><a href="<?php echo e(route('register')); ?>">Inscription</a></li>
                             <li><a href="<?php echo e(route('login')); ?>">Connexion</a></li>
