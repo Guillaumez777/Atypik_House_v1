@@ -25,6 +25,7 @@ class CreateHouseStep1Request extends FormRequest
     public function rules()
     {
         return [
+            'pays' => 'required|regex:/^[a-zA-Z]+$/u|max:30',
             'ville' => 'required|regex:/^[a-zA-Z]+$/u|max:30',
             'adresse' => 'required|regex:/^[a-zA-Z0-9\s]+$/u|max:30'
         ];
@@ -38,6 +39,9 @@ class CreateHouseStep1Request extends FormRequest
     public function messages()
     {
         return [
+            'pays.required' => 'Veuillez saisir un pays',
+            'pays.max'  => 'Votre pays ne doit pas dépasser 30 caractères',
+            'pays.regex'  => 'Votre pays doit contenir que des lettres et non des caractères spéciaux',
             'ville.required' => 'Veuillez saisir une ville',
             'ville.max'  => 'Votre ville ne doit pas dépasser 30 caractères',
             'ville.regex'  => 'Votre ville doit contenir que des lettres et non des caractères spéciaux',
