@@ -11,25 +11,23 @@
                         <div class="row">
                             <div class="col-lg-12 col-md-12">
                                 <div class="card-show h-100">
-                                    <img class="img-responsive img_house" src="{{ asset('img/houses/'.$historique->house->photo) }}"></a>
+                                    <img class="img-responsive img_house" src="{{ asset('img/houses/'.$house->photo) }}"></a>
                                     <div class="card-center">
                                         <h4 class="title card-title text-center">
-                                            <a href="#">{{$historique->house->title}}</a>
+                                            <a href="#">{{$house->title}}</a>
                                         </h4>
-                                        <h3 class="price">{{$historique->house->price}}€</h3>
-                                        <p>Type de bien : {{$historique->house->category->category}}</p>
-                                        @foreach($historique->house->valuecatproprietes as $valuecatpropriete)
+                                        <h3 class="price">{{$house->price}}€</h3>
+                                        <p>Type de bien : {{$house->category->category}}</p>
+                                        @foreach($house->valuecatproprietes as $valuecatpropriete)
                                             @if($valuecatpropriete->value == 0)
                                             @else
                                                 <p>{{$valuecatpropriete->propriete->propriete}}: {{$valuecatpropriete->value}}</p> 
                                             @endif                                 
                                         @endforeach
-                                        <p><i class="fas fa-calendar"></i> Début: <?php \Date::setLocale('fr'); $startdate = Date::parse($historique->start_date)->format('l j F Y'); echo($startdate);?> </p>
-                                        <p><i class="fas fa-calendar"></i> Fin:  <?php \Date::setLocale('fr'); $enddate = Date::parse($historique->end_date)->format('l j F Y'); echo($enddate);?></p>
-                                        <p class="card-text">{{$historique->house->description}}</p>
+                                        <p class="card-text">{{$house->description}}</p>
                                         <p>Annulation gratuite !</p>
-                                        <p> {{$historique->house->ville}}</p>
-                                        <p> {{$historique->house->adresse}}</p>
+                                        <p> {{$house->ville}}</p>
+                                        <p> {{$house->adresse}}</p>
                                     </div>
                                 </div>
                             </div>
