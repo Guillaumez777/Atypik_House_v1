@@ -26,8 +26,10 @@
                                         @endforeach
                                         <p class="card-text">{{$house->description}}</p>
                                         <p>Annulation gratuite !</p>
-                                        <p> {{$house->ville}}</p>
-                                        <p> {{$house->adresse}}</p>
+                                        <p>Pays: {{$house->pays}}</p>
+                                        <p>Ville: {{$house->ville}}</p>
+                                        <p>Adresse:  {{$house->adresse}}</p>
+                                        <a href="{{route('user.editHouse', $house['id']) }}" class="btn btn-primary">Modifier</a>
                                     </div>
                                 </div>
                             </div>
