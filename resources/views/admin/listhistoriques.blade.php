@@ -27,7 +27,9 @@
                             @endforeach      
                                 <p><?php echo(substr($historique->house->description, 0, 40));?></p>   
                                 <p>Annulation gratuite !</p>
-                                <p> {{$historique->house->ville}}</p>
+                                <p> Pays: {{$historique->house->pays}}</p>
+                                <p> Ville: {{$historique->house->ville}}</p>
+                                <p> Adresse: {{$historique->house->adresse}}</p>
                             <p><i class="fas fa-calendar"></i> Début: <?php \Date::setLocale('fr'); $startdate = Date::parse($historique->start_date)->format('l j F Y'); echo($startdate);?> </p>
                             <p><i class="fas fa-calendar"></i> Fin:  <?php \Date::setLocale('fr'); $enddate = Date::parse($historique->end_date)->format('l j F Y'); echo($enddate);?></p>
                             <h3 class="price">{{$historique->house->price}}€</h3>

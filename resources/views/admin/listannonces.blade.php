@@ -29,8 +29,9 @@
                                         @endforeach      
                                             <p><?php echo(substr($house->description, 0, 40));?></p>   
                                             <p>Annulation gratuite !</p>
-                                            <p> {{$house->ville}}</p>
-                                            <p> {{$house->adresse}}</p>
+                                            <p> Pays: {{$house->pays}}</p>
+                                            <p> Ville: {{$house->ville}}</p>
+                                            <p> Adresse: {{$house->adresse}}</p>
                                         @if($house->statut == "En attente de validation")
                                             <p>Statut: <span style="color:red;"><?php echo($house->statut);?></span></p>
                                         @else

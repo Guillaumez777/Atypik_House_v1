@@ -28,8 +28,9 @@
                                         <p><i class="fas fa-calendar"></i> Fin:  <?php \Date::setLocale('fr'); $enddate = Date::parse($historique->end_date)->format('l j F Y'); echo($enddate);?></p>
                                         <p class="card-text">{{$historique->house->description}}</p>
                                         <p>Annulation gratuite !</p>
-                                        <p> {{$historique->house->ville}}</p>
-                                        <p> {{$historique->house->adresse}}</p>
+                                        <p> Pays: {{$historique->house->pays}}</p>
+                                        <p> Ville: {{$historique->house->ville}}</p>
+                                        <p> Adresse: {{$historique->house->adresse}}</p>
                                     </div>
                                 </div>
                             </div>

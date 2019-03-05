@@ -24,8 +24,9 @@
                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                 <p><?php echo e($house->description); ?></p>
                                 <p>Annulation gratuite !</p>
-                                <p> <?php echo e($house->ville); ?></p>
-                                <p> <?php echo e($house->adresse); ?></p>
+                                <p> Pays: <?php echo e($house->pays); ?></p>
+                                <p> Ville: <?php echo e($house->ville); ?></p>
+                                <p> Adresse: <?php echo e($house->adresse); ?></p>
                             </div>
                             <!-- <div class="card-footer">              
                                                 
@@ -86,7 +87,7 @@
 
                             </div>
                             <div class="col-sm-3 text-right">
-                                <small>Posté par <?php echo e($comment->user->prenom); ?></small><br/>
+                                <small>Posté par <?php echo e($comment->user->prenom); ?> <?php echo e($comment->user->nom); ?></small><br/>
                                 <small>Note: <?php echo e($comment->note); ?>/5</small>
                             </div>
                         </div>

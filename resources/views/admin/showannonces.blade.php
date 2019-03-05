@@ -23,8 +23,9 @@
                                     @endforeach
                                     <p class="card-text">{{$house->description}}</p>
                                     <p>Annulation gratuite !</p>
-                                    <p> {{$house->ville}}</p>
-                                    <p> {{$house->adresse}}</p>
+                                    <p> Pays: {{$house->pays}}</p>
+                                    <p> Ville: {{$house->ville}}</p>
+                                    <p> Adresse: {{$house->adresse}}</p>
                                 </div>
                             </div>
                         </div>
@@ -37,7 +38,7 @@
                                     {{ $comment->comment }}
                                 </div>
                                 <div class="col-sm-3 text-right">
-                                    <small>Posté par {{ $comment->user->prenom }}</small><br/>
+                                    <small>Posté par {{ $comment->user->prenom }} {{ $comment->user->nom }}</small><br/>
                                     <small>Note: {{$comment->note}}/5</small>
                                 </div>
                             </div>

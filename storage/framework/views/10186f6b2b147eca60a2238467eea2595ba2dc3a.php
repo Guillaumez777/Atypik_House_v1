@@ -1,3 +1,4 @@
+<?php $__env->startSection('title', 'CGU'); ?>
 <?php $__env->startSection('content'); ?>
 <div class="container-fluid banner">
     <div class="intro-body">

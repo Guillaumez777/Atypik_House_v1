@@ -1,3 +1,4 @@
+<?php $__env->startSection('title', 'Politique de confidentialité'); ?>
 <?php $__env->startSection('content'); ?>
 <div class="container-fluid banner">
     <div class="intro-body">

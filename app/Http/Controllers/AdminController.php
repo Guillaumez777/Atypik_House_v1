@@ -270,7 +270,7 @@ class AdminController extends Controller
     }
 
     public function deleteAnnonce($id) {
-        $house = house::where('id', $id)->get();
+        $house = house::find($id);
         $house->delete();
         return redirect()->back()->with('success', "L'annonce a bien été supprimée");
     }
