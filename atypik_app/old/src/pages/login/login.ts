@@ -24,13 +24,58 @@ export class LoginPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
   }
+<<<<<<< HEAD
+/*********************************/
+
+  //headers : HttpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' });
+=======
+>>>>>>> a4db5289a1246e70c1897c1ac2a342e451ad4e6a
 
   login(){
   //api connections
   
   	this.navCtrl.push(TabsPage);
 
+<<<<<<< HEAD
+  //headers : HttpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' });
+  var url = 'http://127.0.0.1:8000/login';
+  var myData = JSON.stringify({email: this.userMail.value, password: 
+    this.userPassword.value});
+
+    /************************************************/
+  // test de recuperation d'info login
+  //var myData = JSON.stringify({username: this.data.email, password: this.data.Password});
+
+  // requete post de login
+  //this.http.post(url, userData)
+  //  .then((result) => {
+  //    this.navCtrl.push(TabsPage);
+  //})
+  //.catch(error => {
+  //
+  //  console.log("error login");
+  //});
+
+  //, {headers: this.header}
+/******************************************************/
+
+  this.http.post(url, myData).then(result => {
+    console.log('user connecte', this.userMail.value, this.userPassword.value);
+    this.alert('success');
+    this.navCtrl.push(TabsPage);
+  }) .catch( error => {
+    console.log('error');
+  })
+  console.log('logintest');
+
+  }
+
+
+
+
+=======
   } 
+>>>>>>> a4db5289a1246e70c1897c1ac2a342e451ad4e6a
 
   retour(){
   //api connections

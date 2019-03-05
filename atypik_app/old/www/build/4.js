@@ -1,14 +1,22 @@
 webpackJsonp([4],{
 
+<<<<<<< HEAD
+/***/ 294:
+=======
 /***/ 288:
+>>>>>>> a4db5289a1246e70c1897c1ac2a342e451ad4e6a
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PrezAvisPageModule", function() { return PrezAvisPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ResetPasswordPageModule", function() { return ResetPasswordPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
+<<<<<<< HEAD
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__reset_password__ = __webpack_require__(105);
+=======
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__prez_avis__ = __webpack_require__(206);
+>>>>>>> a4db5289a1246e70c1897c1ac2a342e451ad4e6a
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,23 +26,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var PrezAvisPageModule = (function () {
-    function PrezAvisPageModule() {
+var ResetPasswordPageModule = (function () {
+    function ResetPasswordPageModule() {
     }
-    PrezAvisPageModule = __decorate([
+    ResetPasswordPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__prez_avis__["a" /* PrezAvisPage */],
+                __WEBPACK_IMPORTED_MODULE_2__reset_password__["a" /* ResetPasswordPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__prez_avis__["a" /* PrezAvisPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__reset_password__["a" /* ResetPasswordPage */]),
             ],
         })
-    ], PrezAvisPageModule);
-    return PrezAvisPageModule;
+    ], ResetPasswordPageModule);
+    return ResetPasswordPageModule;
 }());
 
-//# sourceMappingURL=prez-avis.module.js.map
+//# sourceMappingURL=reset-password.module.js.map
 
 /***/ })
 
