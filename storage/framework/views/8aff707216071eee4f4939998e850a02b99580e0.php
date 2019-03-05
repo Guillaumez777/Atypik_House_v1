@@ -1,3 +1,4 @@
+<?php $__env->startSection('title', 'Nos Réservation'); ?>
 <?php $__env->startSection('link'); ?>
 <link href="<?php echo e(asset('css/jquery-ui.min.css')); ?>" rel="stylesheet">
 <?php $__env->startSection('content'); ?>
@@ -7,7 +8,7 @@
     <?php $__currentLoopData = $reservations; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $reservation): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
         <div class="col-lg-4 col-md-4">
             <div class="thumbnail">
-                <div class="card h-100">
+                <div class="card-show h-100">
                     <a href="<?php echo e(action('UsersController@showreservations', $reservation['id'])); ?>"><img class="img-responsive img_house" src="<?php echo e(asset('img/houses/'.$reservation->house->photo)); ?>"></a>
                     <div>
                         <h4 class="title card-title text-center">
@@ -41,8 +42,9 @@
                 </div> 
             </div>
         </div>
-    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+    
     </div>
+    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 </div>
 <?php $__env->startSection('script'); ?>
 <script src="<?php echo e(asset('js/jquery.js')); ?>"></script>

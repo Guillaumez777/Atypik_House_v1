@@ -11,12 +11,10 @@ class AdminLoginController extends Controller
         //defining our middleware for this controller
         $this->middleware('guest:admin',['except' => ['logout']]);
     }
-
     //function to show admin login form
     public function showLoginForm() {
         return view('auth.admin-login');
     }
-    
     //function to login admins
     public function login(Request $request) {
         //validate the form data
@@ -33,7 +31,6 @@ class AdminLoginController extends Controller
         return redirect()->back()->withInput($request->only('email','remember'));
       
     }
-
     public function logout()
     {
         Auth::guard('admin')->logout();

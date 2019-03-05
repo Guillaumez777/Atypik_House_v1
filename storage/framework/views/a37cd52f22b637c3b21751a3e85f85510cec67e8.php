@@ -1,3 +1,5 @@
+<?php $__env->startSection('title', 'Etape 1'); ?>
+<?php $__env->startSection('footer', 'footer_absolute'); ?>
 <div class="container">
     <div class="row">
         <div class="col-md-12">
@@ -11,6 +13,18 @@
 
                         
                         <p>1. Où se situe votre bien?</p>
+
+                        <div class="form-group<?php echo e($errors->has('pays') ? ' has-error' : ''); ?>">
+                            <label for="name" class="col-md-4 control-label">Pays</label>
+                            <div class="col-md-6">
+                                <input id="name" type="text" class="form-control" name="pays" onkeyup="this.value=this.value.toUpperCase()" placeholder="Saisir le pays" autofocus value="<?php echo e(old('pays')); ?>">
+                                <?php if($errors->has('pays')): ?>
+                                    <span class="help-block">
+                                        <strong><?php echo e($errors->first('pays')); ?></strong>
+                                    </span>
+                                <?php endif; ?>
+                            </div>
+                        </div>
                         <div class="form-group<?php echo e($errors->has('ville') ? ' has-error' : ''); ?>">
                             <label for="name" class="col-md-4 control-label">Ville</label>
                             <div class="col-md-6">

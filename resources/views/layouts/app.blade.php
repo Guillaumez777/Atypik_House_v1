@@ -87,7 +87,6 @@
                         <!-- Authentication Links -->
                         @if (Auth::guest())
                             <li><a href="{{ url('/') }}">Accueil</a></li>
-                            <li><a href="{{ route('register') }}">Devenir hôte</a></li>
                             <li><a href="{{ route('houses') }}">Nos hébergements</a></li>
                             <li><a href="{{ route('register') }}">Inscription</a></li>
                             <li><a href="{{ route('login') }}">Connexion</a></li>

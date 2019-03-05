@@ -1,11 +1,8 @@
-import { Component, ViewChild, Injectable } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { Component } from '@angular/core';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { TabsPage } from '../tabs/tabs';
 import { WelcomePPage } from '../welcome-p/welcome-p';
 import { ResetPasswordPage } from '../reset-password/reset-password';
-
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-
 
 /**
  * Generated class for the LoginPage page.
@@ -21,36 +18,25 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class LoginPage {
 
-  @ViewChild('emailU') userMail;
-  @ViewChild('passwordU') userPassword;
-
-/******************************************/
-//responseData : any;
-//userData = {"name": "","password": ""};
-
-//public http: Http
-
-/***************************************/
-  constructor(public navCtrl: NavController, public navParams: NavParams, public http: HttpClient) {
-
-    /*******************************/
-    /* test with ng.name          */
-    /*this.data.email = '';     */
-    /*this.data.Password = '';*/
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
- /********************************/
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
   }
+<<<<<<< HEAD
 /*********************************/
 
   //headers : HttpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' });
+=======
+>>>>>>> a4db5289a1246e70c1897c1ac2a342e451ad4e6a
 
   login(){
-
   //api connections
+  
+  	this.navCtrl.push(TabsPage);
 
+<<<<<<< HEAD
   //headers : HttpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' });
   var url = 'http://127.0.0.1:8000/login';
   var myData = JSON.stringify({email: this.userMail.value, password: 
@@ -87,8 +73,10 @@ export class LoginPage {
 
 
 
+=======
+  } 
+>>>>>>> a4db5289a1246e70c1897c1ac2a342e451ad4e6a
 
-/*********************************/
   retour(){
   //api connections
   
@@ -96,11 +84,6 @@ export class LoginPage {
 
   }
 
-
-
-
-
-/*********************************/
   resetMdp(){
   //api connections
   

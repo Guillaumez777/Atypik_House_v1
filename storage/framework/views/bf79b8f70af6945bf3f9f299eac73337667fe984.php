@@ -1,3 +1,5 @@
+<?php $__env->startSection('title', 'Etape 4'); ?>
+<?php $__env->startSection('footer', 'footer_absolute'); ?>
 <?php $__env->startSection('content'); ?>
 <div class="container">
     <div class="row">

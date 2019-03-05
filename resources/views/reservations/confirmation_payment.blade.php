@@ -1,4 +1,5 @@
 @section('content')
+@section('title', 'Confirmation payement')
 @extends('layouts.app')
 @section('link')
 <link href="{{ asset('css/jquery-ui.min.css') }}" rel="stylesheet">
@@ -11,7 +12,7 @@
                     <div class="col-md-12">
                         <div class="card h-100 text-center">
                             <p class="card-text">Vous avez bien payer pour le <?php \Date::setLocale('fr'); $startdate = Date::parse($reservation->start_date)->format('l j F Y'); echo($startdate);?> au <?php \Date::setLocale('fr'); $enddate = Date::parse($reservation->end_date)->format('l j F Y'); echo($enddate);?></p>
-                            <div class="card-body">
+                            <div>
                                 <a class="btn btn-success btn_reserve" href="{{ route('houses') }}">Voir nos hebergements</a>
                             </div> 
                         <div>

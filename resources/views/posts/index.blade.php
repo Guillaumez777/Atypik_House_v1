@@ -2,6 +2,7 @@
 <!-- views/form/index.blade.php --> 
 <!--============================--> 
 @extends('layouts.app') 
+@section('title', 'Contact')
 @section('footer', 'footer_absolute')
 @section('content') 
     <div class="container" id="form"> 

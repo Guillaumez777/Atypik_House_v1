@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title', 'Etape 1')
 @section('footer', 'footer_absolute')
 <div class="container">
     <div class="row">
@@ -11,6 +12,18 @@
                         {{ csrf_field() }}
                         
                         <p>1. Où se situe votre bien?</p>
+
+                        <div class="form-group{{ $errors->has('pays') ? ' has-error' : '' }}">
+                            <label for="name" class="col-md-4 control-label">Pays</label>
+                            <div class="col-md-6">
+                                <input id="name" type="text" class="form-control" name="pays" onkeyup="this.value=this.value.toUpperCase()" placeholder="Saisir le pays" autofocus value="{{ old('pays') }}">
+                                @if ($errors->has('pays'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('pays') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
                         <div class="form-group{{ $errors->has('ville') ? ' has-error' : '' }}">
                             <label for="name" class="col-md-4 control-label">Ville</label>
                             <div class="col-md-6">

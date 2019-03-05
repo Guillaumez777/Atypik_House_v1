@@ -13,28 +13,46 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+// Route::middleware('auth:api')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
+
+Route::post('auth/register', 'AuthenticateController@register');
+Route::post('auth/login', 'AuthenticateController@login');
+Route::group(['middleware' => 'jwt.auth'], function () {
+    Route::get('user', 'AuthenticateController@getAuthUser');
+    
+});
+use App\House;
+use App\User;
+Route::get('/mylocations/{id}', function ($id) {
+	//$houses = house::get()->where('id', '=', $id)->toJson();
+	$houseProfil = DB::table('users')
+     ->select('users.*', 'houses.*')
+     ->leftJoin('houses', 'houses.user_id','users.id')
+     ->where('users.id', '=', $id)
+     ->where('houses.id', '!=', NULL)
+     ->get()->toJson();
+ 	return response($houseProfil,200)->header('Content-Type', 'application/json');
 });
 
-use App\User;
+Route::get('/user/reservations', function ($id) {
+	//$houses = house::get()->where('id', '=', $id)->toJson();
+	$reservationProfil = DB::table('reservations')
+     ->select('users.*', 'reservations.*')
+	 ->leftJoin('reservations', 'reservations.user_id','users.id')
+     ->where('users.id', '=', $id)
+	 ->where('reservations.id', '!=', NULL)
+	 ->where('')
+     ->get()->toJson();
+ 	return response($reservationProfil,200)->header('Content-Type', 'application/json');
+});
+Route::get('/user/reservations/{id}', 'UsersController@reservations')->name('user.reservations');
 Route::get('/users', function () {
 	$users = user::all()->toJson();
  	return response($users,200)->header('Content-Type', 'application/json');
 });
 
-Route::post('/login_api',function () {
-
-	$this->validate($request, ['email' => 'required|email', 'password' => 'required']);
-        if ($this->signIn($request)) {
-            flash('Welcome back!');
-            return redirect()->intended('/dashboard');
-        }
-        flash('Could not sign you in.');
-        return response(200)->header('Content-Type', 'application/json');
-});
-
-use App\House;
 Route::get('/houses', function () {
 	$houses = house::all()->toJson();
  	return response($houses,200)->header('Content-Type', 'application/json');

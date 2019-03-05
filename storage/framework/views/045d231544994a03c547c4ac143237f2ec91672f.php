@@ -88,7 +88,6 @@
                         <!-- Authentication Links -->
                         <?php if(Auth::guest()): ?>
                             <li><a href="<?php echo e(url('/')); ?>">Accueil</a></li>
-                            <li><a href="<?php echo e(route('register')); ?>">Devenir hôte</a></li>
                             <li><a href="<?php echo e(route('houses')); ?>">Nos hébergements</a></li>
                             <li><a href="<?php echo e(route('register')); ?>">Inscription</a></li>
                             <li><a href="<?php echo e(route('login')); ?>">Connexion</a></li>
@@ -149,7 +148,7 @@
         </nav>
     </div>
         <?php echo $__env->yieldContent('content'); ?>
-    <footer>
+    <footer class="<?php echo $__env->yieldContent('footer'); ?>">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-offset-2 col-md-3">
@@ -167,14 +166,10 @@
                 </div>
                 <div class="col-md-3">
                     <ul id="reseaux">
-                        <div>
-                            <li><a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-square fa-2x"></i></a></li>
-                            <li><a href="https://twitter.com" target="_blank"><i class="fab fa-twitter-square fa-2x"></i></a></li>
-                        </div>
-                        <div>
-                            <li><a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram fa-2x"></i></a></li>
-                            <li><a href="https://www.youtube.com" target="_blank"><i class="fab fa-youtube-square fa-2x"></i></a></li>
-                        </div>
+                        <div><li><a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-square fa-2x"></i></a></li></div>
+                        <div><li><a href="https://twitter.com" target="_blank"><i class="fab fa-twitter-square fa-2x"></i></a></li></div>
+                        <div><li><a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram fa-2x"></i></a></li></div>
+                        <div><li><a href="https://www.youtube.com" target="_blank"><i class="fab fa-youtube-square fa-2x"></i></a></li></div>
                     </ul>
                 </div>
             </div>

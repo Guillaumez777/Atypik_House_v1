@@ -198,13 +198,20 @@ p {
 	color: #000;
 }
 
+.card-hebergement {
+	display: block;
+	padding: 5px;
+	color: #000;
+	height: 500px;
+}
+
 .card-show {
 	display: block;
 	padding: 5px;
 	color: #000;
 }
 
-.card-show * {
+.card-show p, .card-show h3, .card-show h4 {
 	padding: 5px 0;
 }
 
@@ -212,15 +219,9 @@ p {
 .card-text {
 	padding: 15px 0px;
 }
-.card-title {
-	
-}
+
 .card-title a{
 	color: #000;
-}
-
-.card-infos {
-	
 }
 
 
@@ -245,6 +246,19 @@ p {
 .block_home_2_child p {
 	margin: 15px 0;
 	color: #3f4b30;
+}
+
+/* FAQ */
+#faq {
+	/* background-color: white; */
+}
+
+#faq * {
+	padding: 10px;
+}
+
+#faq h3, #faq h2 {
+	text-align: center;
 }
 
 /* Registration */
@@ -272,7 +286,7 @@ footer li {
 footer li a{
 	list-style: none;
 	text-decoration: none;
-	cocr: #000;
+	color: #000;
 }
 
 footer li a:hover{

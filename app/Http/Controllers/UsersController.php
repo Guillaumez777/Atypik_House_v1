@@ -196,4 +196,12 @@ class UsersController extends Controller
                                               ->with('users', $users)
                                               ->with('historique', $historique);
     }
+
+    public function showhebergements($id)
+    {
+        $house = House::find($id);
+        return view('user.showhebergements')->with('house', $house);
+                                              
+    }
+
 }

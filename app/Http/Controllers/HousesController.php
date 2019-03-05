@@ -64,6 +64,9 @@ class HousesController extends Controller
 
     public function postcreate_step1(CreateHouseStep1Request $request) {
 
+        $housePays = session('housePays', $request->pays);
+        $request->session()->push('housePays', $request->pays);
+
         $houseVille = session('houseVille', $request->ville);
         $request->session()->push('houseVille', $request->ville);
 
@@ -81,12 +84,14 @@ class HousesController extends Controller
         $request->session()->forget('houseProprietes');
         $request->session()->forget('houseProprietesId');
 
+        $housePays = $request->session()->get('housePays');
         $houseVille = $request->session()->get('houseVille');
         $houseAdresse = $request->session()->get('houseAdresse');
         $ville = $request->old('ville');
         
         return view('houses.create_step2', [
             'categories' => $categories,
+            'housePays' => $housePays,
             'houseVille' => $houseVille,
             'houseAdresse' => $houseAdresse
         ]);
@@ -115,7 +120,8 @@ class HousesController extends Controller
             //     $request->session()->push('houseProprieteLabel', $labelPropriete);
             // }
         }
-        
+
+        $housePays = $request->session()->get('housePays');
         $houseVille = $request->session()->get('houseVille');
         $houseAdresse = $request->session()->get('houseAdresse');
 
@@ -139,7 +145,8 @@ class HousesController extends Controller
     public function postcreate_step3(CreateHouseStep3Request $request) {
         $housePrix = session('housePrix', $request->price);
         $request->session()->push('housePrix', $request->price);
-    
+        
+        $housePays = $request->session()->get('housePays');
         $houseVille = $request->session()->get('houseVille');
         $houseAdresse = $request->session()->get('houseAdresse');
         $houseTitle = $request->session()->get('houseTitle');
@@ -157,6 +164,7 @@ class HousesController extends Controller
         $houseTitle = $request->session()->get('houseTitle');
         $houseUser = $request->session()->get('houseUser');
         $houseCategory = $request->session()->get('houseCategory');
+        $housePays = $request->session()->get('housePays');
         $houseVille = $request->session()->get('houseVille');
         $houseAdresse = $request->session()->get('houseAdresse');
         $houseDescription = $request->session()->get('houseDescription');
@@ -169,6 +177,7 @@ class HousesController extends Controller
         $house->title = last($houseTitle);
         $house->user_id = last($houseUser);
         $house->category_id = last($houseCategory);
+        $house->pays = last($housePays);
         $house->ville = last($houseVille);
         $house->adresse = last($houseAdresse);
         $house->description = last($houseDescription);

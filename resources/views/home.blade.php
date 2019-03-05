@@ -1,11 +1,6 @@
 @extends('layouts.app')
-
 @section('title', 'Accueil')
-
-
-
 @section('meta_description', 'Venez découvrir nos locations atypique, nous possèdons un vaste choix de loccation tels que des cabanes, des yourtes, des maisons sur piloti et bien dautres choses encore')
-
 @section('content')
 <div class="container-fluid banner">
     <div class="intro-body">
@@ -56,15 +51,15 @@
     <div class="row">
     @foreach($houses as $house)
         @if($house->statut == "Validé")
-            <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+            <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
                     
                 <div class="card h-100">
                         
                     <a href="{{action('UsersController@showHouse', $house['id'])}}"><img class="img-responsive" src="{{ asset('img/houses/'.$house->photo) }}"></a>
                     <div class="card-block">
                         <div class="card-body">
-                            <h3 class="card-title"><a href="{{action('UsersController@showHouse', $house->id)}}">{{$house->title}} - </a></h3>
-                            <h3 class="card-title"> {{$house->ville}} </h3>
+                            <h3 class="card-title"><a href="{{action('UsersController@showHouse', $house->id)}}"> <?php echo(substr($house->title, 0, 40));?>  </a></h3> 
+                            <h3 class="card-title"> - {{$house->ville}} </h3>
                             
                         </div>
                         
@@ -75,10 +70,25 @@
                         <a class="btn btn-success btn_reserve" href="{{action('UsersController@showHouse', $house['id'])}}">Consulter</a>
                     </div> --}}
                 </div>
+
                 </div>
             </div>
         @endif  
     @endforeach
     </div>
+
+    <div id="faq">
+        <div class="col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-sm-12">
+            <h2>FAQ : </h2>
+            <h3>Mon paiement est-it sécurisée ?</h3>
+            <p>Nous disposons d’un système de crytpage SSL pour protéger vos données personnelles ainsi que les moyens de paiement utilisés. Nous utilisons le système de paiement sécurisé de Stripe</p>
+            <h3>SERVICE CLIENT 24/7</h3>
+            <p>Notre équipe est à votre disposition pour toute question sur nos articles, votre commande ou autre question d'ordre générale</p>
+            <h3>Mon paiement est-it sécurisée ?</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id deserunt pariatur praesentium, dolor obcaecati quia qui iste nam? Est nesciunt blanditiis magni ab omnis architecto deserunt maiores, sapiente quaerat quibusdam.</p>
+        </div>
+    </div>
+
 </div>
+
 @endsection

@@ -20,6 +20,7 @@ Route::post('/login', 'SessionsController@login');
 Route::get('/verifyemail/{token}', 'Auth\RegisterController@verify');
 
 Route::get('/user/showHouse/{id}', 'UsersController@showHouse')->name('user.showHouse');
+Route::get('/user/showhebergement/{id}', 'UsersController@showhebergements')->name('user.showhebergements');
 
 Route::get('/apropos', 'HomeController@Apropos')->name('Apropos');
 Route::get('/mentions_legales', 'HomeController@mentions_legales')->name('mentions_legales');
@@ -67,7 +68,7 @@ Route::prefix('admin')->group(function () {
 
     //Connexion et déconnexion
     Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
-    //Route::post('/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
+    Route::post('/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
     Route::get('/logout','Auth\AdminLoginController@logout')->name('admin.logout');
 
     //Profil de l'utilisateur
@@ -153,7 +154,7 @@ Route::get('/users/confirmation{email_token}', 'Auth\RegisterController@confirma
 Route::get('/verifyemail/{token}', 'Auth\RegisterController@verify');
 Auth::routes();
 
-//Paiement Stripe
+// Paiement Stripe
 Route::get('addmoney/stripe', array('as' => 'addmoney.paywithstripe','uses' => 'AddMoneyController@payWithStripe'));
 Route::post('addmoney/stripe', array('as' => 'addmoney.stripe','uses' => 'AddMoneyController@postPaymentWithStripe'));
 Route::get('/confirmpaymentStripe', array('as' => 'addmoney.confirmpayment','uses' => 'AddMoneyController@confirmpaymentStripe'));

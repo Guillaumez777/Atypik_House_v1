@@ -1,7 +1,5 @@
 <?php $__env->startSection('title', 'Accueil'); ?>
-
 <?php $__env->startSection('meta_description', 'Venez découvrir nos locations atypique, nous possèdons un vaste choix de loccation tels que des cabanes, des yourtes, des maisons sur piloti et bien dautres choses encore'); ?>
-
 <?php $__env->startSection('content'); ?>
 <div class="container-fluid banner">
     <div class="intro-body">
@@ -52,40 +50,43 @@
     <div class="row">
     <?php $__currentLoopData = $houses; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $house): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
         <?php if($house->statut == "Validé"): ?>
-            <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+            <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
+                    
                 <div class="card h-100">
+                        
                     <a href="<?php echo e(action('UsersController@showHouse', $house['id'])); ?>"><img class="img-responsive" src="<?php echo e(asset('img/houses/'.$house->photo)); ?>"></a>
-                    <div class="card-body">
-                        <h3 class="title card-title text-center">
-                            <a href="<?php echo e(action('UsersController@showHouse', $house->id)); ?>"><?php echo e($house->title); ?></a>   
-                        </h3>
-                        <p class="price"><?php echo e($house->price); ?>€ par nuit</p>
-                        <div class="card-infos">
-                            <p>Type de bien : <?php echo e($house->category->category); ?></p>
-                            <?php $__currentLoopData = $house->valuecatproprietes; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $valuecatpropriete): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                <?php if($loop->iteration > 0): ?>
-                                    <?php if($valuecatpropriete->value == 0): ?>
-                                    <?php else: ?>
-                                        <p><?php echo e($valuecatpropriete->propriete->propriete); ?>: <?php echo e($valuecatpropriete->value); ?></p> 
-                                    <?php endif; ?>
-                                <?php break; ?>   
-                                <?php endif; ?>      
-                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                            <p><?php echo(substr($house->description, 0, 40));?></p>   
-                            <p>Annulation gratuite !</p>
-                            <p> <?php echo e($house->ville); ?></p>
+                    <div class="card-block">
+                        <div class="card-body">
+                            <h3 class="card-title"><a href="<?php echo e(action('UsersController@showHouse', $house->id)); ?>"> <?php echo(substr($house->title, 0, 40));?>  </a></h3> 
+                            <h3 class="card-title"> - <?php echo e($house->ville); ?> </h3>
+                            
                         </div>
-                    </div>
-                    <div class="note card-footer">
-                        <medium class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</medium>
-                        <a class="btn btn-success btn_reserve" href="<?php echo e(action('UsersController@showHouse', $house['id'])); ?>">Consulter</a>
-                    </div>
+                        
+                        <p class="price"> <?php echo e($house->price); ?>€ / nuit</p>
+                    
+                    
+                </div>
+
                 </div>
             </div>
         <?php endif; ?>  
     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
     </div>
+
+    <div id="faq">
+        <div class="col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-sm-12">
+            <h2>FAQ : </h2>
+            <h3>Mon paiement est-it sécurisée ?</h3>
+            <p>Nous disposons d’un système de crytpage SSL pour protéger vos données personnelles ainsi que les moyens de paiement utilisés. Nous utilisons le système de paiement sécurisé de Stripe</p>
+            <h3>SERVICE CLIENT 24/7</h3>
+            <p>Notre équipe est à votre disposition pour toute question sur nos articles, votre commande ou autre question d'ordre générale</p>
+            <h3>Mon paiement est-it sécurisée ?</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id deserunt pariatur praesentium, dolor obcaecati quia qui iste nam? Est nesciunt blanditiis magni ab omnis architecto deserunt maiores, sapiente quaerat quibusdam.</p>
+        </div>
+    </div>
+
 </div>
+
 <?php $__env->stopSection(); ?>
 
 <?php echo $__env->make('layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
