@@ -204,7 +204,7 @@ class AdminController extends Controller
         $users = User::where('id', $id)->get();
         $houses = House::where('user_id', $id)->get();
         $today = Date::now();
-        $reservations = reservation::find($id)->where('start_date', '>=', $today)->get();
+        $reservations = reservation::where('house_id', $id)->where('start_date', '>=', $today)->get();
         
         return view('admin.listreservations')->with('houses', $houses)
                                               ->with('users', $users)
@@ -265,7 +265,7 @@ class AdminController extends Controller
 
     public function listcomments(Comment $comments, $id)
     {
-        $comments = comment::find($id)->where('user_id', '=', $id)->get();
+        $comments = comment::where('user_id', $id)->get();
         return view('admin.commentsUser')->with('comments', $comments);
     }
 
