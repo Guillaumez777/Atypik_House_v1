@@ -47,6 +47,12 @@ class AdminController extends Controller
                             ->with('houses', $houses);
     }
 
+    public function deleteUser($id) {
+        $house = user::find($id);
+        $house->delete();
+        return redirect()->back()->with('success', 'Le client a bien été supprimé');
+    }
+
     //Message des clients (formulaire de contact)
     public function listposts(Post $posts)
     {
@@ -181,7 +187,7 @@ class AdminController extends Controller
     }
 
     public function deleteHouse($id) {
-        $house = house::find($house->id);
+        $house = house::find($id);
         $house->delete();
         return redirect()->back()->with('success', 'Votre hebergement a bien été supprimé');
     }
@@ -251,8 +257,8 @@ class AdminController extends Controller
     {
         $users = User::where('id', $id)->get();
         $houses = House::where('user_id', $id)->get();
-        return view('admin.annonces_user')->with('houses', $houses)
-                                       ->with('users', $users);
+        return view('admin.listannonces')->with('houses', $houses)
+                                         ->with('users', $users);
     }
 
     public function showannonces($id)
@@ -263,10 +269,16 @@ class AdminController extends Controller
                                          ->with('users', $users);
     }
 
+    public function deleteAnnonce($id) {
+        $house = house::where('id', $id)->get();
+        $house->delete();
+        return redirect()->back()->with('success', "L'annonce a bien été supprimée");
+    }
+
     public function listcomments(Comment $comments, $id)
     {
         $comments = comment::where('user_id', $id)->get();
-        return view('admin.commentsUser')->with('comments', $comments);
+        return view('admin.listcomments')->with('comments', $comments);
     }
 
     public function deleteComment($id) {
