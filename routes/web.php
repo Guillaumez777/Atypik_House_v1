@@ -24,6 +24,7 @@ Route::get('/user/showhebergement/{id}', 'UsersController@showhebergements')->na
 
 Route::get('/apropos', 'HomeController@Apropos')->name('Apropos');
 Route::get('/mentions_legales', 'HomeController@mentions_legales')->name('mentions_legales');
+Route::get('/faq', 'HomeController@faq')->name('faq');
 Route::get('/politique_de_confidentialite', 'HomeController@politique_de_confidentialite')->name('politique_de_confidentialite');
 Route::get('/cgu', 'HomeController@cgu')->name('cgu');
 Route::get('/rgpd', 'HomeController@rgpd')->name('rgpd');
