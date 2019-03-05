@@ -45,7 +45,7 @@ export class LoginPage {
   }
 /*********************************/
 
-  headers : HttpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' });
+  //headers : HttpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' });
 
   login(){
 
@@ -69,9 +69,11 @@ export class LoginPage {
   //
   //  console.log("error login");
   //});
+
+  //, {headers: this.header}
 /******************************************************/
 
-  this.httpClient.post(url, myData, {headers: this.header}).then(result => {
+  this.http.post(url, myData).then(result => {
     console.log('user connecte', this.userMail.value, this.userPassword.value);
     this.alert('success');
     this.navCtrl.push(TabsPage);

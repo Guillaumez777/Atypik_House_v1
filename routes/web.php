@@ -16,7 +16,7 @@ Route::get('/houses', 'HousesController@index')->name('houses');
 Route::get('/register', 'RegistersController@create');
 Route::post('/register', 'RegistersController@register');
 Route::get('/users/confirmation{email_token}', 'Auth\RegisterController@confirmation');
-//Route::post('/login', 'SessionsController@login');
+Route::post('/login', 'SessionsController@login');
 Route::get('/verifyemail/{token}', 'Auth\RegisterController@verify');
 
 Route::get('/user/showHouse/{id}', 'UsersController@showHouse')->name('user.showHouse');
