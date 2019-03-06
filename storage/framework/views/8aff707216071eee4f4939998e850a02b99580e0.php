@@ -28,7 +28,9 @@
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>      
                             <p><?php echo(substr($reservation->house->description, 0, 40));?></p>   
                             <p>Annulation gratuite !</p>
-                            <p> <?php echo e($reservation->house->ville); ?></p>
+                            <p> Pays: <?php echo e($reservation->house->pays); ?></p>
+                            <p> Ville: <?php echo e($reservation->house->ville); ?></p>
+                            <p> Adresse: <?php echo e($reservation->house->adresse); ?></p>
                         <p><i class="fas fa-calendar"></i> Début: <?php \Date::setLocale('fr'); $startdate = Date::parse($reservation->start_date)->format('l j F Y'); echo($startdate);?> </p>
                         <p><i class="fas fa-calendar"></i> Fin:  <?php \Date::setLocale('fr'); $enddate = Date::parse($reservation->end_date)->format('l j F Y'); echo($enddate);?></p>
                         <h3 class="price"><?php echo e($reservation->house->price); ?>€</h3>

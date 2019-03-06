@@ -28,7 +28,6 @@
     </div>
     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
     <div class="col-md-10 text-center">
-        <a href="<?php echo e(url()->previous()); ?>" class="btn btn-primary">Retour</a>
         <a href="<?php echo e(action('AdminController@createpropriete', $category->id)); ?>" class="btn btn-primary">Ajouter une proprieté</a>
     </div>
 </div>

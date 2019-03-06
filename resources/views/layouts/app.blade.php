@@ -158,7 +158,7 @@
                 <div class="col-md-3">
                     <ul>
                         <li><a href="{{ route('Apropos') }}">A propos</a></li>
-                        <li><a href="{{ route('houses') }}">Hébergements</a></li>
+                        <li><a href="{{ route('faq') }}">FAQ</a></li>
                     </ul>
                 </div>
                 <div class="col-md-3">

@@ -1,3 +1,4 @@
+<?php $__env->startSection('title', 'A propose'); ?>
 <?php $__env->startSection('content'); ?>
 <div class="container-fluid banner">
     <div class="intro-body">

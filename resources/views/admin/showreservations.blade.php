@@ -25,8 +25,9 @@
                                         <p><i class="fas fa-calendar"></i> Fin:  <?php \Date::setLocale('fr'); $enddate = Date::parse($reservation->end_date)->format('l j F Y'); echo($enddate);?></p>
                                     <p class="card-text">{{$reservation->house->description}}</p>
                                     <p>Annulation gratuite !</p>
-                                    <p> {{$reservation->house->ville}}</p>
-                                    <p> {{$reservation->house->adresse}}</p>
+                                    <p> Pays: {{$reservation->house->pays}}</p>
+                                    <p> Ville: {{$reservation->house->ville}}</p>
+                                    <p> Adresse: {{$reservation->house->adresse}}</p>
                                 </div>
                             </div>
                         </div>

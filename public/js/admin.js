@@ -9,6 +9,14 @@ $(".delete-comment").on("click", function(){
 $(".delete-propriete").on("click", function(){
     return confirm("Voulez-vous vraiment supprimer cette proprieté?");
 });
+
+$(".delete-annonce").on("click", function(){
+    return confirm("Voulez-vous vraiment supprimer cette annonce?");
+});
+
+$(".delete-user").on("click", function(){
+    return confirm("Voulez-vous vraiment supprimer ce client?");
+});
 $('#1').click(function() {
     $('#hebergement').css('display', 'block');
     $('#reservation').css('display', 'none');

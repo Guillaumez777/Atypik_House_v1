@@ -27,7 +27,6 @@
     </div>
     @endforeach
     <div class="col-md-10 text-center">
-        <a href="{{ url()->previous() }}" class="btn btn-primary">Retour</a>
         <a href="{{action('AdminController@createpropriete', $category->id) }}" class="btn btn-primary">Ajouter une proprieté</a>
     </div>
 </div>

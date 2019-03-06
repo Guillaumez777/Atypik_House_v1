@@ -2,7 +2,6 @@
 @section('content')
 <div class="admin-user-profil">
     <div class="container list-category">
-    <a href="{{ url()->previous() }}" class="btn btn-primary">Retour</a>
         <div class="panel panel-default">
             <div class="panel-heading">Détails de l'annonce</div>
                 <div class="panel-body">
@@ -24,8 +23,9 @@
                                     @endforeach
                                     <p class="card-text">{{$house->description}}</p>
                                     <p>Annulation gratuite !</p>
-                                    <p> {{$house->ville}}</p>
-                                    <p> {{$house->adresse}}</p>
+                                    <p> Pays: {{$house->pays}}</p>
+                                    <p> Ville: {{$house->ville}}</p>
+                                    <p> Adresse: {{$house->adresse}}</p>
                                 </div>
                             </div>
                         </div>
@@ -38,7 +38,7 @@
                                     {{ $comment->comment }}
                                 </div>
                                 <div class="col-sm-3 text-right">
-                                    <small>Posté par {{ $comment->user->prenom }}</small><br/>
+                                    <small>Posté par {{ $comment->user->prenom }} {{ $comment->user->nom }}</small><br/>
                                     <small>Note: {{$comment->note}}/5</small>
                                 </div>
                             </div>
