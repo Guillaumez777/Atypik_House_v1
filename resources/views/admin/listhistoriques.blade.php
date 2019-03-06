@@ -2,16 +2,16 @@
 @section('content')
 <div class="admin-user-profil">
     <div class="container list-category">
-        <h2>Mes historiques de reservations</h2>
+        <h2>Historiques de reservations</h2>
         <div class="row">
         @foreach ($historiques as $historique)
             <div class="col-lg-4 col-md-4">
                 <div class="thumbnail">
                     <div class="card h-100">
-                        <a href="{{action('AdminController@showhistoriques', $historique['id'])}}"><img class="img-responsive img_house" src="{{ asset('img/houses/'.$historique->house->photo) }}"></a>
+                        <a href="{{action('AdminController@showhistoriques', $historique->id)}}"><img class="img-responsive img_house" src="{{ asset('img/houses/'.$historique->house->photo) }}"></a>
                         <div>
                             <h4 class="title card-title text-center">
-                                <a href="{{route('admin.showhistoriques', $historique['id']) }}">{{$historique->house->title}}</a>
+                                <a href="{{route('admin.showhistoriques', $historique->id) }}">{{$historique->house->title}}</a>
                             </h4>
                             <p class="price">{{$historique->house->price}}€ par nuit</p>
                             <div class="card-infos">

@@ -10,10 +10,10 @@
         <div class="col-lg-4 col-md-4">
             <div class="thumbnail">
                 <div class="card-show h-100">
-                    <a href="<?php echo e(action('UsersController@showhistoriques', $historique['id'])); ?>"><img class="img-responsive img_house" src="<?php echo e(asset('img/houses/'.$historique->house->photo)); ?>"></a>
+                    <a href="<?php echo e(action('UsersController@showhistoriques', $historique->id)); ?>"><img class="img-responsive img_house" src="<?php echo e(asset('img/houses/'.$historique->house->photo)); ?>"></a>
                     <div>
                         <h4 class="title card-title text-center">
-                            <a href="<?php echo e(route('user.showhistoriques', $historique['id'])); ?>"><?php echo e($historique->house->title); ?></a>
+                            <a href="<?php echo e(route('user.showhistoriques', $historique->id)); ?>"><?php echo e($historique->house->title); ?></a>
                         </h4>
                         <p>Type de bien : Logement</p>
                         <p><i class="fas fa-bed"></i> : 2 lits - <i class="fas fa-users"></i> : pour 2 Personnes</p>

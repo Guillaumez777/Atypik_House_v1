@@ -3,7 +3,7 @@
 <div class="admin-user-profil">   
     <div class="container list-category">
         <div class="panel panel-default">
-            <div class="panel-heading">Détails de l'annonce</div>
+            <div class="panel-heading">Détails de la réservation</div>
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-lg-6 col-md-6 mb-4">

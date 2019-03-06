@@ -207,14 +207,9 @@ class AdminController extends Controller
     //Liste des reservations des utilisateurs
     public function listreservations($id)
     {
-        $users = User::where('id', $id)->get();
-        $houses = House::where('user_id', $id)->get();
-        $today = Date::now();
-        $reservations = reservation::where('house_id', $id)->where('start_date', '>=', $today)->get();
-        
-        return view('admin.listreservations')->with('houses', $houses)
-                                              ->with('users', $users)
-                                              ->with('reservations', $reservations);
+        $today = Date::now()->format('Y-m-d');
+        $reservations = reservation::where('user_id','=', $id)->where('start_date', '>=', $today)->get();
+        return view('admin.listreservations')->with('reservations', $reservations);
     }
 
     //Vue de détails des reservations des utilisateurs
@@ -231,14 +226,19 @@ class AdminController extends Controller
     //Liste des reservations des utilisateurs
     public function listhistoriques($id)
     {
-        $users = User::where('id', $id)->get();
-        $houses = House::where('user_id', $id)->get();
-        $today = Date::now();
-        $historiques = reservation::where('house_id', $id)->where('start_date', '<', $today)->get();
+        $today = Date::now()->format('Y-m-d');
+        $historiques = DB::table('reservations')->join('houses', 'reservations.house_id', '=', 'houses.id')
+                                                ->where('reservations.user_id','=', $id)
+                                                ->where('reservations.start_date', '<', $today)
+                                                ->get();
 
-        return view('admin.listhistoriques')->with('houses', $houses)
-                                            ->with('users', $users)
-                                            ->with('historiques', $historiques);
+        $today = Date::now()->format('Y-m-d');
+        $historiques = Reservation::with('house')->where([
+                                                    ['user_id', '=', $id],
+                                                    ['start_date', '<', $today],
+                                                    ['end_date', '<=', $today]
+                                                ])->get();
+        return view('admin.listhistoriques')->with('historiques', $historiques);
     }
 
     //Vue de détails des historiques des utilisateurs

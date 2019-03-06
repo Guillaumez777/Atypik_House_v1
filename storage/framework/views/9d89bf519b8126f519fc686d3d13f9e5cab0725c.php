@@ -1,4 +1,5 @@
 <?php $__env->startSection('content'); ?>
+<?php $__env->startSection('title', 'Recapitulatif réservation'); ?>
 
 <?php $__env->startSection('link'); ?>
 <link href="<?php echo e(asset('css/jquery-ui.min.css')); ?>" rel="stylesheet">

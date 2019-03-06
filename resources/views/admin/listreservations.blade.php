@@ -2,7 +2,7 @@
 @section('content')
 <div class="admin-user-profil">
     <div class="container list-category">
-        <h2>Mes réservations</h2>
+        <h2>Réservations</h2>
         <div class="row">
         @foreach ($reservations as $reservation)
             <div class="col-lg-4 col-md-4">
