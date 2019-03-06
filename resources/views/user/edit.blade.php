@@ -7,7 +7,7 @@
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
                 <div class="panel-heading">Modifier</div>
-                @foreach($houses as $house)
+                {{-- @foreach($houses as $house) --}}
                 <div class="panel-body">
                     @if ($success = Session::get('success'))
                         <div class="alert alert-info">
@@ -139,7 +139,7 @@
                             </div>
                         </div>
                     </form>
-                @endforeach    
+                {{-- @endforeach     --}}
                 </div>
             </div>
         </div>

@@ -141,12 +141,17 @@ class AdminController extends Controller
         }
     }
 
-    public function deletepropriete($id)
+    public function deletepropriete(Request $request, $id)
     {
         $propriete = propriete::find($id);
+        $values_propriete = valuecatpropriete::with('propriete')->where([
+                                                                ['category_id', '=', $propriete->category_id],
+                                                                ['propriete_id', '=', $propriete->id],
+                                                        ])->get();
+        foreach($values_propriete as $values){
+            $values->delete();
+        }
         $propriete->delete();
-
-        $valuecatpropriete = valuecatpropriete::where('propriete_id', '=', $propriete->id)->delete();
         return redirect()->back()->with('danger', 'Votre propriété a bien été supprimée');
     }
 
@@ -173,8 +178,6 @@ class AdminController extends Controller
         if($request->photo == NULL){
             $request->photo = $house->photo;
             $house->save();
-            return redirect()->back()->with('success', "L'hébergement de l'utilisateur a bien été modifié");
-           
         } else {
             $picture = $request->file('photo');
             $filename  = time() . '.' . $picture->getClientOriginalExtension();
@@ -182,8 +185,8 @@ class AdminController extends Controller
             Image::make($picture->getRealPath())->resize(350, 200)->save($path);
             $house->photo = $filename;
             $house->save();
-            return redirect()->back()->with('success', "L'hébergement de l'utilisateur a bien été modifié");
         }
+        return redirect()->back()->with('success', "L'hébergement de l'utilisateur a bien été modifié");
     }
 
     public function deleteHouse($id) {

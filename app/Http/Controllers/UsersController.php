@@ -92,12 +92,12 @@ class UsersController extends Controller
     public function editHouse($id)
     {
         $categories = category::all();
-        $proprietes = propriete::all();
-        $houses = house::with('valuecatproprietes', 'proprietes', 'category')->where('id','=', $id)->get();
-
-        return view('user.edit')->with('houses', $houses)
-                                ->with('categories', $categories)
-                                ->with('proprietes', $proprietes);
+        // $proprietes = propriete::all();
+        // $houses = house::with('valuecatproprietes', 'proprietes', 'category')->where('id','=', $id)->get();
+        $house = house::find($id);
+        return view('user.edit')->with('house', $house)
+                                ->with('categories', $categories);
+                                // ->with('proprietes', $proprietes);
     }
 
     public function updateHouse(EditHouseRequest $request, $id)

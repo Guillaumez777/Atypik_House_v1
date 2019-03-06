@@ -41,7 +41,7 @@
                                             <div class="form-group">
                                                 <div class="col-md-12 text-center">
                                                     <a href="{{route('admin.editHouse', $house['id']) }}" class="btn btn-primary">Modifier</a>
-                                                    <a href="{{ route('admin.deleteAnnonce', $house['id']) }}" class="delete-annonce btn btn-danger">Supprimer</a>
+                                                    {{-- <a href="{{ route('admin.deleteAnnonce', $house['id']) }}" class="delete-annonce btn btn-danger">Supprimer</a> --}}
                                                         </div>
                                                     </form>
                                                     
