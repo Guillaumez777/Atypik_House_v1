@@ -209,6 +209,7 @@ p {
 	display: block;
 	padding: 5px;
 	color: #000;
+	word-wrap: break-word;
 }
 
 .card-show p, .card-show h3, .card-show h4 {
@@ -275,9 +276,7 @@ footer {
 	margin-top: 80px;
 }
 
-.footer_absolute {
-	position: absolute;
-}
+
 
 footer li {
 	list-style: none;
