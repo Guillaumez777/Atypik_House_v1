@@ -165,8 +165,10 @@ class AdminController extends Controller
     public function updateHouse(Request $request,Category $category, Ville $ville, House $house, $id)
     {
         $house = house::find($id);
+        $valueproprietes = valuecatpropriete::where('house_id','=', $id)->get();
         $house->title = $request->title;
         $house->category_id = $request->category_id;
+        $house->pays = $request->pays;
         $house->ville = $request->ville;
         $house->price = $request->price;
         $house->adresse = $request->adresse;
@@ -175,6 +177,38 @@ class AdminController extends Controller
         /*$this->validate($request, [
             'photo' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:20000',
         ]);*/
+        $j = 0;
+        foreach($request->propriete as $propriete){
+            $query = valuecatpropriete::where('propriete_id', '=', $request->propriete_id[$j])->where('house_id','=', $id)
+                                                                                              ->where('category_id', '=', $request->category_id)                                                   
+                                                                                              ->get();
+            if($query->count() == 0){
+                $valuecatProprietesHouse = new valuecatPropriete;
+                $valuecatProprietesHouse->value = $propriete;
+                $valuecatProprietesHouse->category_id = $request->category_id;
+                $valuecatProprietesHouse->house_id = $house->id;
+                $valuecatProprietesHouse->propriete_id = $request->propriete_id[$j];
+                $valuecatProprietesHouse->save();
+                $j++;
+            
+            } else {
+                var_dump('hihi');
+                $j++;
+            }
+        }
+        $i = 0;
+        foreach ($valueproprietes as $value) {
+            DB::table('valuecatproprietes')
+                ->leftJoin('houses', 'valuecatproprietes.house_id', '=', 'houses.id')
+                ->where('house_id','=', $id)
+                ->where('valuecatproprietes.id','=', $value->id)
+                ->update([
+                    'value' => $request->propriete[$i]
+            ]);
+            $i++;
+        }
+        $house->save();
+
         if($request->photo == NULL){
             $request->photo = $house->photo;
             $house->save();

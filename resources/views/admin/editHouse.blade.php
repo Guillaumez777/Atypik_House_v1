@@ -33,12 +33,6 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="name" class="col-md-4 control-label">Ville</label>
-                            <div class="col-md-6">
-                                <input type="text" class="form-control" name="ville" required autofocus value="{{$house->ville}}">
-                            </div>
-                        </div>
-                        <div class="form-group">
                             <label for="name" class="col-md-4 control-label">Prix</label>
 
                             <div class="col-md-6">
@@ -61,6 +55,18 @@
                             </div>
                         </div>
                         <div class="form-group">
+                            <label for="name" class="col-md-4 control-label">Pays</label>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" name="pays" required autofocus value="{{$house->pays}}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="name" class="col-md-4 control-label">Ville</label>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" name="ville" required autofocus value="{{$house->ville}}">
+                            </div>
+                        </div>
+                        <div class="form-group">
                             <label for="adresse" class="col-md-4 control-label">Adresse</label>
 
                             <div class="col-md-6">
@@ -73,6 +79,29 @@
                             <div class="col-md-6">
                                 <textarea class="form-control" name="description" rows="5">{{$house->description}}</textarea>
                             </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="name" class="text-center">Informations supplémentaires:</label>
+                        </div>
+                        @foreach($house->valuecatproprietes as $valuecatproprietes)
+                            <div class="form-group{{ $errors->has('propriete[]') ? ' has-error' : '' }}">
+                                <label for="name" class="col-md-4 control-label">{{$valuecatproprietes->propriete->propriete}}</label>
+                                <input type="hidden" id="propriete" class="form-control" name="propriete_id[]" autofocus value="{{$valuecatproprietes->propriete->id}}">
+                                
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" name="propriete[]" required autofocus value="{{$valuecatproprietes->value}}">
+                                    @if ($errors->has('propriete[]'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('propriete[]') }}</strong>
+                                    </span>
+                                @endif
+                                </div>
+                            </div>
+                        @endforeach
+                        
+                        <div class="form-group">
+                            <p class="rouge">Pour les informations supplémentaires vous ne pouvez mettre que des chiffres. </p>
+                            <p class="rouge">mettez 0 losque vous n'avez pas ou si vous ne savez pas encore, la propriété ne sera pas afficher dans l'annonce</p>
                         </div>
                         <div class="form-group">
                             <label for="name" class="col-md-4 control-label">Statut</label>

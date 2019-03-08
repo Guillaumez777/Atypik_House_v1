@@ -76,6 +76,29 @@
                             </div>
                         </div>
                         <div class="form-group">
+                            <label for="name" class="text-center">Informations supplémentaires:</label>
+                        </div>
+                        <?php $__currentLoopData = $house->valuecatproprietes; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $valuecatproprietes): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <div class="form-group<?php echo e($errors->has('propriete[]') ? ' has-error' : ''); ?>">
+                                <label for="name" class="col-md-4 control-label"><?php echo e($valuecatproprietes->propriete->propriete); ?></label>
+                                <input type="hidden" id="propriete" class="form-control" name="propriete_id[]" autofocus value="<?php echo e($valuecatproprietes->propriete->id); ?>">
+                                
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" name="propriete[]" required autofocus value="<?php echo e($valuecatproprietes->value); ?>">
+                                    <?php if($errors->has('propriete[]')): ?>
+                                    <span class="help-block">
+                                        <strong><?php echo e($errors->first('propriete[]')); ?></strong>
+                                    </span>
+                                <?php endif; ?>
+                                </div>
+                            </div>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                        
+                        <div class="form-group">
+                            <p class="rouge">Pour les informations supplémentaires vous ne pouvez mettre que des chiffres. </p>
+                            <p class="rouge">mettez 0 losque vous n'avez pas ou si vous ne savez pas encore, la propriété ne sera pas afficher dans l'annonce</p>
+                        </div>
+                        <div class="form-group">
                             <label for="name" class="col-md-4 control-label">Statut</label>
                             <div class="col-md-6">
                                 <select id="select_category" type="text" name="statut" class="form-control">

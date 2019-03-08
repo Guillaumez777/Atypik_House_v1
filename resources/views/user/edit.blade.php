@@ -39,6 +39,17 @@
                                 </select>
                             </div>
                         </div>
+                        <div class="form-group{{ $errors->has('pays') ? ' has-error' : '' }}">
+                            <label for="name" class="col-md-4 control-label">Pays</label>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" name="pays" autofocus value="{{$house->pays}}">
+                                @if ($errors->has('pays'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('pays') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
                         <div class="form-group{{ $errors->has('ville') ? ' has-error' : '' }}">
                             <label for="name" class="col-md-4 control-label">Ville</label>
                             <div class="col-md-6">

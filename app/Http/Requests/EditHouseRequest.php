@@ -24,11 +24,12 @@ class EditHouseRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required|max:50|regex:/^[\pL\s\-]+$/u', 
-            'ville' => 'required|max:100|regex:/^[a-zA-Z]+$/u',
+            'title' => 'required|max:50|regex:/^[\pL\s\-]+$/u',
+            'pays' => 'required|max:50|alpha', 
+            'ville' => 'required|max:100|alpha',
             'price' => 'required|max:100000|numeric',
-            'adresse' => 'required|max:50',
-            'photo' => 'image|mimes:jpg,png,jpeg,gif,svg|max:20000',
+            'adresse' => 'required|max:50|regex:/^[a-zA-Z0-9\s]+$/',
+            'photo' => 'image|mimes:jpg,png,jpeg|max:20000',
             'description' => 'required|max:1000',
             'propriete' => 'required|max:500'
         ];
@@ -45,12 +46,15 @@ class EditHouseRequest extends FormRequest
             'title.required' => 'Veuillez saisir votre titre',
             'title.max' => 'Votre titre ne doit pas dépasser 50 caractères',
             'title.regex' => 'Votre titre doit contenir que des lettres et non des chiffres ou caractères spéciaux',
+            'pays.required' => 'Veuillez saisir votre pays',
+            'pays.max' => 'Votre pays ne doit pas dépasser 50 caractères',
+            'pays.alpha' => 'Votre pays doit contenir que des lettres',
             'ville.required' => 'Veuillez saisir votre ville',
             'ville.max' => 'Votre ville ne doit pas dépasser 50 caractères',
-            //'ville.regex' => 'Votre ville doit contenir que des lettres et non des chiffres ou caractères spéciaux',
+            'ville.alpha' => 'Votre ville doit contenir que des lettres et non des chiffres ou caractères spéciaux',
             'adresse.required' => 'Veuillez saisir votre adresse',
             'adresse.max' => 'Votre adresse ne doit pas dépasser 50 caractères',
-            'adresse.regex' => 'Votre adresse ne doit contenir des caractères spéciaux',
+            'adresse.regex' => 'Votre adresse ne doit pas contenir de caractères spéciaux',
             'price.required' => 'Veuillez saisir le prix par nuit',
             'price.numeric' => 'Veuillez saisir uniquement des chiffres',
             'price.max' => 'Vous ne pouvez pas mettre un montant au delà de 100000€',

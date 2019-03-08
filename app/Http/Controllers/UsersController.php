@@ -102,31 +102,66 @@ class UsersController extends Controller
 
     public function updateHouse(EditHouseRequest $request, $id)
     {
-        $house = house::with('valuecatproprietes', 'proprietes', 'category')->where('id','=', $id)->first();
+        $house = house::find($id);
         $valueproprietes = valuecatpropriete::where('house_id','=', $id)->get();
+
+        if($house->category_id != $request->category_id){
+            $house->category_id = $request->category_id;
+            $house->save();
+            
+            
+            $proprietes_category = propriete::where('category_id', '=', $request->category_id)->get();
+            if($valueproprietes->count() > 0){
+                $valueproprietesdelete = valuecatpropriete::where('house_id','=', $id)->delete();
+                var_dump('bonjour');
+                foreach($proprietes_category as $propriete_category){
+                    $valuecatProprietesHouse = new valuecatPropriete;
+                    $valuecatProprietesHouse->value = 0;
+                    $valuecatProprietesHouse->category_id = $request->category_id;
+                    $valuecatProprietesHouse->house_id = $house->id;
+                    $valuecatProprietesHouse->propriete_id = $propriete_category->id;
+                    $valuecatProprietesHouse->save(); 
+                    var_dump($propriete_category->id);
+                    var_dump("coucou");
+                }    
+                  
+                var_dump('coco');
+                $house->save();
+            }
+              
+            $house->save();
+            //return redirect()->back()->with('success', "L'hébergement de l'utilisateur a bien été modifié");       
+            var_dump('serieux');
+        }
         $house->title = $request->title;
         $house->category_id = intval($request->category_id);
+        $house->pays = $request->pays;
         $house->ville = $request->ville;
         $house->adresse = $request->adresse;
         $house->price = $request->price;
         $house->description = $request->description;
+        $house->save();
+        //return redirect()->back()->with('success', "L'hébergement de l'utilisateur a bien été modifié");  
+        
 
-        $j = 0;
-        foreach($request->propriete as $propriete){
-            $query = valuecatpropriete::where('propriete_id', '=', $request->propriete_id[$j])->where('house_id','=', $id)->get();
-            if($query->count() == 0){
-                $valuecatProprietesHouse = new valuecatPropriete;
-                $valuecatProprietesHouse->value = $propriete;
-                $valuecatProprietesHouse->category_id = $request->category_id;
-                $valuecatProprietesHouse->house_id = $house->id;
-                $valuecatProprietesHouse->propriete_id = $request->propriete_id[$j];
-                $valuecatProprietesHouse->save();
-                $j++;
+        // $j = 0;
+        // foreach($request->propriete as $propriete){
+        //     $query = valuecatpropriete::where('propriete_id', '=', $request->propriete_id[$j])->where('house_id','=', $id)
+        //                                                                                       ->where('category_id', '=', $request->category_id)                                                   
+        //                                                                                       ->get();
+        //     if($query->count() == 0){
+        //         $valuecatProprietesHouse = new valuecatPropriete;
+        //         $valuecatProprietesHouse->value = $propriete;
+        //         $valuecatProprietesHouse->category_id = $request->category_id;
+        //         $valuecatProprietesHouse->house_id = $house->id;
+        //         $valuecatProprietesHouse->propriete_id = $request->propriete_id[$j];
+        //         $valuecatProprietesHouse->save();
+        //         $j++;
             
-            } else {
-                $j++;
-            }
-        }
+        //     } else {
+        //         $j++;
+        //     }
+        // }
         $i = 0;
         foreach ($valueproprietes as $value) {
             DB::table('valuecatproprietes')

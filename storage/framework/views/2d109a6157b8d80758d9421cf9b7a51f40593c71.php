@@ -40,6 +40,17 @@
                                 </select>
                             </div>
                         </div>
+                        <div class="form-group<?php echo e($errors->has('pays') ? ' has-error' : ''); ?>">
+                            <label for="name" class="col-md-4 control-label">Pays</label>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" name="pays" autofocus value="<?php echo e($house->pays); ?>">
+                                <?php if($errors->has('pays')): ?>
+                                    <span class="help-block">
+                                        <strong><?php echo e($errors->first('pays')); ?></strong>
+                                    </span>
+                                <?php endif; ?>
+                            </div>
+                        </div>
                         <div class="form-group<?php echo e($errors->has('ville') ? ' has-error' : ''); ?>">
                             <label for="name" class="col-md-4 control-label">Ville</label>
                             <div class="col-md-6">
