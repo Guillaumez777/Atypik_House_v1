@@ -166,36 +166,64 @@ class AdminController extends Controller
     {
         $house = house::find($id);
         $valueproprietes = valuecatpropriete::where('house_id','=', $id)->get();
+
+        if($house->category_id != $request->category_id){
+            $house->category_id = $request->category_id;
+            $house->save();
+            
+            
+            $proprietes_category = propriete::where('category_id', '=', $request->category_id)->get();
+            if($valueproprietes->count() > 0){
+                $valueproprietesdelete = valuecatpropriete::where('house_id','=', $id)->delete();
+                var_dump('bonjour');
+                foreach($proprietes_category as $propriete_category){
+                    $valuecatProprietesHouse = new valuecatPropriete;
+                    $valuecatProprietesHouse->value = 0;
+                    $valuecatProprietesHouse->category_id = $request->category_id;
+                    $valuecatProprietesHouse->house_id = $house->id;
+                    $valuecatProprietesHouse->propriete_id = $propriete_category->id;
+                    $valuecatProprietesHouse->save(); 
+                    var_dump($propriete_category->id);
+                    var_dump("coucou");
+                }    
+                  
+                var_dump('coco');
+                $house->save();
+            }
+              
+            $house->save();
+            //return redirect()->back()->with('success', "L'hébergement de l'utilisateur a bien été modifié");       
+            var_dump('serieux');
+        }
         $house->title = $request->title;
-        $house->category_id = $request->category_id;
+        $house->category_id = intval($request->category_id);
         $house->pays = $request->pays;
         $house->ville = $request->ville;
-        $house->price = $request->price;
         $house->adresse = $request->adresse;
+        $house->price = $request->price;
         $house->description = $request->description;
-        $house->statut = $request->statut;
-        /*$this->validate($request, [
-            'photo' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:20000',
-        ]);*/
-        $j = 0;
-        foreach($request->propriete as $propriete){
-            $query = valuecatpropriete::where('propriete_id', '=', $request->propriete_id[$j])->where('house_id','=', $id)
-                                                                                              ->where('category_id', '=', $request->category_id)                                                   
-                                                                                              ->get();
-            if($query->count() == 0){
-                $valuecatProprietesHouse = new valuecatPropriete;
-                $valuecatProprietesHouse->value = $propriete;
-                $valuecatProprietesHouse->category_id = $request->category_id;
-                $valuecatProprietesHouse->house_id = $house->id;
-                $valuecatProprietesHouse->propriete_id = $request->propriete_id[$j];
-                $valuecatProprietesHouse->save();
-                $j++;
+        $house->save();
+        //return redirect()->back()->with('success', "L'hébergement de l'utilisateur a bien été modifié");  
+        
+
+        // $j = 0;
+        // foreach($request->propriete as $propriete){
+        //     $query = valuecatpropriete::where('propriete_id', '=', $request->propriete_id[$j])->where('house_id','=', $id)
+        //                                                                                       ->where('category_id', '=', $request->category_id)                                                   
+        //                                                                                       ->get();
+        //     if($query->count() == 0){
+        //         $valuecatProprietesHouse = new valuecatPropriete;
+        //         $valuecatProprietesHouse->value = $propriete;
+        //         $valuecatProprietesHouse->category_id = $request->category_id;
+        //         $valuecatProprietesHouse->house_id = $house->id;
+        //         $valuecatProprietesHouse->propriete_id = $request->propriete_id[$j];
+        //         $valuecatProprietesHouse->save();
+        //         $j++;
             
-            } else {
-                var_dump('hihi');
-                $j++;
-            }
-        }
+        //     } else {
+        //         $j++;
+        //     }
+        // }
         $i = 0;
         foreach ($valueproprietes as $value) {
             DB::table('valuecatproprietes')
@@ -208,10 +236,11 @@ class AdminController extends Controller
             $i++;
         }
         $house->save();
-
+    
         if($request->photo == NULL){
-            $request->photo = $house->photo;
+            $request->photo = $house->first()->photo;
             $house->save();
+            return redirect()->back()->with('success', "L'hébergement de l'utilisateur a bien été modifié");
         } else {
             $picture = $request->file('photo');
             $filename  = time() . '.' . $picture->getClientOriginalExtension();
@@ -219,14 +248,72 @@ class AdminController extends Controller
             Image::make($picture->getRealPath())->resize(350, 200)->save($path);
             $house->photo = $filename;
             $house->save();
+            return redirect()->back()->with('success', "L'hébergement de l'utilisateur a bien été modifié");
         }
-        return redirect()->back()->with('success', "L'hébergement de l'utilisateur a bien été modifié");
-    }
+        
+    //     $house = house::find($id);
+    //     $valueproprietes = valuecatpropriete::where('house_id','=', $id)->get();
+    //     $house->title = $request->title;
+    //     $house->category_id = $request->category_id;
+    //     $house->pays = $request->pays;
+    //     $house->ville = $request->ville;
+    //     $house->price = $request->price;
+    //     $house->adresse = $request->adresse;
+    //     $house->description = $request->description;
+    //     $house->statut = $request->statut;
+    //     /*$this->validate($request, [
+    //         'photo' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:20000',
+    //     ]);*/
+    //     $j = 0;
+    //     foreach($request->propriete as $propriete){
+    //         $query = valuecatpropriete::where('propriete_id', '=', $request->propriete_id[$j])->where('house_id','=', $id)
+    //                                                                                           ->where('category_id', '=', $request->category_id)                                                   
+    //                                                                                           ->get();
+    //         if($query->count() == 0){
+    //             $valuecatProprietesHouse = new valuecatPropriete;
+    //             $valuecatProprietesHouse->value = $propriete;
+    //             $valuecatProprietesHouse->category_id = $request->category_id;
+    //             $valuecatProprietesHouse->house_id = $house->id;
+    //             $valuecatProprietesHouse->propriete_id = $request->propriete_id[$j];
+    //             $valuecatProprietesHouse->save();
+    //             $j++;
+            
+    //         } else {
+    //             var_dump('hihi');
+    //             $j++;
+    //         }
+    //     }
+    //     $i = 0;
+    //     foreach ($valueproprietes as $value) {
+    //         DB::table('valuecatproprietes')
+    //             ->leftJoin('houses', 'valuecatproprietes.house_id', '=', 'houses.id')
+    //             ->where('house_id','=', $id)
+    //             ->where('valuecatproprietes.id','=', $value->id)
+    //             ->update([
+    //                 'value' => $request->propriete[$i]
+    //         ]);
+    //         $i++;
+    //     }
+    //     $house->save();
 
-    public function deleteHouse($id) {
-        $house = house::find($id);
-        $house->delete();
-        return redirect()->back()->with('success', 'Votre hebergement a bien été supprimé');
+    //     if($request->photo == NULL){
+    //         $request->photo = $house->photo;
+    //         $house->save();
+    //     } else {
+    //         $picture = $request->file('photo');
+    //         $filename  = time() . '.' . $picture->getClientOriginalExtension();
+    //         $path = public_path('img/houses/' . $filename);
+    //         Image::make($picture->getRealPath())->resize(350, 200)->save($path);
+    //         $house->photo = $filename;
+    //         $house->save();
+    //     }
+    //     return redirect()->back()->with('success', "L'hébergement de l'utilisateur a bien été modifié");
+    // }
+
+    // public function deleteHouse($id) {
+    //     $house = house::find($id);
+    //     $house->delete();
+    //     return redirect()->back()->with('success', 'Votre hebergement a bien été supprimé');
     }
 
     /**
