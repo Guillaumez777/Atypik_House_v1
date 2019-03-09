@@ -121,17 +121,10 @@ class UsersController extends Controller
                     $valuecatProprietesHouse->house_id = $house->id;
                     $valuecatProprietesHouse->propriete_id = $propriete_category->id;
                     $valuecatProprietesHouse->save(); 
-                    var_dump($propriete_category->id);
-                    var_dump("coucou");
-                }    
-                  
-                var_dump('coco');
+                }         
                 $house->save();
             }
-              
             $house->save();
-            //return redirect()->back()->with('success', "L'hébergement de l'utilisateur a bien été modifié");       
-            var_dump('serieux');
         }
         $house->title = $request->title;
         $house->category_id = intval($request->category_id);
@@ -141,27 +134,7 @@ class UsersController extends Controller
         $house->price = $request->price;
         $house->description = $request->description;
         $house->save();
-        //return redirect()->back()->with('success', "L'hébergement de l'utilisateur a bien été modifié");  
         
-
-        // $j = 0;
-        // foreach($request->propriete as $propriete){
-        //     $query = valuecatpropriete::where('propriete_id', '=', $request->propriete_id[$j])->where('house_id','=', $id)
-        //                                                                                       ->where('category_id', '=', $request->category_id)                                                   
-        //                                                                                       ->get();
-        //     if($query->count() == 0){
-        //         $valuecatProprietesHouse = new valuecatPropriete;
-        //         $valuecatProprietesHouse->value = $propriete;
-        //         $valuecatProprietesHouse->category_id = $request->category_id;
-        //         $valuecatProprietesHouse->house_id = $house->id;
-        //         $valuecatProprietesHouse->propriete_id = $request->propriete_id[$j];
-        //         $valuecatProprietesHouse->save();
-        //         $j++;
-            
-        //     } else {
-        //         $j++;
-        //     }
-        // }
         $i = 0;
         foreach ($valueproprietes as $value) {
             DB::table('valuecatproprietes')
