@@ -41,7 +41,7 @@ export class AvisPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad HebergementsPage');
+    console.log('ionViewDidLoad AvisPage');
   }
 
   getComments(){
