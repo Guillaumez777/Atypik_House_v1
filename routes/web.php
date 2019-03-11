@@ -110,6 +110,7 @@ Route::prefix('admin')->group(function () {
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/profile/{id}', 'UsersController@index');
     Route::get('/mylocations/{id}', 'HousesController@mylocations');
+    Route::get('/user/reservations', 'UsersController@reservations');
 
     //Create a house, publish an offer
     Route::get('/house/create_step1', 'HousesController@create_step1')->name('house.create_step1');

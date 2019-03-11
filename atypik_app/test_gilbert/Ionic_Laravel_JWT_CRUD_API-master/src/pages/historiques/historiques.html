@@ -7,12 +7,20 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>historiques</ion-title>
+    <ion-title>historiques de reservations</ion-title>
+    <div padding>
+      <button ion-button color="secondary"  (click)="myLogout()" >Deconnexion</button>
+    </div>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-
+  <ion-list>
+    <ion-item *ngFor="let historique of historiques">
+      <p> {{ historique.start_date}}</p>
+      <p> {{ historique.end_date}}</p>
+    </ion-item>
+</ion-list>
 </ion-content>

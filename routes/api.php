@@ -25,35 +25,49 @@ Route::group(['middleware' => 'jwt.auth'], function () {
 });
 use App\House;
 use App\User;
+use App\Reservation;
 Route::get('/mylocations/{id}', function ($id) {
-	//$houses = house::get()->where('id', '=', $id)->toJson();
 	$houseProfil = DB::table('users')
-     ->select('users.*', 'houses.*')
-     ->leftJoin('houses', 'houses.user_id','users.id')
-     ->where('users.id', '=', $id)
-     ->where('houses.id', '!=', NULL)
-     ->get()->toJson();
+		->select('users.*', 'houses.*')
+		->leftJoin('houses', 'houses.user_id','users.id')
+		->where('users.id', '=', $id)
+		->where('houses.id', '!=', NULL)
+		->get()->toJson();
  	return response($houseProfil,200)->header('Content-Type', 'application/json');
 });
 
-Route::get('/user/reservations', function ($id) {
-	//$houses = house::get()->where('id', '=', $id)->toJson();
-	$reservationProfil = DB::table('reservations')
-     ->select('users.*', 'reservations.*')
-	 ->leftJoin('reservations', 'reservations.user_id','users.id')
-     ->where('users.id', '=', $id)
-	 ->where('reservations.id', '!=', NULL)
-	 ->where('')
-     ->get()->toJson();
+Route::get('/user/reservations/{id}', function ($id) {
+	$today = Date::now()->format('Y-m-d');
+	$reservationProfil = DB::table('users')
+		->select('users.*', 'reservations.*')
+		->leftJoin('reservations', 'reservations.user_id','users.id')
+		->where('reservations.start_date', '>', $today)
+		->where('reservations.end_date', '>=', $today)
+		->where('users.id', '=', $id)
+		->where('reservations.user_id', '=', $id)
+		->get()->toJson();
  	return response($reservationProfil,200)->header('Content-Type', 'application/json');
 });
-Route::get('/user/reservations/{id}', 'UsersController@reservations')->name('user.reservations');
-Route::get('/users', function () {
-	$users = user::all()->toJson();
- 	return response($users,200)->header('Content-Type', 'application/json');
+
+Route::get('/user/historiques/{id}', function ($id) {
+	$today = Date::now()->format('Y-m-d');
+	$historiqueProfil = DB::table('users')
+		->select('users.*', 'reservations.*')
+		->leftJoin('reservations', 'reservations.user_id','users.id')
+		->where('reservations.start_date', '<', $today)
+		->where('reservations.end_date', '<=', $today)
+		->where('users.id', '=', $id)
+		->where('reservations.user_id', '=', $id)
+		->get()->toJson();
+ 	return response($historiqueProfil,200)->header('Content-Type', 'application/json');
 });
 
-Route::get('/houses', function () {
-	$houses = house::all()->toJson();
- 	return response($houses,200)->header('Content-Type', 'application/json');
+Route::get('/user/comments/{id}', function ($id) {
+	$commentProfil = DB::table('users')
+    	->select('users.*', 'comments.*')
+		->leftJoin('comments', 'comments.user_id','users.id')
+		->where('users.id', '=', $id)
+		->where('comments.user_id', '=', $id)
+		->get()->toJson();
+ 	return response($commentProfil,200)->header('Content-Type', 'application/json');
 });

@@ -52,7 +52,7 @@ export class ReservationsPage {
 
     headers.append('Access-Control-Allow-Origin', '*');
     headers.append('Access-Control-Allow-Credentials', 'true');
-    this.http.get(apiKey+'user/reservations').map(res => res.json())
+    this.http.get(apiKey+'user/reservations/'+res.id).map(res => res.json())
       .subscribe(data => {
           this.reservations = data;
           console.log("gaga");

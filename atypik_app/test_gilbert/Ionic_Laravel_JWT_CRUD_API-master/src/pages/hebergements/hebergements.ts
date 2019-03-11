@@ -47,7 +47,6 @@ export class HebergementsPage {
   getHouses(){
   this.storage.get("user").then((res)=>{
   let headers = new Headers();
-    headers.append('Content-Type', 'application/json');
 
     headers.append('Content-Type', 'application/json');
     headers.append('Accept', 'application/json');
