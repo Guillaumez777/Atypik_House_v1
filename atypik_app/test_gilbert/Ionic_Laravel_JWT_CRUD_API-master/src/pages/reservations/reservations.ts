@@ -8,7 +8,7 @@ import { AuthProvider } from '../../providers/auth/auth';
 import { LoginPage } from '../login/login';
 
 /**
- * Generated class for the ReservationsPage page.
+ * Generated class for the HistoriquesPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -20,6 +20,7 @@ import { LoginPage } from '../login/login';
   templateUrl: 'reservations.html',
 })
 export class ReservationsPage {
+
   data = [];
   reservations: any;
   user:any;
@@ -30,8 +31,6 @@ export class ReservationsPage {
       this.data = navParams.get('data');
       this.reservations = navParams.get('reservations');
       this.user = this.storage.get('user');
-
-    
     console.log("et oui les gars");
     console.log(this.user);
     
@@ -65,5 +64,4 @@ export class ReservationsPage {
     this.authService.logout();
     this.navCtrl.setRoot(LoginPage);
   }
-
 }
