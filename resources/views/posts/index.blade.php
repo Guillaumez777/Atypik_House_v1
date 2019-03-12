@@ -17,7 +17,8 @@
                     {!! Form::label('name', 'Nom : ', array('class' => 'formLabel control-label')) !!} 
                     {!! Form::text('name', Form::old('name'), array( 
                         'class' => 'form-control', 
-                        'placeholder' => 'Entrer votre nom' 
+                        'placeholder' => 'Entrer votre nom',
+                        'required' => 'required'
                     )) !!} 
                     @if ($errors->has('name'))
                         <span class="help-block">
@@ -30,7 +31,8 @@
                 {!! Form::label('email', 'Email : ', array('class' => 'formLabel control-label')) !!} 
                 {!! Form::text('email', Form::old('email'), array( 
                     'class' => 'form-control', 
-                    'placeholder' => 'Entrer votre email' 
+                    'placeholder' => 'Entrer votre email',
+                    'required' => 'required'
                 )) !!} 
                 @if ($errors->has('email'))
                     <span class="help-block">
@@ -44,7 +46,8 @@
                     'class' => 'form-control', 
                     'placeholder' => 'Entrer votre message', 
                     'rows' => '8', 
-                    'cols' => '15' 
+                    'cols' => '15' ,
+                    'required' => 'required'
                 )) !!} 
                 @if ($errors->has('name'))
                     <span class="help-block">
