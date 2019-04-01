@@ -9,8 +9,7 @@
                     
                     <div class="panel-body card-message">
                         <p>Email: {{$post->email}}</p>
-                        <p>{{$post->content}}</p>   
-                                                    
+                        <p>{{$post->content}}</p>                           
                     </div>
                 </div>
             </div>

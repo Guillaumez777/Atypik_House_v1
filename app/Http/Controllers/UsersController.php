@@ -21,31 +21,6 @@ use Jenssegers\Date\Date;
 
 class UsersController extends Controller
 {
-
-	/**
-     * Instantiate a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        //$this->middleware('auth');
-
-        /*$this->middleware('log')->only('index');
-
-        $this->middleware('subscribed')->except('store');*/
-    }
-    /**
-     * Show the profile for the given user.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    /*public function show($id)
-    {
-        return view('users.profile', ['users' => User::findOrFail($id)]);
-    }*/
-
     public function index($id) {
         $userData = DB::table('users')
         ->where('id', $id)
@@ -62,7 +37,7 @@ class UsersController extends Controller
     }
     
     /**
-     * Display the specified resource.
+     * Display the house details.
      *
      * @param  \App\House  $house
      * @return \Illuminate\Http\Response
@@ -92,12 +67,9 @@ class UsersController extends Controller
     public function editHouse($id)
     {
         $categories = category::all();
-        // $proprietes = propriete::all();
-        // $houses = house::with('valuecatproprietes', 'proprietes', 'category')->where('id','=', $id)->get();
         $house = house::find($id);
         return view('user.edit')->with('house', $house)
                                 ->with('categories', $categories);
-                                // ->with('proprietes', $proprietes);
     }
 
     public function updateHouse(EditHouseRequest $request, $id)
@@ -189,8 +161,6 @@ class UsersController extends Controller
                                                     ['start_date', '<', $today],
                                                     ['end_date', '<=', $today]
                                                 ])->get();
-                                                //var_dump($historiques);
-                                                
         return view('user.historiques', compact('historiques'));
     }
 

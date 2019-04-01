@@ -116,9 +116,6 @@ class HousesController extends Controller
             foreach ($proprietes_id as $keyId => $id){
                 $request->session()->push('houseProprietesId', $id);
             }
-            // foreach ($proprietes_label as $keyPropriete => $labelPropriete){
-            //     $request->session()->push('houseProprieteLabel', $labelPropriete);
-            // }
         }
 
         $housePays = $request->session()->get('housePays');
@@ -197,26 +194,12 @@ class HousesController extends Controller
         $path = public_path('img/houses/' . $filename);
         Image::make($picture->getRealPath())->resize(450, 300)->save($path);
         $house->photo = $filename;
-
-        //$photo_name = date('mdYHis') . uniqid() . $request->file('photo')->getClientOriginalName();
-        //$path = base_path() . '/public/img/houses';
-        //$request->file('photo')->move($path,$photo_name);
-        //Image::make($image_name->getRealPath())->resize(350, 200)->save($path);
-        //Image::make($request->file('photo'))->resize(350, 200)->save($path);
-
         $house->save();
         if($housePropriete == null){
 
         } else {
             $i = 0;
-            
             foreach($housePropriete as $proprietes){
-                // $proprietesHouse = new Propriete;
-                // $proprietesHouse->propriete = $houseProprieteLabel[$o];
-                // $proprietesHouse->category_id = $house->category_id;
-                // $proprietesHouse->save();
-                // $o++;
-
                 $valuecatProprietesHouse = new valuecatPropriete;
                 $valuecatProprietesHouse->value = $proprietes;
                 $valuecatProprietesHouse->category_id = $house->category_id;
@@ -226,11 +209,8 @@ class HousesController extends Controller
                 $valuecatProprietesHouse->save();
                 $i++;  
             }
-        
         }
-        
         return redirect('/house/confirmation_create_house');
-        
     }
 
     public function confirmation_create_house(){
@@ -243,20 +223,7 @@ class HousesController extends Controller
 
         return response()->json(["proprietes" => $proprietes,
                                  "category_id" => $category->id], 200); 
-                                 
-        //$houses = house::with('valuecatproprietes', 'proprietes', 'category', 'user')->where('user_id', '=', Auth::user()->id)->get();
-        //return response()->json(['houses' =>$houses], 200);
     }
-    
-    /*public function proprietescategory(Category $categories, $id) {
-        $category = category::find($id);
-        
-        return view('houses.create_step2', [
-            'categories' => $categories,
-            'houseVille' => $houseVille
-        ]);
-    }*/
-
 
     /**
      * Display the specified resource.
@@ -300,12 +267,7 @@ class HousesController extends Controller
         $house->price = $request->get('price');
         $house->photo = $request->get('photo');
         $house->description = $request->get('description');
-        /*$this->validate($request, [
-        // check validtion for image or file
-            'photo' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:20000',
-        ]);*/
-
-        //$picture = $request->file('photo');
+        
         $picture = $request->file('photo');
         $filename  = time() . '.' . $picture->getClientOriginalExtension();
         $path = public_path('img/houses/' . $filename);
@@ -331,13 +293,12 @@ class HousesController extends Controller
     }
 
     public function mylocations($id) {
-
-     $houseProfil = DB::table('users')
-     ->select('users.*', 'houses.*')
-     ->leftJoin('houses', 'houses.user_id','users.id')
-     ->where('users.id', '=', $id)
-     ->where('houses.id', '!=', NULL)
-     ->get();
+        $houseProfil = DB::table('users')
+        ->select('users.*', 'houses.*')
+        ->leftJoin('houses', 'houses.user_id','users.id')
+        ->where('users.id', '=', $id)
+        ->where('houses.id', '!=', NULL)
+        ->get();
         return view('houses.mylocations', compact('houseProfil'))->with('data', Auth::user()->user);
     }
 
