@@ -27,7 +27,7 @@
                             <form action="{{ route('admin.addMessage') }}" method="POST" style="display: flex;">
                                 {{ csrf_field() }}
                                 <input type="hidden" name="admin_id" value="{{ Auth::user()->id }}">
-                                <input type="hidden" name="user_id" value={{$message->user_id}}>
+                                <input type="hidden" name="user_id" value="{{$user->id}}">
                                 <input type="text" name="content" placeholder="Saisir votre message" class="form-control" id="input_comment" style="border-radius: 0;">
                                 <input type="submit" value="Envoyer" class="btn btn-primary" style="border-radius: 0;">
                             </form>

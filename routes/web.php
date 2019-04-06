@@ -70,7 +70,7 @@ Route::prefix('admin')->group(function () {
     Route::get('/showmessages/{id}', 'AdminController@showposts')->name('admin.showmessages');
 
     //Liste des messages de l'admin à l'utilisateur
-    Route::get('/user_messages', 'AdminController@messages')->name('admin.user_messages');
+    Route::get('/user_messages/{id}', 'AdminController@messages')->name('admin.user_messages');
     //Message de l'admin à l'utilisateur
     Route::post('/addMessage', 'AdminController@addMessage')->name('admin.addMessage');
 

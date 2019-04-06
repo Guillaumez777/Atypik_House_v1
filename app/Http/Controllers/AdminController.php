@@ -349,9 +349,10 @@ class AdminController extends Controller
         $house->price = $request->get('price');
     }
 
-    public function messages() {
-        $messages = message::where('user_id', Auth::user()->id)->get();
-        return view('admin.user_messages')->with('messages', $messages);
+    public function messages($id) {
+        $messages = message::where('user_id','=', $id)->get();
+        $user = user::find($id);
+        return view('admin.user_messages')->with('messages', $messages)->with('user', $user);
     }
 
     public function addMessage(Request $request) {
