@@ -42,6 +42,11 @@ Route::prefix('admin')->group(function () {
     //Commentaires de l'utilisateur
     Route::get('/listcomments/{id}', 'AdminController@listcomments')->name('admin.listcomments');
     Route::get('/comments/deleteComment/{id}', 'AdminController@deleteComment')->name('admin.deleteComment');
+    
+    //Commentaire admin
+    Route::post('/addComment', 'AdminController@addComment')->name('admin.addComment');
+    //Route::post('/comments', 'AdminController@addComment');
+    // Route::post('note', 'AdminController@note');
 
     //Liste des réservations de l'utilisateur
     Route::get('/listreservations/{id}', 'AdminController@listreservations')->name('admin.listreservations');
@@ -102,9 +107,6 @@ Route::prefix('admin')->group(function () {
 
     //Admin proprietes
     Route::post('/proprietes/store','AdminController@createproprietes');
-
-    //Commentaire admin
-    Route::post('/addcomments', 'AdminController@addcomments')->name('admin.comments');
  });
 
 Route::group(['middleware' => 'auth'], function () {
@@ -146,7 +148,6 @@ Route::group(['middleware' => 'auth'], function () {
 
     //Vue de détails de l'historique de l'utilisateur
     Route::get('/showhistoriques/{id}', 'UsersController@showhistoriques')->name('user.showhistoriques');
-
 
 });
 

@@ -314,10 +314,34 @@ class AdminController extends Controller
         return view('admin.listcomments')->with('comments', $comments);
     }
 
+    public function addComment(Request $request)
+    {
+        // $this->validate($request, [
+        //     'house_id' => 'exists:houses,id|numeric',
+        //     'comment' => 'required|max:255'
+        // ]);
+        $comment = new Comment;
+        $comment->comment = $request->comment;
+        $comment->note = $request->note;
+        $comment->user_id = "0";
+        $comment->admin_id = "1";
+        $comment->house_id = $request->house_id;
+        $comment->save();
+        Session::flash('success', 'Votre commentaire a bien été ajouté');
+        return redirect()->back();
+    }
+
     public function deleteComment($id) {
         $comment = comment::find($id);
         $comment->delete();
         return redirect()->back()->with('success', 'Le commentaire a bien été supprimé');
+    }
+
+    public function note(House $house, Note $note) {
+        $note = note::find($house->id);
+        $house->title = $request->get('title');
+        $house->idCategory = $request->get('idCategory');
+        $house->price = $request->get('price');
     }
     
 }

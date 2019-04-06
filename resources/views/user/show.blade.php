@@ -70,8 +70,13 @@
                             {{ $comment->comment }}
                         </div>
                         <div class="col-sm-3 text-right">
-                            <small>Posté par {{ $comment->user->prenom }} {{ $comment->user->nom }}</small><br/>
-                            <small>Note: {{$comment->note}}/5</small>
+                                @if($comment->user_id != "0")
+                                <small>Posté par {{ $comment->user->prenom }} {{ $comment->user->nom }}</small><br/>
+                                <small>Note: {{$comment->note}}/5</small>
+                            @else
+                                <small>Posté par {{ $comment->admin->name }}</small><br/>
+                                <small>Note: {{$comment->note}}/5</small>   
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -84,6 +89,7 @@
                             {{ csrf_field() }}
                             <input type="hidden" name="house_id" value="{{ $house->id }}">
                             <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+                            <input type="hidden" name="admin_id" value="0">
                             <input type="text" name="comment" placeholder="Saisir un commentaire" class="form-control" id="input_comment" style="border-radius: 0;">
                             <div class="rating">
                                 <input type="radio" id="star5" name="note" value="5" /><label for="star5" title="Meh">5 stars</label>

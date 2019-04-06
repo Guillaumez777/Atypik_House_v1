@@ -74,8 +74,13 @@
 
                         </div>
                         <div class="col-sm-3 text-right">
-                            <small>Posté par <?php echo e($comment->user->prenom); ?> <?php echo e($comment->user->nom); ?></small><br/>
-                            <small>Note: <?php echo e($comment->note); ?>/5</small>
+                                <?php if($comment->user_id != "0"): ?>
+                                <small>Posté par <?php echo e($comment->user->prenom); ?> <?php echo e($comment->user->nom); ?></small><br/>
+                                <small>Note: <?php echo e($comment->note); ?>/5</small>
+                            <?php else: ?>
+                                <small>Posté par <?php echo e($comment->admin->name); ?></small><br/>
+                                <small>Note: <?php echo e($comment->note); ?>/5</small>   
+                            <?php endif; ?>
                         </div>
                     </div>
                 </div>
@@ -89,6 +94,7 @@
 
                             <input type="hidden" name="house_id" value="<?php echo e($house->id); ?>">
                             <input type="hidden" name="user_id" value="<?php echo e(Auth::user()->id); ?>">
+                            <input type="hidden" name="admin_id" value="0">
                             <input type="text" name="comment" placeholder="Saisir un commentaire" class="form-control" id="input_comment" style="border-radius: 0;">
                             <div class="rating">
                                 <input type="radio" id="star5" name="note" value="5" /><label for="star5" title="Meh">5 stars</label>
