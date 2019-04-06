@@ -33,6 +33,11 @@ class Admin extends Authenticatable
         return $this->hasMany(Comment::class);
     }
 
+    public function messages()
+    {
+        return $this->hasMany(Message::class);
+    }
+
     public function users()
     {
         return $this->hasMany(User::class);

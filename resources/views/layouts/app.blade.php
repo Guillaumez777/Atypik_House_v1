@@ -120,6 +120,7 @@
                                 </a>
                                 <ul class="dropdown-menu" role="menu">
                                     <li><a href="{{url('/profile')}}/{{Auth::user()->id}}">Mon profil</a></li>
+                                    <li><a href="{{route('user.messages')}}">Mes messages</a></li>
                                     <li><a href="{{route('user.houses')}}">Mes hébergements</a></li>
                                     <li><a href="{{route('user.reservations')}}">Mes réservations</a></li>
                                     <li><a href="{{route('user.historiques')}}">Mes historiques</a></li>
