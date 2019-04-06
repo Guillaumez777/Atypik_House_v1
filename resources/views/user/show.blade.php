@@ -70,12 +70,16 @@
                             {{ $comment->comment }}
                         </div>
                         <div class="col-sm-3 text-right">
-                                @if($comment->user_id != "0")
+                            @if($comment->user_id != "0")
                                 <small>Posté par {{ $comment->user->prenom }} {{ $comment->user->nom }}</small><br/>
-                                <small>Note: {{$comment->note}}/5</small>
+                                @if($comment->note != "0")
+                                    <small>Note: {{$comment->note}}/5</small>
+                                @endif
                             @else
                                 <small>Posté par {{ $comment->admin->name }}</small><br/>
-                                <small>Note: {{$comment->note}}/5</small>   
+                                @if($comment->note != "0")
+                                    <small>Note: {{$comment->note}}/5</small> 
+                                @endif  
                             @endif
                         </div>
                     </div>

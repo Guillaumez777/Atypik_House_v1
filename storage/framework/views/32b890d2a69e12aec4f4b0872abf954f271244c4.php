@@ -74,13 +74,17 @@
 
                         </div>
                         <div class="col-sm-3 text-right">
-                                <?php if($comment->user_id != "0"): ?>
+                            <?php if($comment->user_id != "0"): ?>
                                 <small>Posté par <?php echo e($comment->user->prenom); ?> <?php echo e($comment->user->nom); ?></small><br/>
+                            <?php if($comment->note != "0"): ?>
                                 <small>Note: <?php echo e($comment->note); ?>/5</small>
-                            <?php else: ?>
-                                <small>Posté par <?php echo e($comment->admin->name); ?></small><br/>
-                                <small>Note: <?php echo e($comment->note); ?>/5</small>   
                             <?php endif; ?>
+                        <?php else: ?>
+                            <small>Posté par <?php echo e($comment->admin->name); ?></small><br/>
+                            <?php if($comment->note != "0"): ?>
+                                <small>Note: <?php echo e($comment->note); ?>/5</small> 
+                            <?php endif; ?>  
+                        <?php endif; ?>
                         </div>
                     </div>
                 </div>

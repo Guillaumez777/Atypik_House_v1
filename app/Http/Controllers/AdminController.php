@@ -322,7 +322,11 @@ class AdminController extends Controller
         // ]);
         $comment = new Comment;
         $comment->comment = $request->comment;
-        $comment->note = $request->note;
+        if($request->note == null){
+            $comment->note = 0;
+        } else {
+            $comment->note = $request->note;
+        }
         $comment->user_id = "0";
         $comment->admin_id = "1";
         $comment->house_id = $request->house_id;
