@@ -19,6 +19,7 @@
 <ion-content padding>
     <ion-list>
         <ion-item *ngFor="let house of houses">
+          <img data-src={{house.photo}}/>
           <p> {{ house.title}}</p>
         </ion-item>
       </ion-list>
