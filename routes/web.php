@@ -45,8 +45,6 @@ Route::prefix('admin')->group(function () {
     
     //Commentaire admin
     Route::post('/addComment', 'AdminController@addComment')->name('admin.addComment');
-    //Route::post('/comments', 'AdminController@addComment');
-    // Route::post('note', 'AdminController@note');
 
     //Liste des réservations de l'utilisateur
     Route::get('/listreservations/{id}', 'AdminController@listreservations')->name('admin.listreservations');

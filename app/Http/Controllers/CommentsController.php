@@ -27,6 +27,8 @@ class CommentsController extends Controller
         $comment->user_id = Auth::user()->id;
         if($comment->admin_id != 0){
             $comment->admin_id = Auth::user()->id;
+        } else {
+            $comment->admin_id = 0;
         }
         $comment->house_id = $request->house_id;
         $comment->save();

@@ -8,7 +8,7 @@
                     <div class="row">
                         <div class="col-lg-6 col-md-6 mb-4">
                             <div class="card h-100">
-                                <img class="img-responsive img_house" src="{{ asset('img/houses/'.$house->photo) }}"></a>
+                                <img class="img-responsive img_house" src="{{ asset('img/houses/'.$house->photo) }}">
                                 <div class="card-body">
                                     <h4 class="title card-title text-center">
                                         {{$house->title}}
