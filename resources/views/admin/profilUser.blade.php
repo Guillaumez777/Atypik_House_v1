@@ -40,12 +40,15 @@
                             <div class="col-md-3">
                                 <a href="{{route('admin.listhistoriques', $user['id']) }}" class="btn btn-success button-profiluser">Ses historiques de reservations</a>
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-2">
                                 <a href="{{route('admin.listannonces', $user['id']) }}" class="btn btn-success button-profiluser">Ses annonces</a>
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-2">
                                 <a href="{{route('admin.listcomments', $user['id']) }}" class="btn btn-success button-profiluser">Ses commentaires</a>
                             </div>
+                            <div class="col-md-2">
+                                    <a href="{{route('admin.user_messages', $user['id']) }}" class="btn btn-success button-profiluser">Ses messages</a>
+                                </div>
                         </div>
                     </div>
                     @endforeach

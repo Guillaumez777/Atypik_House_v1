@@ -69,7 +69,10 @@ Route::prefix('admin')->group(function () {
     Route::get('/messages', 'AdminController@listposts')->name('admin.messages');
     Route::get('/showmessages/{id}', 'AdminController@showposts')->name('admin.showmessages');
 
-
+    //Liste des messages de l'admin à l'utilisateur
+    Route::get('/user_messages', 'AdminController@messages')->name('admin.user_messages');
+    //Message de l'admin à l'utilisateur
+    Route::post('/addMessage', 'AdminController@addMessage')->name('admin.addMessage');
 
     //Connexion et déconnexion
     Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');

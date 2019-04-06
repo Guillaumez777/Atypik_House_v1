@@ -8,6 +8,7 @@ use App\Ville;
 use App\Comment;
 use App\Propriete;
 use App\Post;
+use App\Message;
 use App\Reservation;
 use App\Valuecatpropriete;
 use Illuminate\Http\Request;
@@ -347,5 +348,19 @@ class AdminController extends Controller
         $house->idCategory = $request->get('idCategory');
         $house->price = $request->get('price');
     }
-    
+
+    public function messages() {
+        $messages = message::where('user_id', Auth::user()->id)->get();
+        return view('admin.user_messages')->with('messages', $messages);
+    }
+
+    public function addMessage(Request $request) {
+        $message = new Message;
+        $message->content = $request->content;
+        $message->user_id = $request->user_id;
+        $message->admin_id = Auth::user()->id;
+        $message->save();
+        Session::flash('success', 'Votre message a bien été envoyé');
+        return redirect()->back();
+    } 
 }

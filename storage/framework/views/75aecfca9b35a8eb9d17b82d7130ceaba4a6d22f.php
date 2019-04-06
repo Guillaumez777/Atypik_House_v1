@@ -42,12 +42,15 @@
                             <div class="col-md-3">
                                 <a href="<?php echo e(route('admin.listhistoriques', $user['id'])); ?>" class="btn btn-success button-profiluser">Ses historiques de reservations</a>
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-2">
                                 <a href="<?php echo e(route('admin.listannonces', $user['id'])); ?>" class="btn btn-success button-profiluser">Ses annonces</a>
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-2">
                                 <a href="<?php echo e(route('admin.listcomments', $user['id'])); ?>" class="btn btn-success button-profiluser">Ses commentaires</a>
                             </div>
+                            <div class="col-md-2">
+                                    <a href="<?php echo e(route('admin.user_messages', $user['id'])); ?>" class="btn btn-success button-profiluser">Ses messages</a>
+                                </div>
                         </div>
                     </div>
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
