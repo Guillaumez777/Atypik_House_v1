@@ -81,24 +81,39 @@ class AdminController extends Controller
         return view('admin.create_category');
     }
 
-    public function registercategory(Request $request, Category $categories)
+    public function registercategory(Request $request)
     {
         $categories = category::all();
+        $users = user::all();
         $category = new category;
         $category->category = $request->category;
         if ($category->where('category', $category->category)->count() > 0){
             return redirect()->back()->with('danger', "La catégorie existe déjà")->with('categories', $categories);
-
         }
         $category->save();
-        return redirect()->route('admin.categories')->with('success', "La catégorie a bien été ajoutée")->with('categories', $categories);
+        foreach($users as $user){
+            $message = new message;
+            $message->content = "L'adminitrateur a rajouté la catégorie ".$category->category." sur les type d'hébergement";
+            $message->user_id = $user->id;
+            $message->admin_id = Auth::user()->id;
+            $message->save();
+        }
+        return redirect()->route('admin.categories')->with('success', "La catégorie a bien été ajoutée, un message a été envoyé à tous les utilisateurs")->with('categories', $categories);
     }
 
     public function deletecategory($id)
     {
+        $users = user::all();
         $category = category::find($id);
         $category->delete();
-        return redirect()->back()->with('danger', 'Votre catégorie a bien été supprimée');
+        foreach($users as $user){
+            $message = new message;
+            $message->content = "L'adminitrateur a supprimé la catégorie ".$category->category." sur les types d'hébergements";
+            $message->user_id = $user->id;
+            $message->admin_id = Auth::user()->id;
+            $message->save();
+        }
+        return redirect()->back()->with('danger', 'Votre catégorie a bien été supprimée, un message a été envoyé à tous les utilisateurs');
     }
 
     //Propriétés des catégories
@@ -153,6 +168,13 @@ class AdminController extends Controller
             $values->delete();
         }
         $propriete->delete();
+        foreach($users as $user){
+            $message = new message;
+            $message->content = "L'adminitrateur a supprimé la propriété ".$propriete->propriete." ainsi que les valeurs attribuées à la propriété supprimée";
+            $message->user_id = $user->id;
+            $message->admin_id = Auth::user()->id;
+            $message->save();
+        }
         return redirect()->back()->with('danger', 'Votre propriété a bien été supprimée');
     }
 
