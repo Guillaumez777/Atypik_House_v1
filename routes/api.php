@@ -26,6 +26,7 @@ Route::group(['middleware' => 'jwt.auth'], function () {
 use App\House;
 use App\User;
 use App\Reservation;
+use App\Message;
 Route::get('/mylocations/{id}', function ($id) {
 	$houseProfil = DB::table('users')
 		->select('users.*', 'houses.*')
@@ -70,4 +71,14 @@ Route::get('/user/comments/{id}', function ($id) {
 		->where('comments.user_id', '=', $id)
 		->get()->toJson();
  	return response($commentProfil,200)->header('Content-Type', 'application/json');
+});
+
+Route::get('/user/messages/{id}', function ($id) {
+	$commentProfil = DB::table('messages')
+    	->select('users.*', 'messages.*')
+		->leftJoin('messages', 'messages.user_id','users.id')
+		->where('users.id', '=', $id)
+		->where('messages.user_id', '=', $id)
+		->get()->toJson();
+ 	return response($messageProfil,200)->header('Content-Type', 'application/json');
 });
