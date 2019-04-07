@@ -1,3 +1,5 @@
+<?php $__env->startSection('title', 'Ma location'); ?>
+<?php $__env->startSection('footer', 'footer_absolute'); ?>
 <?php $__env->startSection('content'); ?>
 <div class="container list-category">
     <h2>Mes hébergements</h2>
@@ -5,7 +7,7 @@
         <?php $__currentLoopData = $houseProfil; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $house): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
         
         <div class="col-lg-4 col-md-6 mb-4">
-            <div class="card h-100">
+            <div class="card h-100 thumbnail">
                 <a href="#"><img class="card-img-top" src="<?php echo e(asset('img/houses/'.$house->photo)); ?>"></a></a>
                 <div class="card-body">
                     <h3 class="title card-title">
