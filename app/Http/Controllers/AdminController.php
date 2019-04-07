@@ -98,7 +98,7 @@ class AdminController extends Controller
             $message->admin_id = Auth::user()->id;
             $message->save();
         }
-        return redirect()->route('admin.categories')->with('success', "La catégorie a bien été ajoutée, un message a été envoyé à tous les utilisateurs")->with('categories', $categories);
+        return redirect()->route('admin.categories')->with('success', "La catégorie a bien été ajoutée, un message a été envoyé à tous les propriétaires")->with('categories', $categories);
     }
 
     public function deletecategory($id)
@@ -113,7 +113,7 @@ class AdminController extends Controller
             $message->admin_id = Auth::user()->id;
             $message->save();
         }
-        return redirect()->back()->with('danger', 'Votre catégorie a bien été supprimée, un message a été envoyé à tous les utilisateurs');
+        return redirect()->back()->with('danger', "La catégorie ".$category->category." a bien été supprimée, un message a été envoyé à tous les propriétaires");
     }
 
     //Propriétés des catégories
@@ -139,7 +139,6 @@ class AdminController extends Controller
         $propriete->category_id = $request->category_id;
         if ($propriete->where('propriete', $propriete->propriete)->where('category_id', '=', $request->category_id)->count() >0) {
             return redirect()->back()->with('danger', "La propriété existe déjà");
-
         } else {
             $propriete->save();
 
@@ -151,9 +150,15 @@ class AdminController extends Controller
                 $valuecatpropriete->propriete_id = $propriete->id;
                 $valuecatpropriete->house_id = $house->id;
                 $valuecatpropriete->save();
+
+                $message = new message;
+                $message->content = "L'adminitrateur a ajouté une propriété ".$propriete->propriete." sur vos annonces ayant comme catégorie ".$propriete->category->category;
+                $message->user_id = $house->user_id;
+                $message->admin_id = Auth::user()->id;
+                $message->save();
             }
             
-            return redirect()->route('admin.proprietes_category', ['id' => $request->category_id])->with('success', "La propriété a bien été ajoutée")->with('category_id', $request->category_id);
+            return redirect()->route('admin.proprietes_category', ['id' => $request->category_id])->with('success', "La propriété ".$propriete->propriete." a bien été ajoutée, un message a été envoyé aux proprietaires ayant dans leur annonce la catégorie ".$propriete->category->category)->with('category_id', $request->category_id);
         }
     }
 
@@ -168,14 +173,15 @@ class AdminController extends Controller
             $values->delete();
         }
         $propriete->delete();
-        foreach($users as $user){
+        $houses = house::where('category_id', '=', $propriete->category_id)->get();
+        foreach($houses as $house){
             $message = new message;
-            $message->content = "L'adminitrateur a supprimé la propriété ".$propriete->propriete." ainsi que les valeurs attribuées à la propriété supprimée";
-            $message->user_id = $user->id;
+            $message->content = "L'adminitrateur a supprimé la propriété ".$propriete->propriete." ainsi que les valeurs attribuées à ".$propriete->propriete;
+            $message->user_id = $house->user_id;
             $message->admin_id = Auth::user()->id;
             $message->save();
         }
-        return redirect()->back()->with('danger', 'Votre propriété a bien été supprimée');
+        return redirect()->back()->with('danger', "Votre propriété ".$propriete->propriete." a bien été supprimée, un message a été envoyé aux propriétaires ayant dans leur annonce la catégorie ".$propriete->category->category);
     }
 
     public function editHouse($id)
@@ -217,6 +223,8 @@ class AdminController extends Controller
         $house->adresse = $request->adresse;
         $house->price = $request->price;
         $house->description = $request->description;
+        $house->statut = $request->statut;
+        
         $house->save();
         
         $i = 0;
@@ -235,7 +243,13 @@ class AdminController extends Controller
         if($request->photo == NULL){
             $request->photo = $house->first()->photo;
             $house->save();
-            return redirect()->back()->with('success', "L'hébergement de l'utilisateur a bien été modifié");
+
+            $message = new message;
+            $message->content = "L'adminitrateur a modifié des informations sur votre annonce ".$house->title;
+            $message->user_id = $house->user_id;
+            $message->admin_id = Auth::user()->id;
+            $message->save();
+            return redirect()->back()->with('success', "L'hébergement de l'utilisateur a bien été modifié, un message a été envoyé au propriétaire de cette annonce");
         } else {
             $picture = $request->file('photo');
             $filename  = time() . '.' . $picture->getClientOriginalExtension();
@@ -243,9 +257,35 @@ class AdminController extends Controller
             Image::make($picture->getRealPath())->resize(350, 200)->save($path);
             $house->photo = $filename;
             $house->save();
-            return redirect()->back()->with('success', "L'hébergement de l'utilisateur a bien été modifié");
+
+            $message = new message;
+            $message->content = "L'adminitrateur a modifié des informations sur votre annonce ".$house->title;
+            $message->user_id = $house->user_id;
+            $message->admin_id = Auth::user()->id;
+            $message->save();
+            return redirect()->back()->with('success', "L'hébergement du propriétaire a bien été modifié, un message a été envoyé au propriétaire de cette annonce");
         }
         
+    }
+    public function statutHouse(Request $request,Category $category, Ville $ville, House $house, $id)
+    {
+        $house = house::find($id);
+        $house->statut = $request->statut;
+        if($house->statut == "Validé"){
+            $message = new message;
+            $message->content = "L'adminitrateur a validé votre annonce ".$house->title;
+            $message->user_id = $house->user_id;
+            $message->admin_id = Auth::user()->id;
+            $message->save();
+        } else {
+            $message = new message;
+            $message->content = "L'adminitrateur n'a pas validé votre annonce veuillez saisir des informations convenable ".$house->title;
+            $message->user_id = $house->user_id;
+            $message->admin_id = Auth::user()->id;
+            $message->save();
+        }
+        $house->save();
+        return redirect()->back()->with('success', "Le statut de l'hébergement du propriétaire a bien été modifié, un message a été envoyé au propriétaire de cette annonce");
     }
 
     /**
@@ -328,7 +368,12 @@ class AdminController extends Controller
     public function deleteAnnonce($id) {
         $house = house::find($id);
         $house->delete();
-        return redirect()->back()->with('success', "L'annonce a bien été supprimée");
+        $message = new message;
+        $message->content = "L'adminitrateur a supprimé votre annonce ".$house->title;
+        $message->user_id = $house->user_id;
+        $message->admin_id = Auth::user()->id;
+        $message->save();
+        return redirect()->back()->with('success', "L'annonce a bien été supprimée, un message a été envoyé au propriétaire de l'annonce");
     }
 
     public function listcomments(Comment $comments, $id)

@@ -10,6 +10,7 @@ use App\Reservation;
 use App\Propriete;
 use App\Valuecatpropriete;
 use App\User;
+use App\Message;
 use Illuminate\Http\Request;
 use App\Http\Requests\CreateHouseStep1Request;
 use App\Http\Requests\CreateHouseStep2Request;
@@ -210,7 +211,12 @@ class HousesController extends Controller
                 $i++;  
             }
         }
-        return redirect('/house/confirmation_create_house');
+        $message = new message;
+        $message->content = "Vous avez bien créé l'annonce ".$house->title.", notre équipe va vérifier le contenu et vous enverra un message, une fois votre annonce validée par notre équipe, elle sera consultable sur le site dans nos hébergements";
+        $message->user_id = $house->user_id;
+        $message->admin_id = Auth::user()->id;
+        $message->save();
+        return redirect('/house/confirmation_create_house')->with('success', "Votre annonce a bien été créé, vous avez reçu un message");
     }
 
     public function confirmation_create_house(){

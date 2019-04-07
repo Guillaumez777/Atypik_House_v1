@@ -86,6 +86,7 @@ Route::prefix('admin')->group(function () {
     //Gestion des hébergement
     Route::get('/house/editHouse/{id}', 'AdminController@editHouse')->name('admin.editHouse');
     Route::post('/house/updateHouse/{id}', 'AdminController@updateHouse')->name('admin.updateHouse');
+    Route::post('/house/statutHouse/{id}', 'AdminController@statutHouse')->name('admin.statutHouse');
     Route::get('/houses/deleteHouse/{id}', 'AdminController@deleteHouse')->name('admin.deleteHouse');
     
     //Liste des catégories

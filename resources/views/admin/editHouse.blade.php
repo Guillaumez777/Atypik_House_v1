@@ -135,11 +135,36 @@
                                 </div>
                             </div>
                         @endforeach
+                        <div class="form-group">
+                            <label for="name" class="col-md-4 control-label" style="display:none;">Statut</label>
+                            <div class="col-md-6">
+                                <select id="select_category" type="text" name="statut" class="form-control" style="display:none;">
+                                    <option id="" value="{{$house->statut}}" selected="selected" required autofocus>{{$house->statut}}</option> 
+                                    <option value="En attente de validation">En attente de validation</option>
+                                    <option value="Validé">Validé</option>                       
+                                </select>
+                            </div>
+                        </div>
                         
                         <div class="form-group">
                             <p class="rouge">Pour les informations supplémentaires vous ne pouvez mettre que des chiffres. </p>
                             <p class="rouge">mettez 0 losque vous n'avez pas ou si vous ne savez pas encore, la propriété ne sera pas afficher dans l'annonce</p>
                         </div>
+                        
+                        <!--<div class="col-md-6">
+                            <input id="name" type="hidden" class="form-control" name="idUser" autofocus value="{{ Auth::user()->id }}">
+                        </div>-->
+
+                    @endforeach
+                        <div class="form-group">
+                            <div class="col-md-6 col-md-offset-4">
+                                <button type="submit" class="btn btn-primary">
+                                    Enregistrer
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                    <form class="form-horizontal" method="POST" action="{{ route('admin.statutHouse', $house->id) }}" enctype="multipart/form-data">
                         <div class="form-group">
                             <label for="name" class="col-md-4 control-label">Statut</label>
                             <div class="col-md-6">
@@ -150,15 +175,10 @@
                                 </select>
                             </div>
                         </div>
-                        <!--<div class="col-md-6">
-                            <input id="name" type="hidden" class="form-control" name="idUser" autofocus value="{{ Auth::user()->id }}">
-                        </div>-->
-
-@endforeach
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
-                                    Enregistrer
+                                    Valider le statut
                                 </button>
                             </div>
                         </div>

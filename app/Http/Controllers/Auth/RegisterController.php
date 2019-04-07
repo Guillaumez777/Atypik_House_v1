@@ -6,6 +6,7 @@ use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 use App\Jobs\SendVerificationEmail;
 use App\User;
+use App\Message;
 use App\Mail\EmailVerification;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -113,6 +114,11 @@ class RegisterController extends Controller
                 $message->to($data['email']);
                 $message->subject('Confirmation inscription');
             });*/
+            $message = new message;
+            $message->content = "Bienvenue ".$user->prenom.", vous pouvez dès à présent créer des annonces en tant que propriétaire ou bien réserver des hébergements, notre équipe vous remercie.";
+            $message->user_id = $user->id;
+            $message->admin_id = "1";
+            $message->save();
             return redirect(route('login'))->with('status', 'Merci pour votre inscription, vous pouvez dès à présent vous connecter sur le site.');
         //return redirect(route('login'))->with('status', $validator->errors());
     }
