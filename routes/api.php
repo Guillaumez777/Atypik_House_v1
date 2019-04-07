@@ -75,9 +75,11 @@ Route::get('/user/comments/{id}', function ($id) {
 
 Route::get('/user_messages/{id}', function ($id) {
 	$messageProfil = DB::table('users')
-    	->select('users.*', 'messages.*')
+    	->select('users.*', 'messages.*', 'admins.*')
 		->leftJoin('messages', 'messages.user_id','users.id')
+		->leftJoin('messages', 'messages.admin_id','admins.id')
 		->where('users.id', '=', $id)
+		->where('admins.id', '=', 1)
 		->where('messages.user_id', '=', $id)
 		->get()->toJson();
  	return response($messageProfil,200)->header('Content-Type', 'application/json');
