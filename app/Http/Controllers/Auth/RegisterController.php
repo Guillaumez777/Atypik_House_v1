@@ -78,8 +78,7 @@ class RegisterController extends Controller
             'email_token' => base64_encode($data['email'])
         ]);
     }
-
-
+    
     /**
     * Handle a registration request for the application.
      *
@@ -101,26 +100,21 @@ class RegisterController extends Controller
             'g-recaptcha-response'=>'required|captcha'
         ]);
         
-            $data = $this->create($input)->toArray();
+        $data = $this->create($input)->toArray();
 
-            $data['email_token'] = str_random(25);
+        $data['email_token'] = str_random(25);
 
-            $user = User::find($data['id']);
-            $user->email_token = $data['email_token'];
-            $user->prenom = $data["prenom"];
-            $user->save();
-            
-            /*Mail::send('email.confirmation', $data,function($message) use($data){
-                $message->to($data['email']);
-                $message->subject('Confirmation inscription');
-            });*/
-            $message = new message;
-            $message->content = "Bienvenue ".$user->prenom.", vous pouvez dès à présent créer des annonces en tant que propriétaire ou bien réserver des hébergements, notre équipe vous remercie.";
-            $message->user_id = $user->id;
-            $message->admin_id = "1";
-            $message->save();
-            return redirect(route('login'))->with('status', 'Merci pour votre inscription, vous pouvez dès à présent vous connecter sur le site.');
-        //return redirect(route('login'))->with('status', $validator->errors());
+        $user = User::find($data['id']);
+        $user->email_token = $data['email_token'];
+        $user->prenom = $data["prenom"];
+        $user->save();
+        
+        $message = new message;
+        $message->content = "Bienvenue ".$user->prenom.", vous pouvez dès à présent créer des annonces en tant que propriétaire ou bien réserver des hébergements, notre équipe vous remercie.";
+        $message->user_id = $user->id;
+        $message->admin_id = "1";
+        $message->save();
+        return redirect(route('login'))->with('status', 'Merci pour votre inscription, vous pouvez dès à présent vous connecter sur le site.');
     }
 
     public function confirmation($email_token) {
@@ -134,29 +128,6 @@ class RegisterController extends Controller
         }
         return redirect(route('login'))->with('status', 'Quelque chose ne va pas');
     }
-
-    
-    /**
-    * Handle a registration request for the application.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
-     */
-
-    // public function register(Request $request)
-    // {
-    //     $this->validator($request->all())->validate();
-    //     event(new Registered($user = $this->create($request->all())));
-    //     dispatch(new SendVerificationEmail($user));
-    //     return view('verification');
-    // }
-
-    /**
-     * Handle a registration request for the application.
-     *
-     * @param $token
-     * @return \Illuminate\Http\Response
-     */
     
     protected function verify($token)
     {
