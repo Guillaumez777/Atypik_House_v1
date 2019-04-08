@@ -25,6 +25,7 @@ Route::group(['middleware' => 'jwt.auth'], function () {
 });
 use App\House;
 use App\User;
+use App\Admin;
 use App\Reservation;
 use App\Message;
 Route::get('/mylocations/{id}', function ($id) {
@@ -65,8 +66,9 @@ Route::get('/user/historiques/{id}', function ($id) {
 
 Route::get('/user/comments/{id}', function ($id) {
 	$commentProfil = DB::table('users')
-    	->select('users.*', 'comments.*')
-		->leftJoin('comments', 'comments.user_id','users.id')
+    	->select('users.*', 'comments.*', 'houses.*')
+		->join('comments', 'comments.user_id','=', 'users.id')
+		->join('houses', 'houses.user_id','=', 'users.id')
 		->where('users.id', '=', $id)
 		->where('comments.user_id', '=', $id)
 		->get()->toJson();
@@ -74,13 +76,14 @@ Route::get('/user/comments/{id}', function ($id) {
 });
 
 Route::get('/user_messages/{id}', function ($id) {
-	$messageProfil = DB::table('users')
+	$messageProfil = DB::table('messages')
     	->select('users.*', 'messages.*', 'admins.*')
-		->leftJoin('messages', 'messages.user_id','users.id')
-		->leftJoin('messages', 'messages.admin_id','admins.id')
+		->join('users', 'users.id', '=', 'messages.user_id')
+		->join('admins', 'admins.id', '=', 'messages.admin_id')
 		->where('users.id', '=', $id)
-		->where('admins.id', '=', 1)
 		->where('messages.user_id', '=', $id)
+		->where('admins.id', '=', "1")
+		->where('messages.admin_id', '=', "1")
 		->get()->toJson();
  	return response($messageProfil,200)->header('Content-Type', 'application/json');
 });
