@@ -34,6 +34,7 @@ class AuthenticateController extends Controller
         }
         return response()->json(compact('token'));
     }
+    
     public function getAuthUser(Request $request){
         $user = JWTAuth::toUser($request->token);
         return response()->json(['result' => $user]);
@@ -56,5 +57,26 @@ class AuthenticateController extends Controller
 
         // all good so return the token
         return response()->json(compact('token'));
+    }
+
+    public function logout(Request $request) {
+        $this->validate($request, ['token' => 'required']);
+        try {
+            JWTAuth::invalidate($request->input('token'));
+            return response()->json(['success' => true, 'message'=> "You have successfully logged out."]);
+        } catch (JWTException $e) {
+            // something went wrong whilst attempting to encode the token
+            return response()->json(['success' => false, 'error' => 'Failed to logout, please try again.'], 500);
+        }
+    }
+
+    public function addComment(Request $request)
+    {
+        $data = $request->json()->all();
+        $comment = new Comment();
+        $comment->comment = $data['comment'];
+        $comment->note = $data['note'];
+        $comment->save();
+        return response()->json(($result === true ? 'succeed':'failed'),200);
     }
 }

@@ -17,17 +17,48 @@ use Illuminate\Http\Request;
 //     return $request->user();
 // });
 
-Route::post('auth/register', 'AuthenticateController@register');
-Route::post('auth/login', 'AuthenticateController@login');
-Route::group(['middleware' => 'jwt.auth'], function () {
-    Route::get('user', 'AuthenticateController@getAuthUser');
-    
-});
 use App\House;
 use App\User;
 use App\Admin;
 use App\Reservation;
 use App\Message;
+use App\Comment;
+use App\Http\Requests;
+use App\Http\Controllers\Controller;
+
+Route::post('auth/register', 'AuthenticateController@register');
+Route::post('auth/login', 'AuthenticateController@login');
+Route::get('logout', 'AuthenticateController@logout');
+Route::group(['middleware' => 'jwt.auth'], function () {
+    Route::get('user', 'AuthenticateController@getAuthUser');
+	//Route::post('/user/comment',function(Request $request){
+	// 	$data = $request->json()->all();
+	// 	$comment = new Comment();
+	// 	$comment->comment = $data['comment'];
+	// 	$comment->note = $data['note'];
+	// 	$comment->save();
+	// 	return response(($result === true ? 'succeed':'failed'),200)->header('Content-Type', 'application/json');
+	// });
+});
+// Route::post('/user/comment', function(Request $request){
+// 	//$data = json_decode(request()->getContent(), true);
+// 	var_dump($request);
+// 	$data = $request->json()->all();
+// 	$comment = new Comment();
+// 	// $comment->comment = $data['comment'];
+// 	// $comment->note = $data['note'];
+// 	// $comment->user_id = $data['user_id'];
+// 	$comment->comment = $request->comment;
+// 	$comment->note = 3;
+// 	$comment->user_id = 1;
+// 	$comment->admin_id = 0;
+// 	$comment->house_id = 1;
+// 	$comment->save();
+// 	return response(($comment === true ? 'succeed':'failed'),200)->header('Content-Type', 'application/json');
+// });
+
+Route::post('/user/comment', 'ApiController@addComment');
+
 Route::get('/mylocations/{id}', function ($id) {
 	$houseProfil = DB::table('users')
 		->select('users.*', 'houses.*')
@@ -39,15 +70,8 @@ Route::get('/mylocations/{id}', function ($id) {
 });
 
 Route::get('/user/reservations/{id}', function ($id) {
-	$today = Date::now()->format('Y-m-d');
-	$reservationProfil = DB::table('users')
-		->select('users.*', 'reservations.*')
-		->leftJoin('reservations', 'reservations.user_id','users.id')
-		->where('reservations.start_date', '>', $today)
-		->where('reservations.end_date', '>=', $today)
-		->where('users.id', '=', $id)
-		->where('reservations.user_id', '=', $id)
-		->get()->toJson();
+	//$today = Date::now()->format('Y-m-d');
+	$reservationProfil = reservation::with('house')->where('user_id', $id)->get()->toJson();
  	return response($reservationProfil,200)->header('Content-Type', 'application/json');
 });
 
@@ -64,14 +88,14 @@ Route::get('/user/historiques/{id}', function ($id) {
  	return response($historiqueProfil,200)->header('Content-Type', 'application/json');
 });
 
+Route::post('/user/comment', function ($id) {
+	//$today = Date::now()->format('Y-m-d');
+	$commentProfil = reservation::with('house', 'user')->where('user_id', $id)->get()->toJson();
+ 	return response($commentProfil,200)->header('Content-Type', 'application/json');
+});
+
 Route::get('/user/comments/{id}', function ($id) {
-	$commentProfil = DB::table('users')
-    	->select('users.*', 'comments.*', 'houses.*')
-		->join('comments', 'comments.user_id','=', 'users.id')
-		->join('houses', 'houses.user_id','=', 'users.id')
-		->where('users.id', '=', $id)
-		->where('comments.user_id', '=', $id)
-		->get()->toJson();
+		$commentProfil = comment::with('house', 'user')->where('user_id', $id)->get()->toJson();
  	return response($commentProfil,200)->header('Content-Type', 'application/json');
 });
 
