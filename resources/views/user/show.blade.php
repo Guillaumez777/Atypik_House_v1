@@ -79,7 +79,7 @@
                                 <small>Posté par {{ $comment->admin->name }}</small><br/>
                                 @if($comment->note != "0")
                                     <small>Note: {{$comment->note}}/5</small> 
-                                @endif  
+                                @endif
                             @endif
                         </div>
                     </div>

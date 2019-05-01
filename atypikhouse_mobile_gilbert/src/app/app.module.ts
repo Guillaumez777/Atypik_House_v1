@@ -17,15 +17,12 @@ import { TabsloginPage } from '../pages/tabslogin/tabslogin';
 import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
-import { HebergementsPage } from '../pages/hebergements/hebergements';
-import { ReservationsPage } from '../pages/reservations/reservations';
-import { HistoriquesPage } from '../pages/historiques/historiques';
-import { AvisPage } from '../pages/avis/avis';
 import { MesAlertesPage } from '../pages/mes-alertes/mes-alertes';
 import { MesAvisPage } from '../pages/mes-avis/mes-avis';
 import { MesAnnoncesPage } from '../pages/mes-annonces/mes-annonces';
 import { MesCommandesPage } from '../pages/mes-commandes/mes-commandes';
 import { PrezannoncesPage } from '../pages/prezannonces/prezannonces';
+import { PrezcommandesPage } from '../pages/prezcommandes/prezcommandes';
 import { PrezavisPage } from '../pages/prezavis/prezavis';
 
 
@@ -38,15 +35,12 @@ import { PrezavisPage } from '../pages/prezavis/prezavis';
     HomePage,
     LoginPage,
     TabsloginPage,
-    HebergementsPage,
-    ReservationsPage,
-    HistoriquesPage,
-    AvisPage,
     MesAlertesPage,
     MesAvisPage,
     MesAnnoncesPage,
     MesCommandesPage,
     PrezannoncesPage,
+    PrezcommandesPage,
     PrezavisPage
 
   ],
@@ -64,15 +58,12 @@ import { PrezavisPage } from '../pages/prezavis/prezavis';
     HomePage,
     LoginPage,
     TabsloginPage,
-    HebergementsPage,
-    ReservationsPage,
-    HistoriquesPage,
-    AvisPage,
     MesAlertesPage,
     MesAvisPage,
     MesAnnoncesPage,
     MesCommandesPage,
     PrezannoncesPage,
+    PrezcommandesPage,
     PrezavisPage
   ],
   providers: [

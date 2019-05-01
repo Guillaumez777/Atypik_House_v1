@@ -24,8 +24,8 @@ class CreatePostRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|max:50|regex:/^[a-zA-Z]+$/u', 
-            'email' => 'required|max:50', 
+            'name' => 'required|max:50|regex:/^[a-zA-Z\s\-]+$/u', 
+            'email' => 'required|max:50|email', 
             'content' => 'required|max:100'
         ];
     }
@@ -41,7 +41,8 @@ class CreatePostRequest extends FormRequest
             'name.required' => 'Veuillez saisir votre nom complet',
             'name.max' => 'Votre nom ne doit pas dépasser 50 caractères',
             'name.regex' => 'Votre nom doit contenir que des lettres et non des chiffres ou caractères spéciaux',
-            'email.required' => 'Veuillez saisir votre email',
+            'email.required' => 'Veuillez saisir votre adresse mail',
+            'email.email' => 'Veuillez mettre une adresse mail',
             'email.max' => 'Votre nom ne doit pas dépasser 50 caractères',
             'content.required' => 'Veuillez saisir votre message',
             'content.max' => 'Votre message ne doit pas dépasser 1000 caractères',

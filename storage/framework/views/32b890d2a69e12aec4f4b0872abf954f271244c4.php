@@ -83,7 +83,7 @@
                                 <small>Posté par <?php echo e($comment->admin->name); ?></small><br/>
                                 <?php if($comment->note != "0"): ?>
                                     <small>Note: <?php echo e($comment->note); ?>/5</small> 
-                                <?php endif; ?>  
+                                <?php endif; ?>
                             <?php endif; ?>
                         </div>
                     </div>

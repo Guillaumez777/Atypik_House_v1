@@ -16,11 +16,18 @@
 <ion-content padding>
 	<ion-card>
     	<ion-card-content>
-      		<!-- <img class = "imgprez" src="{{ house.photo }}" /> -->
+      	<img class = "imgprez" data-src="http://127.0.0.1:8000/img/houses/{{house.photo}}" />
     	</ion-card-content>
 
 			<p class = "nom">{{ house.title }} </p>
+			<p>Type de bien : {{house.category.category}}</p>
+			<p class = "nom">Prix {{ house.price }} €</p>
+			<!-- <div *ngFor="let houseproprietes of house['valuecatproprietes']"><p>{{houseproprietes.proprietes.propriete}}</p></div> -->
 			<p class = "description-annonce">{{ house.description }}</p>
+			<p>Annulation gratuite !</p>
+			<p> Pays: {{house.pays}}</p>
+			<p> Ville: {{house.ville}}</p>
+			<p> Adresse: {{house.adresse}}</p>
 
     	<!-- <p class = "avis"> Bonne surprise,<br /> cadre de vie saint et apaisant</p> -->
 

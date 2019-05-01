@@ -152,7 +152,7 @@ class AdminController extends Controller
                 $valuecatpropriete->save();
 
                 $message = new message;
-                $message->content = "L'adminitrateur a ajouté une propriété ".$propriete->propriete." sur vos annonces ayant comme catégorie ".$propriete->category->category;
+                $message->content = "L'administrateur a ajouté une propriété ".$propriete->propriete." sur vos annonces ayant comme catégorie ".$propriete->category->category;
                 $message->user_id = $house->user_id;
                 $message->admin_id = Auth::user()->id;
                 $message->save();
@@ -176,7 +176,7 @@ class AdminController extends Controller
         $houses = house::where('category_id', '=', $propriete->category_id)->get();
         foreach($houses as $house){
             $message = new message;
-            $message->content = "L'adminitrateur a supprimé la propriété ".$propriete->propriete." ainsi que les valeurs attribuées à ".$propriete->propriete;
+            $message->content = "L'administrateur a supprimé la propriété ".$propriete->propriete." ainsi que les valeurs attribuées à ".$propriete->propriete;
             $message->user_id = $house->user_id;
             $message->admin_id = Auth::user()->id;
             $message->save();
@@ -245,7 +245,7 @@ class AdminController extends Controller
             $house->save();
 
             $message = new message;
-            $message->content = "L'adminitrateur a modifié des informations sur votre annonce ".$house->title;
+            $message->content = "L'administrateur a modifié des informations sur votre annonce ".$house->title;
             $message->user_id = $house->user_id;
             $message->admin_id = Auth::user()->id;
             $message->save();
@@ -259,7 +259,7 @@ class AdminController extends Controller
             $house->save();
 
             $message = new message;
-            $message->content = "L'adminitrateur a modifié des informations sur votre annonce ".$house->title;
+            $message->content = "L'administrateur a modifié des informations sur votre annonce ".$house->title;
             $message->user_id = $house->user_id;
             $message->admin_id = Auth::user()->id;
             $message->save();
@@ -273,13 +273,13 @@ class AdminController extends Controller
         $house->statut = $request->statut;
         if($house->statut == "Validé"){
             $message = new message;
-            $message->content = "L'adminitrateur a validé votre annonce ".$house->title;
+            $message->content = "L'administrateur a validé votre annonce ".$house->title;
             $message->user_id = $house->user_id;
             $message->admin_id = Auth::user()->id;
             $message->save();
         } else {
             $message = new message;
-            $message->content = "L'adminitrateur n'a pas validé votre annonce veuillez saisir des informations convenable ".$house->title;
+            $message->content = "L'administrateur n'a pas validé votre annonce veuillez saisir des informations convenable ".$house->title;
             $message->user_id = $house->user_id;
             $message->admin_id = Auth::user()->id;
             $message->save();
@@ -417,7 +417,7 @@ class AdminController extends Controller
     }
 
     public function messages($id) {
-        $messages = message::where('user_id','=', $id)->get();
+        $messages = message::where('user_id','=', $id)->orderBy('id', 'desc')->get();
         $user = user::find($id);
         return view('admin.user_messages')->with('messages', $messages)->with('user', $user);
     }

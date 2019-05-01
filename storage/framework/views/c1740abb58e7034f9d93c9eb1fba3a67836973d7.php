@@ -8,8 +8,7 @@
                     
                     <div class="panel-body card-message">
                         <p>Email: <?php echo e($post->email); ?></p>
-                        <p><?php echo e($post->content); ?></p>   
-                                                    
+                        <p><?php echo e($post->content); ?></p>                           
                     </div>
                 </div>
             </div>

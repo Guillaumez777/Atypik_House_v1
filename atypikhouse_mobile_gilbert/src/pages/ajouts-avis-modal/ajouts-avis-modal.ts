@@ -24,21 +24,20 @@ export class AjoutsAvisModalPage {
   reservations:any;
   user:any;
   id: any;
-  myComment = {};
-  token: any;
+  myComment = {
+    user_id : null
+  };
+  public token: any;
   
   constructor(public navCtrl: NavController, public navParams: NavParams, public authService: AuthProvider,
     public storage: Storage,
     public http: Http,
     public crudProvider:CrudProvider) {
-      this.storage.get('token').then((value) => {
-        this.token = value;
-      });
-      this.storage.get('user').then((user) => {
-        user = this.user;
-      });
+    this.storage.get("user").then((res)=>{
+      this.user = res;
+      console.log(this.user)
+    })
     this.getReservations();
-    console.log(this.user);
   }
 
   ionViewDidLoad() {
@@ -46,6 +45,8 @@ export class AjoutsAvisModalPage {
   }
 
   postComment() {
+    console.log(this.myComment)
+    this.myComment.user_id = this.user.id;
     this.crudProvider.postAvis(this.myComment).then((result)=>{});
   }
 

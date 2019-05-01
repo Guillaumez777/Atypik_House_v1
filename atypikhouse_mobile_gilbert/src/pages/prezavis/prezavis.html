@@ -16,7 +16,7 @@
 <ion-content padding>
 	<ion-card *ngFor="let comment of comments">
     	<ion-card-content>
-      		<img class = "imgprez" src="assets/imgs/j.jpg" />
+      		<img class = "imgprez" data-src="http://127.0.0.1:8000/img/houses/{{comment.house.photo}}" />
     	</ion-card-content>
 			{{comment.house.title}}
     	<p class = "nom"> Posté par: {{comment.user.nom}} {{comment.user.prenom}}</p>
