@@ -13,15 +13,6 @@ class AuthenticateController extends Controller
     public function __construct(User $user){
         $this->user = $user;
     }
-   
-    // public function register(Request $request){
-    //     $user = $this->user->create([
-    //       'name' => $request->get('name'),
-    //       'email' => $request->get('email'),
-    //       'password' => bcrypt($request->get('password'))
-    //     ]);
-    //     return response()->json(['status'=>true,'message'=>'User created successfully','data'=>$user]);
-    // }
     
     public function login(Request $request){
         $credentials = $request->only('email', 'password');
