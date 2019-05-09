@@ -28,9 +28,9 @@ class HomeController extends Controller
         return view('home')->with('houses', $houses)
                            ->with('categories', $categories);
     }
-    public function Apropos() {
+    public function apropos() {
         $categories = category::all();
-        return view('Apropos')->with('categories', $categories);
+        return view('apropos')->with('categories', $categories);
     }
     public function mentions_legales() {
         $categories = category::all();
