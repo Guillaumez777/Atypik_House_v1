@@ -10,6 +10,7 @@ use App\Category;
 use App\Propriete;
 use App\Valuecatpropriete;
 use App\Ville;
+use App\Post;
 use Illuminate\Http\Request;
 use App\Http\Requests\EditHouseRequest;
 use App\Http\Controllers\Controller;
@@ -133,7 +134,29 @@ class UsersController extends Controller
             $house->save();
             return redirect()->back()->with('success', "L'hébergement de l'utilisateur a bien été modifié");
         }
-        
+    }
+
+    public function deleteHouse(Request $request, $id)
+    {
+        $user = User::find(Auth::user()->id);
+        $house = house::find($id);
+
+        if($house->statut == "En attente de validation"){
+            $post = new post;
+            $post->name = $user->nom.' '.$user->prenom;
+            $post->email = $user->email;
+            $post->content = "L'annonce ".$house->title." de ".$user->nom.' '.$user->prenom." a été supprimée";
+            $post->save();
+            $house->delete();
+            return redirect()->back()->with('success', "Votre annonce a bien été supprimée");
+        } else {
+            $post = new post;
+            $post->name = $user->nom.' '.$user->prenom;
+            $post->email = $user->email;
+            $post->content = "L'utilisateur ".$user->nom.' '.$user->prenom." veut supprimer l'annonce ".$house->title;
+            $post->save();
+            return redirect()->back()->with('success', "Votre demande a bien été pris en compte, étant donné que votre annonce est en ligne, un message sera envoyé à l'administrateur qui supprimera votre annonce");
+        }
     }
 
     public function reservations(Request $request)

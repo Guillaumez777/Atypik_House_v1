@@ -28,6 +28,7 @@ use App\User;
 use App\Admin;
 use App\Reservation;
 use App\Message;
+use App\Comment;
 Route::get('/mylocations/{id}', function ($id) {
 	$houseProfil = DB::table('users')
 		->select('users.*', 'houses.*')
@@ -65,13 +66,7 @@ Route::get('/user/historiques/{id}', function ($id) {
 });
 
 Route::get('/user/comments/{id}', function ($id) {
-	$commentProfil = DB::table('users')
-    	->select('users.*', 'comments.*', 'houses.*')
-		->join('comments', 'comments.user_id','=', 'users.id')
-		->join('houses', 'houses.user_id','=', 'users.id')
-		->where('users.id', '=', $id)
-		->where('comments.user_id', '=', $id)
-		->get()->toJson();
+		$commentProfil = comment::with('house')->where('user_id', $id)->get()->toJson();
  	return response($commentProfil,200)->header('Content-Type', 'application/json');
 });
 

@@ -114,7 +114,7 @@ Route::prefix('admin')->group(function () {
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/profile/{id}', 'UsersController@index');
     Route::get('/messages', 'MessagesController@messages')->name('user.messages');
-    Route::get('/mylocations/{id}', 'HousesController@mylocations');
+    Route::get('/mylocations/{id}', 'HousesController@mylocations')->name('user.annonces');
 
     //Create a house, publish an offer
     Route::get('/house/create_step1', 'HousesController@create_step1')->name('house.create_step1');
@@ -132,6 +132,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/user/houses', 'UsersController@houses')->name('user.houses');
     Route::get('/user/editHouse/{id}', 'UsersController@editHouse')->name('user.editHouse');
     Route::post('/users/updateHouse/{id}', 'UsersController@updateHouse')->name('user.updateHouse');
+    Route::get('/users/deleteHouse/{id}', 'UsersController@deleteHouse')->name('user.deleteHouse');
     Route::post('/houses/store/{id}', 'HousesController@store');
     Route::get('/json_propriete/{id}', 'HousesController@json_propriete')->name('json.proprietes');
     Route::post('/reservations', 'ReservationsController@store');

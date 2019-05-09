@@ -47,15 +47,13 @@
                                 <a href="{{route('admin.listcomments', $user['id']) }}" class="btn btn-success button-profiluser">Ses commentaires</a>
                             </div>
                             <div class="col-md-2">
-                                    <a href="{{route('admin.user_messages', $user['id']) }}" class="btn btn-success button-profiluser">Ses messages</a>
+                                    <a href="{{route('admin.user_messages', $user['id']) }}" class="btn btn-success button-profiluser">Ses notifications</a>
                                 </div>
                         </div>
                     </div>
                     @endforeach
                 </div>
             </div>
-
-            
         </div>
     </div>
 </div>

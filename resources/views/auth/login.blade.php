@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title', 'Connexion')
 @section('footer', 'footer_absolute')
 @section('content')
 <div class="container">
