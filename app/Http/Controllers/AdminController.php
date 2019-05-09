@@ -264,9 +264,9 @@ class AdminController extends Controller
             $message->admin_id = Auth::user()->id;
             $message->save();
             return redirect()->back()->with('success', "L'hébergement du propriétaire a bien été modifié, un message a été envoyé au propriétaire de cette annonce");
-        }
-        
+        } 
     }
+
     public function statutHouse(Request $request,Category $category, Ville $ville, House $house, $id)
     {
         $house = house::find($id);
