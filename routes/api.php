@@ -23,8 +23,6 @@ use App\Admin;
 use App\Reservation;
 use App\Message;
 use App\Comment;
-<<<<<<< HEAD
-=======
 use App\Propriete;
 use App\Valuecatpropriete;
 
@@ -47,7 +45,6 @@ Route::group(['middleware' => 'cors'], function () {
 	});
 });
 
->>>>>>> a777e658a1cc052913a196146a7f0dbcbe325270
 Route::get('/mylocations/{id}', function ($id) {
 	$houseProfil = house::with('proprietes', 'valuecatproprietes', 'category', 'user')->where('user_id', $id)->get()->toJson();
  	return response($houseProfil,200)->header('Content-Type', 'application/json');
@@ -65,11 +62,7 @@ Route::post('/user/comment', function ($id) {
 });
 
 Route::get('/user/comments/{id}', function ($id) {
-<<<<<<< HEAD
-		$commentProfil = comment::with('house')->where('user_id', $id)->get()->toJson();
-=======
-		$commentProfil = comment::with('house', 'user')->where('user_id', $id)->orderBy('id','desc')->get()->toJson();
->>>>>>> a777e658a1cc052913a196146a7f0dbcbe325270
+	$commentProfil = comment::with('house', 'user')->where('user_id', $id)->orderBy('id','desc')->get()->toJson();
  	return response($commentProfil,200)->header('Content-Type', 'application/json');
 });
 
