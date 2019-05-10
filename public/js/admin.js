@@ -1,5 +1,5 @@
 $(".delete").on("click", function(){
-    return confirm("Voulez-vous vraiment supprimer cette catégorie?");
+    return confirm("Voulez-vous vraiment désactiver cette catégorie?");
 });
 
 $(".delete-comment").on("click", function(){

@@ -93,7 +93,8 @@ Route::prefix('admin')->group(function () {
     Route::get('/categories', 'AdminController@listcategories')->name('admin.categories');
     Route::get('/create/categorie', 'AdminController@createcategory')->name('admin.create_category');
     Route::post('/register/categorie', 'AdminController@registercategory')->name('admin.register_category');
-    Route::get('/delete/categorie/{id}', 'AdminController@deletecategory')->name('admin.delete_category');
+    Route::get('/enable/categorie/{id}', 'AdminController@enableCategory')->name('admin.enable_category');
+    Route::get('/disable/categorie/{id}', 'AdminController@disableCategory')->name('admin.disable_category');
 
     //Propriétés de la catégorie
     Route::get('/proprietes/{id}', 'AdminController@proprietescategory')->name('admin.proprietes_category');

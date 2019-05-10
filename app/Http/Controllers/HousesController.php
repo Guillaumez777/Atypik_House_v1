@@ -81,7 +81,7 @@ class HousesController extends Controller
     }
 
     public function create_step2(Category $categories, Request $request) {
-        $categories = category::all();
+        $categories = category::where('statut','=', 1)->get();
         $request->session()->forget('houseProprietes');
         $request->session()->forget('houseProprietesId');
 
@@ -100,7 +100,7 @@ class HousesController extends Controller
 
     public function postcreate_step2(CreateHouseStep2Request $request) {
         $ville = $request->old('ville');
-        $categories = category::all();
+        $categories = category::where('statut', '=', 1)->get();
         
         $proprietes = $request->input('propriete');
         $proprietes_id = $request->input('propriete_id');
