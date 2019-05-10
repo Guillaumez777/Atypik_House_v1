@@ -126,12 +126,12 @@ class AdminController extends Controller
         $category->save();
         foreach($users as $user){
             $message = new message;
-            $message->content = "L'adminitrateur a supprimé la catégorie ".$category->category." sur les types d'hébergements";
+            $message->content = "L'adminitrateur a supprimé la catégorie ".$category->category.", lorsque vous créérez une nouvelle annonce la catégorie ".$category->category." ne sera plus disponible";
             $message->user_id = $user->id;
             $message->admin_id = Auth::user()->id;
             $message->save();
         }
-        return redirect()->back()->with('danger', "La catégorie ".$category->category." a bien été supprimée, un message a été envoyé à tous les propriétaires");
+        return redirect()->back()->with('danger', "La catégorie ".$category->category." a bien été désactivé, un message a été envoyé à tous les propriétaires");
     }
 
     //Propriétés des catégories
@@ -302,32 +302,7 @@ class AdminController extends Controller
             $message->admin_id = Auth::user()->id;
             $message->save();
             return redirect()->back()->with('success', "L'hébergement du propriétaire a bien été modifié, un message a été envoyé au propriétaire de cette annonce");
-<<<<<<< HEAD
         } 
-=======
-        }
-        
-    }
-    public function statutHouse(Request $request,Category $category, Ville $ville, House $house, $id)
-    {
-        $house = house::find($id);
-        $house->statut = $request->statut;
-        if($house->statut == "Validé"){
-            $message = new message;
-            $message->content = "L'administrateur a validé votre annonce ".$house->title;
-            $message->user_id = $house->user_id;
-            $message->admin_id = Auth::user()->id;
-            $message->save();
-        } else {
-            $message = new message;
-            $message->content = "L'administrateur n'a pas validé votre annonce veuillez saisir des informations convenable ".$house->title;
-            $message->user_id = $house->user_id;
-            $message->admin_id = Auth::user()->id;
-            $message->save();
-        }
-        $house->save();
-        return redirect()->back()->with('success', "Le statut de l'hébergement du propriétaire a bien été modifié, un message a été envoyé au propriétaire de cette annonce");
->>>>>>> a777e658a1cc052913a196146a7f0dbcbe325270
     }
 
     /**
