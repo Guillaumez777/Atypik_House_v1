@@ -5,6 +5,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use JWTAuth;
 use App\User;
+use App\Comment;
 use JWTAuthException;
 class AuthenticateController extends Controller
 {   
@@ -12,15 +13,6 @@ class AuthenticateController extends Controller
     public function __construct(User $user){
         $this->user = $user;
     }
-   
-    // public function register(Request $request){
-    //     $user = $this->user->create([
-    //       'name' => $request->get('name'),
-    //       'email' => $request->get('email'),
-    //       'password' => bcrypt($request->get('password'))
-    //     ]);
-    //     return response()->json(['status'=>true,'message'=>'User created successfully','data'=>$user]);
-    // }
     
     public function login(Request $request){
         $credentials = $request->only('email', 'password');
@@ -34,6 +26,7 @@ class AuthenticateController extends Controller
         }
         return response()->json(compact('token'));
     }
+    
     public function getAuthUser(Request $request){
         $user = JWTAuth::toUser($request->token);
         return response()->json(['result' => $user]);
@@ -56,5 +49,16 @@ class AuthenticateController extends Controller
 
         // all good so return the token
         return response()->json(compact('token'));
+    }
+
+    public function logout(Request $request) {
+        $this->validate($request, ['token' => 'required']);
+        try {
+            JWTAuth::invalidate($request->input('token'));
+            return response()->json(['success' => true, 'message'=> "You have successfully logged out."]);
+        } catch (JWTException $e) {
+            // something went wrong whilst attempting to encode the token
+            return response()->json(['success' => false, 'error' => 'Failed to logout, please try again.'], 500);
+        }
     }
 }

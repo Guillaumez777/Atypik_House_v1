@@ -36,7 +36,7 @@ class HousesController extends Controller
     public function index(House $house)
     {
         $categories = category::all();
-        $houses = house::with('valuecatproprietes', 'proprietes', 'category')->where('statut', 'Validé')->get();
+        $houses = house::with('valuecatproprietes', 'proprietes', 'category')->where('statut', 'Validé')->orderBy('id', 'desc')->get();
         return view('houses.index')->with('houses', $houses)
                                    ->with('categories', $categories);
     }
