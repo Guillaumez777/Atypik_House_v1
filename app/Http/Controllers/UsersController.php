@@ -162,7 +162,7 @@ class UsersController extends Controller
     public function reservations(Request $request)
     {
         $today = Date::now()->format('Y-m-d');
-        $reservations = reservation::where('start_date', '>=', $today)->where('user_id', '=', Auth::user()->id)->orderBy('id', 'desc')->get();
+        $reservations = reservation::with('house')->where('start_date', '>=', $today)->where('end_date', '>=', $today)->where('user_id', '=', Auth::user()->id)->orderBy('id', 'desc')->get();
         return view('user.reservations', compact('reservations'));
     }
     
@@ -179,11 +179,7 @@ class UsersController extends Controller
     public function historiques(Request $request)
     {
         $today = Date::now()->format('Y-m-d');
-        $historiques = Reservation::with('house')->where([
-                                                    ['user_id', '=', Auth::user()->id],
-                                                    ['start_date', '<', $today],
-                                                    ['end_date', '<=', $today]
-                                                ])->orderBy('id', 'desc')->get();
+        $historiques = reservation::with('house')->where('start_date', '<', $today)->where('end_date', '<', $today)->where('user_id', '=', Auth::user()->id)->orderBy('id', 'desc')->get();
         return view('user.historiques', compact('historiques'));
     }
 
