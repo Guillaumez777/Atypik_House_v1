@@ -27,15 +27,15 @@
         </div>
     </div>
 </div>
-                            <!--
-                            {!! Form::open(['method'=>'GET','url'=>'QueryController@search','class'=>'form','role'=>'search'])  !!}
-                            {!! Form::text('search', null,
-                                                array('required',
-                                                        'class'=>'form-control ',
-                                                        'placeholder'=>'Saisir une ville ...')) !!}
-                            {!! Form::submit('Rechercher',
-                                                        array('class'=>'btn btn-searchbar')) !!}
-                            {!! Form::close() !!}-->
+<!--
+{!! Form::open(['method'=>'GET','url'=>'QueryController@search','class'=>'form','role'=>'search'])  !!}
+{!! Form::text('search', null,
+                    array('required',
+                            'class'=>'form-control ',
+                            'placeholder'=>'Saisir une ville ...')) !!}
+{!! Form::submit('Rechercher',
+                            array('class'=>'btn btn-searchbar')) !!}
+{!! Form::close() !!}-->
 <div class="container list-category">
     <h2>Légalités et RGPD</h2>
     <div class="row">

@@ -63,7 +63,6 @@ export class MesAvisPage {
       this.http.get(apiKey+'user/comments/'+res.id).map(res => res.json())
         .subscribe(comments => {
           this.avis = comments;
-          console.log("bebe");
           console.log(comments);
           this.navCtrl.push(PrezavisPage, {
             comments:comments

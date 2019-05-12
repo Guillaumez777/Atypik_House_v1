@@ -18,6 +18,7 @@ import { Storage } from '@ionic/storage';
 @Injectable()
 export class CrudProvider {
   postInfo = [];
+  public token:any;
 
   constructor(public storage: Storage ,
     public http: Http) {
@@ -36,9 +37,10 @@ postAvis(postInfo){
       headers.append('Access-Control-Allow-Origin', '*');
       headers.append('Access-Control-Allow-Credentials', 'true');
       headers.append('Access-Control-Allow-Methods', 'GET, POST, PUT,DELETE, OPTIONS');
+
       console.log('value: ' + value);
       console.log(postInfo);
-      this.http.post(apiKey+'user/comment', JSON.stringify(postInfo),  {headers: headers})
+      this.http.post(apiKey+'addComment', JSON.stringify(postInfo),  {headers: headers})
         .subscribe(data => {
           // resolve(data);
           

@@ -120,8 +120,8 @@
                                 </a>
                                 <ul class="dropdown-menu" role="menu">
                                     <li><a href="{{url('/profile')}}/{{Auth::user()->id}}">Mon profil</a></li>
-                                    <li><a href="{{route('user.messages')}}">Mes messages</a></li>
-                                    <li><a href="{{route('user.houses')}}">Mes hébergements</a></li>
+                                    <li><a href="{{route('user.messages')}}">Mes notifications</a></li>
+                                    <li><a href="{{route('user.houses')}}">Mes annonces</a></li>
                                     <li><a href="{{route('user.reservations')}}">Mes réservations</a></li>
                                     <li><a href="{{route('user.historiques')}}">Mes historiques</a></li>
                                     <li><a href="{{ url('/house/create_step1') }}">Ajouter une annonce</a></li>
@@ -158,7 +158,7 @@
                 </div>
                 <div class="col-md-3">
                     <ul>
-                        <li><a href="{{ route('Apropos') }}">A propos</a></li>
+                        <li><a href="{{ route('apropos') }}">A propos</a></li>
                         <li><a href="{{ route('faq') }}">FAQ</a></li>
                     </ul>
                 </div>
@@ -178,7 +178,7 @@
 
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/jquery.js') }}"></script>
-    
+    <script src="{{ asset('js/user.js') }}"></script>
     @yield('script')
 </body>
 </html>

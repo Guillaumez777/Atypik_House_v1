@@ -5,6 +5,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use JWTAuth;
 use App\User;
+use App\Comment;
 use JWTAuthException;
 class AuthenticateController extends Controller
 {   
@@ -12,15 +13,6 @@ class AuthenticateController extends Controller
     public function __construct(User $user){
         $this->user = $user;
     }
-   
-    // public function register(Request $request){
-    //     $user = $this->user->create([
-    //       'name' => $request->get('name'),
-    //       'email' => $request->get('email'),
-    //       'password' => bcrypt($request->get('password'))
-    //     ]);
-    //     return response()->json(['status'=>true,'message'=>'User created successfully','data'=>$user]);
-    // }
     
     public function login(Request $request){
         $credentials = $request->only('email', 'password');
@@ -68,15 +60,5 @@ class AuthenticateController extends Controller
             // something went wrong whilst attempting to encode the token
             return response()->json(['success' => false, 'error' => 'Failed to logout, please try again.'], 500);
         }
-    }
-
-    public function addComment(Request $request)
-    {
-        $data = $request->json()->all();
-        $comment = new Comment();
-        $comment->comment = $data['comment'];
-        $comment->note = $data['note'];
-        $comment->save();
-        return response()->json(($result === true ? 'succeed':'failed'),200);
     }
 }

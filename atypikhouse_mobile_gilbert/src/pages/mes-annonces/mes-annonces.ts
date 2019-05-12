@@ -29,14 +29,8 @@ export class MesAnnoncesPage {
     public modalCtrl: ModalController,
     public storage: Storage,
     public http: Http) {
-      //this.houses = navParams.get('data');
-      //this.houses = navParams.get('house_id');
       this.user = this.storage.get('user');
-
-      
-      console.log("et oui les gars");
       console.log(this.user);
-      
       this.getHouses();
   }
 

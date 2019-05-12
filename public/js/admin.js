@@ -1,5 +1,5 @@
 $(".delete").on("click", function(){
-    return confirm("Voulez-vous vraiment supprimer cette catégorie?");
+    return confirm("Voulez-vous vraiment désactiver cette catégorie?");
 });
 
 $(".delete-comment").on("click", function(){
@@ -17,6 +17,7 @@ $(".delete-annonce").on("click", function(){
 $(".delete-user").on("click", function(){
     return confirm("Voulez-vous vraiment supprimer ce client?");
 });
+
 $('#1').click(function() {
     $('#hebergement').css('display', 'block');
     $('#reservation').css('display', 'none');

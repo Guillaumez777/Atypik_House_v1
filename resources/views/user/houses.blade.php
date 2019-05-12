@@ -7,6 +7,13 @@
 <div class="container list-category">
     <h2>Mes hébergements</h2>
     <div class="row">
+        @if (\Session::has('success'))
+            <div class="alert alert-success">
+                <ul>
+                    <p>{!! \Session::get('success') !!}</p>
+                </ul>
+            </div>
+        @endif
     @foreach ($houses as $house)
         <div class="col-lg-4 col-md-4">
             <div class="thumbnail">
@@ -39,6 +46,7 @@
                     @endif    
                     <div class="col-md-12 text-center">
                         <a href="{{route('user.editHouse', $house['id']) }}" class="btn btn-primary">Modifier</a>
+                        <a href="{{route('user.deleteHouse', $house['id']) }}" class="btn btn-danger delete-annonce">Supprimer</a>
                     </div>                                      
                 </div>
             </div> 

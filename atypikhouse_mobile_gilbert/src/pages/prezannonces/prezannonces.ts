@@ -7,7 +7,7 @@ import { Storage } from '@ionic/storage';
 import { AuthProvider } from '../../providers/auth/auth';
 
 /**
- * Generated class for the PrezavisPage page.
+ * Generated class for the PrezannoncesPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -28,7 +28,7 @@ export class PrezannoncesPage {
     public http: Http) {
       this.house = navParams.get('house');
       this.user = this.storage.get('user');
-      //console.log(this.house);
+      console.log(this.house);
   }
 
   ionViewDidLoad() {

@@ -18,14 +18,14 @@
       </p>
       <ion-item id = 'select'>
         <ion-label>Mes reservations</ion-label>
-        <ion-select submitText="Okay" cancelText="Nah">
+        <ion-select [(ngModel)]="myComment.house_id" submitText="Okay" cancelText="Nah">
           <ion-option *ngFor="let reservation of reservations" value="{{reservation.house_id}}">{{reservation.house.title}} de {{reservation.start_date}} - {{reservation.end_date}}</ion-option>
         </ion-select>
       </ion-item>
       <p class = 'intro'>
         donner une note :
       </p>
-      <form (ngSubmit)="postComment()">
+      <form (ngSubmit)="postComment()" method="POST">
         <ion-item id = 'selectnote'>
           <ion-label>Notes</ion-label>
           <ion-select [(ngModel)]="myComment.note" name="note" submitText="Okay" cancelText="Nah">
@@ -43,7 +43,10 @@
         <ion-item>
           <ion-label color="primary" fixed></ion-label>
           <ion-textarea type="text"[(ngModel)]="myComment.comment" name="comment" placeholder="Votre avis" border="solid"></ion-textarea>
-          <ion-input type="hidden" [(ngModel)]="myComment.user_id" name="user_id"></ion-input>
+        </ion-item>
+        <ion-item>
+          <!-- <ion-input type="text"  value="{{reservation.house.id}}"></ion-input> -->
+          <!-- <input type='hidden' name='_method' value='POST'> -->
         </ion-item>
         <button ion-button block type="submit">valider</button>
       </form>

@@ -1,14 +1,15 @@
 webpackJsonp([7],{
 
-/***/ 300:
+/***/ 291:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MesAvisPageModule", function() { return MesAvisPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MesAlertesPageModule", function() { return MesAlertesPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mes_avis__ = __webpack_require__(108);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mes_alertes__ = __webpack_require__(107);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(14);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,24 +19,25 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-//import { AjoutsAvisModalPage } from '../ajouts-avis-modal/ajouts-avis-modal';
-var MesAvisPageModule = /** @class */ (function () {
-    function MesAvisPageModule() {
+
+var MesAlertesPageModule = /** @class */ (function () {
+    function MesAlertesPageModule() {
     }
-    MesAvisPageModule = __decorate([
+    MesAlertesPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__mes_avis__["a" /* MesAvisPage */],
+                __WEBPACK_IMPORTED_MODULE_2__mes_alertes__["a" /* MesAlertesPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__mes_avis__["a" /* MesAvisPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__mes_alertes__["a" /* MesAlertesPage */]),
+                __WEBPACK_IMPORTED_MODULE_3__angular_http__["c" /* HttpModule */],
             ],
         })
-    ], MesAvisPageModule);
-    return MesAvisPageModule;
+    ], MesAlertesPageModule);
+    return MesAlertesPageModule;
 }());
 
-//# sourceMappingURL=mes-avis.module.js.map
+//# sourceMappingURL=mes-alertes.module.js.map
 
 /***/ })
 
