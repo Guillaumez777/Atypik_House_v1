@@ -14,12 +14,15 @@ class CategoriesTableSeeder extends Seeder
         $categories = [
             [
                 'category' => 'Cabane',
+                'statut' => 1
             ],
             [
                 'category' => 'Igloo',
+                'statut' => 1
             ],
             [
                 'category' => 'Yourte',
+                'statut' => 1
             ]
         ];
         DB::table('categories')->insert($categories);

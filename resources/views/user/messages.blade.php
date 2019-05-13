@@ -1,11 +1,11 @@
 @extends('layouts.app')
-@section('title', 'Vos messages')
+@section('title', 'Mes notifications')
 @section('link')
 <link href="{{ asset('css/jquery-ui.min.css') }}" rel="stylesheet">
 @section('content')
 <div class="container list-category">
     <div class="panel panel-default">
-        <div class="panel-heading">Vos messages</div>
+        <div class="panel-heading">Mes notifications</div>
         <div class="panel-body">
             <div class="row">
                 <div class="col-md-12">

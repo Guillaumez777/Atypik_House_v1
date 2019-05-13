@@ -170,11 +170,14 @@ p {
 	border-color: #3f4b30;
 }
 
-
+#hebergements {
+	text-align: center;
+	margin: 60px;
+}
 
 .list-category h2{
 	text-align: center;
-	margin: 60px;
+	/* margin: 60px; */
 }
 
 .card {
@@ -230,7 +233,7 @@ p {
 #block_home_2 {
 	position: relative;
 	background-color: white;
-	color: white;
+	color: #3f4b30;
 	display: flex;
 	flex-flow: row wrap;
 	justify-content: space-around;

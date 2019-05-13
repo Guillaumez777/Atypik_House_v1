@@ -62,7 +62,7 @@ Route::post('/user/comment', function ($id) {
 });
 
 Route::get('/user/comments/{id}', function ($id) {
-		$commentProfil = comment::with('house', 'user')->where('user_id', $id)->orderBy('id','desc')->get()->toJson();
+	$commentProfil = comment::with('house', 'user')->where('user_id', $id)->orderBy('id','desc')->get()->toJson();
  	return response($commentProfil,200)->header('Content-Type', 'application/json');
 });
 

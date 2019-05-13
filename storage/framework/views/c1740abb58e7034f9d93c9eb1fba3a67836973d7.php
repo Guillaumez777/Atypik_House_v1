@@ -8,7 +8,12 @@
                     
                     <div class="panel-body card-message">
                         <p>Email: <?php echo e($post->email); ?></p>
+<<<<<<< HEAD
+                        <p><?php echo e($post->content); ?></p>   
+                                                    
+=======
                         <p><?php echo e($post->content); ?></p>                           
+>>>>>>> a777e658a1cc052913a196146a7f0dbcbe325270
                     </div>
                 </div>
             </div>

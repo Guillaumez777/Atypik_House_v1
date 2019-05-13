@@ -5,6 +5,13 @@
         @foreach($users as $user)
             <div class="panel panel-default">
                 <div class="panel-heading text-center">Annonces de {{$user->nom}} {{$user->prenom}}</div>
+                @if (\Session::has('success'))
+                    <div class="alert alert-success">
+                        <ul>
+                            <p>{!! \Session::get('success') !!}</p>
+                        </ul>
+                    </div>
+                @endif
                 @foreach ($houses as $house)           
                     <div class="panel-body">
                         <div class="row">
@@ -41,12 +48,9 @@
                                             <div class="form-group">
                                                 <div class="col-md-12 text-center">
                                                     <a href="{{route('admin.editHouse', $house['id']) }}" class="btn btn-primary">Modifier</a>
-                                                    {{-- <a href="{{ route('admin.deleteAnnonce', $house['id']) }}" class="delete-annonce btn btn-danger">Supprimer</a> --}}
-                                                        </div>
-                                                    </form>
-                                                    
-                                                </div>                      
-                                            </div>
+                                                    <a href="{{route('admin.deleteAnnonce', $house['id']) }}" class="btn btn-danger delete-annonce">Supprimer</a>
+                                                </div>
+                                            </div>                      
                                         </div>
                                     </div>
                                 </div> 
