@@ -122,8 +122,8 @@
                                 </a>
                                 <ul class="dropdown-menu" role="menu">
                                     <li><a href="<?php echo e(url('/profile')); ?>/<?php echo e(Auth::user()->id); ?>">Mon profil</a></li>
-                                    <li><a href="<?php echo e(route('user.messages')); ?>">Mes messages</a></li>
-                                    <li><a href="<?php echo e(route('user.houses')); ?>">Mes hébergements</a></li>
+                                    <li><a href="<?php echo e(route('user.messages')); ?>">Mes notifications</a></li>
+                                    <li><a href="<?php echo e(route('user.houses')); ?>">Mes annonces</a></li>
                                     <li><a href="<?php echo e(route('user.reservations')); ?>">Mes réservations</a></li>
                                     <li><a href="<?php echo e(route('user.historiques')); ?>">Mes historiques</a></li>
                                     <li><a href="<?php echo e(url('/house/create_step1')); ?>">Ajouter une annonce</a></li>
@@ -181,7 +181,7 @@
 
     <script src="<?php echo e(asset('js/app.js')); ?>"></script>
     <script src="<?php echo e(asset('js/jquery.js')); ?>"></script>
-    
+    <script src="<?php echo e(asset('js/user.js')); ?>"></script>
     <?php echo $__env->yieldContent('script'); ?>
 </body>
 </html>
