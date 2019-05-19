@@ -22,7 +22,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $houses = house::with('valuecatproprietes', 'proprietes', 'category')->get();
+        $houses = house::with('valuecatproprietes', 'proprietes', 'category')->orderBy('id', 'desc')->get();
         $categories = category::all();
 
         return view('home')->with('houses', $houses)

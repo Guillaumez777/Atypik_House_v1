@@ -1,16 +1,17 @@
+<?php $__env->startSection('title', "Connexion pour l'admin"); ?>
 <?php $__env->startSection('content'); ?>
     <div class="container">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Admin Login</div>
+                    <div class="panel-heading">Connectez-vous</div>
                     <div class="panel-body">
                         <form class="form-horizontal" role="form" method="POST" action="<?php echo e(route('admin.login.submit')); ?>">
                             <?php echo e(csrf_field()); ?>
 
 
                             <div class="form-group<?php echo e($errors->has('email') ? ' has-error' : ''); ?>">
-                                <label for="email" class="col-md-4 control-label">E-Mail</label>
+                                <label for="email" class="col-md-4 control-label">Email</label>
 
                                 <div class="col-md-6">
                                     <input id="email" type="email" class="form-control" name="email" value="<?php echo e(old('email')); ?>" required autofocus>
@@ -40,13 +41,9 @@
 
                             <div class="form-group">
                                 <div class="col-md-8 col-md-offset-4">
-                                    <button type="submit" class="btn btn-primary">
+                                    <button type="submit" class="btn btn-primary btn-color">
                                         Connexion
                                     </button>
-
-                                    <a class="btn btn-link" href="<?php echo e(route('admin.password.request')); ?>">
-                                        Mot de passe oublié?
-                                    </a>
                                 </div>
                             </div>
                         </form>

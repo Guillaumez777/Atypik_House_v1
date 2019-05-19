@@ -1,10 +1,10 @@
-<?php $__env->startSection('title', 'Vos messages'); ?>
+<?php $__env->startSection('title', 'Mes notifications'); ?>
 <?php $__env->startSection('link'); ?>
 <link href="<?php echo e(asset('css/jquery-ui.min.css')); ?>" rel="stylesheet">
 <?php $__env->startSection('content'); ?>
 <div class="container list-category">
     <div class="panel panel-default">
-        <div class="panel-heading">Vos messages</div>
+        <div class="panel-heading">Mes notifications</div>
         <div class="panel-body">
             <div class="row">
                 <div class="col-md-12">

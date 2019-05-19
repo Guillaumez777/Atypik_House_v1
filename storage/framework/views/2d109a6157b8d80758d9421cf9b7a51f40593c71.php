@@ -145,7 +145,7 @@
                         </div>
                         <div class="form-group">
                             <div class="col-md-12 text-center">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-primary btn-color">
                                     Enregistrer
                                 </button>
                             </div>

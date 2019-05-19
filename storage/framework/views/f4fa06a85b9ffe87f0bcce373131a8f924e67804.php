@@ -14,7 +14,7 @@
                                 <h4 class="title card-title text-center">
                                     <a href="#"><?php echo e($house->title); ?></a>
                                 </h4>
-                                <h3 class="price"><?php echo e($house->price); ?>€</h3>
+                                <h3 class="price"><?php echo e($house->price); ?>€ / nuit</h3>
                                 <p>Type de bien : <?php echo e($house->category->category); ?></p>
                                 <?php $__currentLoopData = $house->valuecatproprietes; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $valuecatpropriete): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                     <?php if($valuecatpropriete->value == 0): ?>
@@ -25,8 +25,9 @@
                                 <p class="card-text"><?php echo e($house->description); ?></p>
                                 <p>Annulation gratuite !</p>
                                 <p>Pays: <?php echo e($house->pays); ?></p>
-                                <p>Ville: <?php echo e($house->ville); ?></p>
+                                <p>Ville, département ou région: <?php echo e($house->ville); ?></p>
                                 <p>Adresse:  <?php echo e($house->adresse); ?></p>
+                                <p> Téléphone de l'annonceur : <?php echo e($house->telephone); ?></p>
                                 <a href="<?php echo e(route('user.editHouse', $house['id'])); ?>" class="btn btn-primary">Modifier</a>
                             </div>
                         </div>

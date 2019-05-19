@@ -29,7 +29,7 @@
                                 <input type="hidden" name="admin_id" value="{{ Auth::user()->id }}">
                                 <input type="hidden" name="user_id" value="{{$user->id}}">
                                 <input type="text" name="content" placeholder="Saisir votre message" class="form-control" id="input_comment" style="border-radius: 0;">
-                                <input type="submit" value="Envoyer" class="btn btn-primary" style="border-radius: 0;">
+                                <input type="submit" value="Envoyer" class="btn btn-primary btn-color" style="border-radius: 0;">
                             </form>
                             @if (count($errors) > 0)
                                 <div class="alert alert-danger">

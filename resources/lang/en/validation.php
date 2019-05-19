@@ -132,6 +132,9 @@ return [
             'required' => 'Vous devez confirmer votre mot de passe',
             'same' => "Votre mot de passe doit être identique"   
         ],
+        'majeur' => [
+            'accepted' => 'Vous devez avoir minimum 18 ans pour vous inscrire'
+        ],
         'g-recaptcha-response' => [
             'required' => 'Vous devez valider le captcha',
             'captcha' => ""   

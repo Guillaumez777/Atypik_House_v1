@@ -25,7 +25,7 @@
                             </div>
                         </div>
                         <div class="form-group{{ $errors->has('ville') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">Ville</label>
+                            <label for="name" class="col-md-4 control-label">Ville, département ou région</label>
                             <div class="col-md-6">
                                 <input id="name" type="text" class="form-control" name="ville" onkeyup="this.value=this.value.toUpperCase()" placeholder="Saisir la ville" autofocus value="{{ old('ville') }}">
                                 @if ($errors->has('ville'))
@@ -46,12 +46,23 @@
                                 @endif
                             </div>
                         </div>
+                        <div class="form-group{{ $errors->has('telephone') ? ' has-error' : '' }}">
+                            <label for="name" class="col-md-4 control-label">Téléphone</label>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" name="telephone" placeholder="Saisir un numéro de téléphone" autofocus value="{{ old('telephone') }}">
+                                @if ($errors->has('telephone'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('telephone') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
                         <div class="col-md-6">
                             <input id="name" type="hidden" class="form-control" name="user_id" required autofocus value="{{ Auth::user()->id }}">
                         </div>
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-primary btn-color">
                                     Continuer
                                 </button>
                             </div>

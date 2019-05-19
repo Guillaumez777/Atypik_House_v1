@@ -26,7 +26,7 @@
                             </div>
                         </div>
                         <div class="form-group<?php echo e($errors->has('ville') ? ' has-error' : ''); ?>">
-                            <label for="name" class="col-md-4 control-label">Ville</label>
+                            <label for="name" class="col-md-4 control-label">Ville, département ou région</label>
                             <div class="col-md-6">
                                 <input id="name" type="text" class="form-control" name="ville" onkeyup="this.value=this.value.toUpperCase()" placeholder="Saisir la ville" autofocus value="<?php echo e(old('ville')); ?>">
                                 <?php if($errors->has('ville')): ?>
@@ -39,10 +39,21 @@
                         <div class="form-group<?php echo e($errors->has('adresse') ? ' has-error' : ''); ?>">
                             <label for="name" class="col-md-4 control-label">Adresse</label>
                             <div class="col-md-6">
-                                <input type="text" class="form-control" name="adresse" placeholder="Saisir l'adresse" autofocus value="<?php echo e(old('adresse')); ?>">
+                                <input type="text" class="form-control" name="adresse" onkeyup="this.value=this.value.toUpperCase()" placeholder="Saisir l'adresse" autofocus value="<?php echo e(old('adresse')); ?>">
                                 <?php if($errors->has('adresse')): ?>
                                     <span class="help-block">
                                         <strong><?php echo e($errors->first('adresse')); ?></strong>
+                                    </span>
+                                <?php endif; ?>
+                            </div>
+                        </div>
+                        <div class="form-group<?php echo e($errors->has('telephone') ? ' has-error' : ''); ?>">
+                            <label for="name" class="col-md-4 control-label">Téléphone</label>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" name="telephone" placeholder="Saisir un numéro de téléphone" autofocus value="<?php echo e(old('telephone')); ?>">
+                                <?php if($errors->has('telephone')): ?>
+                                    <span class="help-block">
+                                        <strong><?php echo e($errors->first('telephone')); ?></strong>
                                     </span>
                                 <?php endif; ?>
                             </div>
@@ -52,7 +63,7 @@
                         </div>
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-primary btn-color">
                                     Continuer
                                 </button>
                             </div>

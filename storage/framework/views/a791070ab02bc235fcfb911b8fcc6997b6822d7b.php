@@ -3,9 +3,16 @@
 <?php $__env->startSection('link'); ?>
 <link href="<?php echo e(asset('css/jquery-ui.min.css')); ?>" rel="stylesheet">
 <?php $__env->startSection('content'); ?>
-<div class="container list-category">
-    <h2>Mes hébergements</h2>
+<div class="container annonces-block">
+    <h2 class="text-center list-annonces-title">Mes hébergements</h2>
     <div class="row">
+        <?php if(\Session::has('success')): ?>
+            <div class="alert alert-success">
+                <ul>
+                    <p><?php echo \Session::get('success'); ?></p>
+                </ul>
+            </div>
+        <?php endif; ?>
     <?php $__currentLoopData = $houses; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $house): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
         <div class="col-lg-4 col-md-4">
             <div class="thumbnail">
@@ -16,16 +23,7 @@
                     </h4>
                     <p class="price"><?php echo e($house->price); ?>€ par nuit</p>
                 
-                    <p>Type de bien : <?php echo e($house->category->category); ?></p>
-                    <?php $__currentLoopData = $house->valuecatproprietes; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $valuecatpropriete): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                        <?php if($loop->iteration > 0): ?>
-                            <?php if($valuecatpropriete->value == 0): ?>
-                            <?php else: ?>
-                                <p><?php echo e($valuecatpropriete->propriete->propriete); ?>: <?php echo e($valuecatpropriete->value); ?></p> 
-                            <?php endif; ?>
-                        <?php break; ?>   
-                        <?php endif; ?>      
-                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>      
+                    <p>Type de bien : <?php echo e($house->category->category); ?></p>     
                     <p><?php echo(substr($house->description, 0, 40));?></p>   
                     <p>Annulation gratuite !</p>
                     <p> Pays: <?php echo e($house->pays); ?></p>
@@ -37,7 +35,8 @@
                         <p>Statut: <span style="color:green;"><?php echo($house->statut);?></span></p>
                     <?php endif; ?>    
                     <div class="col-md-12 text-center">
-                        <a href="<?php echo e(route('user.editHouse', $house['id'])); ?>" class="btn btn-primary">Modifier</a>
+                        <a href="<?php echo e(route('user.editHouse', $house['id'])); ?>" class="btn btn-primary btn-color">Modifier</a>
+                        <a href="<?php echo e(route('user.deleteHouse', $house['id'])); ?>" class="btn btn-danger delete-annonce">Supprimer</a>
                     </div>                                      
                 </div>
             </div> 

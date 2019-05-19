@@ -3,7 +3,7 @@
 @section('link')
 <link href="{{ asset('css/jquery-ui.min.css') }}" rel="stylesheet">
 @section('content')
-<div class="container list-category">
+<div class="container list-category" role="notifications">
     <div class="panel panel-default">
         <div class="panel-heading">Mes notifications</div>
         <div class="panel-body">

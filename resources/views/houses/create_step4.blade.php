@@ -27,7 +27,7 @@
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <a href="{{route('house.create_step3')}}" class="btn btn-primary">Retour</a>
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-primary btn-color">
                                     Créer l'hebergement
                                 </button>
                             </div>

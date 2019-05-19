@@ -91,7 +91,15 @@
                                 @endif
                             </div>
                         </div>
-
+                        <div class="form-check{{ $errors->has('majeur') ? ' has-error' : '' }} text-center">
+                            <input type="checkbox" class="form-check-input" name="majeur" value="true" {{ !old('majeur') ?: 'checked' }}>
+                            <label class="form-check-label" for="exampleCheck1">Vous avez 18 ans ou plus</label>
+                            @if ($errors->has('majeur'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('majeur') }}</strong>
+                                </span>
+                            @endif
+                        </div>
                         <div class="form-group{{ $errors->has('g-recaptcha-response') ? ' has-error' : '' }}">
                             <label for="g-recaptcha-response" class="col-md-4 control-label">Captcha</label>
 
@@ -108,7 +116,7 @@
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-primary btn-color">
                                     M'inscrire
                                 </button>
                             </div>

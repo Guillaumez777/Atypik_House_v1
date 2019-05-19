@@ -3,14 +3,14 @@
 @section('footer', 'footer_absolute')
 @section('content')
 <div class="admin-user-profil"> 
-    <div class="container list-category">
+    <div class="container list-category" role="details-historique">
         <div class="panel panel-default">
             <div class="panel-heading">Détails de l'annonce</div>
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-lg-12 col-md-12">
                             <div class="card-show h-100">
-                                <img class="img-responsive img_house" src="{{ asset('img/houses/'.$historique->house->photo) }}"></a>
+                                <img class="img-responsive img_house" src="{{ asset('img/houses/'.$historique->house->photo) }}" alt="Hébergement insolite - {{$house->title}}"></a>
                                 <div class="card-center">
                                     <h4 class="title card-title text-center">
                                         <a href="#">{{$historique->house->title}}</a>

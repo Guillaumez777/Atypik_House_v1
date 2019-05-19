@@ -14,7 +14,7 @@
                 <input id="name" type="text" class="form-control" name="category" required autofocus value="">
             </div>
             <div class="col-md-4">
-                <input type="submit" class="btn btn-primary" value="Ajouter"/>
+                <input type="submit" class="btn btn-primary btn-color" value="Ajouter"/>
             </div>
         </div>
     </form>               

@@ -13,6 +13,10 @@ class CategoriesTableSeeder extends Seeder
     {
         $categories = [
             [
+                'category' => 'Autre',
+                'statut' => 1
+            ],
+            [
                 'category' => 'Cabane',
                 'statut' => 1
             ],
@@ -22,6 +26,14 @@ class CategoriesTableSeeder extends Seeder
             ],
             [
                 'category' => 'Yourte',
+                'statut' => 1
+            ],
+            [
+                'category' => 'Chateau - tour',
+                'statut' => 1
+            ],
+            [
+                'category' => 'Train',
                 'statut' => 1
             ]
         ];

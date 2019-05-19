@@ -21,7 +21,8 @@
                     <td><a href="<?php echo e(action('AdminController@proprietescategory', $category['id'])); ?>"><?php echo e($category->category); ?></a></td>
                     <td>
                         <a href="<?php echo e(action('AdminController@proprietescategory', $category['id'])); ?>" class="btn btn-warning"> propriétés</a>
-                        <a href="<?php echo e(route('admin.delete_category', $category->id)); ?>" class="delete btn btn-danger">Supprimer</a>
+                        <a href="<?php echo e(route('admin.enable_category', $category->id)); ?>" class="btn btn-success">Activer</a>
+                        <a href="<?php echo e(route('admin.disable_category', $category->id)); ?>" class="delete btn btn-danger">Désactiver</a>
                     </td>
                 </tr>
             </tbody>

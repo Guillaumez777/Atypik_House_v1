@@ -11,7 +11,14 @@
 |
 */
 
+use Spatie\Sitemap\SitemapGenerator;
+
+
 Route::get('/', 'HomeController@index')->name('home');
+Route::get('sitemap/generate', function () {
+    SitemapGenerator::create('http://127.0.0.1:8000')->writeToFile('sitemap.xml');
+    return 'sitemap created';
+});
 Route::get('/houses', 'HousesController@index')->name('houses');
 Route::get('/register', 'RegistersController@create');
 Route::post('/register', 'RegistersController@register');
@@ -27,8 +34,6 @@ Route::get('/mentions_legales', 'HomeController@mentions_legales')->name('mentio
 Route::get('/faq', 'HomeController@faq')->name('faq');
 Route::get('/politique_de_confidentialite', 'HomeController@politique_de_confidentialite')->name('politique_de_confidentialite');
 Route::get('/cgu', 'HomeController@cgu')->name('cgu');
-Route::get('/rgpd', 'HomeController@rgpd')->name('rgpd');
-
 
 // admin route for our multi-auth system
 Route::get('/search', 'QueryController@index');
@@ -115,7 +120,7 @@ Route::prefix('admin')->group(function () {
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/profile/{id}', 'UsersController@index');
     Route::get('/messages', 'MessagesController@messages')->name('user.messages');
-    Route::get('/mylocations/{id}', 'HousesController@mylocations')->name('user.annonces');
+    // Route::get('/mylocations/{id}', 'HousesController@mylocations')->name('user.annonces');
 
     //Create a house, publish an offer
     Route::get('/house/create_step1', 'HousesController@create_step1')->name('house.create_step1');

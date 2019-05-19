@@ -47,7 +47,7 @@
                                         <div class="row">
                                             <div class="form-group">
                                                 <div class="col-md-12 text-center">
-                                                    <a href="{{route('admin.editHouse', $house['id']) }}" class="btn btn-primary">Modifier</a>
+                                                    <a href="{{route('admin.editHouse', $house['id']) }}" class="btn btn-primary btn-color">Modifier</a>
                                                     <a href="{{route('admin.deleteAnnonce', $house['id']) }}" class="btn btn-danger delete-annonce">Supprimer</a>
                                                 </div>
                                             </div>                      

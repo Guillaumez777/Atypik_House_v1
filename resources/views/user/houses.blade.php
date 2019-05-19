@@ -4,8 +4,8 @@
 @section('link')
 <link href="{{ asset('css/jquery-ui.min.css') }}" rel="stylesheet">
 @section('content')
-<div class="container list-category">
-    <h2>Mes hébergements</h2>
+<div class="container annonces-block" role="annonces">
+    <h2 class="text-center list-annonces-title">Mes hébergements</h2>
     <div class="row">
         @if (\Session::has('success'))
             <div class="alert alert-success">
@@ -24,16 +24,7 @@
                     </h4>
                     <p class="price">{{$house->price}}€ par nuit</p>
                 
-                    <p>Type de bien : {{$house->category->category}}</p>
-                    @foreach($house->valuecatproprietes as $valuecatpropriete)
-                        @if($loop->iteration > 0)
-                            @if($valuecatpropriete->value == 0)
-                            @else
-                                <p>{{$valuecatpropriete->propriete->propriete}}: {{$valuecatpropriete->value}}</p> 
-                            @endif
-                        @break   
-                        @endif      
-                    @endforeach      
+                    <p>Type de bien : {{$house->category->category}}</p>     
                     <p><?php echo(substr($house->description, 0, 40));?></p>   
                     <p>Annulation gratuite !</p>
                     <p> Pays: {{$house->pays}}</p>
@@ -45,7 +36,7 @@
                         <p>Statut: <span style="color:green;"><?php echo($house->statut);?></span></p>
                     @endif    
                     <div class="col-md-12 text-center">
-                        <a href="{{route('user.editHouse', $house['id']) }}" class="btn btn-primary">Modifier</a>
+                        <a href="{{route('user.editHouse', $house['id']) }}" class="btn btn-primary btn-color">Modifier</a>
                         <a href="{{route('user.deleteHouse', $house['id']) }}" class="btn btn-danger delete-annonce">Supprimer</a>
                     </div>                                      
                 </div>

@@ -42,6 +42,7 @@ class ComposerStaticInit4ac818caae2f3e00298b2a1cbac633cf
         'T' => 
         array (
             'Tymon\\JWTAuth\\' => 14,
+            'Tree\\' => 5,
             'TijsVerkoyen\\CssToInlineStyles\\' => 31,
             'Tests\\' => 6,
         ),
@@ -62,10 +63,18 @@ class ComposerStaticInit4ac818caae2f3e00298b2a1cbac633cf
             'Symfony\\Component\\HttpFoundation\\' => 33,
             'Symfony\\Component\\Finder\\' => 25,
             'Symfony\\Component\\EventDispatcher\\' => 34,
+            'Symfony\\Component\\DomCrawler\\' => 29,
             'Symfony\\Component\\Debug\\' => 24,
             'Symfony\\Component\\CssSelector\\' => 30,
             'Symfony\\Component\\Console\\' => 26,
             'Stripe\\' => 7,
+            'Spatie\\TemporaryDirectory\\' => 26,
+            'Spatie\\Snapshots\\' => 17,
+            'Spatie\\Sitemap\\' => 15,
+            'Spatie\\Image\\' => 13,
+            'Spatie\\ImageOptimizer\\' => 22,
+            'Spatie\\Crawler\\' => 15,
+            'Spatie\\Browsershot\\' => 19,
         ),
         'R' => 
         array (
@@ -88,6 +97,7 @@ class ComposerStaticInit4ac818caae2f3e00298b2a1cbac633cf
         ),
         'L' => 
         array (
+            'League\\Glide\\' => 13,
             'League\\Flysystem\\' => 17,
             'Laravel\\Tinker\\' => 15,
             'Laravel\\Installer\\Console\\' => 26,
@@ -161,6 +171,10 @@ class ComposerStaticInit4ac818caae2f3e00298b2a1cbac633cf
         array (
             0 => __DIR__ . '/..' . '/tymon/jwt-auth/src',
         ),
+        'Tree\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/nicmart/tree/src',
+        ),
         'TijsVerkoyen\\CssToInlineStyles\\' => 
         array (
             0 => __DIR__ . '/..' . '/tijsverkoyen/css-to-inline-styles/src',
@@ -229,6 +243,10 @@ class ComposerStaticInit4ac818caae2f3e00298b2a1cbac633cf
         array (
             0 => __DIR__ . '/..' . '/symfony/event-dispatcher',
         ),
+        'Symfony\\Component\\DomCrawler\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/dom-crawler',
+        ),
         'Symfony\\Component\\Debug\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/debug',
@@ -244,6 +262,34 @@ class ComposerStaticInit4ac818caae2f3e00298b2a1cbac633cf
         'Stripe\\' => 
         array (
             0 => __DIR__ . '/..' . '/stripe/stripe-php/lib',
+        ),
+        'Spatie\\TemporaryDirectory\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/spatie/temporary-directory/src',
+        ),
+        'Spatie\\Snapshots\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/spatie/phpunit-snapshot-assertions/src',
+        ),
+        'Spatie\\Sitemap\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/spatie/laravel-sitemap/src',
+        ),
+        'Spatie\\Image\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/spatie/image/src',
+        ),
+        'Spatie\\ImageOptimizer\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/spatie/image-optimizer/src',
+        ),
+        'Spatie\\Crawler\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/spatie/crawler/src',
+        ),
+        'Spatie\\Browsershot\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/spatie/browsershot/src',
         ),
         'Ramsey\\Uuid\\' => 
         array (
@@ -272,6 +318,10 @@ class ComposerStaticInit4ac818caae2f3e00298b2a1cbac633cf
         'Monolog\\' => 
         array (
             0 => __DIR__ . '/..' . '/monolog/monolog/src/Monolog',
+        ),
+        'League\\Glide\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/league/glide/src',
         ),
         'League\\Flysystem\\' => 
         array (
@@ -2534,6 +2584,39 @@ class ComposerStaticInit4ac818caae2f3e00298b2a1cbac633cf
         'League\\Flysystem\\Util\\ContentListingFormatter' => __DIR__ . '/..' . '/league/flysystem/src/Util/ContentListingFormatter.php',
         'League\\Flysystem\\Util\\MimeType' => __DIR__ . '/..' . '/league/flysystem/src/Util/MimeType.php',
         'League\\Flysystem\\Util\\StreamHasher' => __DIR__ . '/..' . '/league/flysystem/src/Util/StreamHasher.php',
+        'League\\Glide\\Api\\Api' => __DIR__ . '/..' . '/league/glide/src/Api/Api.php',
+        'League\\Glide\\Api\\ApiInterface' => __DIR__ . '/..' . '/league/glide/src/Api/ApiInterface.php',
+        'League\\Glide\\Filesystem\\FileNotFoundException' => __DIR__ . '/..' . '/league/glide/src/Filesystem/FileNotFoundException.php',
+        'League\\Glide\\Filesystem\\FilesystemException' => __DIR__ . '/..' . '/league/glide/src/Filesystem/FilesystemException.php',
+        'League\\Glide\\Manipulators\\Background' => __DIR__ . '/..' . '/league/glide/src/Manipulators/Background.php',
+        'League\\Glide\\Manipulators\\BaseManipulator' => __DIR__ . '/..' . '/league/glide/src/Manipulators/BaseManipulator.php',
+        'League\\Glide\\Manipulators\\Blur' => __DIR__ . '/..' . '/league/glide/src/Manipulators/Blur.php',
+        'League\\Glide\\Manipulators\\Border' => __DIR__ . '/..' . '/league/glide/src/Manipulators/Border.php',
+        'League\\Glide\\Manipulators\\Brightness' => __DIR__ . '/..' . '/league/glide/src/Manipulators/Brightness.php',
+        'League\\Glide\\Manipulators\\Contrast' => __DIR__ . '/..' . '/league/glide/src/Manipulators/Contrast.php',
+        'League\\Glide\\Manipulators\\Crop' => __DIR__ . '/..' . '/league/glide/src/Manipulators/Crop.php',
+        'League\\Glide\\Manipulators\\Encode' => __DIR__ . '/..' . '/league/glide/src/Manipulators/Encode.php',
+        'League\\Glide\\Manipulators\\Filter' => __DIR__ . '/..' . '/league/glide/src/Manipulators/Filter.php',
+        'League\\Glide\\Manipulators\\Flip' => __DIR__ . '/..' . '/league/glide/src/Manipulators/Flip.php',
+        'League\\Glide\\Manipulators\\Gamma' => __DIR__ . '/..' . '/league/glide/src/Manipulators/Gamma.php',
+        'League\\Glide\\Manipulators\\Helpers\\Color' => __DIR__ . '/..' . '/league/glide/src/Manipulators/Helpers/Color.php',
+        'League\\Glide\\Manipulators\\Helpers\\Dimension' => __DIR__ . '/..' . '/league/glide/src/Manipulators/Helpers/Dimension.php',
+        'League\\Glide\\Manipulators\\ManipulatorInterface' => __DIR__ . '/..' . '/league/glide/src/Manipulators/ManipulatorInterface.php',
+        'League\\Glide\\Manipulators\\Orientation' => __DIR__ . '/..' . '/league/glide/src/Manipulators/Orientation.php',
+        'League\\Glide\\Manipulators\\Pixelate' => __DIR__ . '/..' . '/league/glide/src/Manipulators/Pixelate.php',
+        'League\\Glide\\Manipulators\\Sharpen' => __DIR__ . '/..' . '/league/glide/src/Manipulators/Sharpen.php',
+        'League\\Glide\\Manipulators\\Size' => __DIR__ . '/..' . '/league/glide/src/Manipulators/Size.php',
+        'League\\Glide\\Manipulators\\Watermark' => __DIR__ . '/..' . '/league/glide/src/Manipulators/Watermark.php',
+        'League\\Glide\\Responses\\PsrResponseFactory' => __DIR__ . '/..' . '/league/glide/src/Responses/PsrResponseFactory.php',
+        'League\\Glide\\Responses\\ResponseFactoryInterface' => __DIR__ . '/..' . '/league/glide/src/Responses/ResponseFactoryInterface.php',
+        'League\\Glide\\Server' => __DIR__ . '/..' . '/league/glide/src/Server.php',
+        'League\\Glide\\ServerFactory' => __DIR__ . '/..' . '/league/glide/src/ServerFactory.php',
+        'League\\Glide\\Signatures\\Signature' => __DIR__ . '/..' . '/league/glide/src/Signatures/Signature.php',
+        'League\\Glide\\Signatures\\SignatureException' => __DIR__ . '/..' . '/league/glide/src/Signatures/SignatureException.php',
+        'League\\Glide\\Signatures\\SignatureFactory' => __DIR__ . '/..' . '/league/glide/src/Signatures/SignatureFactory.php',
+        'League\\Glide\\Signatures\\SignatureInterface' => __DIR__ . '/..' . '/league/glide/src/Signatures/SignatureInterface.php',
+        'League\\Glide\\Urls\\UrlBuilder' => __DIR__ . '/..' . '/league/glide/src/Urls/UrlBuilder.php',
+        'League\\Glide\\Urls\\UrlBuilderFactory' => __DIR__ . '/..' . '/league/glide/src/Urls/UrlBuilderFactory.php',
         'MessagesTableSeeder' => __DIR__ . '/../..' . '/database/seeds/MessagesTableSeeder.php',
         'Mockery' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery.php',
         'Mockery\\Adapter\\Phpunit\\MockeryPHPUnitIntegration' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery/Adapter/Phpunit/MockeryPHPUnitIntegration.php',
@@ -3693,6 +3776,59 @@ class ComposerStaticInit4ac818caae2f3e00298b2a1cbac633cf
         'SebastianBergmann\\ResourceOperations\\ResourceOperations' => __DIR__ . '/..' . '/sebastian/resource-operations/src/ResourceOperations.php',
         'SebastianBergmann\\Version' => __DIR__ . '/..' . '/sebastian/version/src/Version.php',
         'SessionUpdateTimestampHandlerInterface' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/SessionUpdateTimestampHandlerInterface.php',
+        'Spatie\\Browsershot\\Browsershot' => __DIR__ . '/..' . '/spatie/browsershot/src/Browsershot.php',
+        'Spatie\\Browsershot\\ChromeFinder' => __DIR__ . '/..' . '/spatie/browsershot/src/ChromeFinder.php',
+        'Spatie\\Browsershot\\Exceptions\\CouldNotTakeBrowsershot' => __DIR__ . '/..' . '/spatie/browsershot/src/Exceptions/CouldNotTakeBrowsershot.php',
+        'Spatie\\Crawler\\CrawlAllUrls' => __DIR__ . '/..' . '/spatie/crawler/src/CrawlAllUrls.php',
+        'Spatie\\Crawler\\CrawlInternalUrls' => __DIR__ . '/..' . '/spatie/crawler/src/CrawlInternalUrls.php',
+        'Spatie\\Crawler\\CrawlObserver' => __DIR__ . '/..' . '/spatie/crawler/src/CrawlObserver.php',
+        'Spatie\\Crawler\\CrawlProfile' => __DIR__ . '/..' . '/spatie/crawler/src/CrawlProfile.php',
+        'Spatie\\Crawler\\CrawlQueue\\CollectionCrawlQueue' => __DIR__ . '/..' . '/spatie/crawler/src/CrawlQueue/CollectionCrawlQueue.php',
+        'Spatie\\Crawler\\CrawlQueue\\CrawlQueue' => __DIR__ . '/..' . '/spatie/crawler/src/CrawlQueue/CrawlQueue.php',
+        'Spatie\\Crawler\\CrawlSubdomains' => __DIR__ . '/..' . '/spatie/crawler/src/CrawlSubdomains.php',
+        'Spatie\\Crawler\\CrawlUrl' => __DIR__ . '/..' . '/spatie/crawler/src/CrawlUrl.php',
+        'Spatie\\Crawler\\Crawler' => __DIR__ . '/..' . '/spatie/crawler/src/Crawler.php',
+        'Spatie\\Crawler\\EmptyCrawlObserver' => __DIR__ . '/..' . '/spatie/crawler/src/EmptyCrawlObserver.php',
+        'Spatie\\Crawler\\Exception\\UrlNotFoundByIndex' => __DIR__ . '/..' . '/spatie/crawler/src/Exception/UrlNotFoundByIndex.php',
+        'Spatie\\Crawler\\Url' => __DIR__ . '/..' . '/spatie/crawler/src/Url.php',
+        'Spatie\\ImageOptimizer\\DummyLogger' => __DIR__ . '/..' . '/spatie/image-optimizer/src/DummyLogger.php',
+        'Spatie\\ImageOptimizer\\Image' => __DIR__ . '/..' . '/spatie/image-optimizer/src/Image.php',
+        'Spatie\\ImageOptimizer\\Optimizer' => __DIR__ . '/..' . '/spatie/image-optimizer/src/Optimizer.php',
+        'Spatie\\ImageOptimizer\\OptimizerChain' => __DIR__ . '/..' . '/spatie/image-optimizer/src/OptimizerChain.php',
+        'Spatie\\ImageOptimizer\\OptimizerChainFactory' => __DIR__ . '/..' . '/spatie/image-optimizer/src/OptimizerChainFactory.php',
+        'Spatie\\ImageOptimizer\\Optimizers\\BaseOptimizer' => __DIR__ . '/..' . '/spatie/image-optimizer/src/Optimizers/BaseOptimizer.php',
+        'Spatie\\ImageOptimizer\\Optimizers\\Gifsicle' => __DIR__ . '/..' . '/spatie/image-optimizer/src/Optimizers/Gifsicle.php',
+        'Spatie\\ImageOptimizer\\Optimizers\\Jpegoptim' => __DIR__ . '/..' . '/spatie/image-optimizer/src/Optimizers/Jpegoptim.php',
+        'Spatie\\ImageOptimizer\\Optimizers\\Optipng' => __DIR__ . '/..' . '/spatie/image-optimizer/src/Optimizers/Optipng.php',
+        'Spatie\\ImageOptimizer\\Optimizers\\Pngquant' => __DIR__ . '/..' . '/spatie/image-optimizer/src/Optimizers/Pngquant.php',
+        'Spatie\\ImageOptimizer\\Optimizers\\Svgo' => __DIR__ . '/..' . '/spatie/image-optimizer/src/Optimizers/Svgo.php',
+        'Spatie\\Image\\Exceptions\\CouldNotConvert' => __DIR__ . '/..' . '/spatie/image/src/Exceptions/CouldNotConvert.php',
+        'Spatie\\Image\\Exceptions\\InvalidImageDriver' => __DIR__ . '/..' . '/spatie/image/src/Exceptions/InvalidImageDriver.php',
+        'Spatie\\Image\\Exceptions\\InvalidManipulation' => __DIR__ . '/..' . '/spatie/image/src/Exceptions/InvalidManipulation.php',
+        'Spatie\\Image\\Exceptions\\InvalidTemporaryDirectory' => __DIR__ . '/..' . '/spatie/image/src/Exceptions/InvalidTemporaryDirectory.php',
+        'Spatie\\Image\\GlideConversion' => __DIR__ . '/..' . '/spatie/image/src/GlideConversion.php',
+        'Spatie\\Image\\Image' => __DIR__ . '/..' . '/spatie/image/src/Image.php',
+        'Spatie\\Image\\ManipulationSequence' => __DIR__ . '/..' . '/spatie/image/src/ManipulationSequence.php',
+        'Spatie\\Image\\Manipulations' => __DIR__ . '/..' . '/spatie/image/src/Manipulations.php',
+        'Spatie\\Sitemap\\Crawler\\Observer' => __DIR__ . '/..' . '/spatie/laravel-sitemap/src/Crawler/Observer.php',
+        'Spatie\\Sitemap\\Crawler\\Profile' => __DIR__ . '/..' . '/spatie/laravel-sitemap/src/Crawler/Profile.php',
+        'Spatie\\Sitemap\\Sitemap' => __DIR__ . '/..' . '/spatie/laravel-sitemap/src/Sitemap.php',
+        'Spatie\\Sitemap\\SitemapGenerator' => __DIR__ . '/..' . '/spatie/laravel-sitemap/src/SitemapGenerator.php',
+        'Spatie\\Sitemap\\SitemapIndex' => __DIR__ . '/..' . '/spatie/laravel-sitemap/src/SitemapIndex.php',
+        'Spatie\\Sitemap\\SitemapServiceProvider' => __DIR__ . '/..' . '/spatie/laravel-sitemap/src/SitemapServiceProvider.php',
+        'Spatie\\Sitemap\\Tags\\Alternate' => __DIR__ . '/..' . '/spatie/laravel-sitemap/src/Tags/Alternate.php',
+        'Spatie\\Sitemap\\Tags\\Sitemap' => __DIR__ . '/..' . '/spatie/laravel-sitemap/src/Tags/Sitemap.php',
+        'Spatie\\Sitemap\\Tags\\Tag' => __DIR__ . '/..' . '/spatie/laravel-sitemap/src/Tags/Tag.php',
+        'Spatie\\Sitemap\\Tags\\Url' => __DIR__ . '/..' . '/spatie/laravel-sitemap/src/Tags/Url.php',
+        'Spatie\\Snapshots\\Driver' => __DIR__ . '/..' . '/spatie/phpunit-snapshot-assertions/src/Driver.php',
+        'Spatie\\Snapshots\\Drivers\\JsonDriver' => __DIR__ . '/..' . '/spatie/phpunit-snapshot-assertions/src/Drivers/JsonDriver.php',
+        'Spatie\\Snapshots\\Drivers\\VarDriver' => __DIR__ . '/..' . '/spatie/phpunit-snapshot-assertions/src/Drivers/VarDriver.php',
+        'Spatie\\Snapshots\\Drivers\\XmlDriver' => __DIR__ . '/..' . '/spatie/phpunit-snapshot-assertions/src/Drivers/XmlDriver.php',
+        'Spatie\\Snapshots\\Exceptions\\CantBeSerialized' => __DIR__ . '/..' . '/spatie/phpunit-snapshot-assertions/src/Exceptions/CantBeSerialized.php',
+        'Spatie\\Snapshots\\Filesystem' => __DIR__ . '/..' . '/spatie/phpunit-snapshot-assertions/src/Filesystem.php',
+        'Spatie\\Snapshots\\MatchesSnapshots' => __DIR__ . '/..' . '/spatie/phpunit-snapshot-assertions/src/MatchesSnapshots.php',
+        'Spatie\\Snapshots\\Snapshot' => __DIR__ . '/..' . '/spatie/phpunit-snapshot-assertions/src/Snapshot.php',
+        'Spatie\\TemporaryDirectory\\TemporaryDirectory' => __DIR__ . '/..' . '/spatie/temporary-directory/src/TemporaryDirectory.php',
         'Stripe\\Account' => __DIR__ . '/..' . '/stripe/stripe-php/lib/Account.php',
         'Stripe\\AccountLink' => __DIR__ . '/..' . '/stripe/stripe-php/lib/AccountLink.php',
         'Stripe\\AlipayAccount' => __DIR__ . '/..' . '/stripe/stripe-php/lib/AlipayAccount.php',
@@ -3714,6 +3850,7 @@ class ComposerStaticInit4ac818caae2f3e00298b2a1cbac633cf
         'Stripe\\BankAccount' => __DIR__ . '/..' . '/stripe/stripe-php/lib/BankAccount.php',
         'Stripe\\BitcoinReceiver' => __DIR__ . '/..' . '/stripe/stripe-php/lib/BitcoinReceiver.php',
         'Stripe\\BitcoinTransaction' => __DIR__ . '/..' . '/stripe/stripe-php/lib/BitcoinTransaction.php',
+        'Stripe\\Capability' => __DIR__ . '/..' . '/stripe/stripe-php/lib/Capability.php',
         'Stripe\\Card' => __DIR__ . '/..' . '/stripe/stripe-php/lib/Card.php',
         'Stripe\\Charge' => __DIR__ . '/..' . '/stripe/stripe-php/lib/Charge.php',
         'Stripe\\Checkout\\Session' => __DIR__ . '/..' . '/stripe/stripe-php/lib/Checkout/Session.php',
@@ -3955,6 +4092,17 @@ class ComposerStaticInit4ac818caae2f3e00298b2a1cbac633cf
         'Symfony\\Component\\Debug\\FatalErrorHandler\\FatalErrorHandlerInterface' => __DIR__ . '/..' . '/symfony/debug/FatalErrorHandler/FatalErrorHandlerInterface.php',
         'Symfony\\Component\\Debug\\FatalErrorHandler\\UndefinedFunctionFatalErrorHandler' => __DIR__ . '/..' . '/symfony/debug/FatalErrorHandler/UndefinedFunctionFatalErrorHandler.php',
         'Symfony\\Component\\Debug\\FatalErrorHandler\\UndefinedMethodFatalErrorHandler' => __DIR__ . '/..' . '/symfony/debug/FatalErrorHandler/UndefinedMethodFatalErrorHandler.php',
+        'Symfony\\Component\\DomCrawler\\AbstractUriElement' => __DIR__ . '/..' . '/symfony/dom-crawler/AbstractUriElement.php',
+        'Symfony\\Component\\DomCrawler\\Crawler' => __DIR__ . '/..' . '/symfony/dom-crawler/Crawler.php',
+        'Symfony\\Component\\DomCrawler\\Field\\ChoiceFormField' => __DIR__ . '/..' . '/symfony/dom-crawler/Field/ChoiceFormField.php',
+        'Symfony\\Component\\DomCrawler\\Field\\FileFormField' => __DIR__ . '/..' . '/symfony/dom-crawler/Field/FileFormField.php',
+        'Symfony\\Component\\DomCrawler\\Field\\FormField' => __DIR__ . '/..' . '/symfony/dom-crawler/Field/FormField.php',
+        'Symfony\\Component\\DomCrawler\\Field\\InputFormField' => __DIR__ . '/..' . '/symfony/dom-crawler/Field/InputFormField.php',
+        'Symfony\\Component\\DomCrawler\\Field\\TextareaFormField' => __DIR__ . '/..' . '/symfony/dom-crawler/Field/TextareaFormField.php',
+        'Symfony\\Component\\DomCrawler\\Form' => __DIR__ . '/..' . '/symfony/dom-crawler/Form.php',
+        'Symfony\\Component\\DomCrawler\\FormFieldRegistry' => __DIR__ . '/..' . '/symfony/dom-crawler/FormFieldRegistry.php',
+        'Symfony\\Component\\DomCrawler\\Image' => __DIR__ . '/..' . '/symfony/dom-crawler/Image.php',
+        'Symfony\\Component\\DomCrawler\\Link' => __DIR__ . '/..' . '/symfony/dom-crawler/Link.php',
         'Symfony\\Component\\EventDispatcher\\Debug\\TraceableEventDispatcher' => __DIR__ . '/..' . '/symfony/event-dispatcher/Debug/TraceableEventDispatcher.php',
         'Symfony\\Component\\EventDispatcher\\Debug\\TraceableEventDispatcherInterface' => __DIR__ . '/..' . '/symfony/event-dispatcher/Debug/TraceableEventDispatcherInterface.php',
         'Symfony\\Component\\EventDispatcher\\Debug\\WrappedListener' => __DIR__ . '/..' . '/symfony/event-dispatcher/Debug/WrappedListener.php',
@@ -4443,6 +4591,15 @@ class ComposerStaticInit4ac818caae2f3e00298b2a1cbac633cf
         'TijsVerkoyen\\CssToInlineStyles\\Css\\Property\\Property' => __DIR__ . '/..' . '/tijsverkoyen/css-to-inline-styles/src/Css/Property/Property.php',
         'TijsVerkoyen\\CssToInlineStyles\\Css\\Rule\\Processor' => __DIR__ . '/..' . '/tijsverkoyen/css-to-inline-styles/src/Css/Rule/Processor.php',
         'TijsVerkoyen\\CssToInlineStyles\\Css\\Rule\\Rule' => __DIR__ . '/..' . '/tijsverkoyen/css-to-inline-styles/src/Css/Rule/Rule.php',
+        'Tree\\Builder\\NodeBuilder' => __DIR__ . '/..' . '/nicmart/tree/src/Builder/NodeBuilder.php',
+        'Tree\\Builder\\NodeBuilderInterface' => __DIR__ . '/..' . '/nicmart/tree/src/Builder/NodeBuilderInterface.php',
+        'Tree\\Node\\Node' => __DIR__ . '/..' . '/nicmart/tree/src/Node/Node.php',
+        'Tree\\Node\\NodeInterface' => __DIR__ . '/..' . '/nicmart/tree/src/Node/NodeInterface.php',
+        'Tree\\Node\\NodeTrait' => __DIR__ . '/..' . '/nicmart/tree/src/Node/NodeTrait.php',
+        'Tree\\Visitor\\PostOrderVisitor' => __DIR__ . '/..' . '/nicmart/tree/src/Visitor/PostOrderVisitor.php',
+        'Tree\\Visitor\\PreOrderVisitor' => __DIR__ . '/..' . '/nicmart/tree/src/Visitor/PreOrderVisitor.php',
+        'Tree\\Visitor\\Visitor' => __DIR__ . '/..' . '/nicmart/tree/src/Visitor/Visitor.php',
+        'Tree\\Visitor\\YieldVisitor' => __DIR__ . '/..' . '/nicmart/tree/src/Visitor/YieldVisitor.php',
         'Tymon\\JWTAuth\\Blacklist' => __DIR__ . '/..' . '/tymon/jwt-auth/src/Blacklist.php',
         'Tymon\\JWTAuth\\Claims\\Audience' => __DIR__ . '/..' . '/tymon/jwt-auth/src/Claims/Audience.php',
         'Tymon\\JWTAuth\\Claims\\Claim' => __DIR__ . '/..' . '/tymon/jwt-auth/src/Claims/Claim.php',

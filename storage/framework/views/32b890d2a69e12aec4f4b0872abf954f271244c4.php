@@ -9,7 +9,7 @@
             <div class="row">
                 <div class="col-lg-6 col-md-6 mb-4">
                     <div class="card h-100">
-                        <img class="img-responsive img_house" src="<?php echo e(asset('img/houses/'.$house->photo)); ?>"/>
+                        <img class="img-responsive img_house" src="<?php echo e(asset('img/houses/'.$house->photo)); ?>" alt="Hébergement insolite - <?php echo e($house->title); ?>"/>
                         <div class="card-show">
                             <h4 class="title card-title">
                                 <a href="#"><?php echo e($house->title); ?></a>
@@ -27,6 +27,7 @@
                             <p> Pays: <?php echo e($house->pays); ?></p>
                             <p> Ville: <?php echo e($house->ville); ?></p>
                             <p> Adresse: <?php echo e($house->adresse); ?></p>
+                            <p> Téléphone de l'annonceur : <?php echo e($house->telephone); ?></p>
                         </div>
                     </div>
                 </div>
@@ -60,7 +61,7 @@
                                     <div class="alert alert-danger">Vous devez remplir tout les champs</div>
                                 <?php endif; ?>
                             <?php else: ?>
-                                <a href= "<?php echo e(route('login')); ?>" class="btn btn-success btn_reserve">Réserver</a>
+                                <a href= "<?php echo e(route('login')); ?>" class="btn btn-success btn_reserve btn-color">Réserver</a>
                             <?php endif; ?> 
                         </form>   
                     </div>
@@ -107,7 +108,7 @@
                                 <input type="radio" id="star2" name="note" value="2" /><label for="star2" title="Sucks big tim">2 stars</label>
                                 <input type="radio" id="star1" name="note" value="1" /><label for="star1" title="Sucks big time">1 star</label>
                             </div>
-                            <input type="submit" value="Envoyer" class="btn btn-primary" style="border-radius: 0;">
+                            <input type="submit" value="Envoyer" class="btn btn-primary btn-color" style="border-radius: 0;">
                         </form>
                         <?php if(count($errors) > 0): ?>
                             <div class="alert alert-danger">

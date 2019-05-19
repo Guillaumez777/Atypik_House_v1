@@ -59,7 +59,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-default navbar-static-top">
+        <nav class="navbar navbar-default navbar-static-top" role="navigation">
             <div class="container">
                 <div class="navbar-header">
 
@@ -149,7 +149,7 @@
         </nav>
     </div>
         <?php echo $__env->yieldContent('content'); ?>
-    <footer class="<?php echo $__env->yieldContent('footer'); ?>">
+    <footer class="<?php echo $__env->yieldContent('footer'); ?>" role="footer">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-offset-2 col-md-3">

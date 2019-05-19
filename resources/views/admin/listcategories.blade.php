@@ -20,7 +20,7 @@
                     <td><a href="{{action('AdminController@proprietescategory', $category['id'])}}">{{$category->category}}</a></td>
                     <td>
                         <a href="{{action('AdminController@proprietescategory', $category['id'])}}" class="btn btn-warning"> propriétés</a>
-                        <a href="{{ route('admin.enable_category', $category->id) }}" class="btn btn-success">Activer</a>
+                        <a href="{{ route('admin.enable_category', $category->id) }}" class="btn btn-success btn-color">Activer</a>
                         <a href="{{ route('admin.disable_category', $category->id) }}" class="delete btn btn-danger">Désactiver</a>
                     </td>
                 </tr>

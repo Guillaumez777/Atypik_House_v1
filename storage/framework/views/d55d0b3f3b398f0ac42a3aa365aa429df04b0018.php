@@ -4,6 +4,13 @@
         <?php $__currentLoopData = $users; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $user): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <div class="panel panel-default">
                 <div class="panel-heading text-center">Annonces de <?php echo e($user->nom); ?> <?php echo e($user->prenom); ?></div>
+                <?php if(\Session::has('success')): ?>
+                    <div class="alert alert-success">
+                        <ul>
+                            <p><?php echo \Session::get('success'); ?></p>
+                        </ul>
+                    </div>
+                <?php endif; ?>
                 <?php $__currentLoopData = $houses; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $house): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>           
                     <div class="panel-body">
                         <div class="row">
@@ -40,12 +47,9 @@
                                             <div class="form-group">
                                                 <div class="col-md-12 text-center">
                                                     <a href="<?php echo e(route('admin.editHouse', $house['id'])); ?>" class="btn btn-primary">Modifier</a>
-                                                    
-                                                        </div>
-                                                    </form>
-                                                    
-                                                </div>                      
-                                            </div>
+                                                    <a href="<?php echo e(route('admin.deleteAnnonce', $house['id'])); ?>" class="btn btn-danger delete-annonce">Supprimer</a>
+                                                </div>
+                                            </div>                      
                                         </div>
                                     </div>
                                 </div> 

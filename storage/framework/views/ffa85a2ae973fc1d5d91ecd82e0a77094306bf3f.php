@@ -44,14 +44,22 @@
                     'rows' => '8', 
                     'cols' => '15' ,
                 )); ?> 
-                <?php if($errors->has('name')): ?>
+                <?php if($errors->has('content')): ?>
                     <span class="help-block">
                         <strong><?php echo e($errors->first('content')); ?></strong>
                     </span>
                 <?php endif; ?>
             </div>
-            <input type="hidden" name="user_id" value="<?php echo("ok");?>"/>
-            <?php echo Form::submit('Envoyer !', array('class' => 'btn btn-success')); ?> 
+            <div class="form-check<?php echo e($errors->has('agree') ? ' has-error' : ''); ?>">
+                <input type="checkbox" class="form-check-input" name="agree" value="true" <?php echo e(!old('agree') ?: 'checked'); ?>>
+                <label class="form-check-label" for="exampleCheck1">En soumettant ce formulaire, j'accepte que les informations saisies soient exploitées dans le cadre professionnel</label>
+                <?php if($errors->has('agree')): ?>
+                    <span class="help-block">
+                        <strong><?php echo e($errors->first('agree')); ?></strong>
+                    </span>
+                <?php endif; ?>
+            </div>
+            <?php echo Form::submit('Envoyer !', array('class' => 'btn btn-success btn-color')); ?> 
         <?php echo Form::close(); ?> 
     </div> 
 <?php $__env->stopSection(); ?> 

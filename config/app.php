@@ -185,6 +185,7 @@ return [
         //Html Forms Views
         Collective\Html\HtmlServiceProvider::class,
         Cartalyst\Stripe\Laravel\StripeServiceProvider::class,
+        Spatie\Sitemap\SitemapServiceProvider::class,
 
         //JWT TOKEN
         'Tymon\JWTAuth\Providers\JWTAuthServiceProvider',

@@ -8,11 +8,11 @@
                 
                 <div class="panel-body">
                     <p>Votre annonce a bien été prise en compte!</p>   
-                    <p>Notre équipe va étudier votre annonce et revenir vers vous.</p>
-                    <p>En attendant vous pouvez voir nos différents hebergements en cliquant sur le bouton ci-dessous</p>
+                    <p>Notre équipe va l'étudier et revenir vers vous.</p>
+                    <p>Vous pouvez dès maintenant consulter votre annonce en appuyant sur le bouton ci-dessous</p>
                     <p>Notre équipe vous remercie!</p>
                     <div class="text-center">
-                    <a href= "<?php echo e(url('/houses')); ?>" class="btn btn-success btn_reserve">Nos hébergements</a>   
+                    <a href= "<?php echo e(url('/user/houses')); ?>" class="btn btn-success btn_reserve">Mes annonces</a>   
                     </div>                    
                 </div>
             </div>

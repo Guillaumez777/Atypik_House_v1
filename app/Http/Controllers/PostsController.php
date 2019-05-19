@@ -17,7 +17,7 @@ class PostsController extends Controller
     public function store(CreatePostRequest $request)  
     { 
         $this->validate($request, [ 
-            'name' => 'required|max:100|regex:/^[a-zA-Z]+$/u', 
+            'name' => 'required|max:100|regex:/^[a-zA-Z\s\-]+$/u', 
             'email' => 'required|max:50|email', 
             'content' => 'required' 
         ]); 

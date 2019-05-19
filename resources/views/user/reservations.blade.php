@@ -3,14 +3,14 @@
 @section('link')
 <link href="{{ asset('css/jquery-ui.min.css') }}" rel="stylesheet">
 @section('content')
-<div class="container list-category">
+<div class="container list-category" role="reservations">
     <h2>Mes réservations</h2>
     <div class="row">
     @foreach ($reservations as $reservation)
         <div class="col-lg-4 col-md-4">
             <div class="thumbnail">
                 <div class="card-show h-100">
-                    <a href="{{action('UsersController@showreservations', $reservation['id'])}}"><img class="img-responsive img_house" src="{{ asset('img/houses/'.$reservation->house->photo) }}"></a>
+                    <a href="{{action('UsersController@showreservations', $reservation['id'])}}"><img class="img-responsive img_house" src="{{ asset('img/houses/'.$reservation->house->photo) }}" alt="Hébergement insolite - {{$reservation->house->title}}"></a>
                     <div>
                         <h4 class="title card-title text-center">
                             <a href="{{route('user.showreservations', $reservation['id']) }}">{{$reservation->house->title}}</a>
@@ -45,9 +45,9 @@
                 </div> 
             </div>
         </div>
-    
     </div>
     @endforeach
+</div>
 </div>
 @section('script')
 <script src="{{ asset('js/jquery.js') }}"></script>

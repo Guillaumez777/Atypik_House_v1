@@ -9,7 +9,7 @@
                         <span class="input-group-btn">
                             <form class="form-horizontal" method="get" action="<?php echo e(url('search')); ?>" enctype="multipart/form-data">
                                 <div class="row">
-                                    <div class="col-lg-12 col-md-12 col-sm-12">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 cadre">
                                         <h1 class="title title-intro">Trouvez les meilleurs locations atypique, <br />partout en Europe !</h1>
                                         <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-3 col-sm-9 col-sm-offset-1">
                                             <div class="form-group button2">

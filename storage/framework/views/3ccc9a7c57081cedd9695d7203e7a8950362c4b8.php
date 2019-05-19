@@ -1,5 +1,4 @@
 <?php $__env->startSection('title', 'Nos Historiques'); ?>
-<?php $__env->startSection('footer', 'footer_absolute'); ?>
 <?php $__env->startSection('link'); ?>
 <link href="<?php echo e(asset('css/jquery-ui.min.css')); ?>" rel="stylesheet">
 <?php $__env->startSection('content'); ?>

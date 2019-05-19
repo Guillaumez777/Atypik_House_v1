@@ -46,14 +46,22 @@
                     'rows' => '8', 
                     'cols' => '15' ,
                 )) !!} 
-                @if ($errors->has('name'))
+                @if ($errors->has('content'))
                     <span class="help-block">
                         <strong>{{ $errors->first('content') }}</strong>
                     </span>
                 @endif
             </div>
-            <input type="hidden" name="user_id" value="<?php echo("ok");?>"/>
-            {!! Form::submit('Envoyer !', array('class' => 'btn btn-success')) !!} 
+            <div class="form-check{{ $errors->has('agree') ? ' has-error' : '' }}">
+                <input type="checkbox" class="form-check-input" name="agree" value="true" {{ !old('agree') ?: 'checked' }}>
+                <label class="form-check-label" for="exampleCheck1">En soumettant ce formulaire, j'accepte que les informations saisies soient exploitées dans le cadre professionnel</label>
+                @if ($errors->has('agree'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('agree') }}</strong>
+                    </span>
+                @endif
+            </div>
+            {!! Form::submit('Envoyer !', array('class' => 'btn btn-success btn-color')) !!} 
         {!! Form::close() !!} 
     </div> 
 @endsection 

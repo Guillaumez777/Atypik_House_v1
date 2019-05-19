@@ -17,13 +17,26 @@ html, body {
 .button2 {
 	display: flex;
 }
+.btn-danger {
+	background-color:#b30000;
+	border-color: #b30000;
+}
 
+.btn-danger:hover {
+	background-color:#b30000;
+	border-color: #b30000;
+}
 .button2 input {
 	height: 50px;
 	font-size: 18px;
 	width: 270px;
 }
 
+.cadre {
+	background: rgba(0, 0, 0, 0.6);
+	padding: 20px 0;
+	border-radius: 20px;
+}
 .title-intro {
 	color: #eee;
 }
@@ -90,9 +103,32 @@ p {
 	width: 100px;
 }
 
+.btn-color {
+	background-color: darkgreen;
+	border-color: darkgreen;
+	color: #fff;
+}
+
+.btn-color:hover {
+	background-color: darkgreen;
+	border-color: darkgreen;
+	color: #fff;
+}
+
 .btn_reserve {
 	color: white;
-	background-color:#64764d;
+	background-color: darkgreen;
+	border-color: darkgreen;
+	border: none;
+	margin: 0 20px 30px 20px;
+	padding: 10px 25px;
+	font-size: 16px;
+}
+
+.btn_reserve:hover {
+	color: white;
+	background-color: darkgreen;
+	border-color: darkgreen;
 	border: none;
 	margin: 0 20px 30px 20px;
 	padding: 10px 25px;
@@ -106,7 +142,7 @@ p {
 /* Navbar */
 .navbar {
 	border-bottom: none;
-	background: rgba(0, 0, 0, .4);
+	background: rgba(0, 0, 0, 0.6);
 	font-size: 17px;
 }
 
@@ -131,7 +167,7 @@ p {
 
 /* HomePage */
 .banner {
-	background: url("/img/carte_monde.jpg") no-repeat center bottom scroll;
+	background: url("/img/carte_monde_2.jpg") no-repeat center bottom scroll;
 	background-size: cover;
 	display: table;
 	height: 100%;
@@ -160,16 +196,21 @@ p {
 }
 
 .btn-searchbar{
-	background-color: #64764d;
+	background-color: darkgreen;
 	color: #fff;
-	border-color: #64764d;
+	border-color: darkgreen;
 }
 .btn-searchbar:hover {
-	background-color: #3f4b30;
+	background-color: darkgreen;
 	color: #fff;
-	border-color: #3f4b30;
+	border-color: darkgreen;
 }
-
+.annonces-block {
+	margin-top: 120px;
+}
+.list-annonces-title {
+    margin-bottom: 50px;
+}
 #hebergements {
 	text-align: center;
 	margin: 60px;
@@ -180,9 +221,18 @@ p {
 	/* margin: 60px; */
 }
 
-.card {
+.space-block {
+	margin: 22px;
+}
+
+.card-houses {
 	position: relative;
 	background-color: #fff;
+	transition: transform .2s;
+}
+
+.card-houses:hover {
+	transform: scale(1.1);
 }
 
 .card-block {
@@ -324,7 +374,9 @@ footer li a:hover{
 }
 
 /* Formulaire */
-
+ .contact-checkbox {
+	width:50px;
+ }
 #form {
 	margin: 100px auto;
 	width: 570px;

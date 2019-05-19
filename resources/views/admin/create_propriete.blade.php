@@ -15,7 +15,7 @@
                 <input type="hidden" class="form-control" name="category_id" required autofocus value="{{$category->id}}">
             </div>
             <div class="col-md-4">
-                <input type="submit" class="btn btn-primary" value="Ajouter"/>
+                <input type="submit" class="btn btn-primary btn-color" value="Ajouter"/>
             </div>
         </div>
     </form>               

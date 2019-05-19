@@ -19,7 +19,7 @@
                 <tr>
                     <td><a href="{{action('AdminController@showposts', $post['id'])}}">{{$post->name}}</a></td>
                     <td>
-                        <a href="{{action('AdminController@showposts', $post['id'])}}" class="btn btn-warning"> Voir</a>
+                        <a href="{{action('AdminController@showposts', $post['id'])}}" class="btn btn-color"> Voir</a>
                     </td>
                 </tr>
             </tbody>

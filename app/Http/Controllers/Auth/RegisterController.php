@@ -58,6 +58,7 @@ class RegisterController extends Controller
             'prenom' => 'required|alpha|max:50',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:8|confirmed',
+            'majeur' => 'accepted',
             'g-recaptcha-response' => 'required|captcha'
         ]);
     }
@@ -75,6 +76,7 @@ class RegisterController extends Controller
             'prenom' => $data['prenom'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
+            //'majeur' => $data['majeur'],
             'email_token' => base64_encode($data['email'])
         ]);
     }
@@ -97,6 +99,7 @@ class RegisterController extends Controller
             'email_confirmation' => 'required|same:email|max:30',
             'password' => 'required|min:8|max:30',
             'password_confirmation' => 'required|same:password|max:30',
+            'majeur' => 'accepted',
             'g-recaptcha-response'=>'required|captcha'
         ]);
         
@@ -107,6 +110,7 @@ class RegisterController extends Controller
         $user = User::find($data['id']);
         $user->email_token = $data['email_token'];
         $user->prenom = $data["prenom"];
+        //$user->majeur = $request['majeur'];
         $user->save();
         
         $message = new message;
