@@ -12,8 +12,10 @@
                     <div class="col-md-12">
                         <div class="card h-100 text-center">
                             <p class="card-text">Vous avez bien payer pour le <?php \Date::setLocale('fr'); $startdate = Date::parse($reservation->start_date)->format('l j F Y'); echo($startdate);?> au <?php \Date::setLocale('fr'); $enddate = Date::parse($reservation->end_date)->format('l j F Y'); echo($enddate);?></p>
+                            <p class="card-text">Vous pouvez consulter votre réservation dans la rubrique "mes réservations" ou cliquez directement sur le bouton en dessous</p>
+                            <p class="card-text">Notre équipe vous remercie</p>
                             <div>
-                                <a class="btn btn-success btn_reserve" href="{{ route('houses') }}">Voir nos hebergements</a>
+                                <a class="btn btn-success btn_reserve" href="{{ route('houses') }}">Consulter mes réservations</a>
                             </div> 
                         <div>
                     </div>   
