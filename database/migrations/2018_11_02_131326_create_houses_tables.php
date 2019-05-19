@@ -22,6 +22,7 @@ class CreateHousesTables extends Migration
             $table->string('ville');
             $table->string('adresse');
             $table->longText('description');
+            $table->string('telephone');
             $table->float('price');
             $table->string('photo');
             $table->string('statut');
