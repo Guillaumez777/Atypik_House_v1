@@ -152,6 +152,7 @@
                 <div class="col-md-offset-2 col-md-3">
                     <ul>
                         <li><a href="{{ route('mentions_legales') }}">Mentions légales</a></li>
+                        <li><a href="{{ route('cgv') }}">Conditions générales de vente</a></li>
                         <li><a href="{{ route('politique_de_confidentialite') }}">Politique de confidentialité</a></li>
                         <li><a href="{{ route('cgu') }}">Conditions générales d'utilisation</a></li>
                     </ul>

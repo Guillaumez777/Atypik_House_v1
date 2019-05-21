@@ -298,6 +298,12 @@ footer li a:hover{
 	text-decoration: none;
 	color: #000;
 }
+/* Informations footer */
+.cgv h2 {
+	margin: 30px 0;
+	color:black;
+}
+
 
 /* Réseaux sociaux */
 #reseaux div {

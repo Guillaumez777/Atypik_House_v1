@@ -28,6 +28,7 @@ Route::get('/faq', 'HomeController@faq')->name('faq');
 Route::get('/politique_de_confidentialite', 'HomeController@politique_de_confidentialite')->name('politique_de_confidentialite');
 Route::get('/cgu', 'HomeController@cgu')->name('cgu');
 Route::get('/rgpd', 'HomeController@rgpd')->name('rgpd');
+Route::get('/cgv', 'HomeController@cgv')->name('cgv');
 
 
 // admin route for our multi-auth system
