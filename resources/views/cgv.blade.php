@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Politique de confidentialité')
+@section('title', 'Conditions générale de vente')
 @section('content')
 <div class="container-fluid banner">
     <div class="intro-body">
