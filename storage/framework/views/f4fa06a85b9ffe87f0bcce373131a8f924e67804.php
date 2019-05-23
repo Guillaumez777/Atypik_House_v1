@@ -2,14 +2,14 @@
 <?php $__env->startSection('footer', 'footer_absolute'); ?>
 <?php $__env->startSection('content'); ?>
 <div class="admin-user-profil">
-    <div class="container list-category">
+    <div class="container list-category" role="details-reservation">
         <div class="panel panel-default">
             <div class="panel-heading">Détails de l'annonce</div>
             <div class="panel-body">
                 <div class="row">
                     <div class="col-lg-12 col-md-12">
                         <div class="card-show h-100">
-                            <img class="img-responsive img_house" src="<?php echo e(asset('img/houses/'.$house->photo)); ?>">
+                            <img class="img-responsive img_house" src="<?php echo e(asset('img/houses/'.$house->photo)); ?>" alt="Hébergement insolite - <?php echo e($house->title); ?>">
                             <div class="card-center">
                                 <h4 class="title card-title text-center">
                                     <a href="#"><?php echo e($house->title); ?></a>
@@ -28,7 +28,7 @@
                                 <p>Ville, département ou région: <?php echo e($house->ville); ?></p>
                                 <p>Adresse:  <?php echo e($house->adresse); ?></p>
                                 <p> Téléphone de l'annonceur : <?php echo e($house->telephone); ?></p>
-                                <a href="<?php echo e(route('user.editHouse', $house['id'])); ?>" class="btn btn-primary">Modifier</a>
+                                <a href="<?php echo e(route('user.editHouse', $house['id'])); ?>" class="btn btn-primary btn-color">Modifier</a>
                             </div>
                         </div>
                     </div>

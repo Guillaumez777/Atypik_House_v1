@@ -3,7 +3,7 @@
 <?php $__env->startSection('link'); ?>
 <link href="<?php echo e(asset('css/jquery-ui.min.css')); ?>" rel="stylesheet">
 <?php $__env->startSection('content'); ?>
-<div class="container annonces-block">
+<div class="container annonces-block" role="annonces">
     <h2 class="text-center list-annonces-title">Mes hébergements</h2>
     <div class="row">
         <?php if(\Session::has('success')): ?>
