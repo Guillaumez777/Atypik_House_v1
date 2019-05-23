@@ -25,7 +25,6 @@ export class PrezavisPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, public authService: AuthProvider,
     public storage: Storage,
     public http: Http) {
-    //this.house = navParams.get('house');
     this.comments = this.navParams.get('comments');
     this.user = this.storage.get('user');
     console.log("fofo");

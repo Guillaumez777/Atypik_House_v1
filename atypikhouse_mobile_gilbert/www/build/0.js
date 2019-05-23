@@ -69,7 +69,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-// import { PrezavisPage } from '../prezavis/prezavis';
 /**
  * Generated class for the AjoutsAvisModalPage page.
  *
@@ -77,11 +76,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Ionic pages and navigation.
  */
 var AjoutsAvisModalPage = /** @class */ (function () {
-    function AjoutsAvisModalPage(navCtrl, navParams, authService, storage, http, crudProvider) {
+    function AjoutsAvisModalPage(navCtrl, navParams, authService, alertCtrl, storage, http, crudProvider) {
         var _this = this;
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.authService = authService;
+        this.alertCtrl = alertCtrl;
         this.storage = storage;
         this.http = http;
         this.crudProvider = crudProvider;
@@ -101,6 +101,14 @@ var AjoutsAvisModalPage = /** @class */ (function () {
         console.log(this.myComment);
         this.myComment.user_id = this.user.id;
         this.crudProvider.postAvis(this.myComment).then(function (result) { });
+        this.alertSuccess("Votre commentaire a bien été ajouté");
+    };
+    AjoutsAvisModalPage.prototype.alertSuccess = function (message) {
+        var alert = this.alertCtrl.create({
+            title: message,
+            buttons: ['OK']
+        });
+        alert.present();
     };
     AjoutsAvisModalPage.prototype.getReservations = function () {
         var _this = this;
@@ -119,9 +127,10 @@ var AjoutsAvisModalPage = /** @class */ (function () {
     };
     AjoutsAvisModalPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-ajouts-avis-modal',template:/*ion-inline-start:"/Applications/XAMPP/xamppfiles/htdocs/Atypik_House_v1/atypikhouse_mobile_gilbert/src/pages/ajouts-avis-modal/ajouts-avis-modal.html"*/'<!--\n  Generated template for the AjoutsAvisModalPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <ion-navbar>\n    <ion-title>AjoutsAvisModal</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <ion-card>\n    <ion-card-content>\n      <p class = \'intro\'>\n        veuillez choisir une location.\n      </p>\n      <ion-item id = \'select\'>\n        <ion-label>Mes reservations</ion-label>\n        <ion-select [(ngModel)]="myComment.house_id" submitText="Okay" cancelText="Nah">\n          <ion-option *ngFor="let reservation of reservations" value="{{reservation.house_id}}">{{reservation.house.title}} de {{reservation.start_date}} - {{reservation.end_date}}</ion-option>\n        </ion-select>\n      </ion-item>\n      <p class = \'intro\'>\n        donner une note :\n      </p>\n      <form (ngSubmit)="postComment()" method="POST">\n        <ion-item id = \'selectnote\'>\n          <ion-label>Notes</ion-label>\n          <ion-select [(ngModel)]="myComment.note" name="note" submitText="Okay" cancelText="Nah">\n            <ion-option value="0">0</ion-option>\n            <ion-option value="1">1</ion-option>\n            <ion-option value="2">2</ion-option>\n            <ion-option value="3">3</ion-option>\n            <ion-option value="4">4</ion-option>\n            <ion-option value="5">5</ion-option>\n          </ion-select>\n        </ion-item>\n        <p class = \'intro\'>\n          donner votre avis:\n        </p>\n        <ion-item>\n          <ion-label color="primary" fixed></ion-label>\n          <ion-textarea type="text"[(ngModel)]="myComment.comment" name="comment" placeholder="Votre avis" border="solid"></ion-textarea>\n        </ion-item>\n        <ion-item>\n          <!-- <ion-input type="text"  value="{{reservation.house.id}}"></ion-input> -->\n          <!-- <input type=\'hidden\' name=\'_method\' value=\'POST\'> -->\n        </ion-item>\n        <button ion-button block type="submit">valider</button>\n      </form>\n    </ion-card-content>\n\n  </ion-card>\n\n  <button id = "retourButton" ion-button navPop>Retour</button>\n</ion-content>'/*ion-inline-end:"/Applications/XAMPP/xamppfiles/htdocs/Atypik_House_v1/atypikhouse_mobile_gilbert/src/pages/ajouts-avis-modal/ajouts-avis-modal.html"*/,
+            selector: 'page-ajouts-avis-modal',template:/*ion-inline-start:"/Users/gilbert/Desktop/atypikhouse_mobile_gilbert/src/pages/ajouts-avis-modal/ajouts-avis-modal.html"*/'<!--\n  Generated template for the AjoutsAvisModalPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <ion-navbar>\n    <ion-title>AjoutsAvisModal</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <ion-card>\n    <ion-card-content>\n      <p class = \'intro\'>\n        veuillez choisir une location.\n      </p>\n      <ion-item id = \'select\'>\n        <ion-label>Mes reservations</ion-label>\n        <ion-select [(ngModel)]="myComment.house_id" submitText="Okay" cancelText="Nah">\n          <ion-option *ngFor="let reservation of reservations" value="{{reservation.house_id}}">{{reservation.house.title}} de {{reservation.start_date}} - {{reservation.end_date}}</ion-option>\n        </ion-select>\n      </ion-item>\n      <p class = \'intro\'>\n        donner une note :\n      </p>\n      <form (ngSubmit)="postComment()" method="POST">\n        <ion-item id = \'selectnote\'>\n          <ion-label>Notes</ion-label>\n          <ion-select [(ngModel)]="myComment.note" name="note" submitText="Okay" cancelText="Nah">\n            <ion-option value="0">0</ion-option>\n            <ion-option value="1">1</ion-option>\n            <ion-option value="2">2</ion-option>\n            <ion-option value="3">3</ion-option>\n            <ion-option value="4">4</ion-option>\n            <ion-option value="5">5</ion-option>\n          </ion-select>\n        </ion-item>\n        <p class = \'intro\'>\n          donner votre avis:\n        </p>\n        <ion-item>\n          <ion-label color="primary" fixed></ion-label>\n          <ion-textarea type="text"[(ngModel)]="myComment.comment" name="comment" placeholder="Votre avis" border="solid"></ion-textarea>\n        </ion-item>\n        <ion-item>\n          <!-- <ion-input type="text"  value="{{reservation.house.id}}"></ion-input> -->\n          <!-- <input type=\'hidden\' name=\'_method\' value=\'POST\'> -->\n        </ion-item>\n        <button ion-button block type="submit">valider</button>\n      </form>\n    </ion-card-content>\n\n  </ion-card>\n\n  <button id = "retourButton" ion-button navPop>Retour</button>\n</ion-content>'/*ion-inline-end:"/Users/gilbert/Desktop/atypikhouse_mobile_gilbert/src/pages/ajouts-avis-modal/ajouts-avis-modal.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */], __WEBPACK_IMPORTED_MODULE_6__providers_auth_auth__["a" /* AuthProvider */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */],
             __WEBPACK_IMPORTED_MODULE_5__ionic_storage__["b" /* Storage */],
             __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */],
             __WEBPACK_IMPORTED_MODULE_7__providers_crud_crud__["a" /* CrudProvider */]])

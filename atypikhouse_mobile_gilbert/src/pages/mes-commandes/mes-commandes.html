@@ -16,10 +16,9 @@
 <ion-content padding>
 	<ion-card *ngFor="let reservation of reservations">
     	<ion-card-content>
-      		<img data-src="http://127.0.0.1:8000/img/houses/{{reservation.house.photo}}" />
+      		<img data-src="http://www.atypikhouse-projet.ovh/img/houses/{{reservation.house.photo}}" />
     	</ion-card-content>
     	<ion-item>
-      		<button ion-button clear item-start (click)="supprimer(reservation)">supprimer</button>
       		<button ion-button clear item-end (click)="voir(reservation)">Voir</button>
     	</ion-item>
   	</ion-card>

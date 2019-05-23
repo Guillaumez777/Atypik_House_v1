@@ -16,11 +16,10 @@
 <ion-content padding>
 	<ion-card *ngFor="let house of houses">
     	<ion-card-content>
-				<img data-src="http://127.0.0.1:8000/img/houses/{{house.photo}}"/>
+				<img data-src="http://www.atypikhouse-projet.ovh/img/houses/{{house.photo}}"/>
     	</ion-card-content>
 
     	<ion-item>
-      		<button ion-button clear item-start>Supprimer</button>
       		<button ion-button clear item-end (click)="voir(house)">Voir</button>
     	</ion-item>
   	</ion-card>
