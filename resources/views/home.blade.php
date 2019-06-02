@@ -11,7 +11,11 @@
                         <span class="input-group-btn">
                             <form class="form-horizontal" method="get" action="{{url('search')}}" enctype="multipart/form-data">
                                 <div class="row">
+<<<<<<< HEAD
                                     <div class="col-lg-12 col-md-12 col-sm-12 cadre">
+=======
+                                    <div class="col-lg-12 col-md-12 col-sm-12">
+>>>>>>> 571686c31ea1bc6e824fbeba5139e121a1349224
                                         <h1 class="title title-intro">Trouvez les meilleurs locations atypique, <br />partout en Europe !</h1>
                                         <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-3 col-sm-9 col-sm-offset-1">
                                             <div class="form-group button2">

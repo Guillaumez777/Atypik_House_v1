@@ -32,7 +32,13 @@
                         <a href="{{action('UsersController@showHouse', $house['id'])}}"><img class="img-responsive" src="{{ asset('img/houses/'.$house->photo) }}" alt="Hébergement insolite - {{$house->title}}"></a>
                         <div class="card-block">
                             <div class="card-body">
+<<<<<<< HEAD
                                 <h3 class="card-title"><a href="{{action('UsersController@showHouse', $house->id)}}"> <?php echo(substr($house->title, 0, 30));?> </a><br> - {{$house->ville}} </h3> 
+=======
+                                <h2 class="card-title"><a href="{{action('UsersController@showHouse', $house->id)}}"> <?php echo(substr($house->title, 0, 40));?>  </a></h2> 
+                                <h2 class="card-title"> - {{$house->ville}} </h2>
+                                
+>>>>>>> 571686c31ea1bc6e824fbeba5139e121a1349224
                             </div>
                             <p class="price"> {{$house->price}}€ / nuit</p>
                         </div>
