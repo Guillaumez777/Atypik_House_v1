@@ -39,11 +39,8 @@
                                     'user_id' => $reservation->user_id,
                                     'house_id' => $reservation->house_id
                                     ])}}">Aller au paiement</a>
-
                             </div>
-                            
                         <div>
-
                     </div>   
                 </div>
             </div>
