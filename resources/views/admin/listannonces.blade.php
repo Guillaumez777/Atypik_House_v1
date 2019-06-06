@@ -15,7 +15,7 @@
                 @foreach ($houses as $house)           
                     <div class="panel-body">
                         <div class="row">
-                            <div class="col-lg-4 col-md-4 mb-4 thumbnail card-admin">
+                            <div class="col-lg-3 col-md-3 thumbnail card-admin">
                                 <div class="card h-100">
                                     <img class="img-responsive img_house" src="{{ asset('img/houses/'.$house->photo) }}">
                                     <div>
