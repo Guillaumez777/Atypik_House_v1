@@ -41,7 +41,7 @@ class HousesTableSeeder extends Seeder
                 'statut' => 'Validé'
             ],
             [
-                'title' => 'Grande Yourte Mongole',
+                'title' => 'Yourte Mongole',
                 'user_id' => 2,
                 'category_id' => 3,
                 'pays' => 'France',
