@@ -183,6 +183,7 @@ p {
 .card {
 	position: relative;
 	background-color: #fff;
+	box-shadow: 2px 2px 5px black;
 }
 
 .card-block {
