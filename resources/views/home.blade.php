@@ -58,8 +58,8 @@
                     <a href="{{action('UsersController@showHouse', $house['id'])}}"><img class="img-responsive" src="{{ asset('img/houses/'.$house->photo) }}"></a>
                     <div class="card-block">
                         <div class="card-body">
-                            <h2 class="card-title"><a href="{{action('UsersController@showHouse', $house->id)}}"> <?php echo(substr($house->title, 0, 40));?>  </a></h2> 
-                            <h2 class="card-title"> - {{$house->ville}} </h2>
+                            <h2 class="card-title"><a href="{{action('UsersController@showHouse', $house->id)}}"> <?php echo(substr($house->title, 0, 40));?>  - {{$house->ville}}  </a></h2> 
+                            {{-- <h2 class="card-title">  - {{$house->ville}} </h2> --}}
                             
                         </div>
                         

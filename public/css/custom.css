@@ -1,7 +1,11 @@
 /* Infos : Commenter bien votre code afin qu'il soit plus lisible, merci. */
 /* Générale */
+/* Colors : #cf521b #4A6557 #292E31 #23272A */
+/* Fonts :   */ 
+
 html, body {
-	font-family: 'Archivo', sans-serif;
+	/* font-family: 'Archivo', sans-serif; */
+	font-family: "Work Sans", Helvetica, Arial, sans-serif;
 	margin: 0;
 	padding: 0;
 	font-size: 16px;
@@ -20,7 +24,7 @@ html, body {
 
 .button2 input {
 	height: 50px;
-	font-size: 18px;
+	font-size: 20px;
 	width: 270px;
 }
 
@@ -30,7 +34,7 @@ html, body {
 
 .price {
 	font-weight: 500;
-	font-size: 22px;
+	font-size: 19px;
 	color: #000;
 	margin: 0;
 }
@@ -107,7 +111,7 @@ p {
 .navbar {
 	border-bottom: none;
 	background: rgba(0, 0, 0, .4);
-	font-size: 17px;
+	font-size: 18px;
 }
 
 .navbar-static-top {
@@ -160,19 +164,21 @@ p {
 }
 
 .btn-searchbar{
-	background-color: #64764d;
+	background-color: #cf521b;
 	color: #fff;
-	border-color: #64764d;
+	border-color: #cf521b;
+	font-size: 20px;
 }
 .btn-searchbar:hover {
-	background-color: #3f4b30;
+	background-color: #cf521b;
 	color: #fff;
-	border-color: #3f4b30;
+	border-color: #cf521b;
 }
 
 #hebergements {
 	text-align: center;
 	margin: 60px;
+	color: #4A6557;
 }
 
 .list-category h2{
@@ -184,6 +190,11 @@ p {
 	position: relative;
 	background-color: #fff;
 	box-shadow: 2px 2px 5px black;
+	transition: transform .2s;
+}
+
+.card:hover {
+	transform: scale(1.1);
 }
 
 .card-block {
@@ -228,13 +239,16 @@ p {
 .card-title a{
 	color: #000;
 }
+.card-title {
+	font-size: 19px;
+}
 
 
 /* #3f4b30 */
 #block_home_2 {
 	position: relative;
 	background-color: white;
-	color: #3f4b30;
+	color: black;
 	display: flex;
 	flex-flow: row wrap;
 	justify-content: space-around;
@@ -246,11 +260,15 @@ p {
 	padding: 20px;
 }
 
-.block_home_2_child i,
+.block_home_2_child i {
+	margin: 15px 0;
+	color: #4A6557;
+}
+
 .block_home_2_child h3,
 .block_home_2_child p {
 	margin: 15px 0;
-	color: #3f4b30;
+	color: black;
 }
 
 /* FAQ */
@@ -273,14 +291,12 @@ p {
 
 /* Footer */
 footer {
-	background-color: #fff;
+	background-color: #292E31;
 	padding: 20px;
 	bottom: 0;
 	width: 100%;
 	margin-top: 80px;
 }
-
-
 
 footer li {
 	list-style: none;
@@ -289,7 +305,7 @@ footer li {
 footer li a{
 	list-style: none;
 	text-decoration: none;
-	color: #000;
+	color: white;
 }
 .footer_absolute {
 	position: absolute;
@@ -311,7 +327,7 @@ footer li a:hover{
 	display: inline-block;
 }
 #reseaux div li a {
-	color:#3f4b30;
+	color:#cf521b;
 	margin: 5px;
 }
 

@@ -23,7 +23,7 @@ class HousesTableSeeder extends Seeder
 
                 Rien de plus reposant que de passer un peu de temps au calme avec sa famille ou ses amies dans un logement insolite et remarquable de part sa verdure et sa tranquillité.',
                 'price' => 25.00,
-                'photo' => '1523888761.png',
+                'photo' => 'cabanes-dans-les-arbres.jpg',
                 'statut' => 'Validé'
             ],
             [
@@ -37,7 +37,7 @@ class HousesTableSeeder extends Seeder
 
                 Parfait pour un séjour en amoureux, ce logement insolite saura répondre à toutes vos envies avec son toit charmant et romantique. ',
                 'price' => 10.00,
-                'photo' => '1522347485.jpg',
+                'photo' => 'igloo.jpg',
                 'statut' => 'Validé'
             ],
             [
@@ -51,7 +51,7 @@ class HousesTableSeeder extends Seeder
 
                 Venez passez un moment inoubliable avec votre tribu dans ce logement insolite, ou le pays de la Mongolie et la chaleur de la yourte vienne ce conjuguer à la perfection. ',
                 'price' => 30.00,
-                'photo' => '1543837576.jpg',
+                'photo' => 'Yourte.jpg',
                 'statut' => 'Validé'
             ]
         ];
