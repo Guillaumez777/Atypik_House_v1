@@ -143,6 +143,10 @@ p {
     max-width: 100%;
 }
 
+#form-home {
+	/* display: flex; */
+}
+
 .intro-body {
 	display: table-cell;
     vertical-align: middle;
@@ -189,11 +193,17 @@ p {
 .card {
 	position: relative;
 	background-color: #fff;
+	/* box-shadow: 2px 2px 5px black; */
+}
+
+.card-home {
+	position: relative;
+	background-color: #fff;
 	box-shadow: 2px 2px 5px black;
 	transition: transform .2s;
 }
 
-.card:hover {
+.card-home:hover {
 	transform: scale(1.1);
 }
 
@@ -468,8 +478,30 @@ input[type=textarea] {
 /* ====================== */
 
 @media only screen and (max-width: 600px) {
+
+	.card-home {
+		position: relative;
+		margin: 10px;
+		background-color: #fff;
+		box-shadow: 2px 2px 5px black;
+		transition: none;
+	}
+	
+	.card-home:hover {
+		transform: none;
+	}
+
 	.button2 {
 		display: block;
 	}
 
+	footer {
+		padding: 0;
+		text-align: center;
+	}
+
+	#faq {
+		padding: 50px 20px;
+		text-align: center;
+	}
 }

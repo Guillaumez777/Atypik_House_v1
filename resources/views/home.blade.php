@@ -6,10 +6,10 @@
     <div class="intro-body">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-lg-12 col-md-12 col-sm-12">
                     <div class="input-group">
                         <span class="input-group-btn">
-                            <form class="form-horizontal" method="get" action="{{url('search')}}" enctype="multipart/form-data">
+                            <form class="form-horizontal" id="form-home" method="get" action="{{url('search')}}" enctype="multipart/form-data">
                                 <div class="row">
                                     <div class="col-lg-12 col-md-12 col-sm-12">
                                         <h1 class="title title-intro">Trouvez les meilleurs locations atypique, <br />partout en Europe !</h1>
@@ -53,7 +53,7 @@
         @if($house->statut == "Validé")
             <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
                     
-                <div class="card h-100">
+                <div class="card-home h-100">
                         
                     <a href="{{action('UsersController@showHouse', $house['id'])}}"><img class="img-responsive" src="{{ asset('img/houses/'.$house->photo) }}"></a>
                     <div class="card-block">

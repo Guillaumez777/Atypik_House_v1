@@ -49,7 +49,7 @@
                 }
             },
             "content": {
-                "message": "AtypikHouse utilisent des coockies pour assurer votre sécuriter et vous offrire une experiences des plus agréable , vous pouvez accéder a notre politique de confidentialité pour avoir un aperçus précis de l'utilisation de ces dernier",
+                "message": "AtypikHouse utilisent des cookies pour assurer votre sécuriter et vous offrire une experiences des plus agréable , vous pouvez accéder a notre politique de confidentialité pour avoir un aperçus précis de l'utilisation de ces dernier",
                 "link": "ici",
                 "href": "{{ route('politique_de_confidentialite') }}"
             }
@@ -146,11 +146,13 @@
             </div>
         </nav>
     </div>
+    {{-- Content --}}
         @yield('content')
+    {{-- End Content --}}
     <footer class="@yield('footer')">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-md-3">
+                <div class="col-md-3 col-sm-12">
                     <ul>
                         <li><p class="footer_title">Appelez-nous : </p></li>
                         <li><p><i class="fas fa-phone"></i> 01 34 98 76 23 </p></li>
