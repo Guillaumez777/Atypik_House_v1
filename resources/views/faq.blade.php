@@ -38,7 +38,7 @@
                 <h3>SERVICE CLIENT 24/7</h3>
                 <p>Notre équipe est à votre disposition pour toute question sur nos articles, votre commande ou autre question d'ordre générale</p>
                 <h3>Mon paiement est-it sécurisée ?</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id deserunt pariatur praesentium, dolor obcaecati quia qui iste nam? Est nesciunt blanditiis magni ab omnis architecto deserunt maiores, sapiente quaerat quibusdam.</p>
+                <p>Nous avons choisi de confier la gestion de nos paiements en ligne à Stripe & Paypal grâce à leurs services sécurisés. Vous avez la possibilité de régler votre commande via Stripe en utilisant tous types de cartes bancaires, soit via Paypal, en utilisant votre compte ou bien directement par carte bancaire sans l'obligation d'en créer un.</p>
             </div>
         </div>
     </div>

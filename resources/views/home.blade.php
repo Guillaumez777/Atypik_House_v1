@@ -78,4 +78,16 @@
     </div>
 </div>
 
+
+
+<div class="container" id="faq">
+    <h2 class="text-center">FAQ</h2>
+    <h3>Mon paiement est-it sécurisée ? : </h3>
+    <p>Nous disposons d’un système de crytpage SSL pour protéger vos données personnelles ainsi que les moyens de paiement utilisés. Nous utilisons le système de paiement sécurisé de Stripe</p>
+    <h3> SERVICE CLIENT 24/7 : </h3>
+    <p>Notre équipe est à votre disposition pour toute question sur nos articles, votre commande ou autre question d'ordre générale</p>
+    <h3>Mon paiement est-it sécurisée ? : </h3>
+    <p>Nous avons choisi de confier la gestion de nos paiements en ligne à Stripe & Paypal grâce à leurs services sécurisés. Vous avez la possibilité de régler votre commande via Stripe en utilisant tous types de cartes bancaires, soit via Paypal, en utilisant votre compte ou bien directement par carte bancaire sans l'obligation d'en créer un.</p>
+</div>
+
 @endsection
