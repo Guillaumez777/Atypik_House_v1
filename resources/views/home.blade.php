@@ -2,30 +2,20 @@
 @section('title', 'Accueil')
 @section('meta_description', 'Venez découvrir nos locations atypique, nous possèdons un vaste choix de loccation tels que des cabanes, des yourtes, des maisons sur piloti et bien dautres choses encore')
 @section('content')
-<div class="container-fluid banner">
-    <div class="intro-body">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 col-md-12 col-sm-12">
-                    <div class="input-group">
-                        <span class="input-group-btn">
-                            <form class="form-horizontal" id="form-home" method="get" action="{{url('search')}}" enctype="multipart/form-data">
-                                <div class="row">
-                                    <div class="col-lg-12 col-md-12 col-sm-12">
-                                        <h1 class="title title-intro">Trouvez les meilleurs locations atypique, <br />partout en Europe !</h1>
-                                        <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-3 col-sm-9 col-sm-offset-1">
-                                            <div class="form-group button2">
-                                                @include('search',['url'=>'search','link'=>'search'])
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
-                        </span>
+<div class="container-fluid banner form-home">
+    <div class="col-lg-12">
+        <div class="row">
+            <h1 class="title title-intro">Trouvez les meilleurs locations atypique, <br />partout en Europe !</h1>
+        </div>
+        <div class="row">
+            <form class="form-horizontal" method="get" action="{{url('search')}}" enctype="multipart/form-data">
+                <div class="form-home">
+                    <div class="form-group button2">
+                        @include('search',['url'=>'search','link'=>'search'])
                     </div>
                 </div>
-            </div>
-        </div>
+            </form>
+        </div>    
     </div>
 </div>
 

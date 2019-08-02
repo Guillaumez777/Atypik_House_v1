@@ -30,6 +30,7 @@ html, body {
 
 .title-intro {
 	color: #eee;
+	margin: 25px 0;
 }
 
 .price {
@@ -143,23 +144,26 @@ p {
     max-width: 100%;
 }
 
-#form-home {
-	/* display: flex; */
+.form-home {
+	display: flex;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
 }
 
-.intro-body {
+/* .intro-body {
 	display: table-cell;
     vertical-align: middle;
     height: 500px;
     text-align: center;
-    /*width: 100%;*/
+    width: 100%;
      z-index: 10;
+} */
 
-}
-
-.search-bar {
+/* .search-bar {
 	width: 50%;
-}
+} */
 
 #select_category_home{
 	height: 50px;
@@ -479,6 +483,10 @@ input[type=textarea] {
 
 @media only screen and (max-width: 600px) {
 
+	#select_category_home {
+		padding: 10px 0;
+	}
+
 	.card-home {
 		position: relative;
 		margin: 10px;
@@ -492,7 +500,13 @@ input[type=textarea] {
 	}
 
 	.button2 {
-		display: block;
+		display: flex;
+		flex-direction: column;
+	}
+
+	.button2 input {
+		margin: 10px;
+		width: 100%;
 	}
 
 	footer {
