@@ -150,7 +150,7 @@
         @yield('content')
     {{-- End Content --}}
     <footer class="@yield('footer')">
-        <div class="container-fluid">
+        <div class="container-fluid footer1">
             <div class="row">
                 <div class="col-md-3 col-sm-12">
                     <ul>
@@ -195,7 +195,7 @@
                 </div> --}}
             </div>
         </div>
-    </footer>
+    
     <div class="footer2">
         <p>© 2019 Atypikhouse Tous Droits Réservés.</p>
         <div class="reseaux2">
@@ -205,7 +205,7 @@
             <div><li><a href="https://www.youtube.com" target="_blank"><i class="fab fa-youtube-square fa-2x"></i></a></li></div>
         </div>
     </div>
-
+</footer>
     <!-- Scripts -->
 
     <script src="{{ asset('js/app.js') }}"></script>

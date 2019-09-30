@@ -1,10 +1,10 @@
 @extends('layouts.app')
 @section('title', 'Nos Hébergements')
-{{-- @section('footer', 'footer_absolute') --}}
+@section('footer', 'footer_none')
 @section('link')
 <link href="{{ asset('css/jquery-ui.min.css') }}" rel="stylesheet">
 @section('content')
-<div class="container list-category">
+<div class="container list-category padding80">
     <h2>Mes hébergements</h2>
     <div class="row">
         @if (\Session::has('success'))

@@ -18,6 +18,10 @@ html, body {
 	padding: 0 10px;
 }
 
+.padding80 {
+	padding: 80px;
+}
+
 .button2 {
 	display: flex;
 }
@@ -307,10 +311,6 @@ p {
 /* Footer */
 footer {
 	background-color: #222222;
-	padding: 80px;
-	bottom: 0;
-	width: 100%;
-	margin-top: 80px;
 }
 
 .footer_title {
@@ -338,10 +338,19 @@ footer li a, footer li p{
 .footer_absolute {
 	position: absolute;
 }
+
+.footer_none {
+	display: none;
+}
+
 footer li a:hover{
 	list-style: none;
 	text-decoration: none;
 	color: grey;
+}
+
+.footer1 {
+	padding: 80px;
 }
 
 .footer2 {

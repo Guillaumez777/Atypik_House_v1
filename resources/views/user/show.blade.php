@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('title', 'Détail de l"annonce')
+@section('footer', 'footer_none')
 @section('link')
 <link href="{{ asset('css/jquery-ui.min.css') }}" rel="stylesheet">
 @section('content')

@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('title', 'Détails de l"annonce')
+@section('footer', 'footer_none')
 @section('content')
 <div class="admin-user-profil">   
     <div class="container list-category">

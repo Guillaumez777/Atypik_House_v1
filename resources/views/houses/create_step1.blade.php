@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title', 'Etape 1')
-@section('footer', 'footer_absolute')
+@section('footer', 'footer_none')
 <div class="container">
     <div class="row">
         <div class="col-md-12">
