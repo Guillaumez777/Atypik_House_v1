@@ -11,7 +11,7 @@
  * bundled with this package in the LICENSE file.
  *
  * @package    Stripe
- * @version    2.2.1
+ * @version    2.3.0
  * @author     Cartalyst LLC
  * @license    BSD License (3-clause)
  * @copyright  (c) 2011-2019, Cartalyst LLC
@@ -58,13 +58,19 @@ class Config implements ConfigInterface
     protected $accountId;
 
     /**
+     * The application's information.
+     *
+     * @var array|null
+     */
+    protected $appInfo;
+
+    /**
      * Constructor.
      *
      * @param  string  $version
      * @param  string  $apiKey
      * @param  string  $apiVersion
      * @return void
-     * @throws \RuntimeException
      */
     public function __construct($version, $apiKey, $apiVersion)
     {
@@ -73,10 +79,6 @@ class Config implements ConfigInterface
         $this->setApiKey($apiKey ?: getenv('STRIPE_API_KEY'));
 
         $this->setApiVersion($apiVersion ?: getenv('STRIPE_API_VERSION') ?: '2017-06-05');
-
-        if (! $this->apiKey) {
-            throw new \RuntimeException('The Stripe API key is not defined!');
-        }
     }
 
     /**
@@ -170,6 +172,37 @@ class Config implements ConfigInterface
     public function setAccountId($accountId)
     {
         $this->accountId = $accountId;
+
+        return $this;
+    }
+
+    /**
+     * Returns the application's information.
+     *
+     * @return array|null
+     */
+    public function getAppInfo()
+    {
+        return $this->appInfo;
+    }
+
+    /**
+     * Sets the application's information.
+     *
+     * @param string $appName
+     * @param string $appVersion
+     * @param string $appUrl
+     * @param string $appPartnerId
+     * @return $this
+     */
+    public function setAppInfo($appName, $appVersion = null, $appUrl = null, $appPartnerId = null)
+    {
+        $this->appInfo = [
+            'name'       => $appName,
+            'version'    => $appVersion,
+            'url'        => $appUrl,
+            'partner_id' => $appPartnerId,
+        ];
 
         return $this;
     }
