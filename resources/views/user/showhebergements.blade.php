@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title', 'Détail de l"annonce')
-@section('footer', 'footer_absolute')
+@section('footer', 'footer_none')
 @section('content')
 <div class="admin-user-profil">
     <div class="container list-category" role="details-reservation">

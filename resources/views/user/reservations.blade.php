@@ -1,9 +1,11 @@
 @extends('layouts.app')
 @section('title', 'Nos Réservation')
+@section('footer', 'footer_none')
 @section('link')
 <link href="{{ asset('css/jquery-ui.min.css') }}" rel="stylesheet">
 @section('content')
-<div class="container list-category" role="reservations">
+
+<div class="container list-category padding80">
     <h2>Mes réservations</h2>
     <div class="row">
     @foreach ($reservations as $reservation)

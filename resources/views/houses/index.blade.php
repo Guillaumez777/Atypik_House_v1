@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('title', 'Nos Hébergements')
+@section('footer', 'footer_none')
 @section('meta_description', 'Venez découvrir nos locations atypique, nous possèdons un vaste choix de loccation tels que des cabanes, des yourtes, des maisons sur piloti et bien dautres choses encore')
 {{-- @section('footer', 'footer_absolute') --}}
 @section('content')

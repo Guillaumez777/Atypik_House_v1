@@ -48,6 +48,10 @@ class HomeController extends Controller
         $categories = category::all();
         return view('rgpd')->with('categories', $categories);
     }
+    public function cgv() {
+        $categories = category::all();
+        return view('cgv')->with('categories', $categories);
+    }
     public function faq() {
         $categories = category::all();
         return view('faq')->with('categories', $categories);

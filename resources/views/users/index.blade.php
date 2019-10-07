@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title', 'Utilisateur')
-@section('footer', 'footer_absolute')
+@section('footer', 'footer_none')
 @section('content')
 
 <div class="container container-profile">

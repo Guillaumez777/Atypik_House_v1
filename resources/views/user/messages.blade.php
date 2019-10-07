@@ -1,9 +1,11 @@
 @extends('layouts.app')
 @section('title', 'Mes notifications')
+@section('footer', 'footer_none')
 @section('link')
 <link href="{{ asset('css/jquery-ui.min.css') }}" rel="stylesheet">
 @section('content')
-<div class="container list-category" role="notifications">
+
+<div class="container list-category ">
     <div class="panel panel-default">
         <div class="panel-heading">Mes notifications</div>
         <div class="panel-body">

@@ -3,7 +3,7 @@
 <!--============================--> 
 @extends('layouts.app') 
 @section('title', 'Contact')
-@section('footer', 'footer_absolute')
+@section('footer', 'footer_none')
 @section('content') 
     <div class="container" id="form"> 
         {!! Form::open(['url' => 'posts']) !!} 

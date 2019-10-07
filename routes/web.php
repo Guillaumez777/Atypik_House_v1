@@ -13,7 +13,6 @@
 
 use Spatie\Sitemap\SitemapGenerator;
 
-
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('sitemap/generate', function () {
     SitemapGenerator::create('http://127.0.0.1:8000')->writeToFile('sitemap.xml');
@@ -34,6 +33,11 @@ Route::get('/mentions_legales', 'HomeController@mentions_legales')->name('mentio
 Route::get('/faq', 'HomeController@faq')->name('faq');
 Route::get('/politique_de_confidentialite', 'HomeController@politique_de_confidentialite')->name('politique_de_confidentialite');
 Route::get('/cgu', 'HomeController@cgu')->name('cgu');
+
+Route::get('/rgpd', 'HomeController@rgpd')->name('rgpd');
+Route::get('/cgv', 'HomeController@cgv')->name('cgv');
+
+
 
 // admin route for our multi-auth system
 Route::get('/search', 'QueryController@index');

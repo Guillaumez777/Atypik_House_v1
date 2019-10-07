@@ -2,30 +2,21 @@
 @section('title', 'Accueil')
 @section('meta_description', 'Venez découvrir nos locations atypique, nous possèdons un vaste choix de locations tels que des cabanes, des yourtes, des maisons sur piloti et bien dautres choses encore')
 @section('content')
-<div class="container-fluid banner">
-    <div class="intro-body">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="input-group">
-                        <span class="input-group-btn">
-                            <form class="form-horizontal" method="get" action="{{url('search')}}" enctype="multipart/form-data">
-                                <div class="row">
-                                    <div class="col-lg-12 col-md-12 col-sm-12 cadre">
-                                        <h1 class="title title-intro">Trouvez les meilleurs locations atypique, <br />partout en Europe !</h1>
-                                        <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-3 col-sm-9 col-sm-offset-1">
-                                            <div class="form-group button2">
-                                                @include('search',['url'=>'search','link'=>'search'])
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
-                        </span>
+
+<div class="container-fluid banner form-home">
+    <div class="col-lg-12">
+        <div class="row">
+            <h1 class="title title-intro">Trouvez les meilleurs locations atypique, <br />partout en Europe !</h1>
+        </div>
+        <div class="row">
+            <form class="form-horizontal" method="get" action="{{url('search')}}" enctype="multipart/form-data">
+                <div class="form-home">
+                    <div class="form-group button2">
+                        @include('search',['url'=>'search','link'=>'search'])
                     </div>
                 </div>
-            </div>
-        </div>
+            </form>
+        </div>    
     </div>
 </div>
 
@@ -49,21 +40,42 @@
 <div class="container-fluid" role="annonces">
     <h2 id="hebergements">Nos hébergements</h2>
     <div class="row">
-        @foreach($houses as $house)
-            @if($house->statut == "Validé")
-                <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">         
-                    <div class="card-houses h-100">       
-                        <a href="{{action('UsersController@showHouse', $house['id'])}}"><img class="img-responsive" src="{{ asset('img/houses/'.$house->photo) }}" alt="Hébergement insolite - {{$house->title}}"></a>
-                        <div class="card-block">
-                            <div class="card-body">
-                                <h3 class="card-title"><a href="{{action('UsersController@showHouse', $house->id)}}"> <?php echo(substr($house->title, 0, 30));?> </a><br> - <?php echo(substr($house->ville, 0, 25));?> </h3>
-                            </div>
-                            <p class="price"> {{$house->price}}€ / nuit</p>
+
+    @foreach($houses as $house)
+        @if($house->statut == "Validé")
+            <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
+                    
+                <div class="card-home h-100">
+                        
+                    <a href="{{action('UsersController@showHouse', $house['id'])}}"><img class="img-responsive" src="{{ asset('img/houses/'.$house->photo) }}"></a>
+                    <div class="card-block">
+                        <div class="card-body">
+                            <h2 class="card-title"><a href="{{action('UsersController@showHouse', $house->id)}}"> <?php echo(substr($house->title, 0, 40));?>  - {{$house->ville}}  </a></h2> 
+                            {{-- <h2 class="card-title">  - {{$house->ville}} </h2> --}}
+                            
                         </div>
-                    </div>
+                        
+                        <p class="price"> {{$house->price}}€ / nuit</p>
+                    
+                            {{-- <div class="note card-footer">
+                                <medium class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</medium>
+                                <a class="btn btn-success btn_reserve" href="{{action('UsersController@showHouse', $house['id'])}}">Consulter</a>
+                            </div> --}}
+                        </div>
                 </div>
+            </div>
             @endif  
         @endforeach
-    </div>
+
+</div>
+
+<div class="container" id="faq">
+    <h2 class="text-center">FAQ</h2>
+    <h3>Mon paiement est-it sécurisée ? : </h3>
+    <p>Nous disposons d’un système de crytpage SSL pour protéger vos données personnelles ainsi que les moyens de paiement utilisés. Nous utilisons le système de paiement sécurisé de Stripe</p>
+    <h3> SERVICE CLIENT 24/7 : </h3>
+    <p>Notre équipe est à votre disposition pour toute question sur nos articles, votre commande ou autre question d'ordre générale</p>
+    <h3>Mon paiement est-it sécurisée ? : </h3>
+    <p>Nous avons choisi de confier la gestion de nos paiements en ligne à Stripe & Paypal grâce à leurs services sécurisés. Vous avez la possibilité de régler votre commande via Stripe en utilisant tous types de cartes bancaires, soit via Paypal, en utilisant votre compte ou bien directement par carte bancaire sans l'obligation d'en créer un.</p>
 </div>
 @endsection

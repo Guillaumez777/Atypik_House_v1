@@ -10,9 +10,9 @@
 
     {{-- Title --}}
     {{-- <title>{{ config('app.name', 'Laravel') }}</title> --}}
-
     <title>AtypikHouse - @yield('title')</title>
-   <meta description="@yield('meta_description')">
+
+    <meta description="@yield('meta_description')">
 
 
     {{-- Logo Navigateur --}}
@@ -22,6 +22,7 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Karla" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Archivo" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans&display=swap" rel="stylesheet">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
@@ -48,7 +49,7 @@
                 }
             },
             "content": {
-                "message": "AtypikHouse utilisent des coockies pour assurer votre sécuriter et vous offrire une experiences des plus agréable , vous pouvez accéder a notre politique de confidentialité pour avoir un aperçus précis de l'utilisation de ces dernier",
+                "message": "AtypikHouse utilisent des cookies pour assurer votre sécuriter et vous offrire une experiences des plus agréable , vous pouvez accéder a notre politique de confidentialité pour avoir un aperçus précis de l'utilisation de ces dernier",
                 "link": "ici",
                 "href": "{{ route('politique_de_confidentialite') }}"
             }
@@ -145,35 +146,60 @@
             </div>
         </nav>
     </div>
+    
+    {{-- Content --}}
         @yield('content')
-    <footer class="@yield('footer')" role="footer">
-        <div class="container-fluid">
+    {{-- End Content --}}
+
+    <footer class="@yield('footer')">
+        <div class="container-fluid footer1">
             <div class="row">
-                <div class="col-md-offset-2 col-md-3">
+                <div class="col-md-3 col-sm-12">
                     <ul>
+                        <li><p class="footer_title">Appelez-nous : </p></li>
+                        <li><p><i class="fas fa-phone"></i> 01 34 98 76 23 </p></li>
+                        <li><p class="footer_title">Email :  </p></li>
+                        <li><p><i class="far fa-envelope"></i> contact@atypikhouse.fr </p></li>
+                    </ul>
+                </div>
+
+                <div class="col-md-3">
+                    
+                    <ul>
+                        <li><p class="footer_title_blanc">Informations : </p></li>
                         <li><a href="{{ route('mentions_legales') }}">Mentions légales</a></li>
+                        <li><a href="{{ route('cgv') }}">Conditions générales de vente</a></li>
                         <li><a href="{{ route('politique_de_confidentialite') }}">Politique de confidentialité</a></li>
                         <li><a href="{{ route('cgu') }}">Conditions générales d'utilisation</a></li>
                     </ul>
                 </div>
+
                 <div class="col-md-3">
                     <ul>
                         <li><a href="{{ route('apropos') }}">A propos</a></li>
                         <li><a href="{{ route('faq') }}">FAQ</a></li>
                     </ul>
                 </div>
+                
                 <div class="col-md-3">
-                    <ul id="reseaux">
-                        <div><li><a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-square fa-2x"></i></a></li></div>
-                        <div><li><a href="https://twitter.com" target="_blank"><i class="fab fa-twitter-square fa-2x"></i></a></li></div>
-                        <div><li><a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram fa-2x"></i></a></li></div>
-                        <div><li><a href="https://www.youtube.com" target="_blank"><i class="fab fa-youtube-square fa-2x"></i></a></li></div>
-                    </ul>
-                </div>
+                        <ul>
+                            <li><p class="footer_title_blanc">Moyens de paiements : </p></li>
+                            <li><img src="{{ asset('img/creditcard-logo.png') }}" alt="paiement"></li>
+                        </ul>
+                    </div>
             </div>
         </div>
-    </footer>
-
+    
+    <div class="footer2">
+        <p>© 2019 Atypikhouse Tous Droits Réservés.</p>
+        <div class="reseaux2">
+            <div><li><a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-square fa-2x"></i></a></li></div>
+            <div><li><a href="https://twitter.com" target="_blank"><i class="fab fa-twitter-square fa-2x"></i></a></li></div>
+            <div><li><a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram fa-2x"></i></a></li></div>
+            <div><li><a href="https://www.youtube.com" target="_blank"><i class="fab fa-youtube-square fa-2x"></i></a></li></div>
+        </div>
+    </div>
+</footer>
     <!-- Scripts -->
 
     <script src="{{ asset('js/app.js') }}"></script>

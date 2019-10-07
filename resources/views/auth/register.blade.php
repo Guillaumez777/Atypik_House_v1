@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('title', 'Inscription')
+@section('footer', 'footer_none')
 @section('content')
 <div class="container">
     <div class="row">

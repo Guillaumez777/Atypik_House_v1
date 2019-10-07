@@ -55,6 +55,28 @@ class HousesTableSeeder extends Seeder
             [
                 'title' => 'Wild Dome',
                 'user_id' => 1,
+                'Rien de plus reposant que de passer un peu de temps au calme avec sa famille ou ses amies dans un logement insolite et remarquable de part sa verdure et sa tranquillité.',
+                'price' => 25.00,
+                'photo' => 'cabanes-dans-les-arbres.jpg',
+                'statut' => 'Validé'
+            ],
+            [
+                'title' => 'Igloo ',
+                'user_id' => 2,
+                'category_id' => 2,
+                'pays' => 'France',
+                'ville' => 'LYON',
+                'adresse' => '32 rue mozart',
+                'description' => 'Cette Igglo proche de Lyon, vous offrira le confort et la sécurité pour votre logement atypique, seul ou en amoureux. Son toit est ouvert ce qui vous permet de pouvoir dormir le soir à la belle étoile.
+
+                Parfait pour un séjour en amoureux, ce logement insolite saura répondre à toutes vos envies avec son toit charmant et romantique. ',
+                'price' => 10.00,
+                'photo' => 'igloo.jpg',
+                'statut' => 'Validé'
+            ],
+            [
+                'title' => 'Yourte Mongole',
+                'user_id' => 2,
                 'category_id' => 3,
                 'pays' => 'FRANCE',
                 'ville' => 'PYRENEES-ATLANTIQUE',
@@ -62,7 +84,7 @@ class HousesTableSeeder extends Seeder
                 'description' => "Ils sont trois, passionnés de montagne et de voyages, débordant d’idées lumineuses qu’ils finalisent eux-mêmes avec enthousiasme. Basés à Gourette, station de sports d’hiver située dans les Pyrénées, ils ont mis au point, conçu et réalisé, avec la complicité du directeur de la station, une déclinaison de dôme version luxe où passer la nuit, combinée avec de séduisantes activités : bain nordique à 38°, balade nocturne en raquettes (tout public), dîner gastronomique au champagne, etc., le tout à 1600 m d’altitude. Une offre qui séduit les visiteurs désireux de varier les plaisirs et rompre la monotonie des pentes neigeuses, notamment les accompagnants des skieurs, souvent délaissés. A tort ! Car leur nombre n’est pas négligeable : pour 1 skieur, 2 accompagnants qui veulent eux aussi, à juste titre, être chouchoutés ! Ils ne seront pas déçus tant le décor naturel se marie harmonieusement avec l’élégance de la structure du dôme, toute de bois et métal simulant les flocons de neige et le confort intérieur, inespéré dans cet environnement grandiose et blanc à perte de vue. Toilettes, douche, lavabo, poêle à bois, réfrigérateur, micro-ondes, une vraie suite de luxe ! Main d’oeuvre et matériaux locaux, souci de préserver l’environnement, recyclage des déchets, tout a été pensé en amont et scrupuleusement mis en œuvre. Dans votre « wild dome », vous serez complètement autonomes, sous l’oeil prévenant et attentif de votre accompagnateur installé un peu plus loin. Une expérience inédite et précieuse, riche de sensations… vertigineuses !",
                 'telephone' => "0123455667",
                 'price' => 30.00,
-                'photo' => '1558110612.jpg',
+                'photo' => 'Yourte.jpg',
                 'statut' => 'Validé'
             ]
         ];

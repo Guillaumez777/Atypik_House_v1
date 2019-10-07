@@ -277,7 +277,7 @@ class HousesController extends Controller
         $picture = $request->file('photo');
         $filename  = time() . '.' . $picture->getClientOriginalExtension();
         $path = public_path('img/houses/' . $filename);
-        Image::make($picture->getRealPath())->resize(350, 200)->save($path);
+        Image::make($picture->getRealPath())->resize(400, 250)->save($path);
         $house->photo = $filename;
 
         $house->save();
